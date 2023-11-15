@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:315251509978574383528264224622541926429",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-2745 prosody",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "prosody"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-2745",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2745"
+      }
+    ],
+    "description": "Prosody before 0.9.4 does not properly restrict the processing of compressed XML elements, which allows remote attackers to cause a denial of service (resource consumption) via a crafted XMPP stream, aka an \"xmppbomb\" attack, related to core/portmanager.lua and util/xmppstream.lua.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6599",
+                "comment": "prosody DPKG is earlier than 0.9.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

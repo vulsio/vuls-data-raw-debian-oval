@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:103980799013361510295136526411148935834",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-12082 blender",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "blender"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-12082",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12082"
+      }
+    ],
+    "description": "An exploitable integer overflow exists in the 'CustomData' Mesh loading functionality of the Blender open-source 3d creation suite. A .blend file with a specially crafted external data file can cause an integer overflow resulting in a buffer overflow which can allow for code execution under the context of the application. An attacker can convince a user to edit an object within a .blend library in their Scene in order to trigger this vulnerability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10506",
+                "comment": "blender DPKG is earlier than 2.79.a+dfsg0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:138774628422062003431296851624149439659",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-3474 openexr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openexr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3474",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3474"
+      }
+    ],
+    "description": "There's a flaw in OpenEXR in versions before 3.0.0-beta. A crafted input file that is processed by OpenEXR could cause a shift overflow in the FastHufDecoder, potentially leading to problems with application availability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:21128",
+                "comment": "openexr DPKG is earlier than 2.5.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:113321484449472990970298937557184341109",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-3414 tor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "tor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-3414",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3414"
+      }
+    ],
+    "description": "Tor before 0.1.1.20 supports server descriptors that contain hostnames instead of IP addresses, which allows remote attackers to arbitrarily group users by providing preferential address resolution.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1360",
+                "comment": "tor DPKG is earlier than 0.1.1.20-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

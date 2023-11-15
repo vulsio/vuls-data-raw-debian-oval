@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:287745896952472853924497921786642857898",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-17937 gpsd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "gpsd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-17937",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17937"
+      }
+    ],
+    "description": "gpsd versions 2.90 to 3.17 and microjson versions 1.0 to 1.3, an open source project, allow a stack-based buffer overflow, which may allow remote attackers to execute arbitrary code on embedded platforms via traffic on Port 2947/TCP or crafted JSON inputs.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14550",
+                "comment": "gpsd DPKG is earlier than 3.17-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

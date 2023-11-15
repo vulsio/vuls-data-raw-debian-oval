@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:280994153400503943035266316238754642225",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-3953 kfreebsd-10",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "kfreebsd-10"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-3953",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3953"
+      }
+    ],
+    "description": "FreeBSD 8.4 before p14, 9.1 before p17, 9.2 before p10, and 10.0 before p7 does not properly initialize certain data structures, which allows local users to obtain sensitive information from kernel memory via a (1) SCTP_SNDRCV, (2) SCTP_EXTRCV, or (3) SCTP_RCVINFO SCTP cmsg or a (4) SCTP_PEER_ADDR_CHANGE, (5) SCTP_REMOTE_ERROR, or (6) SCTP_AUTHENTICATION_EVENT notification.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6996",
+                "comment": "kfreebsd-10 DPKG is earlier than 10.1~svn272463-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

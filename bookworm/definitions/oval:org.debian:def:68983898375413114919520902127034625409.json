@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:68983898375413114919520902127034625409",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-2784 ffmpeg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ffmpeg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2784",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2784"
+      }
+    ],
+    "description": "Unspecified vulnerability in the decode_pic function in libavcodec/cavsdec.c in FFmpeg before 0.11, and Libav 0.7.x before 0.7.7 and 0.8.x before 0.8.4, has unknown impact and attack vectors, related to \"width/height changing in CAVS,\" a different vulnerability than CVE-2012-2777.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4649",
+                "comment": "ffmpeg DPKG is earlier than 7:2.4.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

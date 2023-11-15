@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:308446065371938718430850890427410317583",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-28410 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-28410",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28410"
+      }
+    ],
+    "description": "Improper restriction of operations within the bounds of a memory buffer in some Intel(R) i915 Graphics drivers for linux before kernel version 6.2.10 may allow an authenticated user to potentially enable escalation of privilege via local access.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25703",
+                "comment": "linux DPKG is earlier than 5.17.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

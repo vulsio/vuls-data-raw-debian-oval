@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:308138959927240656723317594016341041193",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-4096 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-4096",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4096"
+      }
+    ],
+    "description": "libraries/database_interface.lib.php in phpMyAdmin before 2.11.9.1 allows remote authenticated users to execute arbitrary code via a request to server_databases.php with a sort_by parameter containing PHP sequences, which are processed by create_function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2467",
+                "comment": "phpmyadmin DPKG is earlier than 4:2.11.8.1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

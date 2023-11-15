@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:192778982541992510081143578220792199983",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-25639 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-25639",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25639"
+      }
+    ],
+    "description": "A NULL pointer dereference flaw was found in the Linux kernel's GPU Nouveau driver functionality in versions prior to 5.12-rc1 in the way the user calls ioctl DRM_IOCTL_NOUVEAU_CHANNEL_ALLOC. This flaw allows a local user to crash the system.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19237",
+                "comment": "linux DPKG is earlier than 5.10.19-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:183191865922598101806663406526419146916",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1986 libxrandr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libxrandr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1986",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1986"
+      }
+    ],
+    "description": "Multiple integer overflows in X.org libXrandr 1.4.0 and earlier allow X servers to trigger allocation of insufficient memory and a buffer overflow via vectors related to the (1) XRRQueryOutputProperty and (2) XRRQueryProviderProperty functions.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5557",
+                "comment": "libxrandr DPKG is earlier than 2:1.3.2-2+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

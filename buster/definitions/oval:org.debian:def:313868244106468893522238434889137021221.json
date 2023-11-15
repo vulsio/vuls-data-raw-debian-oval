@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:313868244106468893522238434889137021221",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-7837 bluez",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "bluez"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-7837",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7837"
+      }
+    ],
+    "description": "Buffer overflow in BlueZ 5.41 and earlier allows an attacker to execute arbitrary code via the parse_line function used in some userland utilities.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10212",
+                "comment": "bluez DPKG is earlier than 5.43-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

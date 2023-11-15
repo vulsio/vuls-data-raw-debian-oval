@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:47628650529386329553168047286051368589",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-6755 zoneminder",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "zoneminder"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-6755",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-6755"
+      }
+    ],
+    "description": "ZoneMinder 1.23.3 on Fedora 10 sets the ownership of /etc/zm.conf to the apache user account, and sets the permissions to 0600, which makes it easier for remote attackers to modify this file by accessing it through a (1) PHP or (2) CGI script.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2661",
+                "comment": "zoneminder DPKG is earlier than 1.24.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

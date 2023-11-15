@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:230506017072652827955461650206631747629",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-6014 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-6014",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6014"
+      }
+    ],
+    "description": "In Wireshark 2.2.4 and earlier, a crafted or malformed STANAG 4607 capture file will cause an infinite loop and memory exhaustion. If the packet size field in a packet header is null, the offset to read from will not advance, causing continuous attempts to read the same zero length packet. This will quickly exhaust all system memory.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12396",
+                "comment": "wireshark DPKG is earlier than 2.2.5+g440fd4d-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

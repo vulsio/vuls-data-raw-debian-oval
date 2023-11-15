@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:246113694769545078930410634465568818980",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-0444 libvorbis",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libvorbis"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-0444",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0444"
+      }
+    ],
+    "description": "Mozilla Firefox before 3.6.26 and 4.x through 9.0, Thunderbird before 3.1.18 and 5.0 through 9.0, and SeaMonkey before 2.7 do not properly initialize nsChildView data structures, which allows remote attackers to cause a denial of service (memory corruption and application crash) or possibly execute arbitrary code via a crafted Ogg Vorbis file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4384",
+                "comment": "libvorbis DPKG is earlier than 1.3.2-1.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

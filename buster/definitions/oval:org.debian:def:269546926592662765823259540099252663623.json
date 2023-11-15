@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:269546926592662765823259540099252663623",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-33910 systemd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "systemd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-33910",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33910"
+      }
+    ],
+    "description": "basic/unit-name.c in systemd prior to 246.15, 247.8, 248.5, and 249.1 has a Memory Allocation with an Excessive Size Value (involving strdupa and alloca for a pathname controlled by a local attacker) that results in an operating system crash.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:21693",
+                "comment": "systemd DPKG is earlier than 241-7~deb10u8"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

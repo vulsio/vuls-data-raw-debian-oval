@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:142832091057813112607057112579684878992",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1137 proftpd-dfsg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "proftpd-dfsg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1137",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1137"
+      }
+    ],
+    "description": "Integer overflow in the mod_sftp (aka SFTP) module in ProFTPD 1.3.3d and earlier allows remote attackers to cause a denial of service (memory consumption leading to OOM kill) via a malformed SSH message.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4006",
+                "comment": "proftpd-dfsg DPKG is earlier than 1.3.3d-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

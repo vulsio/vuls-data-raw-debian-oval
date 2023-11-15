@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:160505949922177450325241691391759316187",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-1194 pax",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "pax"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-1194",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1194"
+      }
+    ],
+    "description": "pax 1:20140703 allows remote attackers to write to arbitrary files via a symlink attack in an archive.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7301",
+                "comment": "pax DPKG is earlier than 1:20160306-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

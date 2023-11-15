@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:90149033608162957194405799914006632437",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-6383 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6383",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6383"
+      }
+    ],
+    "description": "The aac_compat_ioctl function in drivers/scsi/aacraid/linit.c in the Linux kernel before 3.11.8 does not require the CAP_SYS_RAWIO capability, which allows local users to bypass intended access restrictions via a crafted ioctl call.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6127",
+                "comment": "linux DPKG is earlier than 3.11.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

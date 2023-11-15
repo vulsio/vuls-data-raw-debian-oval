@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:186901435540367043927228063686908120152",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-2601 grub2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "grub2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-2601",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-2601"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Several issues were found in GRUB2's font handling code, which could result in crashes and potentially execution of arbitrary code. These could lead to by-pass of UEFI Secure Boot on affected systems.",
+      "dsa": "DSA-5280"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24243",
+                "comment": "grub2 DPKG is earlier than 2.06-3~deb11u4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

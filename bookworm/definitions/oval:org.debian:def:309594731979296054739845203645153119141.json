@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:309594731979296054739845203645153119141",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-2582 golang-github-aws-aws-sdk-go",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "golang-github-aws-aws-sdk-go"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-2582",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-2582"
+      }
+    ],
+    "description": "The AWS S3 Crypto SDK sends an unencrypted hash of the plaintext alongside the ciphertext as a metadata field. This hash can be used to brute force the plaintext, if the hash is readable to the attacker. AWS now blocks this metadata field, but older SDK versions still send it.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23203",
+                "comment": "golang-github-aws-aws-sdk-go DPKG is earlier than 1.34.22-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

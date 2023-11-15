@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:28820709656285963635425518922585674573",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-15646 thunderbird",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "thunderbird"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-15646",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-15646"
+      }
+    ],
+    "description": "If an attacker intercepts Thunderbird's initial attempt to perform automatic account setup using the Microsoft Exchange autodiscovery mechanism, and the attacker sends a crafted response, then Thunderbird sends username and password over https to a server controlled by the attacker. This vulnerability affects Thunderbird < 68.10.0.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18062",
+                "comment": "thunderbird DPKG is earlier than 1:68.10.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

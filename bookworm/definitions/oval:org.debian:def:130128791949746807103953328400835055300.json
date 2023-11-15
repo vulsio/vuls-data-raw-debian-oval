@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:130128791949746807103953328400835055300",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1797 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1797",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1797"
+      }
+    ],
+    "description": "Use-after-free vulnerability in arch/x86/kvm/x86.c in the Linux kernel through 3.8.4 allows guest OS users to cause a denial of service (host OS memory corruption) or possibly have unspecified other impact via a crafted application that triggers use of a guest physical address (GPA) in (1) movable or (2) removable memory during an MSR_KVM_SYSTEM_TIME kvm_set_msr_common operation.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5270",
+                "comment": "linux DPKG is earlier than 3.2.41-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

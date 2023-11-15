@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:171271343991627569732095156459197380842",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-3146 librsvg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "librsvg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-3146",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3146"
+      }
+    ],
+    "description": "librsvg before 2.34.1 uses the node name to identify the type of node, which allows context-dependent attackers to cause a denial of service (NULL pointer dereference) and possibly execute arbitrary code via a SVG file with a node with the element name starting with \"fe,\" which is misidentified as a RsvgFilterPrimitive.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4099",
+                "comment": "librsvg DPKG is earlier than 2.34.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

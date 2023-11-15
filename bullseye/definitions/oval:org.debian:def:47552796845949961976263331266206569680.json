@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:47552796845949961976263331266206569680",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-4796 openjpeg2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "openjpeg2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-4796",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-4796"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the color_cmyk_to_rgb in common/color.c in OpenJPEG before 2.1.1 allows remote attackers to cause a denial of service (crash) via a crafted .j2k file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9522",
+                "comment": "openjpeg2 DPKG is earlier than 2.1.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

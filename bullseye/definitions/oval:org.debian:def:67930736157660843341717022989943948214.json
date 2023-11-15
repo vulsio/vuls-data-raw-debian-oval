@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:67930736157660843341717022989943948214",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-20107 python2.7",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "python2.7"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-20107",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-20107"
+      }
+    ],
+    "description": "In Python (aka CPython) up to 3.10.8, the mailcap module does not add escape characters into commands discovered in the system mailcap file. This may allow attackers to inject shell commands into applications that call mailcap.findmatch with untrusted input (if they lack validation of user-provided filenames or arguments). The fix is also back-ported to 3.7, 3.8, 3.9",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7678",
+                "comment": "python2.7 DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

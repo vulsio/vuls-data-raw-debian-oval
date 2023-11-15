@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:267541926045320122137727854028423402383",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-3393 magics++",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "magics++"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-3393",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3393"
+      }
+    ],
+    "description": "magics-config in Magics++ 2.10.0 places a zero-length directory name in the LD_LIBRARY_PATH, which allows local users to gain privileges via a Trojan horse shared library in the current working directory.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3728",
+                "comment": "magics++ DPKG is earlier than 2.10.0.dfsg-5.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

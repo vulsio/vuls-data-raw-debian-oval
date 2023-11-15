@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:300349426248354154414222188854549650665",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-17500 graphicsmagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "graphicsmagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-17500",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17500"
+      }
+    ],
+    "description": "ReadRGBImage in coders/rgb.c in GraphicsMagick 1.3.26 has a magick/import.c ImportRGBQuantumType heap-based buffer over-read via a crafted file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11770",
+                "comment": "graphicsmagick DPKG is earlier than 1.3.27-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

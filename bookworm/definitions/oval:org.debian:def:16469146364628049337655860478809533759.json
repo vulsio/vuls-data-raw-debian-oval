@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:16469146364628049337655860478809533759",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-33285 ntfs-3g",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ntfs-3g"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-33285",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33285"
+      }
+    ],
+    "description": "In NTFS-3G versions < 2021.8.22, when a specially crafted NTFS attribute is supplied to the function ntfs_get_attribute_value, a heap buffer overflow can occur allowing for memory disclosure or denial of service. The vulnerability is caused by an out-of-bound buffer access which can be triggered by mounting a crafted ntfs partition. The root cause is a missing consistency check after reading an MFT record : the \"bytes_in_use\" field should be less than the \"bytes_allocated\" field. When it is not, the parsing of the records proceeds into the wild.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20995",
+                "comment": "ntfs-3g DPKG is earlier than 1:2021.8.22-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

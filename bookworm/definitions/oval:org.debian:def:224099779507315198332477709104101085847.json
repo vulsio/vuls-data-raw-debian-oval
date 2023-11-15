@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:224099779507315198332477709104101085847",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-1000024 squid",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "squid"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1000024",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000024"
+      }
+    ],
+    "description": "The Squid Software Foundation Squid HTTP Caching Proxy version 3.0 to 3.5.27, 4.0 to 4.0.22 contains a Incorrect Pointer Handling vulnerability in ESI Response Processing that can result in Denial of Service for all clients using the proxy.. This attack appear to be exploitable via Remote server delivers an HTTP response payload containing valid but unusual ESI syntax.. This vulnerability appears to have been fixed in 4.0.23 and later.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12894",
+                "comment": "squid DPKG is earlier than 4.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

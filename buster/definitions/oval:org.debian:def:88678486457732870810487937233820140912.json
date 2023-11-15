@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:88678486457732870810487937233820140912",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-9214 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-9214",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9214"
+      }
+    ],
+    "description": "In Wireshark 2.4.0 to 2.4.12 and 2.6.0 to 2.6.6, the RPCAP dissector could crash. This was addressed in epan/dissectors/packet-rpcap.c by avoiding an attempted dereference of a NULL conversation.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18028",
+                "comment": "wireshark DPKG is earlier than 2.6.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

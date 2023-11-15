@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:329681848830296444514025117565507138541",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-3145 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-3145",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3145"
+      }
+    ],
+    "description": "The BPF_S_ANC_NLATTR_NEST extension implementation in the sk_run_filter function in net/core/filter.c in the Linux kernel through 3.14.3 uses the reverse order in a certain subtraction, which allows local users to cause a denial of service (over-read and system crash) via crafted BPF instructions.  NOTE: the affected code was moved to the __skb_get_nlattr_nest function before the vulnerability was announced.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6382",
+                "comment": "linux DPKG is earlier than 3.14.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

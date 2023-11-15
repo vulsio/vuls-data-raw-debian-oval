@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:65889202799809911121911758264223940955",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-41717 golang-golang-x-net",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "golang-golang-x-net"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-41717",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-41717"
+      }
+    ],
+    "description": "An attacker can cause excessive memory growth in a Go server accepting HTTP/2 requests. HTTP/2 server connections contain a cache of HTTP header keys sent by the client. While the total number of entries in this cache is capped, an attacker sending very large keys can cause the server to allocate approximately 64 MiB per open connection.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24416",
+                "comment": "golang-golang-x-net DPKG is earlier than 1:0.4.0+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

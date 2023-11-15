@@ -1,0 +1,47 @@
+{
+  "id": "oval:org.debian:def:289904909432109819490261922933230429842",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2416-1 notmuch",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "notmuch"
+    },
+    "description": "information disclosure",
+    "debian": {
+      "moreinfo": "It was discovered that Notmuch, an email indexer, did not sufficiently escape Emacs MML tags. When using the Emacs interface, a user could be tricked into replying to a maliciously formatted message which could lead to files from the local machine being attached to the outgoing message.",
+      "dsa": "DSA-2416",
+      "date": "2012-02-22"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2927",
+                "comment": "notmuch DPKG is earlier than 0.11.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:277090689578880729960904359561315818747",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-1111 cpio",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "cpio"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-1111",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1111"
+      }
+    ],
+    "description": "Race condition in cpio 2.6 and earlier allows local users to modify permissions of arbitrary files via a hard link attack on a file while it is being decompressed, whose permissions are changed by cpio after the decompression is complete.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:814",
+                "comment": "cpio DPKG is earlier than 2.6-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

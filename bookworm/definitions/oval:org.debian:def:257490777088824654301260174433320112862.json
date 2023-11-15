@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:257490777088824654301260174433320112862",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-15908 systemd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "systemd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-15908",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15908"
+      }
+    ],
+    "description": "In systemd 223 through 235, a remote DNS server can respond with a custom crafted DNS NSEC resource record to trigger an infinite loop in the dns_packet_read_type_window() function of the 'systemd-resolved' service and cause a DoS of the affected service.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11240",
+                "comment": "systemd DPKG is earlier than 235-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

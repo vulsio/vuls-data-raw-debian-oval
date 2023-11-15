@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:242657345421056388294066172513765358947",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4579-1 nss",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "nss"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-11745",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11745"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-17007",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17007"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Two vulnerabilities were discovered in NSS, a set of cryptographic libraries, which may result in denial of service and potentially the execution of arbitrary code.",
+      "dsa": "DSA-4579",
+      "date": "2019-12-06"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26985",
+                "comment": "nss DPKG is earlier than 2:3.42.1-1+deb10u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

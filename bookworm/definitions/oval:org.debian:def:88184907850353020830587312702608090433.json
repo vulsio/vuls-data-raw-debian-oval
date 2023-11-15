@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:88184907850353020830587312702608090433",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-14196 pdns-recursor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "pdns-recursor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-14196",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14196"
+      }
+    ],
+    "description": "In PowerDNS Recursor versions up to and including 4.3.1, 4.2.2 and 4.1.16, the ACL restricting access to the internal web server is not properly enforced.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17916",
+                "comment": "pdns-recursor DPKG is earlier than 4.3.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

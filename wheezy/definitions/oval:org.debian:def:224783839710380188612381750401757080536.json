@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:224783839710380188612381750401757080536",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3158-1 unrtf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "unrtf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9274",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9274"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9275",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9275"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMichal Zalewski and Hanno Boeck discovered several vulnerabilities in unrtf, a RTF to other formats converter, leading to a denial of service (application crash) or, potentially, the execution of arbitrary code.",
+      "dsa": "DSA-3158",
+      "date": "2015-02-09"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1903",
+                "comment": "unrtf DPKG is earlier than 0.21.5-3~deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

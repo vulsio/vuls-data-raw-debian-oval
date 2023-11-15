@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:269298338658761622436491876403571445998",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-28164 jetty9",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "jetty9"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-28164",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28164"
+      }
+    ],
+    "description": "In Eclipse Jetty 9.4.37.v20210219 to 9.4.38.v20210224, the default compliance mode allows requests with URIs that contain %2e or %2e%2e segments to access protected resources within the WEB-INF directory. For example a request to /context/%2e/WEB-INF/web.xml can retrieve the web.xml file. This can reveal sensitive information regarding the implementation of a web application.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:21213",
+                "comment": "jetty9 DPKG is earlier than 9.4.39-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

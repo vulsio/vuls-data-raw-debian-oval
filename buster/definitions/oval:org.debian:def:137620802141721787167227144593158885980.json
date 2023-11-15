@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:137620802141721787167227144593158885980",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-5661 fop",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "fop"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5661",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5661"
+      }
+    ],
+    "description": "In Apache FOP before 2.2, files lying on the filesystem of the server which uses FOP can be revealed to arbitrary users who send maliciously formed SVG files. The file types that can be shown depend on the user context in which the exploitable application is running. If the user is root a full compromise of the server - including confidential or sensitive files - would be possible. XXE can also be used to attack the availability of the server via denial of service as the references within a xml document can trivially trigger an amplification attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12467",
+                "comment": "fop DPKG is earlier than 1:2.1-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

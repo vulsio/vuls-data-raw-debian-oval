@@ -1,0 +1,69 @@
+{
+  "id": "oval:org.debian:def:329108333652793277133400678886991114388",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4518-1 ghostscript",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "ghostscript"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-14811",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14811"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-14812",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14812"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-14813",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14813"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-14817",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14817"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that various procedures in Ghostscript, the GPL PostScript/PDF interpreter, do not properly restrict privileged calls, which could result in bypass of file system restrictions of the dSAFER sandbox.",
+      "dsa": "DSA-4518",
+      "date": "2019-09-07"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3063",
+                "comment": "ghostscript DPKG is earlier than 9.26a~dfsg-0+deb9u5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

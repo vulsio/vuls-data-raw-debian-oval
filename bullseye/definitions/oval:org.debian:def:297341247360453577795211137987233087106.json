@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:297341247360453577795211137987233087106",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-8162 rails",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "rails"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-8162",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-8162"
+      }
+    ],
+    "description": "A client side enforcement of server side security vulnerability exists in rails < 5.2.4.2 and rails < 6.0.3.1 ActiveStorage's S3 adapter that allows the Content-Length of a direct file upload to be modified by an end user bypassing upload limits.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20349",
+                "comment": "rails DPKG is earlier than 2:5.2.4.3+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

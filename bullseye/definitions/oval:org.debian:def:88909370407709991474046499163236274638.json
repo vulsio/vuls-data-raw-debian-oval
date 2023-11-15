@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:88909370407709991474046499163236274638",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2729 commons-daemon",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "commons-daemon"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2729",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2729"
+      }
+    ],
+    "description": "native/unix/native/jsvc-unix.c in jsvc in the Daemon component 1.0.3 through 1.0.6 in Apache Commons, as used in Apache Tomcat 5.5.32 through 5.5.33, 6.0.30 through 6.0.32, and 7.0.x before 7.0.20 on Linux, does not drop capabilities, which allows remote attackers to bypass read permissions for files via a request to an application.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4216",
+                "comment": "commons-daemon DPKG is earlier than 1.0.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

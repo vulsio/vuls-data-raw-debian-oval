@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:174633003255341463181146869142096996570",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-2687 nova",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "nova"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2687",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2687"
+      }
+    ],
+    "description": "OpenStack Compute (nova) Icehouse, Juno and Havana when live migration fails allows local users to access VM volumes that they would normally not have permissions for.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7942",
+                "comment": "nova DPKG is earlier than 2014.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

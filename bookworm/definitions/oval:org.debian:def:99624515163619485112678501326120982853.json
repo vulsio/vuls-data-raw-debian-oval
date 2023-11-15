@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:99624515163619485112678501326120982853",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-6306 libjfreechart-java",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libjfreechart-java"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-6306",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6306"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in the image map feature in JFreeChart 1.0.8 allow remote attackers to inject arbitrary web script or HTML via the (1) chart name or (2) chart tool tip text; or the (3) href, (4) shape, or (5) coords attribute of a chart area.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2102",
+                "comment": "libjfreechart-java DPKG is earlier than 1.0.9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

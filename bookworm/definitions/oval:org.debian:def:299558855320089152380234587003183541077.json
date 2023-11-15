@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:299558855320089152380234587003183541077",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-6298 python-jwcrypto",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "python-jwcrypto"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-6298",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6298"
+      }
+    ],
+    "description": "The _Rsa15 class in the RSA 1.5 algorithm implementation in jwa.py in jwcrypto before 0.3.2 lacks the Random Filling protection mechanism, which makes it easier for remote attackers to obtain cleartext data via a Million Message Attack (MMA).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9436",
+                "comment": "python-jwcrypto DPKG is earlier than 0.3.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

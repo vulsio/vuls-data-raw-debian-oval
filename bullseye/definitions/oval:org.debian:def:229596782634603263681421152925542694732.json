@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:229596782634603263681421152925542694732",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-8670 libgd2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libgd2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-8670",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8670"
+      }
+    ],
+    "description": "Integer signedness error in the dynamicGetbuf function in gd_io_dp.c in the GD Graphics Library (aka libgd) through 2.2.3, as used in PHP before 5.6.28 and 7.x before 7.0.13, allows remote attackers to cause a denial of service (stack-based buffer overflow) or possibly have unspecified other impact via a crafted imagecreatefromstring call.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10180",
+                "comment": "libgd2 DPKG is earlier than 2.2.3-87-gd0fec80-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

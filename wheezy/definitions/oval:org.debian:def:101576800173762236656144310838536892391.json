@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:101576800173762236656144310838536892391",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2689-1 libxtst",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "libxtst"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2063",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2063"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nIlja van Sprundel of IOActive discovered several security issues in multiple components of the X.org graphics stack and the related libraries: Various integer overflows, sign handling errors in integer conversions, buffer overflows, memory corruption and missing input sanitising may lead to privilege escalation or denial of service.",
+      "dsa": "DSA-2689",
+      "date": "2013-05-23"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:696",
+                "comment": "libxtst DPKG is earlier than 2:1.2.1-1+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

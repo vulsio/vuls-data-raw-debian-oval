@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:173057862215892576779082773658781861952",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-23614 php-twig",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "php-twig"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23614",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23614"
+      }
+    ],
+    "description": "Twig is an open source template language for PHP. When in a sandbox mode, the `arrow` parameter of the `sort` filter must be a closure to avoid attackers being able to run arbitrary PHP functions. In affected versions this constraint was not properly enforced and could lead to code injection of arbitrary PHP code. Patched versions now disallow calling non Closure in the `sort` filter as is the case for some other filters. Users are advised to upgrade.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23030",
+                "comment": "php-twig DPKG is earlier than 3.3.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

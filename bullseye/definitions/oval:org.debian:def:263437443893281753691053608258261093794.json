@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:263437443893281753691053608258261093794",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-4654 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-4654",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4654"
+      }
+    ],
+    "description": "The snd_ctl_elem_add function in sound/core/control.c in the ALSA control implementation in the Linux kernel before 3.15.2 does not check authorization for SNDRV_CTL_IOCTL_ELEM_REPLACE commands, which allows local users to remove kernel controls and cause a denial of service (use-after-free and system crash) by leveraging /dev/snd/controlCX access for an ioctl call.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6866",
+                "comment": "linux DPKG is earlier than 3.14.9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

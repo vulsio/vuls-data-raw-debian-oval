@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:64274989675009231980078005666598158165",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2003-0134 apache2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "apache2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2003-0134",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0134"
+      }
+    ],
+    "description": "Unknown vulnerability in filestat.c for Apache running on OS2, versions 2.0 through 2.0.45, allows unknown attackers to cause a denial of service via requests related to device names.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:202",
+                "comment": "apache2 DPKG is earlier than 2.0.46"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

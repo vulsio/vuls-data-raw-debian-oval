@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:123507574783405297533419301717766780766",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-23852 expat",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "expat"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23852",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23852"
+      }
+    ],
+    "description": "Expat (aka libexpat) before 2.4.4 has a signed integer overflow in XML_GetBuffer, for configurations with a nonzero XML_CONTEXT_BYTES.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23046",
+                "comment": "expat DPKG is earlier than 2.4.3-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

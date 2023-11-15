@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:285687089505277692032329399800702244391",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-11311 libopenmpt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libopenmpt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-11311",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11311"
+      }
+    ],
+    "description": "soundlib/Load_psm.cpp in OpenMPT through 1.26.12.00 and libopenmpt before 0.2.8461-beta26 has a heap buffer overflow with the potential for arbitrary code execution via a crafted PSM File that triggers use of the same sample slot for two samples.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10371",
+                "comment": "libopenmpt DPKG is earlier than 0.2.8461~beta26-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

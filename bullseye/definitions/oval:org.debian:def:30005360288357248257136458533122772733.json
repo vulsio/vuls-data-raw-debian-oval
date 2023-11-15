@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:30005360288357248257136458533122772733",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-9381 ettercap",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ettercap"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9381",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9381"
+      }
+    ],
+    "description": "Integer signedness error in the dissector_cvs function in dissectors/ec_cvs.c in Ettercap 0.8.1 allows remote attackers to cause a denial of service (crash) via a crafted password, which triggers a large memory allocation.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7285",
+                "comment": "ettercap DPKG is earlier than 1:0.8.1-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

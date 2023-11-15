@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:184594193607325522999490045749002399620",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-16056 python3.7",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "python3.7"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-16056",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16056"
+      }
+    ],
+    "description": "An issue was discovered in Python through 2.7.16, 3.x through 3.5.7, 3.6.x through 3.6.9, and 3.7.x through 3.7.4. The email module wrongly parses email addresses that contain multiple @ characters. An application that uses the email module and implements some kind of checks on the From/To headers of a message could be tricked into accepting an email address that should be denied. An attack may be the same as in CVE-2019-11340; however, this CVE applies to Python more generally.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:16770",
+                "comment": "python3.7 DPKG is earlier than 3.7.3-2+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

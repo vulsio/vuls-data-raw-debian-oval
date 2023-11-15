@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:127291859740313610238085520545664155591",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-3386 automake1.11",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "automake1.11"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3386",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3386"
+      }
+    ],
+    "description": "The \"make distcheck\" rule in GNU Automake before 1.11.6 and 1.12.x before 1.12.2 grants world-writable permissions to the extraction directory, which introduces a race condition that allows local users to execute arbitrary code via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4888",
+                "comment": "automake1.11 DPKG is earlier than 1:1.11.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

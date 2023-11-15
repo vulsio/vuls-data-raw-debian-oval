@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:184475136760542858323163934387428961892",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-2023 gnupg2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gnupg2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-2023",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2023"
+      }
+    ],
+    "description": "The send_pinentry_environment function in asshelp.c in gpg2 on SUSE Linux 9.3 does not properly handle certain options, which can prevent pinentry from being found and causes S/MIME signing to fail.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:891",
+                "comment": "gnupg2 DPKG is earlier than 1.9.15-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

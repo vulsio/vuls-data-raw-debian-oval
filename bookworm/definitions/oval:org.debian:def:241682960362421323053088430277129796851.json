@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:241682960362421323053088430277129796851",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-6049 apt-listbugs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "apt-listbugs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6049",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6049"
+      }
+    ],
+    "description": "apt-listbugs before 0.1.10 creates temporary files insecurely, which allows attackers to have unspecified impact via unknown vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5859",
+                "comment": "apt-listbugs DPKG is earlier than 0.1.10"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

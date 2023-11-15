@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:24419706123493786027966803653251832604",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-12897 tcpdump",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "tcpdump"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-12897",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12897"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Several vulnerabilities have been discovered in tcpdump, a command-line network traffic analyzer. These vulnerabilities might result in denial of service or, potentially, execution of arbitrary code.",
+      "dsa": "DSA-3971"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11195",
+                "comment": "tcpdump DPKG is earlier than 4.9.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

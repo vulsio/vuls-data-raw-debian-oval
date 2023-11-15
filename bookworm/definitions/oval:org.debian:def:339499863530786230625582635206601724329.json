@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:339499863530786230625582635206601724329",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-1944 trafficserver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "trafficserver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-1944",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1944"
+      }
+    ],
+    "description": "There is a vulnerability in Apache Traffic Server 6.0.0 to 6.2.3, 7.0.0 to 7.1.8, and 8.0.0 to 8.0.5 with a smuggling attack and Transfer-Encoding and Content length headers. Upgrade to versions 7.1.9 and 8.0.6 or later versions.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18339",
+                "comment": "trafficserver DPKG is earlier than 8.0.6+ds-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

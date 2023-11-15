@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:154662117339669312676601722680244279156",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-6351 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-6351",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6351"
+      }
+    ],
+    "description": "The esp_do_dma function in hw/scsi/esp.c in QEMU (aka Quick Emulator), when built with ESP/NCR53C9x controller emulation support, allows local guest OS administrators to cause a denial of service (out-of-bounds write and QEMU process crash) or execute arbitrary code on the QEMU host via vectors involving DMA read into ESP command buffer.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9463",
+                "comment": "qemu DPKG is earlier than 1:2.6+dfsg-3.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

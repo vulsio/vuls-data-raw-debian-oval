@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:58330228657098473475537040964668340139",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-40985 htmldoc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "htmldoc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-40985",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-40985"
+      }
+    ],
+    "description": "A stack-based buffer under-read in htmldoc before 1.9.12, allows attackers to cause a denial of service via a crafted BMP image to image_load_bmp.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22676",
+                "comment": "htmldoc DPKG is earlier than 1.9.11-4+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

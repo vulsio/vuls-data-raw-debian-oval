@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:134178507794081377473700241130860651005",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-27187 kpmcore",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "kpmcore"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-27187",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27187"
+      }
+    ],
+    "description": "An issue was discovered in KDE Partition Manager 4.1.0 before 4.2.0. The kpmcore_externalcommand helper contains a logic flaw in which the service invoking D-Bus is not properly checked. An attacker on the local machine can replace /etc/fstab, and execute mount and other partitioning related commands, while KDE Partition Manager is running. the mount command can then be used to gain full root privileges.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19417",
+                "comment": "kpmcore DPKG is earlier than 4.2.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

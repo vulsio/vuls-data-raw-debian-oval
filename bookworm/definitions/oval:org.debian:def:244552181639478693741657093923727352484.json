@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:244552181639478693741657093923727352484",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-32056 cyrus-imapd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "cyrus-imapd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-32056",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32056"
+      }
+    ],
+    "description": "Cyrus IMAP before 3.2.7, and 3.3.x and 3.4.x before 3.4.1, allows remote authenticated users to bypass intended access restrictions on server annotations and consequently cause replication to stall.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20881",
+                "comment": "cyrus-imapd DPKG is earlier than 3.2.6-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

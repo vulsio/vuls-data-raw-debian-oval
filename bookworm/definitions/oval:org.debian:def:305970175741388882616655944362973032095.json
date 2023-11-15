@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:305970175741388882616655944362973032095",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-32798 jupyter-notebook",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "jupyter-notebook"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-32798",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32798"
+      }
+    ],
+    "description": "The Jupyter notebook is a web-based notebook environment for interactive computing. In affected versions untrusted notebook can execute code on load. Jupyter Notebook uses a deprecated version of Google Caja to sanitize user inputs. A public Caja bypass can be used to trigger an XSS when a victim opens a malicious ipynb document in Jupyter Notebook. The XSS allows an attacker to execute arbitrary code on the victim computer using Jupyter APIs.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20953",
+                "comment": "jupyter-notebook DPKG is earlier than 6.4.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

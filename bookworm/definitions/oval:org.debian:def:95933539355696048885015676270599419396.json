@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:95933539355696048885015676270599419396",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-5688 imagemagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "imagemagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-5688",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5688"
+      }
+    ],
+    "description": "The WPG parser in ImageMagick before 6.9.4-4 and 7.x before 7.0.1-5, when a memory limit is set, allows remote attackers to have unspecified impact via vectors related to the SetImageExtent return-value check, which trigger (1) a heap-based buffer overflow in the SetPixelIndex function or an invalid write operation in the (2) ScaleCharToQuantum or (3) SetPixelIndex functions.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9350",
+                "comment": "imagemagick DPKG is earlier than 8:6.9.6.2+dfsg-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

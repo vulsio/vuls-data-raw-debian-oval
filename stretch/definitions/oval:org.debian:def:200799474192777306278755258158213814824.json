@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:200799474192777306278755258158213814824",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4215-1 batik",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "batik"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5662",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5662"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-8013",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8013"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMan Yue Mo, Lars Krapf and Pierre Ernst discovered that Batik, a toolkit for processing SVG images, did not properly validate its input. This would allow an attacker to cause a denial-of-service, mount cross-site scripting attacks, or access restricted files on the server.",
+      "dsa": "DSA-4215",
+      "date": "2018-06-02"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2789",
+                "comment": "batik DPKG is earlier than 1.8-4+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:19674073757516818744009525143681239475",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5193-1 firefox-esr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "firefox-esr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-36318",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-36318"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-36319",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-36319"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple security issues have been found in the Mozilla Firefox web browser, which could result in spoofing.",
+      "dsa": "DSA-5193",
+      "date": "2022-07-27"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27970",
+                "comment": "firefox-esr DPKG is earlier than 91.12.0esr-1~deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

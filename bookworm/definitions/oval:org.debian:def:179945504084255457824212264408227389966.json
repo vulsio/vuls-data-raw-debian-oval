@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:179945504084255457824212264408227389966",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-5253 keystone",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "keystone"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-5253",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5253"
+      }
+    ],
+    "description": "OpenStack Identity (Keystone) 2014.1.x before 2014.1.2.1 and Juno before Juno-3 does not properly revoke tokens when a domain is invalidated, which allows remote authenticated users to retain access via a domain-scoped token for that domain.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6670",
+                "comment": "keystone DPKG is earlier than 2014.1.2.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

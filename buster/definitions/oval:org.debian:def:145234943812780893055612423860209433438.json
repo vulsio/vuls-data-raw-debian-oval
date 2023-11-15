@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:145234943812780893055612423860209433438",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-1948 glance",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "glance"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-1948",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1948"
+      }
+    ],
+    "description": "OpenStack Image Registry and Delivery Service (Glance) 2013.2 through 2013.2.1 and Icehouse before icehouse-2 logs a URL containing the Swift store backend password when authentication fails and WARNING level logging is enabled, which allows local users to obtain sensitive information by reading the log.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6708",
+                "comment": "glance DPKG is earlier than 2013.2.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

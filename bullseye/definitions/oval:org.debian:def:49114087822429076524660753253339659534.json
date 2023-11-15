@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:49114087822429076524660753253339659534",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8972 gnuchess",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gnuchess"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8972",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8972"
+      }
+    ],
+    "description": "Stack-based buffer overflow in the ValidateMove function in frontend/move.cc in GNU Chess (aka gnuchess) before 6.2.4 might allow context-dependent attackers to execute arbitrary code via a large input, as demonstrated when in UCI mode.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8616",
+                "comment": "gnuchess DPKG is earlier than 6.2.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

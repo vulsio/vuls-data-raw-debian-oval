@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:118927175280172912380211203988136486095",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-2168 apache2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "apache2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-2168",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2168"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in Apache 2.2.6 and earlier allows remote attackers to inject arbitrary web script or HTML via UTF-7 encoded URLs that are not properly handled when displaying the 403 Forbidden error page.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2336",
+                "comment": "apache2 DPKG is earlier than 2.2.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

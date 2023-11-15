@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:328039791450371712419887054067742709784",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2769 tor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "tor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2769",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2769"
+      }
+    ],
+    "description": "Tor before 0.2.2.34, when configured as a bridge, accepts the CREATE and CREATE_FAST values in the Command field of a cell within an OR connection that it initiated, which allows remote relays to enumerate bridges by using these values.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4056",
+                "comment": "tor DPKG is earlier than 0.2.2.34-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

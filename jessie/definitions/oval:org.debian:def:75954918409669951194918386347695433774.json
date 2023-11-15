@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:75954918409669951194918386347695433774",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2979-1 fail2ban",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "fail2ban"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-7176",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-7176"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-7177",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-7177"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nTwo vulnerabilities were discovered in Fail2ban, a solution to ban hosts  that cause multiple authentication errors. When using Fail2ban to monitor Postfix or Cyrus IMAP logs, improper input validation in log parsing  could enable a remote attacker to trigger an IP ban on arbitrary  addresses, resulting in denial of service.",
+      "dsa": "DSA-2979",
+      "date": "2014-07-17"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3874",
+                "comment": "fail2ban DPKG is earlier than 0.8.11-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

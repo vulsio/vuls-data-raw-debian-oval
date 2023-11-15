@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:59660616478713886489766168396582364833",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-9924 bash",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "bash"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-9924",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9924"
+      }
+    ],
+    "description": "rbash in Bash before 4.4-beta2 did not prevent the shell user from modifying BASH_CMDS, thus allowing the user to execute any command with the permissions of the shell.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18158",
+                "comment": "bash DPKG is earlier than 4.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

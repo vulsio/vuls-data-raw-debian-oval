@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:165316034471239371885566776416885050415",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-3522 ghostscript",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "ghostscript"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-3522",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3522"
+      }
+    ],
+    "description": "Buffer overflow in the jas_stream_printf function in libjasper/base/jas_stream.c in JasPer 1.900.1 might allow context-dependent attackers to have an unknown impact via vectors related to the mif_hdr_put function and use of vsprintf.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2529",
+                "comment": "ghostscript DPKG is earlier than 8.64~dfsg-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

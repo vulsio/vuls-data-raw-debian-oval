@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:127392017534154594239905059009321769277",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-5585 xscreensaver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "xscreensaver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-5585",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5585"
+      }
+    ],
+    "description": "xscreensaver 5.03 and earlier, when running without xscreensaver-gl-extras (GL extras) installed, crashes when /usr/bin/xscreensaver-gl-helper does not exist and a user attempts to unlock the screen, which allows attackers with physical access to gain access to the locked session.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2124",
+                "comment": "xscreensaver DPKG is earlier than 5.03-3.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

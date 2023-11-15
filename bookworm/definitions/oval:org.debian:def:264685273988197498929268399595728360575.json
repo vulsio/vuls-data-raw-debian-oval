@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:264685273988197498929268399595728360575",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8178 docker.io",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "docker.io"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8178",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8178"
+      }
+    ],
+    "description": "Docker Engine before 1.8.3 and CS Docker Engine before 1.6.2-CS7 do not use a globally unique identifier to store image layers, which makes it easier for attackers to poison the image cache via a crafted image in pull or push commands.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6868",
+                "comment": "docker.io DPKG is earlier than 1.8.3~ds1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

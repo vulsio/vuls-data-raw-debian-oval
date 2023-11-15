@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:194458251224486756545555145166340595759",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-6431 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6431",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6431"
+      }
+    ],
+    "description": "The fib6_add function in net/ipv6/ip6_fib.c in the Linux kernel before 3.11.5 does not properly implement error-code encoding, which allows local users to cause a denial of service (NULL pointer dereference and system crash) by leveraging the CAP_NET_ADMIN capability for an IPv6 SIOCADDRT ioctl call.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6157",
+                "comment": "linux DPKG is earlier than 3.11.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

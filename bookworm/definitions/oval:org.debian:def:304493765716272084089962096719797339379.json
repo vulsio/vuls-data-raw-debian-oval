@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:304493765716272084089962096719797339379",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-2625 libxerces2-java",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libxerces2-java"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-2625",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2625"
+      }
+    ],
+    "description": "XMLScanner.java in Apache Xerces2 Java, as used in Sun Java Runtime Environment (JRE) in JDK and JRE 6 before Update 15 and JDK and JRE 5.0 before Update 20, and in other products, allows remote attackers to cause a denial of service (infinite loop and application hang) via malformed XML input, as demonstrated by the Codenomicon XML fuzzing framework.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2958",
+                "comment": "libxerces2-java DPKG is earlier than 2.9.1-4.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

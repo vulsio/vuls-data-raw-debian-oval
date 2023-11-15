@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:186362496751800332509599669691874632601",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-0913 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-0913",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0913"
+      }
+    ],
+    "description": "Integer overflow in drivers/gpu/drm/i915/i915_gem_execbuffer.c in the i915 driver in the Direct Rendering Manager (DRM) subsystem in the Linux kernel through 3.8.3, as used in Google Chrome OS before 25.0.1364.173 and other products, allows local users to cause a denial of service (heap-based buffer overflow) or possibly have unspecified other impact via a crafted application that triggers many relocation copies, and potentially leads to a race condition.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5180",
+                "comment": "linux DPKG is earlier than 3.2.41-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

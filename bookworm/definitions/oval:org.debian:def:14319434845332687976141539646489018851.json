@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:14319434845332687976141539646489018851",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-5982 kodi",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "kodi"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5982",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5982"
+      }
+    ],
+    "description": "Directory traversal vulnerability in the Chorus2 2.4.2 add-on for Kodi allows remote attackers to read arbitrary files via a %2E%2E%252e (encoded dot dot slash) in the image path, as demonstrated by image/image%3A%2F%2F%2e%2e%252fetc%252fpasswd.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12011",
+                "comment": "kodi DPKG is earlier than 2:18.6+dfsg1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

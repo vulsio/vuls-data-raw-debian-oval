@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:329736640669943667850094652894353109716",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-7122 ffmpeg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ffmpeg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-7122",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7122"
+      }
+    ],
+    "description": "The avi_read_nikon function in libavformat/avidec.c in FFmpeg before 3.1.4 is vulnerable to infinite loop when it decodes an AVI file that has a crafted 'nctg' structure.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9579",
+                "comment": "ffmpeg DPKG is earlier than 7:3.1.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

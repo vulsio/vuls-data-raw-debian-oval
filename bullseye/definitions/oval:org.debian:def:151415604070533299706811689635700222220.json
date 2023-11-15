@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:151415604070533299706811689635700222220",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-8680 dwarfutils",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dwarfutils"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-8680",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8680"
+      }
+    ],
+    "description": "The _dwarf_get_abbrev_for_code function in dwarf_util.c in libdwarf 20161001 and earlier allows remote attackers to cause a denial of service (out-of-bounds read) by calling the dwarfdump command on a crafted file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10185",
+                "comment": "dwarfutils DPKG is earlier than 20161001-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

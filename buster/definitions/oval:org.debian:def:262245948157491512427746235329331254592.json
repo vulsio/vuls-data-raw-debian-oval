@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:262245948157491512427746235329331254592",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-2894 bochs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "bochs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-2894",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2894"
+      }
+    ],
+    "description": "The emulated floppy disk controller in Bochs 2.3 allows local users of the guest operating system to cause a denial of service (virtual machine crash) via unspecified vectors, resulting in a divide-by-zero error.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1881",
+                "comment": "bochs DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

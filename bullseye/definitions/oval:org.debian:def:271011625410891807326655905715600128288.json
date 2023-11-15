@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:271011625410891807326655905715600128288",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-7108 util-linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "util-linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-7108",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-7108"
+      }
+    ],
+    "description": "login in util-linux-2.12a skips pam_acct_mgmt and chauth_tok when authentication is skipped, such as when a Kerberos krlogin session has been established, which might allow users to bypass intended access policies that would be enforced by pam_acct_mgmt and chauth_tok.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1634",
+                "comment": "util-linux DPKG is earlier than 2.17.2-9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

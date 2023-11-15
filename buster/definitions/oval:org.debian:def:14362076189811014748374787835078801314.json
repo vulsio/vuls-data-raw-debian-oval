@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:14362076189811014748374787835078801314",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4935-1 php7.3",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "php7.3"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-21704",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21704"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-21705",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21705"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple security issues were found in PHP, a widely-used open source general purpose scripting language which could result an SSRF bypass of the FILTER_VALIDATE_URL check and denial of service or potentially the execution of arbitrary code in the Firebird PDO.",
+      "dsa": "DSA-4935",
+      "date": "2021-07-05"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27323",
+                "comment": "php7.3 DPKG is earlier than 7.3.29-1~deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

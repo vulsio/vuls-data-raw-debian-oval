@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:215750132876923823772357943792374088865",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-1614 zziplib",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "zziplib"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-1614",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1614"
+      }
+    ],
+    "description": "Stack-based buffer overflow in the zzip_open_shared_io function in zzip/file.c in ZZIPlib Library before 0.13.49 allows user-assisted remote attackers to cause a denial of service (application crash) or execute arbitrary code via a long filename.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1779",
+                "comment": "zziplib DPKG is earlier than 0.13.49-0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

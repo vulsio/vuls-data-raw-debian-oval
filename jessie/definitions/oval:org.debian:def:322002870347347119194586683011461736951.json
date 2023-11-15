@@ -1,0 +1,74 @@
+{
+  "id": "oval:org.debian:def:322002870347347119194586683011461736951",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3320-1 openafs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "openafs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3282",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3282"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3283",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3283"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3284",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3284"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3285",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3285"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-6587",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-6587"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that OpenAFS, the implementation of the distributed filesystem AFS, contained several flaws that could result in information leak, denial-of-service or kernel panic.",
+      "dsa": "DSA-3320",
+      "date": "2015-07-30"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4042",
+                "comment": "openafs DPKG is earlier than 1.6.9-2+deb8u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

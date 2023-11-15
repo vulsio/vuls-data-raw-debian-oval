@@ -1,0 +1,74 @@
+{
+  "id": "oval:org.debian:def:241377773119291734750798773055073404942",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4348-1 openssl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "openssl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-0732",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-0734",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0734"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-0735",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0735"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-0737",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-5407",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5407"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral local side channel attacks and a denial of service via large Diffie-Hellman parameters were discovered in OpenSSL, a Secure Sockets Layer toolkit.",
+      "dsa": "DSA-4348",
+      "date": "2018-11-30"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4252",
+                "comment": "openssl DPKG is earlier than 1.1.0j-1~deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:102461536908850119537811232331523240180",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-3257 evolution-data-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "evolution-data-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-3257",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3257"
+      }
+    ],
+    "description": "Camel (camel-imap-folder.c) in the mailer component for Evolution Data Server 1.11 allows remote IMAP servers to execute arbitrary code via a negative SEQUENCE value in GData, which is used as an array index.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1840",
+                "comment": "evolution-data-server DPKG is earlier than 1.10.2-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

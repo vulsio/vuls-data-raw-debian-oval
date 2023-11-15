@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:51041809845592994191587156843261897301",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1139 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1139",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1139"
+      }
+    ],
+    "description": "wiretap/pcapng.c in Wireshark 1.2.0 through 1.2.14 and 1.4.0 through 1.4.3 allows remote attackers to cause a denial of service (application crash) via a pcap-ng file that contains a large packet-length field.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3854",
+                "comment": "wireshark DPKG is earlier than 1.4.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

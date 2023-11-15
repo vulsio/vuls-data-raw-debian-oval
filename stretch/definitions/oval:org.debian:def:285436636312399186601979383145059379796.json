@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:285436636312399186601979383145059379796",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4312-1 tinc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "tinc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-16738",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16738"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-16758",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16758"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities were discovered in tinc, a Virtual Private Network (VPN) daemon. The Common Vulnerabilities and Exposures project identifies the following problems:",
+      "dsa": "DSA-4312",
+      "date": "2018-10-08"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2216",
+                "comment": "tinc DPKG is earlier than 1.0.31-1+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

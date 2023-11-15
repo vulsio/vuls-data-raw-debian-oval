@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:18022142999335781375686232897445617558",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2879-1 libssh",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "libssh"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0017",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0017"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that libssh, a tiny C SSH library, did not reset the state of the PRNG after accepting a connection. A server mode application that forks itself to handle incoming connections could see its children sharing the same PRNG state, resulting in a cryptographic weakness and possibly the recovery of the private key.",
+      "dsa": "DSA-2879",
+      "date": "2014-03-13"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1178",
+                "comment": "libssh DPKG is earlier than 0.5.4-1+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

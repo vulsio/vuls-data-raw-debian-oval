@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:246816376951434939326904171269343120322",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-0304 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-0304",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0304"
+      }
+    ],
+    "description": "Multiple buffer overflows in the LWRES dissector in Wireshark 0.9.15 through 1.0.10 and 1.2.0 through 1.2.5 allow remote attackers to cause a denial of service (crash) via a malformed packet, as demonstrated using a stack-based buffer overflow to the dissect_getaddrsbyname_request function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3294",
+                "comment": "wireshark DPKG is earlier than 1.2.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

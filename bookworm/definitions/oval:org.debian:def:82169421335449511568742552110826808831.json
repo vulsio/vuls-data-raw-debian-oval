@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:82169421335449511568742552110826808831",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-0391 openafs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openafs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-0391",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-0391"
+      }
+    ],
+    "description": "Integer overflow in xdr_array function in RPC servers for operating systems that use libc, glibc, or other code based on SunRPC including dietlibc, allows remote attackers to execute arbitrary code by passing a large number of arguments to xdr_array through RPC services such as rpc.cmsd and dmispd.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:30",
+                "comment": "openafs DPKG is earlier than 1.2.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:196956957281057226215460921372844941795",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-22041 openjdk-17",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openjdk-17"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-22041",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-22041"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Several vulnerabilities have been discovered in the OpenJDK Java runtime, which may result in bypass of sandbox restrictions, information disclosure, reduced cryptographic strength of the AES implementation, directory traversal or denial of service.",
+      "dsa": "DSA-5458"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25313",
+                "comment": "openjdk-17 DPKG is earlier than 17.0.8+7-1~deb12u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

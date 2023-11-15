@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:168903648927637506682595195502083134772",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5040-1 lighttpd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "lighttpd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-22707",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22707"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "An out-of-bounds memory access was discovered in the mod_extforward plugin of the lighttpd web server, which may result in denial of service.",
+      "dsa": "DSA-5040",
+      "date": "2022-01-11"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27825",
+                "comment": "lighttpd DPKG is earlier than 1.4.59-1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

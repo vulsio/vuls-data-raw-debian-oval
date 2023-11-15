@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:265601497340397764777935145084153163479",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-12040 symfony",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "symfony"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-12040",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12040"
+      }
+    ],
+    "description": "Reflected Cross-site scripting (XSS) vulnerability in the web profiler in SensioLabs Symfony 3.3.6 allows remote attackers to inject arbitrary web script or HTML via the \"file\" parameter, aka an _profiler/open?file= URI.  NOTE: The vendor states \"The XSS ... is in the web profiler, a tool that should never be deployed in production (so, we don't handle those issues as security issues).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13715",
+                "comment": "symfony DPKG is earlier than 3.4.12+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:231156340267544119028668266698466368926",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-5208 hplip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "hplip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-5208",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5208"
+      }
+    ],
+    "description": "hpssd in Hewlett-Packard Linux Imaging and Printing Project (hplip) 1.x and 2.x before 2.7.10 allows context-dependent attackers to execute arbitrary commands via shell metacharacters in a from address, which is not properly handled when invoking sendmail.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2088",
+                "comment": "hplip DPKG is earlier than 1.6.10-4.3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:41124278168033965797815597553501338291",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-3904 gpicview",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "gpicview"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-3904",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3904"
+      }
+    ],
+    "description": "src/main-win.c in GPicView 0.1.9 in Lightweight X11 Desktop Environment (LXDE) allows context-dependent attackers to execute arbitrary commands via shell metacharacters in a filename.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2555",
+                "comment": "gpicview DPKG is earlier than 0.1.9-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

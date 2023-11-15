@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:245681313480592074208450518526167505575",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-1083 kfreebsd-10",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "kfreebsd-10"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-1083",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1083"
+      }
+    ],
+    "description": "In FreeBSD before 11.2-RELEASE, a stack guard-page is available but is disabled by default. This results in the possibility a poorly written process could be cause a stack overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10809",
+                "comment": "kfreebsd-10 DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

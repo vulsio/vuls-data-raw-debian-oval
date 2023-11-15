@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:121779201495035117466826036446730299535",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1717 gv",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "gv"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1717",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1717"
+      }
+    ],
+    "description": "Multiple buffer overflows in the psscan function in ps.c for gv (ghostview) allow remote attackers to execute arbitrary code via a Postscript file with a long (1) BoundingBox, (2) comment, (3) Orientation, (4) PageOrder, or (5) Pages value.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:593",
+                "comment": "gv DPKG is earlier than 1:3.6.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

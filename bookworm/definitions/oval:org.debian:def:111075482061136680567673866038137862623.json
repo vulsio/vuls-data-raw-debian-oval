@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:111075482061136680567673866038137862623",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-4444 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-4444",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4444"
+      }
+    ],
+    "description": "The ip6_frag_queue function in net/ipv6/reassembly.c in the Linux kernel before 2.6.36 allows remote attackers to bypass intended network restrictions via overlapping IPv6 fragments.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4839",
+                "comment": "linux DPKG is earlier than 2.6.36-1~experimental.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

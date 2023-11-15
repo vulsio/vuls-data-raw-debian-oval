@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:23436712982035230450295835137569311083",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-3698 libndp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libndp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-3698",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3698"
+      }
+    ],
+    "description": "libndp before 1.6, as used in NetworkManager, does not properly validate the origin of Neighbor Discovery Protocol (NDP) messages, which allows remote attackers to conduct man-in-the-middle attacks or cause a denial of service (network connectivity disruption) by advertising a node as a router from a non-local network.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9012",
+                "comment": "libndp DPKG is earlier than 1.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

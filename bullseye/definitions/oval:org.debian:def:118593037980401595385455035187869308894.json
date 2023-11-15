@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:118593037980401595385455035187869308894",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-9766 pixman",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pixman"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9766",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9766"
+      }
+    ],
+    "description": "Integer overflow in the create_bits function in pixman-bits-image.c in Pixman before 0.32.6 allows remote attackers to cause a denial of service (application crash) or possibly execute arbitrary code via large height and stride values.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7406",
+                "comment": "pixman DPKG is earlier than 0.32.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

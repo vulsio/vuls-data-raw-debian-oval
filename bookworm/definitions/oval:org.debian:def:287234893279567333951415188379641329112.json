@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:287234893279567333951415188379641329112",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-11325 symfony",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "symfony"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-11325",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11325"
+      }
+    ],
+    "description": "An issue was discovered in Symfony before 4.2.12 and 4.3.x before 4.3.8. The VarExport component incorrectly escapes strings, allowing some specially crafted ones to escalate to execution of arbitrary PHP code. This is related to symfony/var-exporter.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15305",
+                "comment": "symfony DPKG is earlier than 4.3.8+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

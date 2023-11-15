@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:71056571073414049429652220336841064336",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8768 tcpdump",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "tcpdump"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8768",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8768"
+      }
+    ],
+    "description": "Multiple Integer underflows in the geonet_print function in tcpdump 4.5.0 through 4.6.2, when in verbose mode, allow remote attackers to cause a denial of service (segmentation fault and crash) via a crafted length value in a Geonet frame.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7210",
+                "comment": "tcpdump DPKG is earlier than 4.6.2-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

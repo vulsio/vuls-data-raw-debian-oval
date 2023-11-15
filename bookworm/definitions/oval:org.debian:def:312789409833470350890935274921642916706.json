@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:312789409833470350890935274921642916706",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-0216 openssl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openssl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-0216",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0216"
+      }
+    ],
+    "description": "An invalid pointer dereference on read can be triggered when an\napplication tries to load malformed PKCS7 data with the\nd2i_PKCS7(), d2i_PKCS7_bio() or d2i_PKCS7_fp() functions.\n\nThe result of the dereference is an application crash which could\nlead to a denial of service attack. The TLS implementation in OpenSSL\ndoes not call this function however third party applications might\ncall these functions on untrusted data.\n\n",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25039",
+                "comment": "openssl DPKG is earlier than 3.0.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:1817614166620417414192888489168175184",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-31620 libjpeg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libjpeg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-31620",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-31620"
+      }
+    ],
+    "description": "In libjpeg before 1.64, BitStream<false>::Get in bitstream.hpp has an assertion failure that may cause denial of service. This is related to out-of-bounds array access during arithmetically coded lossless scan or arithmetically coded sequential scan.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23689",
+                "comment": "libjpeg DPKG is earlier than 0.0~git20220615.842c7ba-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:96165326494746796350991745130139780372",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-5899 s-nail",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "s-nail"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5899",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5899"
+      }
+    ],
+    "description": "Directory traversal vulnerability in the setuid root helper binary in S-nail (later S-mailx) before 14.8.16 allows local users to write to arbitrary files and consequently gain root privileges via a .. (dot dot) in the randstr argument.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11980",
+                "comment": "s-nail DPKG is earlier than 14.8.16-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

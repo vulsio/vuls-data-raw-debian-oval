@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:81383524869564002180157557857956486970",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-1236 crossfire",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "crossfire"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-1236",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1236"
+      }
+    ],
+    "description": "Buffer overflow in the SetUp function in socket/request.c in CrossFire 1.9.0 allows remote attackers to execute arbitrary code via a long setup sound command, a different vulnerability than CVE-2006-1010.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1200",
+                "comment": "crossfire DPKG is earlier than 1.9.0-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

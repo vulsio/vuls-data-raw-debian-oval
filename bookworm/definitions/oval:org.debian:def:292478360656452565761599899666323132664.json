@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:292478360656452565761599899666323132664",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1013 cyrus-imapd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "cyrus-imapd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1013",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1013"
+      }
+    ],
+    "description": "The argument parser of the FETCH command in Cyrus IMAP Server 2.2.x through 2.2.8 allows remote authenticated users to execute arbitrary code via certain commands such as (1) \"body[p\", (2) \"binary[p\", or (3) \"binary[p\") that cause an index increment error that leads to an out-of-bounds memory corruption.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:517",
+                "comment": "cyrus-imapd DPKG is earlier than 1.5.19-20"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

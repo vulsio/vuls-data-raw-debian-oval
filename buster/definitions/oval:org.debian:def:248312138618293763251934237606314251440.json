@@ -1,0 +1,69 @@
+{
+  "id": "oval:org.debian:def:248312138618293763251934237606314251440",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4934-1 intel-microcode",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "intel-microcode"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-24489",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24489"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-24511",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24511"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-24512",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24512"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-24513",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24513"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "This update ships updated CPU microcode for some types of Intel CPUs and provides mitigations for security vulnerabilities which could result in privilege escalation in combination with VT-d and various side channel attacks.",
+      "dsa": "DSA-4934",
+      "date": "2021-06-26"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27322",
+                "comment": "intel-microcode DPKG is earlier than 3.20210608.2~deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

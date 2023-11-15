@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:338445886888667632878481905148170300691",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-23098 connman",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "connman"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23098",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23098"
+      }
+    ],
+    "description": "An issue was discovered in the DNS proxy in Connman through 1.40. The TCP server reply implementation has an infinite loop if no data is received.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22968",
+                "comment": "connman DPKG is earlier than 1.36-2.4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

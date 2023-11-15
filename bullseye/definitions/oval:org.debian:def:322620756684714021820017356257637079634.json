@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:322620756684714021820017356257637079634",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5438-1 asterisk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "asterisk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-27585",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27585"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nA flaw was found in Asterisk, an Open Source Private Branch Exchange. A buffer overflow vulnerability affects users that use PJSIP DNS resolver. This vulnerability is related to <a href=\"https://security-tracker.debian.org/tracker/CVE-2022-24793\">CVE-2022-24793</a>. The difference is that this issue is in parsing the query record `parse_query()`, while the issue in <a href=\"https://security-tracker.debian.org/tracker/CVE-2022-24793\">CVE-2022-24793</a> is in `parse_rr()`. A workaround is to disable DNS resolution in PJSIP config (by setting `nameserver_count` to zero) or use an external resolver implementation instead.",
+      "dsa": "DSA-5438",
+      "date": "2023-06-22"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28217",
+                "comment": "asterisk DPKG is earlier than 1:16.28.0~dfsg-0+deb11u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

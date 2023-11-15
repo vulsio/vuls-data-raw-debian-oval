@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:295210049261804376288024058255053870903",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-3848 ipcalc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ipcalc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-3848",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3848"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in CGI wrapper for IP Calculator (IPCalc) 0.40 allows remote attackers to inject arbitrary web script or HTML via the URI (REQUEST_URI environment variable), which is used in the actionurl variable.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1446",
+                "comment": "ipcalc DPKG is earlier than 0.41-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

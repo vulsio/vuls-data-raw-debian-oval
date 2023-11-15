@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:326662290106998547264511600175076807004",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-0493 remctl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "remctl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-0493",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0493"
+      }
+    ],
+    "description": "remctld in remctl before 3.14, when an attacker is authorized to execute a command that uses the sudo option, has a use-after-free that leads to a daemon crash, memory corruption, or arbitrary command execution.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12865",
+                "comment": "remctl DPKG is earlier than 3.14-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:144677535929398385293864241732352930261",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-25255 qt6-base",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "qt6-base"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-25255",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25255"
+      }
+    ],
+    "description": "In Qt 5.9.x through 5.15.x before 5.15.9 and 6.x before 6.2.4 on Linux and UNIX, QProcess could execute a binary from the current working directory when not found in the PATH.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23171",
+                "comment": "qt6-base DPKG is earlier than 6.2.4+dfsg-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

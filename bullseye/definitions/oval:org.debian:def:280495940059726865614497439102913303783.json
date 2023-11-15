@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:280495940059726865614497439102913303783",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-4528 unbound",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "unbound"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-4528",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4528"
+      }
+    ],
+    "description": "Unbound before 1.4.13p2 attempts to free unallocated memory during processing of duplicate CNAME records in a signed zone, which allows remote DNS servers to cause a denial of service (daemon crash) via a crafted response.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4437",
+                "comment": "unbound DPKG is earlier than 1.4.14-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

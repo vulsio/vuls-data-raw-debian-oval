@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:265512504301757327315108476445752547686",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-39291 zoneminder",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "zoneminder"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-39291",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-39291"
+      }
+    ],
+    "description": "ZoneMinder is a free, open source Closed-circuit television software application. Affected versions of zoneminder are subject to a vulnerability which allows users with \"View\" system permissions to inject new data into the logs stored by Zoneminder. This was observed through an HTTP POST request containing log information to the \"/zm/index.php\" endpoint. Submission is not rate controlled and could affect database performance and/or consume all storage resources. Users are advised to upgrade. There are no known workarounds for this issue.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25282",
+                "comment": "zoneminder DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

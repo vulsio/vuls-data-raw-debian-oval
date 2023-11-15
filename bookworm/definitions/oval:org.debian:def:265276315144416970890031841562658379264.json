@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:265276315144416970890031841562658379264",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-0842 node-xml2js",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "node-xml2js"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-0842",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0842"
+      }
+    ],
+    "description": "xml2js version 0.4.23 allows an external attacker to edit or add new properties to an object. This is possible because the application does not properly validate incoming JSON keys, thus allowing the __proto__ property to be edited.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25117",
+                "comment": "node-xml2js DPKG is earlier than 0.4.23+~cs15.4.0+dfsg-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

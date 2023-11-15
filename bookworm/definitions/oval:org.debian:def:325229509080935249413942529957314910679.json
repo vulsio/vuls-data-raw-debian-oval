@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:325229509080935249413942529957314910679",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-1927 python-gnupg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "python-gnupg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-1927",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1927"
+      }
+    ],
+    "description": "The shell_quote function in python-gnupg 0.3.5 does not properly quote strings, which allows context-dependent attackers to execute arbitrary code via shell metacharacters in unspecified vectors, as demonstrated using \"$(\" command-substitution sequences, a different vulnerability than CVE-2014-1928.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2013-7323.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6264",
+                "comment": "python-gnupg DPKG is earlier than 0.3.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

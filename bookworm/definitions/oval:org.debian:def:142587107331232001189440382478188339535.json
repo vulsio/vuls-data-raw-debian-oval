@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:142587107331232001189440382478188339535",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-42330 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-42330",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-42330"
+      }
+    ],
+    "description": "Guests can cause Xenstore crash via soft reset When a guest issues a \"Soft Reset\" (e.g. for performing a kexec) the libxl based Xen toolstack will normally perform a XS_RELEASE Xenstore operation. Due to a bug in xenstored this can result in a crash of xenstored. Any other use of XS_RELEASE will have the same impact.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24552",
+                "comment": "xen DPKG is earlier than 4.17.0+24-g2f8851c37f-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

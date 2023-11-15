@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:113682012595245660378971276576051099049",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-5099 dokuwiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "dokuwiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-5099",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5099"
+      }
+    ],
+    "description": "lib/exec/fetch.php in DokuWiki before 2006-03-09e, when conf[imconvert] is configured to use ImageMagick, allows remote attackers to execute arbitrary commands via shell metacharacters in the (1) w and (2) h parameters, which are not filtered when invoking convert.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1491",
+                "comment": "dokuwiki DPKG is earlier than 0.0.20060309-5.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

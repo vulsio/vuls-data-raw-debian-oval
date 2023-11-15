@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:86667366150166217023625815484504655805",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-3550 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-3550",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3550"
+      }
+    ],
+    "description": "The DCERPC/NT dissector in Wireshark 0.10.10 through 1.0.9 and 1.2.0 through 1.2.2 allows remote attackers to cause a denial of service (NULL pointer dereference and application crash) via a file that records a malformed packet trace.  NOTE: some of these details are obtained from third party information.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3044",
+                "comment": "wireshark DPKG is earlier than 1.2.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

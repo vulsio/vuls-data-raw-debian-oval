@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:236028861251731047219547530487421819929",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-27046 libsixel",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libsixel"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-27046",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27046"
+      }
+    ],
+    "description": "libsixel 1.8.6 suffers from a Heap Use After Free vulnerability in in libsixel/src/dither.c:388.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23322",
+                "comment": "libsixel DPKG is earlier than 1.10.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:115779778798127482790875084881099035859",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3604-1 drupal7",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "drupal7"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-6211",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6211"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nA privilege escalation vulnerability has been found in the User module of the Drupal content management framework. For additional information, please refer to the upstream advisory at <a href=\"https://www.drupal.org/SA-CORE-2016-002\">\\ https://www.drupal.org/SA-CORE-2016-002</a>.",
+      "dsa": "DSA-3604",
+      "date": "2016-06-16"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4299",
+                "comment": "drupal7 DPKG is earlier than 7.32-1+deb8u7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

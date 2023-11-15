@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:328922696879329721548598046010540587469",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-18385 asciidoctor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "asciidoctor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-18385",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18385"
+      }
+    ],
+    "description": "Asciidoctor in versions < 1.5.8 allows remote attackers to cause a denial of service (infinite loop). The loop was caused by the fact that Parser.next_block was not exhausting all the lines in the reader as the while loop expected it would. This was happening because the regular expression that detects any list was not agreeing with the regular expression that detects a specific list type. So the line kept getting pushed back onto the reader, hence causing the loop.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14433",
+                "comment": "asciidoctor DPKG is earlier than 1.5.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

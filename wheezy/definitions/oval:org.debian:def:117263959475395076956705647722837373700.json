@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:117263959475395076956705647722837373700",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2659-1 libapache-mod-security",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "libapache-mod-security"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1915",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1915"
+      }
+    ],
+    "description": "XML external entity processing vulnerability",
+    "debian": {
+      "moreinfo": "\nTimur Yunusov and Alexey Osipov from Positive Technologies discovered that the XML files parser of ModSecurity, an Apache module whose purpose is to tighten the Web application security, is vulnerable to XML external entities attacks. A specially-crafted XML file provided by a remote attacker, could lead to local file disclosure or excessive resources (CPU, memory) consumption when processed.",
+      "dsa": "DSA-2659",
+      "date": "2013-04-09"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:652",
+                "comment": "libapache-mod-security DPKG is earlier than 2.6.6-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

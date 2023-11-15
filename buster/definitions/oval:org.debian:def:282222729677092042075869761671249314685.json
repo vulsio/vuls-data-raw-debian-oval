@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:282222729677092042075869761671249314685",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-9435 w3m",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "w3m"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9435",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9435"
+      }
+    ],
+    "description": "The HTMLtagproc1 function in file.c in w3m before 0.5.3+git20161009 does not properly initialize values, which allows remote attackers to crash the application via a crafted html file, related to <dd> tags.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10479",
+                "comment": "w3m DPKG is earlier than 0.5.3-30"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

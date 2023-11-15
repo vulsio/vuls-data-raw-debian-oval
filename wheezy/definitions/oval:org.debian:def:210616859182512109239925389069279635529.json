@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:210616859182512109239925389069279635529",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2170-1 mailman",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "mailman"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-3089",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3089"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-0707",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0707"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nTwo cross site scripting vulnerabilities were been discovered in Mailman, a web-based mailing list manager. These allowed an attacker to retrieve session cookies via inserting crafted JavaScript into confirmation messages (<a href=\"https://security-tracker.debian.org/tracker/CVE-2011-0707\">CVE-2011-0707</a>) and in the list admin interface (<a href=\"https://security-tracker.debian.org/tracker/CVE-2010-3089\">CVE-2010-3089</a>; oldstable only).",
+      "dsa": "DSA-2170",
+      "date": "2011-02-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:64",
+                "comment": "mailman DPKG is earlier than 1:2.1.14-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

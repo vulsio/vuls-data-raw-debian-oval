@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:3143111051068582551141517532606078541",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-1163 libzip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libzip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-1163",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1163"
+      }
+    ],
+    "description": "Integer overflow in the _zip_readcdir function in zip_open.c in libzip 0.10 allows remote attackers to execute arbitrary code via the size and offset values for the central directory in a zip archive, which triggers \"improper restrictions of operations within the bounds of a memory buffer\" and an information leak.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4483",
+                "comment": "libzip DPKG is earlier than 0.10.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:180604495348120384630084377976023369375",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-4138 samba",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "samba"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-4138",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4138"
+      }
+    ],
+    "description": "The Winbind nss_info extension (nsswitch/idmap_ad.c) in idmap_ad.so in Samba 3.0.25 through 3.0.25c, when the \"winbind nss info\" option is set to rfc2307 or sfu, grants all local users the privileges of gid 0 when the (1) RFC2307 or (2) Services for UNIX (SFU) primary group attribute is not defined.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1988",
+                "comment": "samba DPKG is earlier than 3.0.26-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

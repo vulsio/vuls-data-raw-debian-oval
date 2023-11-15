@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:12773186163395180905421799125654649311",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-35475 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-35475",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-35475"
+      }
+    ],
+    "description": "In MediaWiki before 1.35.1, the messages userrights-expiry-current and userrights-expiry-none can contain raw HTML. XSS can happen when a user visits Special:UserRights but does not have rights to change all userrights, and the table on the left side has unchangeable groups in it. (The right column with the changeable groups is not affected and is escaped correctly.)",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19059",
+                "comment": "mediawiki DPKG is earlier than 1:1.35.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

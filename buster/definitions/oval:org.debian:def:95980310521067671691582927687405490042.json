@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:95980310521067671691582927687405490042",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-4463 mc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "mc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-4463",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4463"
+      }
+    ],
+    "description": "Midnight Commander (mc) 4.8.5 does not properly handle the (1) MC_EXT_SELECTED or (2) MC_EXT_ONLYTAGGED environment variables when multiple files are selected, which allows user-assisted remote attackers to execute arbitrary commands via a crafted file name.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5193",
+                "comment": "mc DPKG is earlier than 3:4.8.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

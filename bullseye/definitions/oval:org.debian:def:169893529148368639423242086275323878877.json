@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:169893529148368639423242086275323878877",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-9572 openjpeg2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "openjpeg2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9572",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9572"
+      }
+    ],
+    "description": "A NULL pointer dereference flaw was found in the way openjpeg 2.1.2 decoded certain input images. Due to a logic error in the code responsible for decoding the input image, an application using openjpeg to process image data could crash when processing a crafted image.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10341",
+                "comment": "openjpeg2 DPKG is earlier than 2.1.2-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

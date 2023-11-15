@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:25904844870412821006404100704637677718",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-11644 imagemagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "imagemagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-11644",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11644"
+      }
+    ],
+    "description": "When ImageMagick 7.0.6-1 processes a crafted file in convert, it can lead to a Memory Leak in the ReadMATImage() function in coders/mat.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10831",
+                "comment": "imagemagick DPKG is earlier than 8:6.9.7.4+dfsg-14"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

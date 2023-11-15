@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:321072947719497530768783967745611028911",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2896 cups",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cups"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2896",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2896"
+      }
+    ],
+    "description": "The LZW decompressor in the LWZReadByte function in giftoppm.c in the David Koblas GIF decoder in PBMPLUS, as used in the gif_read_lzw function in filter/image-gif.c in CUPS before 1.4.7, the LZWReadByte function in plug-ins/common/file-gif-load.c in GIMP 2.6.11 and earlier, the LZWReadByte function in img/gifread.c in XPCE in SWI-Prolog 5.10.4 and earlier, and other products, does not properly handle code words that are absent from the decompression table when encountered, which allows remote attackers to trigger an infinite loop or a heap-based buffer overflow, and possibly execute arbitrary code, via a crafted compressed stream, a related issue to CVE-2006-1168 and CVE-2011-2895.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4233",
+                "comment": "cups DPKG is earlier than 1.5.0-8"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

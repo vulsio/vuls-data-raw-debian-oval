@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:138360491216442967943619553672855497834",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2713 libreoffice",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libreoffice"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2713",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2713"
+      }
+    ],
+    "description": "oowriter in OpenOffice.org 3.3.0 and LibreOffice before 3.4.3 allows user-assisted remote attackers to cause a denial of service (crash) via a crafted DOC file that triggers an out-of-bounds read in the DOC sprm parser.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4207",
+                "comment": "libreoffice DPKG is earlier than 1:3.4.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

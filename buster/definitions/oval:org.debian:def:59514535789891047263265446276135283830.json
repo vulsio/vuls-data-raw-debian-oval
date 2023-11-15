@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:59514535789891047263265446276135283830",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-3856 krusader",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "krusader"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-3856",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3856"
+      }
+    ],
+    "description": "The Popular URL capability (popularurls.cpp) in Krusader 1.60.0 and 1.70.0-beta1 saves passwords in cleartext in the krusaderrc file when the user enters URLs containing passwords in the panel URL field, which might allow attackers to access other sites.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1100",
+                "comment": "krusader DPKG is earlier than 1.70.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

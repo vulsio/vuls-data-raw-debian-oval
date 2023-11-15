@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:99540117940965522864720124122576415773",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-2088 nova",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "nova"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-2088",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2088"
+      }
+    ],
+    "description": "A flaw was found in OpenStack due to an inconsistency between Cinder and Nova. This issue can be triggered intentionally or by accident. A remote, authenticated attacker could exploit this vulnerability by detaching one of their volumes from Cinder. The highest impact is to confidentiality.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25276",
+                "comment": "nova DPKG is earlier than 2:26.1.0-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

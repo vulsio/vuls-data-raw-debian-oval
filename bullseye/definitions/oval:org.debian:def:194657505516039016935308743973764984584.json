@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:194657505516039016935308743973764984584",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-3439 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3439",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3439"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in the Ephox (formerly Moxiecode) plupload.flash.swf shim 2.1.2 in Plupload, as used in WordPress 3.9.x, 4.0.x, and 4.1.x before 4.1.2 and other products, allows remote attackers to execute same-origin JavaScript functions via the target parameter, as demonstrated by executing a certain click function, related to _init.as and _fireEvent.as.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7887",
+                "comment": "wordpress DPKG is earlier than 4.2+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

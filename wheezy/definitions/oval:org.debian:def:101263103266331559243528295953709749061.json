@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:101263103266331559243528295953709749061",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2663-1 tinc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "tinc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1428",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1428"
+      }
+    ],
+    "description": "stack based buffer overflow",
+    "debian": {
+      "moreinfo": "\nMartin Schobert discovered a stack-based vulnerability in tinc, a Virtual Private Network (VPN) daemon.",
+      "dsa": "DSA-2663",
+      "date": "2013-04-22"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:537",
+                "comment": "tinc DPKG is earlier than 1.0.19-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

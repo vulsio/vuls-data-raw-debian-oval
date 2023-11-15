@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:109907320233416716795463336441535921712",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-0233 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-0233",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0233"
+      }
+    ],
+    "description": "wp-trackback.php in WordPress 2.0.6 and earlier does not properly unset variables when the input data includes a numeric parameter with a value matching an alphanumeric parameter's hash value, which allows remote attackers to execute arbitrary SQL commands via the tb_id parameter.  NOTE: it could be argued that this vulnerability is due to a bug in the unset PHP command (CVE-2006-3017) and the proper fix should be in PHP; if so, then this should not be treated as a vulnerability in WordPress.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1618",
+                "comment": "wordpress DPKG is earlier than 2.1.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

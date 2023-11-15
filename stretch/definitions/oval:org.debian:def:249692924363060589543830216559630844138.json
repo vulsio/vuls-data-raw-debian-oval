@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:249692924363060589543830216559630844138",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4041-1 procmail",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "procmail"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-16844",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16844"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nJakub Wilk reported a heap-based buffer overflow vulnerability in procmail's formail utility when processing specially-crafted email headers. A remote attacker could use this flaw to cause formail to crash, resulting in a denial of service or data loss.",
+      "dsa": "DSA-4041",
+      "date": "2017-11-19"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3970",
+                "comment": "procmail DPKG is earlier than 3.22-25+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:275139891715319549671562422116315474424",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4275-1 keystone",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "keystone"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-14432",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14432"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nKristi Nikolla discovered an information leak in Keystone, the OpenStack identity service, if running in a federated setup.",
+      "dsa": "DSA-4275",
+      "date": "2018-08-16"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4180",
+                "comment": "keystone DPKG is earlier than 2:10.0.0-9+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

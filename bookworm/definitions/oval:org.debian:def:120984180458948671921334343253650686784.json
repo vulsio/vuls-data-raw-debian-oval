@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:120984180458948671921334343253650686784",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-10576 janus",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "janus"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-10576",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10576"
+      }
+    ],
+    "description": "An issue was discovered in Janus through 0.9.1. plugins/janus_voicemail.c in the VoiceMail plugin has a race condition that could cause a server crash.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17483",
+                "comment": "janus DPKG is earlier than 0.9.1+20200313-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

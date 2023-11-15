@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:20417132663152834896050297709377715832",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-7106 cacti",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "cacti"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-7106",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7106"
+      }
+    ],
+    "description": "Cacti 1.2.8 has stored XSS in data_sources.php, color_templates_item.php, graphs.php, graph_items.php, lib/api_automation.php, user_admin.php, and user_group_admin.php, as demonstrated by the description parameter in data_sources.php (a raw string from the database that is displayed by $header to trigger the XSS).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19606",
+                "comment": "cacti DPKG is earlier than 1.2.9+ds1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

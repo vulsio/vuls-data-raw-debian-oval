@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:149931171327647917406385889658140645579",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-16926 ohcount",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "ohcount"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-16926",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16926"
+      }
+    ],
+    "description": "Ohcount 3.0.0 is prone to a command injection via specially crafted filenames containing shell metacharacters, which can be exploited by an attacker (providing a source tree for Ohcount processing) to execute arbitrary code as the user running Ohcount.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11862",
+                "comment": "ohcount DPKG is earlier than 3.1.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:236993904991824776642617521356218008203",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4530-1 expat",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "expat"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-15903",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15903"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that Expat, an XML parsing C library, did not properly handled internal entities closing the doctype, potentially resulting in denial of service or information disclosure if a malformed XML file is processed.",
+      "dsa": "DSA-4530",
+      "date": "2019-09-22"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26944",
+                "comment": "expat DPKG is earlier than 2.2.6-2+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

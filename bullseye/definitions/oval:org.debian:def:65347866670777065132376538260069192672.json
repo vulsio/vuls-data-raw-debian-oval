@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:65347866670777065132376538260069192672",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-5104 libusbmuxd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libusbmuxd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-5104",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5104"
+      }
+    ],
+    "description": "The socket_create function in common/socket.c in libimobiledevice and libusbmuxd allows remote attackers to bypass intended access restrictions and communicate with services on iOS devices by connecting to an IPv4 TCP socket.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9583",
+                "comment": "libusbmuxd DPKG is earlier than 1.0.10-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

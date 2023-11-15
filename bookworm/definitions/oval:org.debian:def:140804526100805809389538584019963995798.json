@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:140804526100805809389538584019963995798",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1779 libarchive",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libarchive"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1779",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1779"
+      }
+    ],
+    "description": "Multiple use-after-free vulnerabilities in libarchive 2.8.4 and 2.8.5 allow remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact via a crafted (1) TAR archive or (2) ISO9660 image.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3934",
+                "comment": "libarchive DPKG is earlier than 3.0.4-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

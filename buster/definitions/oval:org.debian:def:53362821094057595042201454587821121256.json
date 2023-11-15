@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:53362821094057595042201454587821121256",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-0936 tor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "tor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0936",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0936"
+      }
+    ],
+    "description": "Unspecified vulnerability in Tor before 0.2.0.34 allows attackers to cause a denial of service (infinite loop) via \"corrupt votes.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2945",
+                "comment": "tor DPKG is earlier than 0.2.0.34-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

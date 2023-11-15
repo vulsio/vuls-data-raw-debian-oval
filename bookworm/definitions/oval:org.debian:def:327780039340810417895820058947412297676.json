@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:327780039340810417895820058947412297676",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-25739 firefox-esr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "firefox-esr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-25739",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25739"
+      }
+    ],
+    "description": "Module load requests that failed were not being checked as to whether or not they were cancelled causing a use-after-free in <code>ScriptLoadContext</code>. This vulnerability affects Firefox < 110, Thunderbird < 102.8, and Firefox ESR < 102.8.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25545",
+                "comment": "firefox-esr DPKG is earlier than 102.8.0esr-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

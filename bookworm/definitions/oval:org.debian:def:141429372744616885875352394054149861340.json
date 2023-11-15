@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:141429372744616885875352394054149861340",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-1215 heartbeat",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "heartbeat"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-1215",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1215"
+      }
+    ],
+    "description": "Multiple format string vulnerabilities in heartbeat 0.4.9 and earlier (claimed as buffer overflows in some sources) allow remote attackers to execute arbitrary code via certain packets to UDP port 694 (incorrectly claimed as TCP in some sources).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:75",
+                "comment": "heartbeat DPKG is earlier than 0.4.9.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

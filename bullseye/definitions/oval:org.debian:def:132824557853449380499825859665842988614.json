@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:132824557853449380499825859665842988614",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-1124 purity",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "purity"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-1124",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1124"
+      }
+    ],
+    "description": "Multiple buffer overflows in purity 1-16 allow local users to gain privileges and modify high scores tables.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:68",
+                "comment": "purity DPKG is earlier than 1-16"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

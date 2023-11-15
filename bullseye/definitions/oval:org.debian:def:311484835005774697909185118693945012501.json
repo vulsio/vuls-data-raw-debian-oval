@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:311484835005774697909185118693945012501",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-12066 teeworlds",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "teeworlds"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-12066",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12066"
+      }
+    ],
+    "description": "CServer::SendMsg in engine/server/server.cpp in Teeworlds 0.7.x before 0.7.5 allows remote attackers to shut down the server.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18237",
+                "comment": "teeworlds DPKG is earlier than 0.7.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

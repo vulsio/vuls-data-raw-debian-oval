@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:312648315266015080927447225475808332427",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-1729 libraw",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "libraw"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-1729",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-1729"
+      }
+    ],
+    "description": "A flaw was found in LibRaw. A heap-buffer-overflow in raw2image_ex() caused by a maliciously crafted file may lead to an application crash.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25431",
+                "comment": "libraw DPKG is earlier than 0.19.2-2+deb10u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

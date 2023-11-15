@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:307456416563080741598674514388508541182",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-2120 pdns",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pdns"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-2120",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2120"
+      }
+    ],
+    "description": "An issue has been found in PowerDNS Authoritative Server versions up to and including 3.4.10, 4.0.1 allowing an authorized user to crash the server by inserting a specially crafted record in a zone under their control then sending a DNS query for that record. The issue is due to an integer overflow when checking if the content of the record matches the expected size, allowing an attacker to cause a read past the buffer boundary.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9089",
+                "comment": "pdns DPKG is earlier than 4.0.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

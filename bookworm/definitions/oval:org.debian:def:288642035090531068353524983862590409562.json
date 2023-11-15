@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:288642035090531068353524983862590409562",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-2469 libspf2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libspf2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-2469",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2469"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the SPF_dns_resolv_lookup function in Spf_dns_resolv.c in libspf2 before 1.2.8 allows remote attackers to execute arbitrary code via a long DNS TXT record with a modified length field.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2361",
+                "comment": "libspf2 DPKG is earlier than 1.2.9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

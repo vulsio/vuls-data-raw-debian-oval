@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:133742534393252350829962473503197397281",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5291-1 mujs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mujs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-30974",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-30974"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-30975",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-30975"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-44789",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44789"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple security issues were discovered in MuJS, a lightweight JavaScript interpreter, which could result in denial of service and potentially the execution of arbitrary code.",
+      "dsa": "DSA-5291",
+      "date": "2022-11-28"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28070",
+                "comment": "mujs DPKG is earlier than 1.1.0-1+deb11u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

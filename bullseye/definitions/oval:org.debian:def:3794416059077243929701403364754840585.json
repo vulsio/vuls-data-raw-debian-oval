@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:3794416059077243929701403364754840585",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-2313 capnproto",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "capnproto"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2313",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2313"
+      }
+    ],
+    "description": "Sandstorm Cap'n Proto before 0.4.1.1 and 0.5.x before 0.5.1.2, when an application invokes the totalSize method on an object reader, allows remote peers to cause a denial of service (CPU consumption) via a crafted small message, which triggers a \"tight\" for loop.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2015-2312.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7727",
+                "comment": "capnproto DPKG is earlier than 0.4.1-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:165946802619613943480262673599368117484",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-5589 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-5589",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5589"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in phpMyAdmin before 2.11.1.2 allow remote attackers to inject arbitrary web script or HTML via certain input available in (1) PHP_SELF in (a) server_status.php, and (b) grab_globals.lib.php, (c) display_change_password.lib.php, and (d) common.lib.php in libraries/; and certain input available in PHP_SELF and (2) PATH_INFO in libraries/common.inc.php. NOTE: there might also be other vectors related to (3) REQUEST_URI.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2110",
+                "comment": "phpmyadmin DPKG is earlier than 4:2.11.1.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

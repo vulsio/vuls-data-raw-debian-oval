@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:328935159853221091397107762234221951635",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-1177 libgdata",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libgdata"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-1177",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1177"
+      }
+    ],
+    "description": "libgdata before 0.10.2 and 0.11.x before 0.11.1 does not validate SSL certificates, which allows remote attackers to obtain user names and passwords via a man-in-the-middle (MITM) attack with a spoofed certificate.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4667",
+                "comment": "libgdata DPKG is earlier than 0.10.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

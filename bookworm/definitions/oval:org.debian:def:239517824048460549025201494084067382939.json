@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:239517824048460549025201494084067382939",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1857 rails",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "rails"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1857",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1857"
+      }
+    ],
+    "description": "The sanitize helper in lib/action_controller/vendor/html-scanner/html/sanitizer.rb in the Action Pack component in Ruby on Rails before 2.3.18, 3.0.x and 3.1.x before 3.1.12, and 3.2.x before 3.2.13 does not properly handle encoded : (colon) characters in URLs, which makes it easier for remote attackers to conduct cross-site scripting (XSS) attacks via a crafted scheme name, as demonstrated by including a &#x3a; sequence.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5294",
+                "comment": "rails DPKG is earlier than 2.3.14.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

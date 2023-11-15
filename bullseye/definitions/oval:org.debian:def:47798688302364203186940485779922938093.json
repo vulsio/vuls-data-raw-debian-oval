@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:47798688302364203186940485779922938093",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-7276 otrs2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "otrs2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-7276",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-7276"
+      }
+    ],
+    "description": "Kernel/System/Web/Request.pm in Open Ticket Request System (OTRS) before 2.3.2 creates a directory under /tmp/ with 1274 permissions, which might allow local users to bypass intended access restrictions via standard filesystem operations, related to incorrect interpretation of 0700 as a decimal value.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2787",
+                "comment": "otrs2 DPKG is earlier than 2.3.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

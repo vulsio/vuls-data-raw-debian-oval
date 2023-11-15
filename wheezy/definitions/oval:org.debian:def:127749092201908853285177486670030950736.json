@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:127749092201908853285177486670030950736",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3133-1 privoxy",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "privoxy"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-1031",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1031"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMultiple use-after-frees were discovered in Privoxy, a privacy-enhancing HTTP proxy.",
+      "dsa": "DSA-3133",
+      "date": "2015-01-20"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2061",
+                "comment": "privoxy DPKG is earlier than 3.0.19-2+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

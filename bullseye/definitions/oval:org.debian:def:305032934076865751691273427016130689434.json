@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:305032934076865751691273427016130689434",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-0292 dbus-glib",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dbus-glib"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-0292",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0292"
+      }
+    ],
+    "description": "The dbus_g_proxy_manager_filter function in dbus-gproxy in Dbus-glib before 0.100.1 does not properly verify the sender of NameOwnerChanged signals, which allows local users to gain privileges via a spoofed signal.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5345",
+                "comment": "dbus-glib DPKG is earlier than 0.100.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

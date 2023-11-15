@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:302151061206849517421771489075263469835",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-28049 sddm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "sddm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-28049",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28049"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Fabian Vogt discovered a flaw in sddm, a modern display manager for X11. A local attacker can take advantage of a race condition when creating the Xauthority file to escalate privileges.",
+      "dsa": "DSA-4783"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19659",
+                "comment": "sddm DPKG is earlier than 0.18.0-1+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

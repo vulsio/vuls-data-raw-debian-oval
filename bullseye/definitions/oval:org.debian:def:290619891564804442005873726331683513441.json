@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:290619891564804442005873726331683513441",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4994-1 bind9",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "bind9"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-25219",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-25219"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Kishore Kumar Kothapalli discovered that the lame server cache in BIND, a DNS server implementation, can be abused by an attacker to significantly degrade resolver performance, resulting in denial of service (large delays for responses for client queries and DNS timeouts on client hosts).",
+      "dsa": "DSA-4994",
+      "date": "2021-10-28"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27787",
+                "comment": "bind9 DPKG is earlier than 1:9.16.22-1~deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

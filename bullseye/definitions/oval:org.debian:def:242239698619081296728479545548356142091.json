@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:242239698619081296728479545548356142091",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-6121 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-6121",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6121"
+      }
+    ],
+    "description": "Wireshark (formerly Ethereal) 0.8.16 to 0.99.6 allows remote attackers to cause a denial of service (crash) via a malformed RPC Portmap packet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2163",
+                "comment": "wireshark DPKG is earlier than 0.99.7~pre1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

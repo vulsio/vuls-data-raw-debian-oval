@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:112595749052775278788023778132686912705",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-44487 tomcat9",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "tomcat9"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-44487",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-44487"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nA regression was discovered in the Http2UpgradeHandler class of Tomcat 9 introduced by the patch to fix <a href=\"https://security-tracker.debian.org/tracker/CVE-2023-44487\">CVE-2023-44487</a> (Rapid Reset Attack). A wrong value for the overheadcount variable forced HTTP2 connections to close early.",
+      "dsa": "DSA-5522"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27503",
+                "comment": "tomcat9 DPKG is earlier than 9.0.43-2~deb11u9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

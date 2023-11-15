@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:162658942353361423086834766905425960779",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-4337 cups-filters",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cups-filters"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-4337",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4337"
+      }
+    ],
+    "description": "The process_browse_data function in utils/cups-browsed.c in cups-browsed in cups-filters before 1.0.53 allows remote attackers to cause a denial of service (out-of-bounds read and application crash) via crafted packet data.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6841",
+                "comment": "cups-filters DPKG is earlier than 1.0.53-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

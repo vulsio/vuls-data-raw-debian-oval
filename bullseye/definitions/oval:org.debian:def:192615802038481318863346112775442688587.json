@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:192615802038481318863346112775442688587",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-10120 firejail",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "firejail"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-10120",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10120"
+      }
+    ],
+    "description": "Firejail uses 0777 permissions when mounting (1) /dev, (2) /dev/shm, (3) /var/tmp, or (4) /var/lock, which allows local users to gain privileges.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8782",
+                "comment": "firejail DPKG is earlier than 0.9.38-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

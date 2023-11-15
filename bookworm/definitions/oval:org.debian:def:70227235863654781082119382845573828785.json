@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:70227235863654781082119382845573828785",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-6441 lxc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "lxc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6441",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6441"
+      }
+    ],
+    "description": "The lxc-sshd template (templates/lxc-sshd.in) in LXC before 1.0.0.beta2 uses read-write permissions when mounting /sbin/init, which allows local users to gain privileges by modifying the init file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5926",
+                "comment": "lxc DPKG is earlier than 1.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

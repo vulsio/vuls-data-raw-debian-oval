@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:136204493724214595466068692370031024180",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2962-1 nspr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "nspr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-1545",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1545"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAbhiskek Arya discovered an out of bounds write in the cvt_t() function  of the NetScape Portable Runtime Library which could result in the  execution of arbitrary code.",
+      "dsa": "DSA-2962",
+      "date": "2014-06-17"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1348",
+                "comment": "nspr DPKG is earlier than 2:4.9.2-1+deb7u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

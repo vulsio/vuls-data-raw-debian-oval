@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:223350212977659049992281107544068310628",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-5031 dibbler",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dibbler"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-5031",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5031"
+      }
+    ],
+    "description": "The TSrvOptIA_NA::rebind method in SrvOptions/SrvOptIA_NA.cpp in Dibbler 0.6.0 allows remote attackers to cause a denial of service (NULL dereference and daemon crash) via an invalid IA_NA option in a REBIND message.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2073",
+                "comment": "dibbler DPKG is earlier than 0.6.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

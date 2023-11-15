@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:143689459849777754296444275126869588778",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-5263 firefox-esr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "firefox-esr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-5263",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5263"
+      }
+    ],
+    "description": "The nsDisplayList::HitTest function in Mozilla Firefox before 48.0 and Firefox ESR 45.x before 45.3 mishandles rendering display transformation, which allows remote attackers to execute arbitrary code via a crafted web site that leverages \"type confusion.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9812",
+                "comment": "firefox-esr DPKG is earlier than 45.3.0esr-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

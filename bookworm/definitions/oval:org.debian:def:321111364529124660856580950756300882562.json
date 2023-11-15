@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:321111364529124660856580950756300882562",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8133 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8133",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8133"
+      }
+    ],
+    "description": "arch/x86/kernel/tls.c in the Thread Local Storage (TLS) implementation in the Linux kernel through 3.18.1 allows local users to bypass the espfix protection mechanism, and consequently makes it easier for local users to bypass the ASLR protection mechanism, via a crafted application that makes a set_thread_area system call and later reads a 16-bit value.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6848",
+                "comment": "linux DPKG is earlier than 3.16.7-ckt4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

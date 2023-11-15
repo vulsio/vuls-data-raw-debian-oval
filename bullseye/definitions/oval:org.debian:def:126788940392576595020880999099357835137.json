@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:126788940392576595020880999099357835137",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-46239 gpac",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gpac"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-46239",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-46239"
+      }
+    ],
+    "description": "The binary MP4Box in GPAC v1.1.0 was discovered to contain an invalid free vulnerability via the function gf_free () at utils/alloc.c. This vulnerability can lead to a Denial of Service (DoS).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23178",
+                "comment": "gpac DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:300154866088903236976785109081876062642",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-0792 argyll",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "argyll"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0792",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0792"
+      }
+    ],
+    "description": "Multiple integer overflows in icc.c in the International Color Consortium (ICC) Format library (aka icclib), as used in Ghostscript 8.64 and earlier and Argyll Color Management System (CMS) 1.0.3 and earlier, allow context-dependent attackers to cause a denial of service (heap-based buffer overflow and application crash) or possibly execute arbitrary code by using a device file for a translation request that operates on a crafted image file and targets a certain \"native color space,\" related to an ICC profile in a (1) PostScript or (2) PDF file with embedded images.  NOTE: this issue exists because of an incomplete fix for CVE-2009-0583.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2885",
+                "comment": "argyll DPKG is earlier than 1.0.3-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

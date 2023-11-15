@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:274309510315447331139305364599903633551",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2576-1 trousers",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "trousers"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-0698",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0698"
+      }
+    ],
+    "description": "denial of service",
+    "debian": {
+      "moreinfo": "\nAndy Lutomirski discovered that tcsd (the TPM userspace daemon) was missing input validation. Using carefully crafted input, it can lead to a denial of service by making the daemon crash with a segmentation fault.",
+      "dsa": "DSA-2576",
+      "date": "2012-11-23"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2993",
+                "comment": "trousers DPKG is earlier than 0.3.9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

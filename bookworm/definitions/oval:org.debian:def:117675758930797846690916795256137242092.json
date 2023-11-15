@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:117675758930797846690916795256137242092",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-3524 linux-ftpd-ssl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux-ftpd-ssl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-3524",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3524"
+      }
+    ],
+    "description": "Buffer overflow in the SSL-ready version of linux-ftpd (linux-ftpd-ssl) 0.17 allows remote attackers to execute arbitrary code by creating a long directory name, then executing the XPWD command.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1037",
+                "comment": "linux-ftpd-ssl DPKG is earlier than 0.17.18+0.3-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

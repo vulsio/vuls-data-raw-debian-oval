@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:73292640797762317329793634435054803281",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-16600 mupdf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mupdf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-16600",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-16600"
+      }
+    ],
+    "description": "A Use After Free vulnerability exists in Artifex Software, Inc. MuPDF library 1.17.0-rc1 and earlier when a valid page was followed by a page with invalid pixmap dimensions, causing bander - a static - to point to previously freed memory instead of a newband_writer.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18812",
+                "comment": "mupdf DPKG is earlier than 1.17.0+ds1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

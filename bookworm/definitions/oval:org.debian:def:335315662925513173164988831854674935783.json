@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:335315662925513173164988831854674935783",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-0635 bind9",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "bind9"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-0635",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0635"
+      }
+    ],
+    "description": "Versions affected: BIND 9.18.0 When a vulnerable version of named receives a series of specific queries, the named process will eventually terminate due to a failed assertion check.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22393",
+                "comment": "bind9 DPKG is earlier than 1:9.18.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

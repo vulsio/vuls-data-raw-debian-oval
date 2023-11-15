@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:166176436497053924758409446194557369193",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-1299 pulseaudio",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "pulseaudio"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-1299",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1299"
+      }
+    ],
+    "description": "The pa_make_secure_dir function in core-util.c in PulseAudio 0.9.10 and 0.9.19 allows local users to change the ownership and permissions of arbitrary files via a symlink attack on a /tmp/.esd-##### temporary file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2847",
+                "comment": "pulseaudio DPKG is earlier than 0.9.21-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

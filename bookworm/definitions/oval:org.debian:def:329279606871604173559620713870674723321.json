@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:329279606871604173559620713870674723321",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-3459 openvpn",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openvpn"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-3459",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3459"
+      }
+    ],
+    "description": "Unspecified vulnerability in OpenVPN 2.1-beta14 through 2.1-rc8, when running on non-Windows systems, allows remote servers to execute arbitrary commands via crafted (1) lladdr and (2) iproute configuration directives, probably related to shell metacharacters.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2417",
+                "comment": "openvpn DPKG is earlier than 2.1~rc9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

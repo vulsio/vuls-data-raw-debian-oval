@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:128667523317966163563555304001486259507",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-0878 pastescript",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "pastescript"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-0878",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0878"
+      }
+    ],
+    "description": "Paste Script 1.7.5 and earlier does not properly set group memberships during execution with root privileges, which might allow remote attackers to bypass intended file-access restrictions by leveraging a web application that uses the local filesystem.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4422",
+                "comment": "pastescript DPKG is earlier than 1.7.5-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

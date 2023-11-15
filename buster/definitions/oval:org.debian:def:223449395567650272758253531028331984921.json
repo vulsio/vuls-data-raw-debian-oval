@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:223449395567650272758253531028331984921",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2937 roundcube",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "roundcube"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2937",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2937"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in the UI messages functionality in Roundcube Webmail before 0.5.4 allows remote attackers to inject arbitrary web script or HTML via the _mbox parameter to the default URI.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4372",
+                "comment": "roundcube DPKG is earlier than 0.5.4+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

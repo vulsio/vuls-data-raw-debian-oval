@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:127334497129940281251777330718288610187",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-2541 cscope",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cscope"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-2541",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-2541"
+      }
+    ],
+    "description": "Buffer overflow in Cscope 15.5, and possibly multiple overflows, allows remote attackers to execute arbitrary code via a C file with a long #include line that is later browsed by the target.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:660",
+                "comment": "cscope DPKG is earlier than 15.5+cvs20050816-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

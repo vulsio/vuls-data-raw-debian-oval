@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:278885520073312219794711638734155521626",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-3427 quassel",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "quassel"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3427",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3427"
+      }
+    ],
+    "description": "Quassel before 0.12.2 does not properly re-initialize the database session when the PostgreSQL database is restarted, which allows remote attackers to conduct SQL injection attacks via a \\ (backslash) in a message.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2013-4422.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7884",
+                "comment": "quassel DPKG is earlier than 1:0.10.0-2.4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

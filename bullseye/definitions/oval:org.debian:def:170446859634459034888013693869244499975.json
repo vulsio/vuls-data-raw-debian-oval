@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:170446859634459034888013693869244499975",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-27239 cifs-utils",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cifs-utils"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-27239",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27239"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Jeffrey Bencteux reported two vulnerabilities in cifs-utils, the Common Internet File System utilities, which can result in escalation of privileges (<a href=\"https://security-tracker.debian.org/tracker/CVE-2022-27239\">CVE-2022-27239</a>) or an information leak (<a href=\"https://security-tracker.debian.org/tracker/CVE-2022-29869\">CVE-2022-29869</a>).",
+      "dsa": "DSA-5157"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24356",
+                "comment": "cifs-utils DPKG is earlier than 2:6.11-3.1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

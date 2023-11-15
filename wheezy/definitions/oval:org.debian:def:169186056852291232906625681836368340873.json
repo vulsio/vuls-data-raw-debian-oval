@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:169186056852291232906625681836368340873",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2976-1 eglibc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "eglibc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0475",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0475"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nStephane Chazelas discovered that the GNU C library, glibc, processed \"..\" path segments in locale-related environment variables, possibly allowing attackers to circumvent intended restrictions, such as ForceCommand in OpenSSH, assuming that they can supply crafted locale settings.",
+      "dsa": "DSA-2976",
+      "date": "2014-07-10"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3335",
+                "comment": "eglibc DPKG is earlier than 2.13-38+deb7u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

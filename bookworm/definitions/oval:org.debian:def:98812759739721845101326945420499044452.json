@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:98812759739721845101326945420499044452",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-38854 r-cran-readxl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "r-cran-readxl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-38854",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38854"
+      }
+    ],
+    "description": "Buffer Overflow vulnerability in libxlsv.1.6.2 allows a remote attacker to execute arbitrary code and cause a denial of service via a crafted XLS file to the transcode_latin1_to_utf8 function in xlstool.c:296.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26350",
+                "comment": "r-cran-readxl DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

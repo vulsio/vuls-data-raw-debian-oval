@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:14559458406723305329469878200654160121",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-7644 simplesamlphp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "simplesamlphp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-7644",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7644"
+      }
+    ],
+    "description": "The XmlSecLibs library as used in the saml2 library in SimpleSAMLphp before 1.15.3 incorrectly verifies signatures on SAML assertions, allowing a remote attacker to construct a crafted SAML assertion on behalf of an Identity Provider that would pass as cryptographically valid, thereby allowing them to impersonate a user from that Identity Provider, aka a key confusion issue.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14932",
+                "comment": "simplesamlphp DPKG is earlier than 1.15.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

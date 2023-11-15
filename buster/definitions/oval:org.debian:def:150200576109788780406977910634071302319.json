@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:150200576109788780406977910634071302319",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-4474 freeradius",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "freeradius"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-4474",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4474"
+      }
+    ],
+    "description": "freeradius-dialupadmin in freeradius 2.0.4 allows local users to overwrite arbitrary files via a symlink attack on temporary files in (1) backup_radacct, (2) clean_radacct, (3) monthly_tot_stats, (4) tot_stats, and (5) truncate_radacct.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2604",
+                "comment": "freeradius DPKG is earlier than 2.0.4+dfsg-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

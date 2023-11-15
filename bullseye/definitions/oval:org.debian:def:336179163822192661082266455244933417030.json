@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:336179163822192661082266455244933417030",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-0206 pdns",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pdns"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-0206",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0206"
+      }
+    ],
+    "description": "common_startup.cc in PowerDNS (aka pdns) Authoritative Server before 2.9.22.5 and 3.x before 3.0.1 allows remote attackers to cause a denial of service (packet loop) via a crafted UDP DNS response.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4540",
+                "comment": "pdns DPKG is earlier than 3.0-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

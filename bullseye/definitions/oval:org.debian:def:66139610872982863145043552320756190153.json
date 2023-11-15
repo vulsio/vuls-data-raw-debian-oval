@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:66139610872982863145043552320756190153",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-3431 pam",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pam"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-3431",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3431"
+      }
+    ],
+    "description": "The privilege-dropping implementation in the (1) pam_env and (2) pam_mail modules in Linux-PAM (aka pam) 1.1.2 does not check the return value of the setfsuid system call, which might allow local users to obtain sensitive information by leveraging an unintended uid, as demonstrated by a symlink attack on the .pam_environment file in a user's home directory.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2010-3435.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3731",
+                "comment": "pam DPKG is earlier than 1.1.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

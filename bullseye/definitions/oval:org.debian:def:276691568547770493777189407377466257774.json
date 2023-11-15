@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:276691568547770493777189407377466257774",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-12979 dokuwiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dokuwiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-12979",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12979"
+      }
+    ],
+    "description": "DokuWiki through 2017-02-19c has stored XSS when rendering a malicious language name in a code element, in /inc/parser/xhtml.php. An attacker can create or edit a wiki with this element to trigger JavaScript execution.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11075",
+                "comment": "dokuwiki DPKG is earlier than 0.0.20180422.a-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

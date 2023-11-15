@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:47254947272627700181446561953752379769",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-7617 asterisk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "asterisk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-7617",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7617"
+      }
+    ],
+    "description": "Remote code execution can occur in Asterisk Open Source 13.x before 13.14.1 and 14.x before 14.3.1 and Certified Asterisk 13.13 before 13.13-cert3 because of a buffer overflow in a CDR user field, related to X-ClientCode in chan_sip, the CDR dialplan function, and the AMI Monitor action.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12731",
+                "comment": "asterisk DPKG is earlier than 1:13.14.1~dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

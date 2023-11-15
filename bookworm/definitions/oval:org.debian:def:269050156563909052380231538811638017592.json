@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:269050156563909052380231538811638017592",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-4678 ansible",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ansible"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-4678",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4678"
+      }
+    ],
+    "description": "The safe_eval function in Ansible before 1.6.4 does not properly restrict the code subset, which allows remote attackers to execute arbitrary code via crafted instructions. NOTE: this vulnerability exists because of an incomplete fix for CVE-2014-4657.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6616",
+                "comment": "ansible DPKG is earlier than 1.6.6+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:264771208606369601699910438782776505591",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-19451 dia",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "dia"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-19451",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19451"
+      }
+    ],
+    "description": "When GNOME Dia before 2019-11-27 is launched with a filename argument that is not a valid codepoint in the current encoding, it enters an endless loop, thus endlessly writing text to stdout. If this launch is from a thumbnailer service, this output will usually be written to disk via the system's logging facility (potentially with elevated privileges), thus filling up the disk and eventually rendering the system unusable. (The filename can be for a nonexistent file.) NOTE: this does not affect an upstream release, but affects certain Linux distribution packages with version numbers such as 0.97.3.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17121",
+                "comment": "dia DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:218417765216821275615099083257030135226",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-22817 pillow",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pillow"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-22817",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22817"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple security issues were discovered in Pillow, a Python imaging library, which could result in denial of service and potentially the execution of arbitrary code if malformed images are processed.",
+      "dsa": "DSA-5053"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23915",
+                "comment": "pillow DPKG is earlier than 8.1.2+dfsg-0.3+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

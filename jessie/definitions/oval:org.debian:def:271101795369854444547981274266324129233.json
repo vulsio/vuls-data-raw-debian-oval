@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:271101795369854444547981274266324129233",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3826-1 tryton-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "tryton-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-0360",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0360"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that the original patch to address <a href=\"https://security-tracker.debian.org/tracker/CVE-2016-1242\">CVE-2016-1242</a> did not cover all cases, which may result in information disclosure of file contents.",
+      "dsa": "DSA-3826",
+      "date": "2017-04-04"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4515",
+                "comment": "tryton-server DPKG is earlier than 3.4.0-3+deb8u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

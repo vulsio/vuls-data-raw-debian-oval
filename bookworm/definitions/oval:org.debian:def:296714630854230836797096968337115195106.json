@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:296714630854230836797096968337115195106",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-4295 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-4295",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4295"
+      }
+    ],
+    "description": "Array index error in the channelised_fill_sdh_g707_format function in epan/dissectors/packet-erf.c in the ERF dissector in Wireshark 1.8.x before 1.8.2 might allow remote attackers to cause a denial of service (application crash) via a crafted speed (aka rate) value.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4803",
+                "comment": "wireshark DPKG is earlier than 1.8.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:59124370216310655851783712841486661496",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3649-1 gnupg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "gnupg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-6313",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6313"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nFelix Doerre and Vladimir Klebanov from the Karlsruhe Institute of Technology discovered a flaw in the mixing functions of GnuPG's random number generator. An attacker who obtains 4640 bits from the RNG can trivially predict the next 160 bits of output.",
+      "dsa": "DSA-3649",
+      "date": "2016-08-17"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4343",
+                "comment": "gnupg DPKG is earlier than 1.4.18-7+deb8u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

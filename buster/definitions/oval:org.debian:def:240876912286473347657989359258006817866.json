@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:240876912286473347657989359258006817866",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-2465 mp3info",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "mp3info"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-2465",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2465"
+      }
+    ],
+    "description": "Buffer overflow in MP3Info 0.8.4 allows attackers to execute arbitrary code via a long command line argument.  NOTE: if mp3info is not installed setuid or setgid in any reasonable context, then this issue might not be a vulnerability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1343",
+                "comment": "mp3info DPKG is earlier than 0.8.4-9.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

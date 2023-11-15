@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:16011749507858536030552713890051500807",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4247-1 ruby-rack-protection",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "ruby-rack-protection"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1000119",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000119"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nA timing attack was discovered in the function for CSRF token validation of the <q>Ruby rack protection</q> framework.",
+      "dsa": "DSA-4247",
+      "date": "2018-07-16"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1889",
+                "comment": "ruby-rack-protection DPKG is earlier than 1.5.3-2+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

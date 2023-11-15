@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:209152382642874740777434303546773467817",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-8106 xpdf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xpdf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-8106",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8106"
+      }
+    ],
+    "description": "The JPXStream::readTilePartData function in JPXStream.cc in xpdf 4.00 allows attackers to launch denial of service (heap-based buffer over-read and application crash) via a specific pdf file, as demonstrated by pdftohtml.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15426",
+                "comment": "xpdf DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

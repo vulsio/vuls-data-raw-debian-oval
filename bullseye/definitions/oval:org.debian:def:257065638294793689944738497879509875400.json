@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:257065638294793689944738497879509875400",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-4514 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4514",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4514"
+      }
+    ],
+    "description": "Multiple buffer overflows in drivers/staging/wlags49_h2/wl_priv.c in the Linux kernel before 3.12 allow local users to cause a denial of service or possibly have unspecified other impact by leveraging the CAP_NET_ADMIN capability and providing a long station-name string, related to the (1) wvlan_uil_put_info and (2) wvlan_set_station_nickname functions.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5980",
+                "comment": "linux DPKG is earlier than 3.12-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

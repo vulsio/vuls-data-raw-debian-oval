@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:332080840404087019523133200116489069508",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2526-1 libotr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "libotr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3461",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3461"
+      }
+    ],
+    "description": "heap-based buffer overflows",
+    "debian": {
+      "moreinfo": "\nJust Ferguson discovered that libotr, an off-the-record (OTR) messaging library, can be forced to perform zero-length allocations for heap buffers that are used in base64 decoding routines.  An attacker can exploit this flaw by sending crafted messages to an application that is using libotr to perform denial of service attacks or potentially execute arbitrary code.",
+      "dsa": "DSA-2526",
+      "date": "2012-08-12"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2971",
+                "comment": "libotr DPKG is earlier than 3.2.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

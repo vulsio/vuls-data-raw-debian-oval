@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:49317810846151410796229351316011290699",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-2175 haproxy",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "haproxy"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2175",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2175"
+      }
+    ],
+    "description": "HAProxy 1.4 before 1.4.24 and 1.5 before 1.5-dev19, when configured to use hdr_ip or other \"hdr_*\" functions with a negative occurrence count, allows remote attackers to cause a denial of service (negative array index usage and crash) via an HTTP header with a certain number of values, related to the MAX_HDR_HISTORY variable.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5648",
+                "comment": "haproxy DPKG is earlier than 1.4.24-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

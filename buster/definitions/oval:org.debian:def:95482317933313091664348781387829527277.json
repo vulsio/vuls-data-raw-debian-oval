@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:95482317933313091664348781387829527277",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-14498 vlc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "vlc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-14498",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14498"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple security issues were discovered in the VLC media player, which could result in the execution of arbitrary code or denial of service if a malformed file/stream is processed.",
+      "dsa": "DSA-4504"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:16549",
+                "comment": "vlc DPKG is earlier than 3.0.8-0+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:271617246553383537120599808979697642751",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-0540 cups",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cups"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-0540",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0540"
+      }
+    ],
+    "description": "Cross-site request forgery (CSRF) vulnerability in the web interface in CUPS before 1.4.4, as used on Apple Mac OS X 10.5.8, Mac OS X 10.6 before 10.6.4, and other platforms, allows remote attackers to hijack the authentication of administrators for requests that change settings.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3447",
+                "comment": "cups DPKG is earlier than 1.4.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

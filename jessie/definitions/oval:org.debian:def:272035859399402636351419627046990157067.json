@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:272035859399402636351419627046990157067",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4227-1 plexus-archiver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "plexus-archiver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1002200",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1002200"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nDanny Grander discovered a directory traversal flaw in plexus-archiver, an Archiver plugin for the Plexus compiler system, allowing an attacker to overwrite any file writable by the extracting user via a specially crafted Zip archive.",
+      "dsa": "DSA-4227",
+      "date": "2018-06-12"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3608",
+                "comment": "plexus-archiver DPKG is earlier than 1.2-1+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

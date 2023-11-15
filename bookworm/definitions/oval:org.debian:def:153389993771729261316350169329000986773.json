@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:153389993771729261316350169329000986773",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-6169 ejabberd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ejabberd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6169",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6169"
+      }
+    ],
+    "description": "The TLS driver in ejabberd before 2.1.12 supports (1) SSLv2 and (2) weak SSL ciphers, which makes it easier for remote attackers to obtain sensitive information via a brute-force attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5863",
+                "comment": "ejabberd DPKG is earlier than 2.1.11-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

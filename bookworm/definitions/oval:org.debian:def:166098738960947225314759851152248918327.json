@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:166098738960947225314759851152248918327",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-25636 libreoffice",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libreoffice"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-25636",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-25636"
+      }
+    ],
+    "description": "LibreOffice supports digital signatures of ODF documents and macros within documents, presenting visual aids that no alteration of the document occurred since the last signing and that the signature is valid. An Improper Certificate Validation vulnerability in LibreOffice allowed an attacker to create a digitally signed ODF document, by manipulating the documentsignatures.xml or macrosignatures.xml stream within the document to contain both \"X509Data\" and \"KeyValue\" children of the \"KeyInfo\" tag, which when opened caused LibreOffice to verify using the \"KeyValue\" but to report verification with the unrelated \"X509Data\" value. This issue affects: The Document Foundation LibreOffice 7.2 versions prior to 7.2.5.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20303",
+                "comment": "libreoffice DPKG is earlier than 1:7.3.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

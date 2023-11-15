@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:6679983772467412127354654935050504120",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-3979 ceph",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "ceph"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3979",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3979"
+      }
+    ],
+    "description": "A key length flaw was found in Red Hat Ceph Storage. An attacker can exploit the fact that the key length is incorrectly passed in an encryption algorithm to create a non random key, which is weaker and can be exploited for loss of confidentiality and integrity on encrypted disks.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22230",
+                "comment": "ceph DPKG is earlier than 12.2.11+dfsg1-2.1+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

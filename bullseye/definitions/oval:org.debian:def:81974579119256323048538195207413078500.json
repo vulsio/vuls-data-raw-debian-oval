@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:81974579119256323048538195207413078500",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-40299 singular",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "singular"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-40299",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-40299"
+      }
+    ],
+    "description": "In Singular before 4.3.1, a predictable /tmp pathname is used (e.g., by sdb.cc), which allows local users to gain the privileges of other users via a procedure in a file under /tmp. NOTE: this CVE Record is about sdb.cc and similar files in the Singular interface that have predictable /tmp pathnames; this CVE Record is not about the lack of a safe temporary-file creation capability in the Singular language.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25321",
+                "comment": "singular DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:288835402428968584292449562580090160974",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-5580 virglrenderer",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "virglrenderer"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5580",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5580"
+      }
+    ],
+    "description": "The parse_instruction function in gallium/auxiliary/tgsi/tgsi_text.c in virglrenderer before 0.6.0 allows local guest OS users to cause a denial of service (out-of-bounds array access and process crash) via a crafted texture instruction.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12447",
+                "comment": "virglrenderer DPKG is earlier than 0.6.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

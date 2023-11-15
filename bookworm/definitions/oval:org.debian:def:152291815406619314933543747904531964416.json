@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:152291815406619314933543747904531964416",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-15691 uimaj",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "uimaj"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-15691",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15691"
+      }
+    ],
+    "description": "In Apache uimaj prior to 2.10.2, Apache uimaj 3.0.0-xxx prior to 3.0.0-beta, Apache uima-as prior to 2.10.2, Apache uimaFIT prior to 2.4.0, Apache uimaDUCC prior to 2.2.2, this vulnerability relates to an XML external entity expansion (XXE) capability of various XML parsers. UIMA as part of its configuration and operation may read XML from various sources, which could be tainted in ways to cause inadvertent disclosure of local files or other internal content.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11225",
+                "comment": "uimaj DPKG is earlier than 2.10.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

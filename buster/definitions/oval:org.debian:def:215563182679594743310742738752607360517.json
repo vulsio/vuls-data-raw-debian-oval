@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:215563182679594743310742738752607360517",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-5419 rails",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "rails"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-5419",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5419"
+      }
+    ],
+    "description": "There is a possible denial of service vulnerability in Action View (Rails) <5.2.2.1, <5.1.6.2, <5.0.7.2, <4.2.11.1 where specially crafted accept headers can cause action view to consume 100% cpu and make the server unresponsive.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17530",
+                "comment": "rails DPKG is earlier than 2:5.2.2.1+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

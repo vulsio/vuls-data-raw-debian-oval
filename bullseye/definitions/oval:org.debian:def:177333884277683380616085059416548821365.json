@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:177333884277683380616085059416548821365",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-4596 nova",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "nova"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-4596",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4596"
+      }
+    ],
+    "description": "Multiple directory traversal vulnerabilities in OpenStack Nova before 2011.3.1, when the EC2 API and the S3/RegisterImage image-registration method are enabled, allow remote authenticated users to overwrite arbitrary files via a crafted (1) tarball or (2) manifest.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4443",
+                "comment": "nova DPKG is earlier than 2012.1~e1-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

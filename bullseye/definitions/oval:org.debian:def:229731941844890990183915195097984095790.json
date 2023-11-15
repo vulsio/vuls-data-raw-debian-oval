@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:229731941844890990183915195097984095790",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-0602 unzip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "unzip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-0602",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0602"
+      }
+    ],
+    "description": "Unzip 5.51 and earlier does not properly warn the user when extracting setuid or setgid files, which may allow local users to gain privileges.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:772",
+                "comment": "unzip DPKG is earlier than 5.52-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

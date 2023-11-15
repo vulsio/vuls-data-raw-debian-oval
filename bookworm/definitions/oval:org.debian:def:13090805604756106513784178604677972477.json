@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:13090805604756106513784178604677972477",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8106 latex2rtf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "latex2rtf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8106",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8106"
+      }
+    ],
+    "description": "Format string vulnerability in the CmdKeywords function in funct1.c in latex2rtf before 2.3.10 allows remote attackers to execute arbitrary code via format string specifiers in the \\keywords command in a crafted TeX file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8020",
+                "comment": "latex2rtf DPKG is earlier than 2.3.10-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

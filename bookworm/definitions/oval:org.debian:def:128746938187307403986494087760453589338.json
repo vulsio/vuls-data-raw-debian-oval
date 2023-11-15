@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:128746938187307403986494087760453589338",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-2635 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2635",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2635"
+      }
+    ],
+    "description": "The rtnl_fill_ifinfo function in net/core/rtnetlink.c in the Linux kernel before 3.8.4 does not initialize a certain structure member, which allows local users to obtain sensitive information from kernel stack memory via a crafted application.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5493",
+                "comment": "linux DPKG is earlier than 3.2.41-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

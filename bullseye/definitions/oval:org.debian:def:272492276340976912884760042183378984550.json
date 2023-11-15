@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:272492276340976912884760042183378984550",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-6427 hplip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "hplip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6427",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6427"
+      }
+    ],
+    "description": "upgrade.py in the hp-upgrade service in HP Linux Imaging and Printing (HPLIP) 3.x through 3.13.11 launches a program from an http URL, which allows man-in-the-middle attackers to execute arbitrary code by gaining control over the client-server data stream.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6153",
+                "comment": "hplip DPKG is earlier than 3.13.11-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

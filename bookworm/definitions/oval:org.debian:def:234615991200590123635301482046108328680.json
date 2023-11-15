@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:234615991200590123635301482046108328680",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2003-0596 fdclone",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "fdclone"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2003-0596",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0596"
+      }
+    ],
+    "description": "FDclone 2.00a, and other versions before 2.02a, creates temporary directories with predictable names and uses them if they already exist, which allows local users to read or modify files of other fdclone users by creating the directory ahead of time.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:267",
+                "comment": "fdclone DPKG is earlier than 2.04-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

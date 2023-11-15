@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:334187668125862654033236442318110058143",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-0193 nvidia-cuda-toolkit",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "nvidia-cuda-toolkit"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-0193",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0193"
+      }
+    ],
+    "description": "\nNVIDIA CUDA Toolkit SDK contains a vulnerability in cuobjdump, where a local user running the tool against a malicious binary may cause an out-of-bounds read, which may result in a limited denial of service and limited information disclosure.\n\n",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26007",
+                "comment": "nvidia-cuda-toolkit DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

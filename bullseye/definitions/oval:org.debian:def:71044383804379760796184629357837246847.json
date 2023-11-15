@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:71044383804379760796184629357837246847",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-12941 unrar-nonfree",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "unrar-nonfree"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-12941",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12941"
+      }
+    ],
+    "description": "libunrar.a in UnRAR before 5.5.7 has an out-of-bounds read in the Unpack::Unpack20 function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11059",
+                "comment": "unrar-nonfree DPKG is earlier than 1:5.5.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

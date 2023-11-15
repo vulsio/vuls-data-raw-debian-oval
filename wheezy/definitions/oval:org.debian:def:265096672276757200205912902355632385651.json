@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:265096672276757200205912902355632385651",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2910-1 qemu-kvm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "qemu-kvm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0150",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0150"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMichael S. Tsirkin of Red Hat discovered a buffer overflow flaw in the way qemu processed MAC addresses table update requests from the guest.",
+      "dsa": "DSA-2910",
+      "date": "2014-04-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1213",
+                "comment": "qemu-kvm DPKG is earlier than 1.1.2+dfsg-6+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

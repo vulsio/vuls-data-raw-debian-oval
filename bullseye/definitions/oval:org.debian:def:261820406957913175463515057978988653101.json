@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:261820406957913175463515057978988653101",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-21661 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-21661",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21661"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Several vulnerabilities were discovered in Wordpress, a web blogging tool. They allowed remote attackers to perform SQL injection, run unchecked SQL queries, bypass hardening, or perform Cross-Site Scripting (XSS) attacks.",
+      "dsa": "DSA-5039"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23800",
+                "comment": "wordpress DPKG is earlier than 5.7.5+dfsg1-0+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

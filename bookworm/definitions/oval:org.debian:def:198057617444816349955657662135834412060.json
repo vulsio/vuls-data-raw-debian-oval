@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:198057617444816349955657662135834412060",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-1000061 xmlsec1",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xmlsec1"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-1000061",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000061"
+      }
+    ],
+    "description": "xmlsec 1.2.23 and before is vulnerable to XML External Entity Expansion when parsing crafted input documents, resulting in possible information disclosure or denial of service",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10201",
+                "comment": "xmlsec1 DPKG is earlier than 1.2.24-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

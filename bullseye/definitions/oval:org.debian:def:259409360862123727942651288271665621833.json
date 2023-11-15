@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:259409360862123727942651288271665621833",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-4523 opensc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "opensc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-4523",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4523"
+      }
+    ],
+    "description": "Multiple stack-based buffer overflows in libopensc in OpenSC 0.11.13 and earlier allow physically proximate attackers to execute arbitrary code via a long serial-number field on a smart card, related to (1) card-acos5.c, (2) card-atrust-acos.c, and (3) card-starcos.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3834",
+                "comment": "opensc DPKG is earlier than 0.11.13-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

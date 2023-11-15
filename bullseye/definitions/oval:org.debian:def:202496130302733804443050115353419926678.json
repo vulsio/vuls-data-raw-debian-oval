@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:202496130302733804443050115353419926678",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-6750 glib2.0",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "glib2.0"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-6750",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-6750"
+      }
+    ],
+    "description": "GSocketClient in GNOME GLib through 2.62.4 may occasionally connect directly to a target address instead of connecting via a proxy server when configured to do so, because the proxy_addr field is mishandled. This bug is timing-dependent and may occur only sporadically depending on network delays. The greatest security relevance is in use cases where a proxy is used to help with privacy/anonymity, even though there is no technical barrier to a direct connection. NOTE: versions before 2.60 are unaffected.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20239",
+                "comment": "glib2.0 DPKG is earlier than 2.62.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

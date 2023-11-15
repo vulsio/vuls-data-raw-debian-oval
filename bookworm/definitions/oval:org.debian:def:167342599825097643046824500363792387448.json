@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:167342599825097643046824500363792387448",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-3590 glibc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "glibc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-3590",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3590"
+      }
+    ],
+    "description": "The getgrouplist function in the GNU C library (glibc) before version 2.3.5, when invoked with a zero argument, writes to the passed pointer even if the specified array size is zero, leading to a buffer overflow and potentially allowing attackers to corrupt memory.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1046",
+                "comment": "glibc DPKG is earlier than 2.3.5-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

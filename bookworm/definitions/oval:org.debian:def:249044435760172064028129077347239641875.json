@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:249044435760172064028129077347239641875",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-21694 onionshare",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "onionshare"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-21694",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21694"
+      }
+    ],
+    "description": "OnionShare is an open source tool that lets you securely and anonymously share files, host websites, and chat with friends using the Tor network. The website mode of the onionshare allows to use a hardened CSP, which will block any scripts and external resources. It is not possible to configure this CSP for individual pages and therefore the security enhancement cannot be used for websites using javascript or external resources like fonts or images.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22815",
+                "comment": "onionshare DPKG is earlier than 2.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

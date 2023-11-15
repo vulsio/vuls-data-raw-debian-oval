@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:257815684960445969828155687798501333711",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-3605 poppler",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "poppler"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-3605",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3605"
+      }
+    ],
+    "description": "Multiple integer overflows in Poppler 0.10.5 and earlier allow remote attackers to cause a denial of service (application crash) or possibly execute arbitrary code via a crafted PDF file, related to (1) glib/poppler-page.cc; (2) ArthurOutputDev.cc, (3) CairoOutputDev.cc, (4) GfxState.cc, (5) JBIG2Stream.cc, (6) PSOutputDev.cc, and (7) SplashOutputDev.cc in poppler/; and (8) SplashBitmap.cc, (9) Splash.cc, and (10) SplashFTFont.cc in splash/.  NOTE: this may overlap CVE-2009-0791.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3200",
+                "comment": "poppler DPKG is earlier than 0.12.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:100939658850442117026399942942528590393",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-1279 libcgi-session-perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libcgi-session-perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-1279",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1279"
+      }
+    ],
+    "description": "CGI::Session 4.03-1 allows local users to overwrite arbitrary files via a symlink attack on temporary files used by (1) Driver::File, (2) Driver::db_file, and possibly (3) Driver::sqlite.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1240",
+                "comment": "libcgi-session-perl DPKG is earlier than 4.11-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:199549043522047436046243518727358655974",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-16369 xpdf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xpdf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-16369",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16369"
+      }
+    ],
+    "description": "XRef::fetch in XRef.cc in Xpdf 4.00 allows remote attackers to cause a denial of service (stack consumption) via a crafted pdf file, related to AcroForm::scanField, as demonstrated by pdftohtml. NOTE: this might overlap CVE-2018-7453.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13766",
+                "comment": "xpdf DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

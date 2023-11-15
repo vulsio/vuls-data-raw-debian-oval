@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:131575371811803544421732328842339315892",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-1239 openjpeg2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openjpeg2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-1239",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1239"
+      }
+    ],
+    "description": "Double free vulnerability in the j2k_read_ppm_v3 function in OpenJPEG before r2997, as used in PDFium in Google Chrome, allows remote attackers to cause a denial of service (process crash) via a crafted PDF.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7307",
+                "comment": "openjpeg2 DPKG is earlier than 2.1.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

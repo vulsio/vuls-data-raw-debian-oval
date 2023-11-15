@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:1023901253424562369596228928931432320",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3975-1 emacs25",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "emacs25"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-14482",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14482"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nCharles A. Roelli discovered that Emacs is vulnerable to arbitrary code execution when rendering text/enriched MIME data (e.g. when using Emacs-based mail clients).",
+      "dsa": "DSA-3975",
+      "date": "2017-09-15"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1086",
+                "comment": "emacs25 DPKG is earlier than 25.1+1-4+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

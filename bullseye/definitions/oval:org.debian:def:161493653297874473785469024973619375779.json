@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:161493653297874473785469024973619375779",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-2799 file",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "file"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-2799",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2799"
+      }
+    ],
+    "description": "Integer overflow in the \"file\" program 4.20, when running on 32-bit systems, as used in products including The Sleuth Kit, might allow user-assisted attackers to execute arbitrary code via a large file that triggers an overflow that bypasses an assert() statement.  NOTE: this issue is due to an incorrect patch for CVE-2007-1536.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1865",
+                "comment": "file DPKG is earlier than 4.21-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

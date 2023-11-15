@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:338257146952185367556596631520491330088",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5415-1 libreoffice",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libreoffice"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-0950",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0950"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-2255",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2255"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Two security issues were discocvered in LibreOffice, which could potentially result in the execution of arbitrary code when loading a malformed spreadsheet document or unacknowledged loading of linked documents within a floating frame.",
+      "dsa": "DSA-5415",
+      "date": "2023-05-28"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28196",
+                "comment": "libreoffice DPKG is earlier than 1:7.0.4-4+deb11u7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

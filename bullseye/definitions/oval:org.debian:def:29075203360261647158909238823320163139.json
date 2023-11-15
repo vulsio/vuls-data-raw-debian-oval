@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:29075203360261647158909238823320163139",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-0151 sudo",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "sudo"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-0151",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0151"
+      }
+    ],
+    "description": "sudo 1.6.8 and other versions does not clear the PYTHONINSPECT environment variable, which allows limited local users to gain privileges via a Python script, a variant of CVE-2005-4158.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1166",
+                "comment": "sudo DPKG is earlier than 1.6.8p12-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:187745948085982352983685604201808209721",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-19762 libsixel",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libsixel"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-19762",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19762"
+      }
+    ],
+    "description": "There is a heap-based buffer overflow at fromsixel.c (function: image_buffer_resize) in libsixel 1.8.2 that will cause a denial of service or possibly unspecified other impact.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14195",
+                "comment": "libsixel DPKG is earlier than 1.8.2-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

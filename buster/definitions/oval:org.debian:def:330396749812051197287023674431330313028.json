@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:330396749812051197287023674431330313028",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-2860 openafs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "openafs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-2860",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2860"
+      }
+    ],
+    "description": "The newEntry function in ptserver/ptprocs.c in OpenAFS before 1.6.17 allows remote authenticated users from foreign Kerberos realms to bypass intended access restrictions and create arbitrary groups as administrators by leveraging mishandling of the creator ID.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9465",
+                "comment": "openafs DPKG is earlier than 1.6.17-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

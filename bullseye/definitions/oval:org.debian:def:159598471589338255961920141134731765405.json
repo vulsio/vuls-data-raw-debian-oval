@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:159598471589338255961920141134731765405",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8413 asterisk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "asterisk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8413",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8413"
+      }
+    ],
+    "description": "The res_pjsip_acl module in Asterisk Open Source 12.x before 12.7.1 and 13.x before 13.0.1 does not properly create and load ACLs defined in pjsip.conf at startup, which allows remote attackers to bypass intended PJSIP ACL rules.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7147",
+                "comment": "asterisk DPKG is earlier than 1:13.1.0~dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

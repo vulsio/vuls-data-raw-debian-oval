@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:273897822389973635689344879558531107114",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-6143 krb5",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "krb5"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-6143",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6143"
+      }
+    ],
+    "description": "The RPC library in Kerberos 5 1.4 through 1.4.4, and 1.5 through 1.5.1, as used in Kerberos administration daemon (kadmind) and other products that use this library, calls an uninitialized function pointer in freed memory, which allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1606",
+                "comment": "krb5 DPKG is earlier than 1.4.4-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

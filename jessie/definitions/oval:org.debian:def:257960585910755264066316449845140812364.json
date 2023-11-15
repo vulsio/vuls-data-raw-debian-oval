@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:257960585910755264066316449845140812364",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3621-1 mysql-connector-java",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "mysql-connector-java"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2575",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2575"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nA vulnerability was discovered in mysql-connector-java, a Java database (JDBC) driver for MySQL, which may result in unauthorized update, insert or delete access to some MySQL Connectors accessible data as well as read access to a subset of MySQL Connectors accessible data. The vulnerability was addressed by upgrading mysql-connector-java to the new upstream version 5.1.39, which includes additional changes, such as bug fixes, new features, and possibly incompatible changes. Please see the MySQL Connector/J Release Notes and Oracle's Critical Patch Update advisory for further details:",
+      "dsa": "DSA-3621",
+      "date": "2016-07-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4316",
+                "comment": "mysql-connector-java DPKG is earlier than 5.1.39-1~deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

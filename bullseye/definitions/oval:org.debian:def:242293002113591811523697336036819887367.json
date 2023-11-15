@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:242293002113591811523697336036819887367",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-6943 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-6943",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6943"
+      }
+    ],
+    "description": "PhpMyAdmin before 2.9.1.1 allows remote attackers to obtain the full server path via direct requests to (a) scripts/check_lang.php and (b) themes/darkblue_orange/layout.inc.php; and via the (1) lang[], (2) target[], (3) db[], (4) goto[], (5) table[], and (6) tbl_group[] array arguments to (c) index.php, and the (7) back[] argument to (d) sql.php; and an invalid (8) sort_by parameter to (e) server_databases.php and (9) db parameter to (f) db_printview.php.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1630",
+                "comment": "phpmyadmin DPKG is earlier than 4:2.9.1.1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

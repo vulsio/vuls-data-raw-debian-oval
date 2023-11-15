@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:184075962675369633853790891662885513975",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-9058 lrzip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "lrzip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-9058",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-9058"
+      }
+    ],
+    "description": "In Long Range Zip (aka lrzip) 0.631, there is an infinite loop in the runzip_fd function of runzip.c. Remote attackers could leverage this vulnerability to cause a denial of service via a crafted lrz file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15465",
+                "comment": "lrzip DPKG is earlier than 0.631+git180517-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

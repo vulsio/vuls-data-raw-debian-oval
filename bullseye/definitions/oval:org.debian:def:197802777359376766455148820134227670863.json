@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:197802777359376766455148820134227670863",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8836 fuseiso",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "fuseiso"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8836",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8836"
+      }
+    ],
+    "description": "Integer overflow in the isofs_real_read_zf function in isofs.c in FuseISO 20070708 might allow remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact via a large ZF block size in an ISO file, leading to a heap-based buffer overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8535",
+                "comment": "fuseiso DPKG is earlier than 20070708-3.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "id": "oval:org.debian:def:308371741074838719152340687068523413081",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4841-1 slurm-llnl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "slurm-llnl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-19728",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19728"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-12693",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12693"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-27745",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27745"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-27746",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27746"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple security issues were discovered in the Simple Linux Utility for Resource Management (SLURM), a cluster resource management and job scheduling system, which could result in denial of service, information disclosure or privilege escalation.",
+      "dsa": "DSA-4841",
+      "date": "2021-01-27"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27229",
+                "comment": "slurm-llnl DPKG is earlier than 18.08.5.2-1+deb10u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

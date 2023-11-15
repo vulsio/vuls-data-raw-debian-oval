@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:127427605573346975273746362134119335999",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-4805 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-4805",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4805"
+      }
+    ],
+    "description": "epan/dissectors/packet-xot.c in the XOT dissector (dissect_xot_pdu) in Wireshark (formerly Ethereal) 0.9.8 through 0.99.3 allows remote attackers to cause a denial of service (memory consumption and crash) via an encoded XOT packet that produces a zero length value when it is decoded.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1518",
+                "comment": "wireshark DPKG is earlier than 0.99.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

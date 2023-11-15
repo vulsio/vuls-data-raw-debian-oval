@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:73376554732451818685257599795541887381",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8709 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8709",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8709"
+      }
+    ],
+    "description": "kernel/ptrace.c in the Linux kernel through 4.4.1 mishandles uid and gid mappings, which allows local users to gain privileges by establishing a user namespace, waiting for a root process to enter that namespace with an unsafe uid or gid, and then using the ptrace system call.  NOTE: the vendor states \"there is no kernel bug here.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8460",
+                "comment": "linux DPKG is earlier than 4.3.3-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

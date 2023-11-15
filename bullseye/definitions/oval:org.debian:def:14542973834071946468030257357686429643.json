@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:14542973834071946468030257357686429643",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-3798 tcpdump",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "tcpdump"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-3798",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3798"
+      }
+    ],
+    "description": "Integer overflow in print-bgp.c in the BGP dissector in tcpdump 3.9.6 and earlier allows remote attackers to execute arbitrary code via crafted TLVs in a BGP packet, related to an unchecked return value.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1953",
+                "comment": "tcpdump DPKG is earlier than 3.9.5-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

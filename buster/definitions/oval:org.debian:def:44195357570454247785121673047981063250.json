@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:44195357570454247785121673047981063250",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-2167 latex2rtf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "latex2rtf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-2167",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-2167"
+      }
+    ],
+    "description": "Multiple buffer overflows in LaTeX2rtf 1.9.15, and possibly other versions, allow remote attackers to execute arbitrary code via (1) the expandmacro function, and possibly (2) Environments and (3) TranslateCommand.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:644",
+                "comment": "latex2rtf DPKG is earlier than 1.9.16"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

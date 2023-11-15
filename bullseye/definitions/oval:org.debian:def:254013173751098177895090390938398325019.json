@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:254013173751098177895090390938398325019",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-1515 libmatio",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libmatio"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-1515",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-1515"
+      }
+    ],
+    "description": "A memory leak was discovered in matio 1.5.21 and earlier in Mat_VarReadNextInfo5() in mat5.c via a crafted file. This issue can potentially result in DoS.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23565",
+                "comment": "libmatio DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

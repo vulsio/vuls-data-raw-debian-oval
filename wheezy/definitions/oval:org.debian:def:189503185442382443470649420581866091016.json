@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:189503185442382443470649420581866091016",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2509-1 pidgin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "pidgin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3374",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3374"
+      }
+    ],
+    "description": "remote code execution",
+    "debian": {
+      "moreinfo": "\nUlf H&auml;rnhammar found a buffer overflow in Pidgin, a multi protocol instant messaging client. The vulnerability can be exploited by an incoming  message in the MXit protocol plugin. A remote attacker may cause a crash, and in some circumstances can lead to remote code execution.",
+      "dsa": "DSA-2509",
+      "date": "2012-07-08"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2963",
+                "comment": "pidgin DPKG is earlier than 2.10.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

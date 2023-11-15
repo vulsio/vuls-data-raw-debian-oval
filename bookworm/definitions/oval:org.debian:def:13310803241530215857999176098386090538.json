@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:13310803241530215857999176098386090538",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-2783 thunderbird",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "thunderbird"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-2783",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2783"
+      }
+    ],
+    "description": "Mozilla Firefox and Thunderbird before 1.5.0.4 strip the Unicode Byte-order-Mark (BOM) from a UTF-8 page before the page is passed to the parser, which allows remote attackers to conduct cross-site scripting (XSS) attacks via a BOM sequence in the middle of a dangerous tag such as SCRIPT.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1318",
+                "comment": "thunderbird DPKG is earlier than 1.5.0.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

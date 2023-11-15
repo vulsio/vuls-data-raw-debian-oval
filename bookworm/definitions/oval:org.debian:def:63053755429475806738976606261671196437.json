@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:63053755429475806738976606261671196437",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-4411 perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-4411",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4411"
+      }
+    ],
+    "description": "Unspecified vulnerability in CGI.pm 3.50 and earlier allows remote attackers to inject arbitrary HTTP headers and conduct HTTP response splitting attacks via unknown vectors.  NOTE: this issue exists because of an incomplete fix for CVE-2010-2761.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3690",
+                "comment": "perl DPKG is earlier than 5.10.1-17"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

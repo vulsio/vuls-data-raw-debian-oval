@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:180214594226533073212455720441272610989",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-1661 pcre3",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "pcre3"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-1661",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1661"
+      }
+    ],
+    "description": "Perl-Compatible Regular Expression (PCRE) library before 7.3 backtracks too far when matching certain input bytes against some regex patterns in non-UTF-8 mode, which allows context-dependent attackers to obtain sensitive information or cause a denial of service (crash), as demonstrated by the \"\\X?\\d\" and \"\\P{L}?\\d\" patterns.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1734",
+                "comment": "pcre3 DPKG is earlier than 7.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

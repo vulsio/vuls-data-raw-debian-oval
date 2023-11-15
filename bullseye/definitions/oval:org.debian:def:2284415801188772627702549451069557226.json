@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:2284415801188772627702549451069557226",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-0359 samizdat",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "samizdat"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0359",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0359"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in Samizdat before 0.6.2 allow remote authenticated users to inject arbitrary web script or HTML via the (1) message title or (2) user full name.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2836",
+                "comment": "samizdat DPKG is earlier than 0.6.2-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

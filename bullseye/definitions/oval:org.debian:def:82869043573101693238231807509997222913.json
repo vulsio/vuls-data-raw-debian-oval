@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:82869043573101693238231807509997222913",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-4111 rails",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "rails"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-4111",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4111"
+      }
+    ],
+    "description": "Ruby on Rails before 1.1.5 allows remote attackers to execute Ruby code with \"severe\" or \"serious\" impact via a File Upload request with an HTTP header that modifies the LOAD_PATH variable, a different vulnerability than CVE-2006-4112.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1458",
+                "comment": "rails DPKG is earlier than 1.1.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

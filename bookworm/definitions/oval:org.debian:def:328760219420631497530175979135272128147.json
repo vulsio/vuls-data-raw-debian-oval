@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:328760219420631497530175979135272128147",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-9403 znc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "znc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9403",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9403"
+      }
+    ],
+    "description": "The CWebAdminMod::ChanPage function in modules/webadmin.cpp in ZNC before 1.4 allows remote authenticated users to cause a denial of service (NULL pointer dereference and crash) by adding a channel with the same name as an existing channel but without the leading # character, related to a \"use-after-delete\" error.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7019",
+                "comment": "znc DPKG is earlier than 1.2-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

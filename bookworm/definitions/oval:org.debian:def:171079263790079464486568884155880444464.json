@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:171079263790079464486568884155880444464",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-1235 oar",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "oar"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-1235",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1235"
+      }
+    ],
+    "description": "The oarsh script in OAR before 2.5.7 allows remote authenticated users of a cluster to obtain sensitive information and possibly gain privileges via vectors related to OpenSSH options.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8609",
+                "comment": "oar DPKG is earlier than 2.5.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

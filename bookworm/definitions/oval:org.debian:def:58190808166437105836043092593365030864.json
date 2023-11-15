@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:58190808166437105836043092593365030864",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-4247 linux-ftpd-ssl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux-ftpd-ssl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-4247",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4247"
+      }
+    ],
+    "description": "ftpd in OpenBSD 4.3, FreeBSD 7.0, NetBSD 4.0, Solaris, and possibly other operating systems interprets long commands from an FTP client as multiple commands, which allows remote attackers to conduct cross-site request forgery (CSRF) attacks and execute arbitrary FTP commands via a long ftp:// URI that leverages an existing session from the FTP client implementation in a web browser.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2478",
+                "comment": "linux-ftpd-ssl DPKG is earlier than 0.17.27+0.3-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

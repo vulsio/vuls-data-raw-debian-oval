@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:138230957762372676511885835541123260448",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5435-1 trafficserver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "trafficserver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-47184",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-47184"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-30631",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-30631"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-33933",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-33933"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities were discovered in Apache Traffic Server, a reverse and forward proxy server, which could result in information disclosure or denial of service.",
+      "dsa": "DSA-5435",
+      "date": "2023-06-21"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28214",
+                "comment": "trafficserver DPKG is earlier than 8.1.7+ds-1~deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

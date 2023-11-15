@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:210662631706965938673924102722686465254",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-6607 augeas",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "augeas"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-6607",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6607"
+      }
+    ],
+    "description": "The transform_save function in transform.c in Augeas before 1.0.0 allows local users to overwrite arbitrary files and obtain sensitive information via a symlink attack on a .augsave file in a backup save action, a different vector than CVE-2012-0786.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5041",
+                "comment": "augeas DPKG is earlier than 1.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

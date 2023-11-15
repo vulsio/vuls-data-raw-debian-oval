@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:296628321319473647676365048935764258761",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-45098 suricata",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "suricata"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-45098",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45098"
+      }
+    ],
+    "description": "An issue was discovered in Suricata before 6.0.4. It is possible to bypass/evade any HTTP-based signature by faking an RST TCP packet with random TCP options of the md5header from the client side. After the three-way handshake, it's possible to inject an RST ACK with a random TCP md5header option. Then, the client can send an HTTP GET request with a forbidden URL. The server will ignore the RST ACK and send the response HTTP packet for the client's request. These packets will not trigger a Suricata reject action.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22675",
+                "comment": "suricata DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

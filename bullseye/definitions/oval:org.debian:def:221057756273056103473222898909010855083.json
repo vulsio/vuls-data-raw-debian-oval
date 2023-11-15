@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:221057756273056103473222898909010855083",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-2458 libextractor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libextractor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-2458",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2458"
+      }
+    ],
+    "description": "Multiple heap-based buffer overflows in Libextractor 0.5.13 and earlier allow remote attackers to execute arbitrary code via (1) the asf_read_header function in the ASF plugin (plugins/asfextractor.c), and (2) the parse_trak_atom function in the QT plugin (plugins/qtextractor.c).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1333",
+                "comment": "libextractor DPKG is earlier than 0.5.14-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

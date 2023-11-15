@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:69841755613171042196509798969499098535",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-2832 blender",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "blender"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-2832",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-2832"
+      }
+    ],
+    "description": "A flaw was found in Blender 3.3.0. A null pointer dereference exists in source/blender/gpu/opengl/gl_backend.cc that may lead to loss of confidentiality and integrity.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24464",
+                "comment": "blender DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:30375056369209352896660116073274093478",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-3946 lighttpd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "lighttpd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-3946",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3946"
+      }
+    ],
+    "description": "mod_auth (http_auth.c) in lighttpd before 1.4.16 allows remote attackers to cause a denial of service (daemon crash) via unspecified vectors involving (1) a memory leak, (2) use of md5-sess without a cnonce, (3) base64 encoded strings, and (4) trailing whitespace in the Auth-Digest header.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1891",
+                "comment": "lighttpd DPKG is earlier than 1.4.16-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

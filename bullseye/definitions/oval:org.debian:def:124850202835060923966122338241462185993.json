@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:124850202835060923966122338241462185993",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-7290 memcached",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "memcached"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-7290",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-7290"
+      }
+    ],
+    "description": "The do_item_get function in items.c in memcached 1.4.4 and other versions before 1.4.17, when running in verbose mode, allows remote attackers to cause a denial of service (segmentation fault) via a request to delete a key, which does not account for the lack of a null terminator in the key and triggers a buffer over-read when printing to stderr, a different vulnerability than CVE-2013-0179.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6259",
+                "comment": "memcached DPKG is earlier than 1.4.13-0.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

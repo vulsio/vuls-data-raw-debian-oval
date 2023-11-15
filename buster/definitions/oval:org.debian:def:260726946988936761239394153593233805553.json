@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:260726946988936761239394153593233805553",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8615 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8615",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8615"
+      }
+    ],
+    "description": "The hvm_set_callback_via function in arch/x86/hvm/irq.c in Xen 4.6 does not limit the number of printk console messages when logging the new callback method, which allows local HVM guest OS users to cause a denial of service via a large number of changes to the callback method (HVM_PARAM_CALLBACK_IRQ).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8637",
+                "comment": "xen DPKG is earlier than 4.8.0~rc3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

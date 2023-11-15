@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:24382293778645835604700469516562583958",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-13139 docker.io",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "docker.io"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-13139",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13139"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Three security vulnerabilities have been discovered in the Docker container runtime: Insecure loading of NSS libraries in <q>docker cp</q> could result in execution of code with root privileges, sensitive data could be logged in debug mode and there was a command injection vulnerability in the <q>docker build</q> command.",
+      "dsa": "DSA-4521"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:16291",
+                "comment": "docker.io DPKG is earlier than 18.09.1+dfsg1-7.1+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

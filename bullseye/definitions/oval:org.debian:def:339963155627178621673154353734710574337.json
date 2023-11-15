@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:339963155627178621673154353734710574337",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-5320 glibc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "glibc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-5320",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-5320"
+      }
+    ],
+    "description": "scanf and related functions in glibc before 2.15 allow local users to cause a denial of service (segmentation fault) via a large string of 0s.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4510",
+                "comment": "glibc DPKG is earlier than 2.15"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

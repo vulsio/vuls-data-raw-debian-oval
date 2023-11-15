@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:223015026400286490153038228132054085490",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2674-1 libxv",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "libxv"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1989",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1989"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2066",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2066"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nIlja van Sprundel of IOActive discovered several security issues in multiple components of the X.org graphics stack and the related libraries: Various integer overflows, sign handling errors in integer conversions, buffer overflows, memory corruption and missing input sanitising may lead to privilege escalation or denial of service.",
+      "dsa": "DSA-2674",
+      "date": "2013-05-23"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:698",
+                "comment": "libxv DPKG is earlier than 2:1.0.7-1+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

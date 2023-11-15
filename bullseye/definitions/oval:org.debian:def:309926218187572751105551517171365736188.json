@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:309926218187572751105551517171365736188",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-4304 openssl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "openssl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-4304",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-4304"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple vulnerabilities have been discovered in OpenSSL, a Secure Sockets Layer toolkit, which may result in incomplete encryption, side channel attacks, denial of service or information disclosure.",
+      "dsa": "DSA-5343"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25598",
+                "comment": "openssl DPKG is earlier than 1.1.1n-0+deb11u4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:98885163439387409251417865289914186497",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-8332 openjpeg2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openjpeg2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-8332",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8332"
+      }
+    ],
+    "description": "A buffer overflow in OpenJPEG 2.1.1 causes arbitrary code execution when parsing a crafted image. An exploitable code execution vulnerability exists in the jpeg2000 image file format parser as implemented in the OpenJpeg library. A specially crafted jpeg2000 file can cause an out of bound heap write resulting in heap corruption leading to arbitrary code execution. For a successful attack, the target user needs to open a malicious jpeg2000 file. The jpeg2000 image file format is mostly used for embedding images inside PDF documents and the OpenJpeg library is used by a number of popular PDF renderers making PDF documents a likely attack vector.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9778",
+                "comment": "openjpeg2 DPKG is earlier than 2.1.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

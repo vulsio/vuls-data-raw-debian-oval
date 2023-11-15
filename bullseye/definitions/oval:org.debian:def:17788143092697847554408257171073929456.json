@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:17788143092697847554408257171073929456",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-2958 sylpheed",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "sylpheed"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-2958",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2958"
+      }
+    ],
+    "description": "Format string vulnerability in the inc_put_error function in src/inc.c in Sylpheed 2.4.4, and Sylpheed-Claws (Claws Mail) 1.9.100 and 2.10.0, allows remote POP3 servers to execute arbitrary code via format string specifiers in crafted replies.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1880",
+                "comment": "sylpheed DPKG is earlier than 2.4.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

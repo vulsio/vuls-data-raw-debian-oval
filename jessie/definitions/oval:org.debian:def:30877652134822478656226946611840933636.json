@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:30877652134822478656226946611840933636",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4167-1 sharutils",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "sharutils"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1000097",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000097"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nA buffer-overflow vulnerability was discovered in Sharutils, a set of utilities handle Shell Archives. An attacker with control on the input of the unshar command, could crash the application or execute arbitrary code in the its context.",
+      "dsa": "DSA-4167",
+      "date": "2018-04-05"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3595",
+                "comment": "sharutils DPKG is earlier than 1:4.14-2+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

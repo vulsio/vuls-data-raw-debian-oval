@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:240778491676929695326465313199469365747",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8625 dpkg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "dpkg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8625",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8625"
+      }
+    ],
+    "description": "Multiple format string vulnerabilities in the parse_error_msg function in parsehelp.c in dpkg before 1.17.22 allow remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via format string specifiers in the (1) package or (2) architecture name.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7388",
+                "comment": "dpkg DPKG is earlier than 1.17.22"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

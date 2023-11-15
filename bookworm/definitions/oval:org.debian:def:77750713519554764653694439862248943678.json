@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:77750713519554764653694439862248943678",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-13870 hdf5",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "hdf5"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-13870",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-13870"
+      }
+    ],
+    "description": "An issue was discovered in the HDF HDF5 1.8.20 library. There is a heap-based buffer over-read in the function H5O_link_decode in H5Olink.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13526",
+                "comment": "hdf5 DPKG is earlier than 1.10.7+repack-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:127843308901609487586285946876261203302",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3177-1 mod-gnutls",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "mod-gnutls"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2091",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2091"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nThomas Klute discovered that in mod-gnutls, an Apache module providing SSL and TLS encryption with GnuTLS, a bug caused the server's client verify mode not to be considered at all, in case the directory's configuration was unset. Clients with invalid certificates were then able to leverage this flaw in order to get access to that directory.",
+      "dsa": "DSA-3177",
+      "date": "2015-03-10"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3528",
+                "comment": "mod-gnutls DPKG is earlier than 0.5.10-1.1+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

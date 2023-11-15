@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:167647243461068025523277339556116326871",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2969-1 libemail-address-perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "libemail-address-perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0477",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0477"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-4720",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4720"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nBastian Blank reported a denial of service vulnerability in Email::Address, a Perl module for RFC 2822 address parsing and creation. Email::Address::parse used significant time on parsing empty quoted strings. A remote attacker able to supply specifically crafted input to an application using Email::Address for parsing, could use this flaw to mount a denial of service attack against the application.",
+      "dsa": "DSA-2969",
+      "date": "2014-06-27"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3869",
+                "comment": "libemail-address-perl DPKG is earlier than 1.905-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

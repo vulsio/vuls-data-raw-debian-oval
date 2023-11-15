@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:89433311942276827261996144736933499419",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-29074 x11vnc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "x11vnc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-29074",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29074"
+      }
+    ],
+    "description": "scan.c in x11vnc 0.9.16 uses IPC_CREAT|0777 in shmget calls, which allows access by actors other than the current user.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18987",
+                "comment": "x11vnc DPKG is earlier than 0.9.16-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

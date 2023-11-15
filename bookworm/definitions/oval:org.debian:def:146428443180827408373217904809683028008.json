@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:146428443180827408373217904809683028008",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-2069 pdns-recursor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "pdns-recursor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-2069",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2069"
+      }
+    ],
+    "description": "The recursor in PowerDNS before 3.0.1 allows remote attackers to cause a denial of service (application crash) via malformed EDNS0 packets.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1270",
+                "comment": "pdns-recursor DPKG is earlier than 3.0.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

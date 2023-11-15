@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:258268058013055387780552878962638949654",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2902 xpdf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xpdf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2902",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2902"
+      }
+    ],
+    "description": "zxpdf in xpdf before 3.02-19 as packaged in Debian unstable and 3.02-12+squeeze1 as packaged in Debian squeeze deletes temporary files insecurely, which allows remote attackers to delete arbitrary files via a crafted .pdf.gz file name.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4066",
+                "comment": "xpdf DPKG is earlier than 3.02-19"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

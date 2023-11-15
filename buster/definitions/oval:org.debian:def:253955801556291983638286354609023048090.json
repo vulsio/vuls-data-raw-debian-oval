@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:253955801556291983638286354609023048090",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8369 cacti",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "cacti"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8369",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8369"
+      }
+    ],
+    "description": "SQL injection vulnerability in include/top_graph_header.php in Cacti 0.8.8f and earlier allows remote attackers to execute arbitrary SQL commands via the rra_id parameter in a properties action to graph.php.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8580",
+                "comment": "cacti DPKG is earlier than 0.8.8f+ds1-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

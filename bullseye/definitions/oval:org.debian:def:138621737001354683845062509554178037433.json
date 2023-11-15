@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:138621737001354683845062509554178037433",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-2026 pound",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pound"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-2026",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-2026"
+      }
+    ],
+    "description": "Format string vulnerability in the logmsg function in svc.c for Pound 1.5 and earlier allows remote attackers to execute arbitrary code via format string specifiers in syslog messages.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:631",
+                "comment": "pound DPKG is earlier than 1.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

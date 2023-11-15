@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:301507178123230232027611760542597292690",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3722-1 vim",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "vim"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-1248",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1248"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nFlorian Larysch and Bram Moolenaar discovered that vim, an enhanced vi editor, does not properly validate values for the <q>filetype</q>, <q>syntax</q> and <q>keymap</q> options, which may result in the execution of arbitrary code if a file with a specially crafted modeline is opened.",
+      "dsa": "DSA-3722",
+      "date": "2016-11-22"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1443",
+                "comment": "vim DPKG is earlier than 2:7.4.488-7+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

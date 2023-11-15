@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:47635432044556954052851527600406491258",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-2260 stardict",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "stardict"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-2260",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2260"
+      }
+    ],
+    "description": "stardict 3.0.1, when Enable Net Dict is configured, sends the contents of the clipboard to a dictionary server, which allows remote attackers to obtain sensitive information by sniffing the network.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2917",
+                "comment": "stardict DPKG is earlier than 3.0.1-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

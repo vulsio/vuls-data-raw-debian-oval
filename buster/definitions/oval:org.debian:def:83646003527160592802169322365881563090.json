@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:83646003527160592802169322365881563090",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-19269 proftpd-dfsg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "proftpd-dfsg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-19269",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19269"
+      }
+    ],
+    "description": "An issue was discovered in tls_verify_crl in ProFTPD through 1.3.6b. A dereference of a NULL pointer may occur. This pointer is returned by the OpenSSL sk_X509_REVOKED_value() function when encountering an empty CRL installed by a system administrator. The dereference occurs when validating the certificate of a client connecting to the server in a TLS client/server mutual-authentication setup.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17098",
+                "comment": "proftpd-dfsg DPKG is earlier than 1.3.6-4+deb10u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

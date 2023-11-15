@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:319022580589261087110034389557586508358",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-44532 nodejs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "nodejs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-44532",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44532"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple vulnerabilities were discovered in Node.js, which could result in HTTP request smuggling, a bypass of certificate verification or prototype pollution.",
+      "dsa": "DSA-5170"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22997",
+                "comment": "nodejs DPKG is earlier than 12.22.12~dfsg-1~deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

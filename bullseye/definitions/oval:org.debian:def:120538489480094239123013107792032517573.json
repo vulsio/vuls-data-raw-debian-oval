@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:120538489480094239123013107792032517573",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5056-1 strongswan",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "strongswan"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-45079",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45079"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Zhuowei Zhang discovered a bug in the EAP authentication client code of strongSwan, an IKE/IPsec suite, that may allow to bypass the client and in some scenarios even the server authentication, or could lead to a denial-of-service attack.",
+      "dsa": "DSA-5056",
+      "date": "2022-01-24"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27841",
+                "comment": "strongswan DPKG is earlier than 5.9.1-1+deb11u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

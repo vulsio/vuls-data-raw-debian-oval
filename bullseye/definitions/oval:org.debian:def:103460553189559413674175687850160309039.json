@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:103460553189559413674175687850160309039",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-4768 pcre3",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pcre3"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-4768",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4768"
+      }
+    ],
+    "description": "Heap-based buffer overflow in Perl-Compatible Regular Expression (PCRE) library before 7.3 allows context-dependent attackers to execute arbitrary code via a singleton Unicode sequence in a character class in a regex pattern, which is incorrectly optimized.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2046",
+                "comment": "pcre3 DPKG is earlier than 7.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:87759346977269441084384349176839776281",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-2298 boinc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "boinc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2298",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2298"
+      }
+    ],
+    "description": "Multiple stack-based buffer overflows in the XML parser in BOINC 7.x allow attackers to have unspecified impact via a crafted XML file, related to the scheduler.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5464",
+                "comment": "boinc DPKG is earlier than 7.0.65+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

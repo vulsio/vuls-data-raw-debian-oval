@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:249755205202161082967801322437848068312",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5474-1 intel-microcode",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "intel-microcode"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-40982",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-40982"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-41804",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-41804"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-23908",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23908"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nThis update ships updated CPU microcode for some types of Intel CPUs and provides mitigations for security vulnerabilities.",
+      "dsa": "DSA-5474",
+      "date": "2023-08-11"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26934",
+                "comment": "intel-microcode DPKG is earlier than 3.20230808.1~deb12u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

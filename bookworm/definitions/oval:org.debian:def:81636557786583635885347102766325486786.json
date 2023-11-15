@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:81636557786583635885347102766325486786",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-0543 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-0543",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0543"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in phpMyAdmin 2.6.1 allows remote attackers to inject arbitrary HTML and web script via (1) the strServer, cfg[BgcolorOne], or strServerChoice parameters in select_server.lib.php, (2) the bg_color or row_no parameters in display_tbl_links.lib.php, the left_font_family parameter in theme_left.css.php, or the right_font_family parameter in theme_right.css.php.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:744",
+                "comment": "phpmyadmin DPKG is earlier than 3:2.6.1-pl2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

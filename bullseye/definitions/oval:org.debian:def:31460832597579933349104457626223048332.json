@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:31460832597579933349104457626223048332",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-3251 mcollective",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mcollective"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-3251",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3251"
+      }
+    ],
+    "description": "The MCollective aes_security plugin, as used in Puppet Enterprise before 3.3.0 and Mcollective before 2.5.3, does not properly validate new server certificates based on the CA certificate, which allows local users to establish unauthorized Mcollective connections via unspecified vectors related to a race condition.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6652",
+                "comment": "mcollective DPKG is earlier than 2.6.0+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:145470385864053221888265533421167977050",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-0898 libcrypt-cbc-perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libcrypt-cbc-perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-0898",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0898"
+      }
+    ],
+    "description": "Crypt::CBC Perl module 2.16 and earlier, when running in RandomIV mode, uses an initialization vector (IV) of 8 bytes, which results in weaker encryption when used with a cipher that requires a larger block size than 8 bytes, such as Rijndael.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1214",
+                "comment": "libcrypt-cbc-perl DPKG is earlier than 2.17-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

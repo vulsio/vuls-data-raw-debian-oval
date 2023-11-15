@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:39812895441845076981049191993670277624",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3204-1 python-django",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "python-django"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2317",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2317"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nDaniel Chatfield discovered that python-django, a high-level Python web development framework, incorrectly handled user-supplied redirect URLs. A remote attacker could use this flaw to perform a cross-site scripting attack.",
+      "dsa": "DSA-3204",
+      "date": "2015-03-24"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2131",
+                "comment": "python-django DPKG is earlier than 1.4.5-1+deb7u11"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

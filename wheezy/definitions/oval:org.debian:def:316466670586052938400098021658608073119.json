@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:316466670586052938400098021658608073119",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2826-1 denyhosts",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "denyhosts"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6890",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6890"
+      }
+    ],
+    "description": "remote denial of ssh service",
+    "debian": {
+      "moreinfo": "\nHelmut Grohne discovered that denyhosts, a tool preventing SSH brute-force attacks, could be used to perform remote denial of service against the SSH daemon. Incorrectly specified regular expressions used to detect brute force attacks in authentication logs could be exploited by a malicious user to forge crafted login names in order to make denyhosts ban arbitrary IP addresses.",
+      "dsa": "DSA-2826",
+      "date": "2013-12-22"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1139",
+                "comment": "denyhosts DPKG is earlier than 2.6-10+deb7u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

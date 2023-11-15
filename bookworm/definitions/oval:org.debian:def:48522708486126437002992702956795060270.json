@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:48522708486126437002992702956795060270",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-3195 imagemagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "imagemagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-3195",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-3195"
+      }
+    ],
+    "description": "A stack-based buffer overflow issue was found in ImageMagick's coders/tiff.c. This flaw allows an attacker to trick the user into opening a specially crafted malicious tiff file, causing an application to crash, resulting in a denial of service.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25969",
+                "comment": "imagemagick DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

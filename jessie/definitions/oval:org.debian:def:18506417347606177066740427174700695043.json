@@ -1,0 +1,74 @@
+{
+  "id": "oval:org.debian:def:18506417347606177066740427174700695043",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2757-1 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4338",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4338"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4339",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4339"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4340",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4340"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-5738",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5738"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-5739",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5739"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities were identified in Wordpress, a web blogging tool. As the CVEs were allocated from releases announcements and specific fixes are usually not identified, it has been decided to upgrade the Wordpress package to the latest upstream version instead of backporting the patches.",
+      "dsa": "DSA-2757",
+      "date": "2013-09-14"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3800",
+                "comment": "wordpress DPKG is earlier than 3.6.1+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

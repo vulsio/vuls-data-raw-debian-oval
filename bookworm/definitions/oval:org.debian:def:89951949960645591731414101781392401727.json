@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:89951949960645591731414101781392401727",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-44857 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-44857",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44857"
+      }
+    ],
+    "description": "An issue was discovered in MediaWiki before 1.35.5, 1.36.x before 1.36.3, and 1.37.x before 1.37.1. It is possible to use action=mcrundo followed by action=mcrrestore to replace the content of any arbitrary page (that the user doesn't have edit rights for). This applies to any public wiki, or a private wiki that has at least one page set in $wgWhitelistRead.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22113",
+                "comment": "mediawiki DPKG is earlier than 1:1.35.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

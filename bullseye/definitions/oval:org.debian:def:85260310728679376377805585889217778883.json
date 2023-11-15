@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:85260310728679376377805585889217778883",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-6542 putty",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "putty"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-6542",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6542"
+      }
+    ],
+    "description": "The ssh_agent_channel_data function in PuTTY before 0.68 allows remote attackers to have unspecified impact via a large length value in an agent protocol message and leveraging the ability to connect to the Unix-domain socket representing the forwarded agent connection, which trigger a buffer overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12489",
+                "comment": "putty DPKG is earlier than 0.67-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

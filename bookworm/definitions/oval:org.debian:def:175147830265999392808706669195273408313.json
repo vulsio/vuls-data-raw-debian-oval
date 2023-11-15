@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:175147830265999392808706669195273408313",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-7452 xpdf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xpdf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-7452",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7452"
+      }
+    ],
+    "description": "A NULL pointer dereference in JPXStream::fillReadBuf in JPXStream.cc in xpdf 4.00 allows attackers to launch denial of service via a specific pdf file, as demonstrated by pdftohtml.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14898",
+                "comment": "xpdf DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

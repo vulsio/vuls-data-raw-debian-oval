@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:57301966422918221053941670211450536240",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3278-1 libapache-mod-jk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "libapache-mod-jk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8111",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8111"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAn information disclosure flaw due to incorrect JkMount/JkUnmount directives processing was found in the Apache 2 module mod_jk to forward requests from the Apache web server to Tomcat. A JkUnmount rule for a subtree of a previous JkMount rule could be ignored. This could allow a remote attacker to potentially access a private artifact in a tree that would otherwise not be accessible to them.",
+      "dsa": "DSA-3278",
+      "date": "2015-06-03"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4005",
+                "comment": "libapache-mod-jk DPKG is earlier than 1:1.2.37-4+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

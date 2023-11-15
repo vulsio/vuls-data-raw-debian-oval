@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:147007553380599151141280474188782659925",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1417 krb5",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "krb5"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1417",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1417"
+      }
+    ],
+    "description": "do_tgs_req.c in the Key Distribution Center (KDC) in MIT Kerberos 5 (aka krb5) 1.11 before 1.11.4, when a single-component realm name is used, allows remote authenticated users to cause a denial of service (daemon crash) via a TGS-REQ request that triggers an attempted cross-realm referral for a host-based service principal.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5194",
+                "comment": "krb5 DPKG is earlier than 1.11.3+dfsg-3+nmu1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

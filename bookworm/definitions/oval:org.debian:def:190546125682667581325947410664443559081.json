@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:190546125682667581325947410664443559081",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1898 monit",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "monit"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1898",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1898"
+      }
+    ],
+    "description": "Stack-based buffer overflow in the administration interface in Monit 1.4 through 4.2 allows remote attackers to execute arbitrary code via a long username.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:602",
+                "comment": "monit DPKG is earlier than 1:4.2.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:97164970549459915777763641763737437960",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8346 redmine",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "redmine"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8346",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8346"
+      }
+    ],
+    "description": "app/views/timelog/_form.html.erb in Redmine before 2.6.8, 3.0.x before 3.0.6, and 3.1.x before 3.1.2 allows remote attackers to obtain sensitive information about subjects of issues by viewing the time logging form.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8052",
+                "comment": "redmine DPKG is earlier than 3.2.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

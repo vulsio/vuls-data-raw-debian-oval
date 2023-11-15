@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:230124819836204041865153960505982393825",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-2237 keystone",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "keystone"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-2237",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2237"
+      }
+    ],
+    "description": "The memcache token backend in OpenStack Identity (Keystone) 2013.1 through 2.013.1.4, 2013.2 through 2013.2.2, and icehouse before icehouse-3, when issuing a trust token with impersonation enabled, does not include this token in the trustee's token-index-list, which prevents the token from being invalidated by bulk token revocation and allows the trustee to bypass intended access restrictions.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6543",
+                "comment": "keystone DPKG is earlier than 2013.2.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

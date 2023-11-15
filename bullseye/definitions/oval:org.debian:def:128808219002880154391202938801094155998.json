@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:128808219002880154391202938801094155998",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-3435 zabbix",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "zabbix"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3435",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3435"
+      }
+    ],
+    "description": "SQL injection vulnerability in frontends/php/popup_bitem.php in Zabbix 1.8.15rc1 and earlier, and 2.x before 2.0.2rc1, allows remote attackers to execute arbitrary SQL commands via the itemid parameter.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4913",
+                "comment": "zabbix DPKG is earlier than 1:2.0.2+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

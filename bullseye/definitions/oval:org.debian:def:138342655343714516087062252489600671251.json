@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:138342655343714516087062252489600671251",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-17281 asterisk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "asterisk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-17281",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17281"
+      }
+    ],
+    "description": "There is a stack consumption vulnerability in the res_http_websocket.so module of Asterisk through 13.23.0, 14.7.x through 14.7.7, and 15.x through 15.6.0 and Certified Asterisk through 13.21-cert2. It allows an attacker to crash Asterisk via a specially crafted HTTP request to upgrade the connection to a websocket.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14321",
+                "comment": "asterisk DPKG is earlier than 1:13.23.1~dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

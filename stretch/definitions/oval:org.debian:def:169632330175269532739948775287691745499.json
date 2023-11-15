@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:169632330175269532739948775287691745499",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3967-1 mbedtls",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "mbedtls"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-14032",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14032"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAn authentication bypass vulnerability was discovered in mbed TLS, a lightweight crypto and SSL/TLS library, when the authentication mode is configured as <q>optional</q>. A remote attacker can take advantage of this flaw to mount a man-in-the-middle attack and impersonate an intended peer via an X.509 certificate chain with many intermediates.",
+      "dsa": "DSA-3967",
+      "date": "2017-09-08"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3903",
+                "comment": "mbedtls DPKG is earlier than 2.4.2-1+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

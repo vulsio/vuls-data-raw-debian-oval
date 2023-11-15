@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:225254500427216031168334467399575445196",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-1747 vtun",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "vtun"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-1747",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1747"
+      }
+    ],
+    "description": "Vtun 2.5b1 does not authenticate forwarded packets, which allows remote attackers to inject data into user sessions without detection, and possibly control the data contents via cut-and-paste attacks on ECB.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:133",
+                "comment": "vtun DPKG is earlier than 2.5b2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

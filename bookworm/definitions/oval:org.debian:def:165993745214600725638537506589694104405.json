@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:165993745214600725638537506589694104405",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-22024 ffmpeg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ffmpeg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-22024",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-22024"
+      }
+    ],
+    "description": "Buffer Overflow vulnerability in FFmpeg 4.2 at the lagfun_frame16 function in libavfilter/vf_lagfun.c, which could let a remote malicious user cause Denial of Service.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18443",
+                "comment": "ffmpeg DPKG is earlier than 7:4.3-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

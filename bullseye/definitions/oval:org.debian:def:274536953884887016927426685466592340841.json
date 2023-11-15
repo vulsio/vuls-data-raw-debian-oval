@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:274536953884887016927426685466592340841",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-10187 ruby-doorkeeper",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ruby-doorkeeper"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-10187",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10187"
+      }
+    ],
+    "description": "Doorkeeper version 5.0.0 and later contains an information disclosure vulnerability that allows an attacker to retrieve the client secret only intended for the OAuth application owner. After authorizing the application and allowing access, the attacker simply needs to request the list of their authorized applications in a JSON format (usually GET /oauth/authorized_applications.json). An application is vulnerable if the authorized applications controller is enabled.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18008",
+                "comment": "ruby-doorkeeper DPKG is earlier than 5.0.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

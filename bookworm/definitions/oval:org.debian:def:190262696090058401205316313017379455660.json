@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:190262696090058401205316313017379455660",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-39948 fastdds",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "fastdds"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-39948",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39948"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multipe security issues were discovered in Fast DDS, a C++ implementation of the DDS (Data Distribution Service), which might result in denial of service or potentially the execution of arbitrary code when processing malformed RTPS packets.",
+      "dsa": "DSA-5481"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26416",
+                "comment": "fastdds DPKG is earlier than 2.9.1+ds-1+deb12u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

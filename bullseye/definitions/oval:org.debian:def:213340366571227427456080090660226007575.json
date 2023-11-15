@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:213340366571227427456080090660226007575",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-18020 qpdf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "qpdf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-18020",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18020"
+      }
+    ],
+    "description": "In QPDF 8.2.1, in libqpdf/QPDFWriter.cc, QPDFWriter::unparseObject and QPDFWriter::unparseChild have recursive calls for a long time, which allows remote attackers to cause a denial of service via a crafted PDF file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14371",
+                "comment": "qpdf DPKG is earlier than 9.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

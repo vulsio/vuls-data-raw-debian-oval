@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:321376496925748569912959441438604226553",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3113-1 unzip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "unzip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8139",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8139"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8140",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8140"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8141",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8141"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMichele Spagnuolo of the Google Security Team discovered that unzip, an extraction utility for archives compressed in .zip format, is affected by heap-based buffer overflows within the CRC32 verification function (<a href=\"https://security-tracker.debian.org/tracker/CVE-2014-8139\">CVE-2014-8139</a>), the test_compr_eb() function (<a href=\"https://security-tracker.debian.org/tracker/CVE-2014-8140\">CVE-2014-8140</a>) and the getZip64Data() function (<a href=\"https://security-tracker.debian.org/tracker/CVE-2014-8141\">CVE-2014-8141</a>), which may lead to the execution of arbitrary code.",
+      "dsa": "DSA-3113",
+      "date": "2014-12-28"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1805",
+                "comment": "unzip DPKG is earlier than 6.0-8+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:138070403490059878967774627368608399601",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-4791 liferea",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "liferea"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-4791",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-4791"
+      }
+    ],
+    "description": "Multiple untrusted search path vulnerabilities in SUSE Linux 10.0 cause the working directory to be added to LD_LIBRARY_PATH, which might allow local users to execute arbitrary code via (1) liferea or (2) banshee.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1135",
+                "comment": "liferea DPKG is earlier than 1.4.9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

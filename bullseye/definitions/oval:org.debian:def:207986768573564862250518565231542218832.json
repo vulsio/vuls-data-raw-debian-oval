@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:207986768573564862250518565231542218832",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2502 systemtap",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "systemtap"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2502",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2502"
+      }
+    ],
+    "description": "runtime/staprun/staprun_funcs.c in the systemtap runtime tool (staprun) in SystemTap before 1.6 does not properly validate modules when a module path is specified by a user for user-space probing, which allows local users in the stapusr group to gain privileges via a crafted module in the search path in the -u argument.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4168",
+                "comment": "systemtap DPKG is earlier than 1.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

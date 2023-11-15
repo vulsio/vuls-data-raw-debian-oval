@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:51866526238841943893762320291511253722",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-3185 gst-plugins-bad1.0",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gst-plugins-bad1.0"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3185",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3185"
+      }
+    ],
+    "description": "A flaw was found in the gstreamer h264 component of gst-plugins-bad before v1.18.1 where when parsing a h264 header, an attacker could cause the stack to be smashed, memory corruption and possibly code execution.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:21694",
+                "comment": "gst-plugins-bad1.0 DPKG is earlier than 1.18.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

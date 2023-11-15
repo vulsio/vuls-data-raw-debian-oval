@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:29904011380368278520455347789278948490",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-24851 ldap-account-manager",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ldap-account-manager"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-24851",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24851"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Arseniy Sharoglazov discovered multiple security issues in LDAP Account Manager (LAM), a web frontend for managing accounts in an LDAP directory, which could result in information disclosure or unauthenticated remote code execution.",
+      "dsa": "DSA-5177"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24163",
+                "comment": "ldap-account-manager DPKG is earlier than 8.0.1-0+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

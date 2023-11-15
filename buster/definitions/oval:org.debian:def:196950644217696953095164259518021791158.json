@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:196950644217696953095164259518021791158",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-2228 php-horde",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "php-horde"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-2228",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2228"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in horde/templates/topbar/_menubar.html.php in Horde Groupware before 5.2.12 and Horde Groupware Webmail Edition before 5.2.12 allows remote attackers to inject arbitrary web script or HTML via the searchfield parameter, as demonstrated by a request to xplorer/gollem/manager.php.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9329",
+                "comment": "php-horde DPKG is earlier than 5.2.9+debian0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:79219942110600586694945886660515456393",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-0687 hashcash",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "hashcash"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-0687",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0687"
+      }
+    ],
+    "description": "Format string vulnerability in Hashcash 1.16 allows remote attackers to cause a denial of service (memory consumption) and possibly execute arbitrary code via format string specifiers in a reply address, which is not properly handled when printing the header.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:782",
+                "comment": "hashcash DPKG is earlier than 1.17-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

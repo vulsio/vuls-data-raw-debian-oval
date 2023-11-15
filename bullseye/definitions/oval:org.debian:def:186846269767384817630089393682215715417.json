@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:186846269767384817630089393682215715417",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-0368 opensc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "opensc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0368",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0368"
+      }
+    ],
+    "description": "OpenSC before 0.11.7 allows physically proximate attackers to bypass intended PIN requirements and read private data objects via a (1) low level APDU command or (2) debugging tool, as demonstrated by reading the 4601 or 4701 file with the opensc-explorer or opensc-tool program.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2843",
+                "comment": "opensc DPKG is earlier than 0.11.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

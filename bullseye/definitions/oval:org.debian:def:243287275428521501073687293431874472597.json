@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:243287275428521501073687293431874472597",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-13867 targetcli-fb",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "targetcli-fb"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-13867",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-13867"
+      }
+    ],
+    "description": "Open-iSCSI targetcli-fb through 2.1.52 has weak permissions for /etc/target (and for the backup directory and backup files).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18414",
+                "comment": "targetcli-fb DPKG is earlier than 1:2.1.53-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

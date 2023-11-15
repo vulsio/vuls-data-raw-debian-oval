@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:177181514202581187153673815402770493550",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-8614 ansible",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ansible"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-8614",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8614"
+      }
+    ],
+    "description": "A flaw was found in Ansible before version 2.2.0. The apt_key module does not properly verify key fingerprints, allowing remote adversary to create an OpenPGP key which matches the short key ID and inject this key instead of the correct key.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10145",
+                "comment": "ansible DPKG is earlier than 2.2.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:160977688162543219338040018423239182407",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-4439 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-4439",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-4439"
+      }
+    ],
+    "description": "The esp_reg_write function in hw/scsi/esp.c in the 53C9X Fast SCSI Controller (FSC) support in QEMU does not properly check command buffer length, which allows local guest OS administrators to cause a denial of service (out-of-bounds write and QEMU process crash) or potentially execute arbitrary code on the QEMU host via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9641",
+                "comment": "qemu DPKG is earlier than 1:2.6+dfsg-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

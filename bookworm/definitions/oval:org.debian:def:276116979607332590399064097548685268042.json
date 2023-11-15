@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:276116979607332590399064097548685268042",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-1132 spamass-milter",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "spamass-milter"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-1132",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1132"
+      }
+    ],
+    "description": "The mlfi_envrcpt function in spamass-milter.cpp in SpamAssassin Milter Plugin 0.3.1, when using the expand option, allows remote attackers to execute arbitrary system commands via shell metacharacters in the RCPT TO field of an email message.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3358",
+                "comment": "spamass-milter DPKG is earlier than 0.3.1-9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

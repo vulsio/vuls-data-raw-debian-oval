@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:185637549155440056367109501204659154424",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3442-1 isc-dhcp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "isc-dhcp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8605",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8605"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that a maliciously crafted packet can crash any of the isc-dhcp applications.  This includes the DHCP client, relay, and server application.  Only IPv4 setups are affected.",
+      "dsa": "DSA-3442",
+      "date": "2016-01-13"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1195",
+                "comment": "isc-dhcp DPKG is earlier than 4.3.1-6+deb8u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

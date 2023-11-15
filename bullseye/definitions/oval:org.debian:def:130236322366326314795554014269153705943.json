@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:130236322366326314795554014269153705943",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2930 rails",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "rails"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2930",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2930"
+      }
+    ],
+    "description": "Multiple SQL injection vulnerabilities in the quote_table_name method in the ActiveRecord adapters in activerecord/lib/active_record/connection_adapters/ in Ruby on Rails before 2.3.13, 3.0.x before 3.0.10, and 3.1.x before 3.1.0.rc5 allow remote attackers to execute arbitrary SQL commands via a crafted column name.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4246",
+                "comment": "rails DPKG is earlier than 2.3.14"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

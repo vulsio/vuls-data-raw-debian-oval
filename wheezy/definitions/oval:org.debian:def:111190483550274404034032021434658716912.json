@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:111190483550274404034032021434658716912",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3152-1 unzip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "unzip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9636",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9636"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nA flaw was found in the test_compr_eb() function allowing out-of-bounds read and write access to memory locations. By carefully crafting a corrupt ZIP archive an attacker can trigger a heap overflow, resulting in application crash or possibly having other unspecified impact.",
+      "dsa": "DSA-3152",
+      "date": "2015-02-03"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3503",
+                "comment": "unzip DPKG is earlier than 6.0-8+deb7u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

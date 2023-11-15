@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:327547418485684675014751938605001774871",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2751-1 libmodplug",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "libmodplug"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4233",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4233"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4234",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4234"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities have been discovered in libmodplug, a library for mod music based on ModPlug, that might allow arbitrary code execution when processing specially-crafted ABC files through applications using the library, such as media players.",
+      "dsa": "DSA-2751",
+      "date": "2013-09-04"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3131",
+                "comment": "libmodplug DPKG is earlier than 1:0.8.8.4-3+deb7u1+git20130828"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

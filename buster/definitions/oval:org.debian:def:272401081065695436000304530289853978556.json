@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:272401081065695436000304530289853978556",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8136 libvirt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "libvirt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8136",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8136"
+      }
+    ],
+    "description": "The (1) qemuDomainMigratePerform and (2) qemuDomainMigrateFinish2 functions in qemu/qemu_driver.c in libvirt do not unlock the domain when an ACL check fails, which allow local users to cause a denial of service via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7304",
+                "comment": "libvirt DPKG is earlier than 1.2.9-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

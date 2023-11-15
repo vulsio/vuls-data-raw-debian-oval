@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:198868949133482884239580739778671528098",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-0297 thunderbird",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "thunderbird"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-0297",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0297"
+      }
+    ],
+    "description": "Multiple integer overflows in Mozilla Firefox 1.5, Thunderbird 1.5 if Javascript is enabled in mail, and SeaMonkey before 1.0 might allow remote attackers to execute arbitrary code via the (1) EscapeAttributeValue in jsxml.c for E4X, (2) nsSVGCairoSurface::Init in SVG, and (3) nsCanvasRenderingContext2D.cpp in Canvas.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1179",
+                "comment": "thunderbird DPKG is earlier than 1.5.0.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

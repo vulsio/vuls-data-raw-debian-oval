@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:102441196244052278367883479879190547795",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3743-1 python-bottle",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "python-bottle"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9964",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9964"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that bottle, a WSGI-framework for the Python programming language, did not properly filter \"\\r\\n\" sequences when handling redirections. This allowed an attacker to perform CRLF attacks such as HTTP header injection.",
+      "dsa": "DSA-3743",
+      "date": "2016-12-20"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:673",
+                "comment": "python-bottle DPKG is earlier than 0.12.11-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

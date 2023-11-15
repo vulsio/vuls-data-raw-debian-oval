@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:266810092799229095338212920692519766888",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-5012 python-pyftpdlib",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "python-pyftpdlib"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-5012",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-5012"
+      }
+    ],
+    "description": "ftpserver.py in pyftpdlib before 0.5.2 does not require the l permission for the MLST command, which allows remote authenticated users to bypass intended access restrictions and list the root directory via an FTP session.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3454",
+                "comment": "python-pyftpdlib DPKG is earlier than 0.5.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:288682065885542363346365218779565299604",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-18021 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-18021",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18021"
+      }
+    ],
+    "description": "arch/arm64/kvm/guest.c in KVM in the Linux kernel before 4.18.12 on the arm64 platform mishandles the KVM_SET_ON_REG ioctl. This is exploitable by attackers who can create virtual machines. An attacker can arbitrarily redirect the hypervisor flow of control (with full register control). An attacker can also cause a denial of service (hypervisor panic) via an illegal exception return. This occurs because of insufficient restrictions on userspace access to the core register file, and because PSTATE.M validation does not prevent unintended execution modes.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14372",
+                "comment": "linux DPKG is earlier than 4.18.10-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

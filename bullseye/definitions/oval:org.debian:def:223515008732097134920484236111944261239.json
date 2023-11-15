@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:223515008732097134920484236111944261239",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5250-1 dbus",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dbus"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-42010",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-42010"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-42011",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-42011"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-42012",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-42012"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nEvgeny Vereshchagin discovered multiple vulnerabilities in D-Bus, a simple interprocess messaging system, which may result in denial of service by an authenticated user.",
+      "dsa": "DSA-5250",
+      "date": "2022-10-06"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28027",
+                "comment": "dbus DPKG is earlier than 1.12.24-0+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

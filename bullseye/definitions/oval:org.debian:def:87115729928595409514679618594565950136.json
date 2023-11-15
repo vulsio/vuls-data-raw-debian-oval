@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:87115729928595409514679618594565950136",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-1806 freetype",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "freetype"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-1806",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1806"
+      }
+    ],
+    "description": "Integer overflow in FreeType2 before 2.3.6 allows context-dependent attackers to execute arbitrary code via a crafted set of 16-bit length values within the Private dictionary table in a Printer Font Binary (PFB) file, which triggers a heap-based buffer overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2392",
+                "comment": "freetype DPKG is earlier than 2.3.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

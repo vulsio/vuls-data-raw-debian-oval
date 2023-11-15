@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:37337314419539047107174228344560926309",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-7438 wolfssl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wolfssl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-7438",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7438"
+      }
+    ],
+    "description": "The C software implementation of ECC in wolfSSL (formerly CyaSSL) before 3.9.10 makes it easier for local users to discover RSA keys by leveraging cache-bank hit differences.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9620",
+                "comment": "wolfssl DPKG is earlier than 3.9.10+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

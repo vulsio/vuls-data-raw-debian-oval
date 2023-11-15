@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:230667369112634538889565100093137947070",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-33956 kanboard",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "kanboard"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-33956",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-33956"
+      }
+    ],
+    "description": "Kanboard is open source project management software that focuses on the Kanban methodology. Versions prior to 1.2.30 are subject to an Insecure direct object reference (IDOR) vulnerability present in the application's URL parameter. This vulnerability enables any user to read files uploaded by any other user, regardless of their privileges or restrictions. By Changing the file_id any user can render all the files where MimeType is image uploaded under **/files** directory regard less of uploaded by any user. This vulnerability poses a significant impact and severity to the application's security. By manipulating the URL parameter, an attacker can access sensitive files that should only be available to authorized users. This includes confidential documents or any other type of file stored within the application. The ability to read these files can lead to various detrimental consequences, such as unauthorized disclosure of sensitive information, privacy breaches, intellectual property theft, or exposure of trade secrets. Additionally, it could result in legal and regulatory implications, reputation damage, financial losses, and potential compromise of user trust. Users are advised to upgrade. There are no known workarounds for this vulnerability.\n\n",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26099",
+                "comment": "kanboard DPKG is earlier than 1.2.26+ds-2+deb12u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

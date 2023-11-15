@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:326137110462509575711143726227399293992",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-5617 svgsalamander",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "svgsalamander"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5617",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5617"
+      }
+    ],
+    "description": "The SVG Salamander (aka svgSalamander) library, when used in a web application, allows remote attackers to conduct server-side request forgery (SSRF) attacks via an xlink:href attribute in an SVG file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12299",
+                "comment": "svgsalamander DPKG is earlier than 1.1.1+dfsg-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

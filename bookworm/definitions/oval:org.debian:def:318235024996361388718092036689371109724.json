@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:318235024996361388718092036689371109724",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-6015 samba",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "samba"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-6015",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6015"
+      }
+    ],
+    "description": "Stack-based buffer overflow in the send_mailslot function in nmbd in Samba 3.0.0 through 3.0.27a, when the \"domain logons\" option is enabled, allows remote attackers to execute arbitrary code via a GETDC mailslot request composed of a long GETDC string following an offset username in a SAMLOGON logon request.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2070",
+                "comment": "samba DPKG is earlier than 3.0.28-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

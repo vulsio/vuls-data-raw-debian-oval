@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:120963134132474736709881453239986691251",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-3583 sql-ledger",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "sql-ledger"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-3583",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3583"
+      }
+    ],
+    "description": "Directory traversal vulnerability in the Preferences menu item in SQL-Ledger 2.8.24 allows remote attackers to include and execute arbitrary local files via a .. (dot dot) in the countrycode field.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3192",
+                "comment": "sql-ledger DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

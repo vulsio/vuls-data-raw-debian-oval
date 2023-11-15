@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:169666172828690307647442365741538129047",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-3186 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-3186",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3186"
+      }
+    ],
+    "description": "Buffer overflow in the picolcd_raw_event function in devices/hid/hid-picolcd_core.c in the PicoLCD HID device driver in the Linux kernel through 3.16.3, as used in Android on Nexus 7 devices, allows physically proximate attackers to cause a denial of service (system crash) or possibly execute arbitrary code via a crafted device that sends a large report.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6392",
+                "comment": "linux DPKG is earlier than 3.16.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

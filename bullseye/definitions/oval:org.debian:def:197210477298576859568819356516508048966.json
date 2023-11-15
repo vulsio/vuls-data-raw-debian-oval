@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:197210477298576859568819356516508048966",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-1759 mysql-ocaml",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mysql-ocaml"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-1759",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1759"
+      }
+    ],
+    "description": "Race condition in shtool 2.0.1 and earlier allows local users to modify or create arbitrary files via a symlink attack on temporary files after they have been created, a different vulnerability than CVE-2005-1751.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:868",
+                "comment": "mysql-ocaml DPKG is earlier than 1.0.3-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

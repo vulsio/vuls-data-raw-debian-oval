@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:232945315831001115809349214119477699126",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-1378 grml-debootstrap",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "grml-debootstrap"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-1378",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1378"
+      }
+    ],
+    "description": "cmdlineopts.clp in grml-debootstrap in Debian 0.54, 0.68.x before 0.68.1, 0.7x before 0.78 is sourced without checking that the local directory is writable by non-root users.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7599",
+                "comment": "grml-debootstrap DPKG is earlier than 0.68.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

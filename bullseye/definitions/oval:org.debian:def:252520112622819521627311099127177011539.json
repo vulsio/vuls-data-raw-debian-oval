@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:252520112622819521627311099127177011539",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-2155 xml-security-c",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xml-security-c"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2155",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2155"
+      }
+    ],
+    "description": "Apache Santuario XML Security for C++ (aka xml-security-c) before 1.7.1 does not properly validate length values, which allows remote attackers to cause a denial of service or bypass the CVE-2009-0217 protection mechanism and spoof a signature via crafted length values to the (1) compareBase64StringToRaw, (2) DSIGAlgorithmHandlerDefault, or (3) DSIGAlgorithmHandlerDefault::verify functions.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5637",
+                "comment": "xml-security-c DPKG is earlier than 1.6.1-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:132153699478838035807269398248469841975",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4443-1 samba",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "samba"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-16860",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16860"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIsaac Boukris and Andrew Bartlett discovered that the S4U2Self Kerberos extension used in Samba's Active Directory support was susceptible to man-in-the-middle attacks caused by incomplete checksum validation.",
+      "dsa": "DSA-4443",
+      "date": "2019-05-14"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4343",
+                "comment": "samba DPKG is earlier than 2:4.5.16+dfsg-1+deb9u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:335610803600679294648897160314984033913",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-14662 brandy",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "brandy"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-14662",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14662"
+      }
+    ],
+    "description": "Brandy 1.20.1 has a stack-based buffer overflow in fileio_openout in fileio.c via crafted BASIC source code.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15879",
+                "comment": "brandy DPKG is earlier than 1.22.13-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

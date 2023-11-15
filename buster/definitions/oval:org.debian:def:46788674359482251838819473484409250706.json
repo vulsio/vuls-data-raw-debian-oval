@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:46788674359482251838819473484409250706",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-4642 gnome-screensaver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "gnome-screensaver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-4642",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4642"
+      }
+    ],
+    "description": "gnome-screensaver 2.26.1 relies on the gnome-session D-Bus interface to determine session idle time, even when an Xfce desktop such as Xubuntu or Mythbuntu is used, which allows physically proximate attackers to access an unattended workstation on which screen locking had been intended.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3440",
+                "comment": "gnome-screensaver DPKG is earlier than 2.26.1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

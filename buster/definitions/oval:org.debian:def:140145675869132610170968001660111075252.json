@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:140145675869132610170968001660111075252",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-15592 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-15592",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15592"
+      }
+    ],
+    "description": "An issue was discovered in Xen through 4.9.x allowing x86 HVM guest OS users to cause a denial of service (hypervisor crash) or possibly gain privileges because self-linear shadow mappings are mishandled for translated guests.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11714",
+                "comment": "xen DPKG is earlier than 4.8.2+xsa245-0+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

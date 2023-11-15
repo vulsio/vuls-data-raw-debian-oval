@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:215942505715142836282541526014504640767",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-4367 awstats",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "awstats"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-4367",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4367"
+      }
+    ],
+    "description": "awstats.cgi in AWStats before 7.0 accepts a configdir parameter in the URL, which allows remote attackers to execute arbitrary commands via a crafted configuration file located on a (1) WebDAV server or (2) NFS server.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3683",
+                "comment": "awstats DPKG is earlier than 6.9.5~dfsg-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

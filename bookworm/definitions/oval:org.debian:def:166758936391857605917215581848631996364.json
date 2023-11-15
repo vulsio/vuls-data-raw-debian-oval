@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:166758936391857605917215581848631996364",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-20593 amd64-microcode",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "amd64-microcode"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-20593",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20593"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Tavis Ormandy discovered that under specific microarchitectural circumstances, a vector register in <q>Zen 2</q> CPUs may not be written to 0 correctly. This flaw allows an attacker to leak register contents across concurrent processes, hyper threads and virtualized guests.",
+      "dsa": "DSA-5459"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25269",
+                "comment": "amd64-microcode DPKG is earlier than 3.20230719.1~deb12u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

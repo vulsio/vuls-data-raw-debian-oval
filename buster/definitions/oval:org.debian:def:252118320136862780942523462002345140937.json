@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:252118320136862780942523462002345140937",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-5465 firefox-esr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "firefox-esr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5465",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5465"
+      }
+    ],
+    "description": "An out-of-bounds read while processing SVG content in \"ConvolvePixel\". This results in a crash and also allows for otherwise inaccessible memory being copied into SVG graphic content, which could then displayed. This vulnerability affects Thunderbird < 52.1, Firefox ESR < 45.9, Firefox ESR < 52.1, and Firefox < 53.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12407",
+                "comment": "firefox-esr DPKG is earlier than 45.9.0esr-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

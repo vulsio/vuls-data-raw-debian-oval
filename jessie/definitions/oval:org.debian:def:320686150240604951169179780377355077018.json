@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:320686150240604951169179780377355077018",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3599-1 p7zip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "p7zip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-2335",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2335"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMarcin <q>Icewall</q> Noga of Cisco Talos discovered an out-of-bound read vulnerability in the CInArchive::ReadFileItem method in p7zip, a 7zr file archiver with high compression ratio. A remote attacker can take advantage of this flaw to cause a denial-of-service or, potentially the execution of arbitrary code with the privileges of the user running p7zip, if a specially crafted UDF file is processed.",
+      "dsa": "DSA-3599",
+      "date": "2016-06-09"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4294",
+                "comment": "p7zip DPKG is earlier than 9.20.1~dfsg.1-4.1+deb8u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

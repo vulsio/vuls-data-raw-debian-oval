@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:291947324758036438168301228041566219316",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1492 roundcube",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "roundcube"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1492",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1492"
+      }
+    ],
+    "description": "steps/utils/modcss.inc in Roundcube Webmail before 0.5.1 does not properly verify that a request is an expected request for an external Cascading Style Sheets (CSS) stylesheet, which allows remote authenticated users to trigger arbitrary outbound TCP connections from the server, and possibly obtain sensitive information, via a crafted request.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3890",
+                "comment": "roundcube DPKG is earlier than 0.5.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:315212921427413142484183807383539905307",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4132-1 libvpx",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "libvpx"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-13194",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13194"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that incorrect validation of frame widths in the libvpx multimedia library may result in denial of service and potentially the execution of arbitrary code.",
+      "dsa": "DSA-4132",
+      "date": "2018-03-04"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4054",
+                "comment": "libvpx DPKG is earlier than 1.6.1-3+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

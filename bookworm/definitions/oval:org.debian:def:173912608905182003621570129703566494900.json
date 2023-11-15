@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:173912608905182003621570129703566494900",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-1533 libmobi",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libmobi"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-1533",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-1533"
+      }
+    ],
+    "description": "Buffer Over-read in GitHub repository bfabiszewski/libmobi prior to 0.11. This vulnerability is capable of arbitrary code execution.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22589",
+                "comment": "libmobi DPKG is earlier than 0.11+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

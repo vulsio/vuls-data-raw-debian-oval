@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:211506769418413755058168119451018656695",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-2735 pcs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "pcs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-2735",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-2735"
+      }
+    ],
+    "description": "A vulnerability was found in the PCS project. This issue occurs due to incorrect permissions on a Unix socket used for internal communication between PCS daemons. A privilege escalation could happen by obtaining an authentication token for a hacluster user. With the \"hacluster\" token, this flaw allows an attacker to have complete control over the cluster managed by PCS.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23331",
+                "comment": "pcs DPKG is earlier than 0.11.3-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

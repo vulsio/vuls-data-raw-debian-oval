@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:73452647064924153889165026500926257470",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-2163 openjdk-11",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "openjdk-11"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-2163",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-2163"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "It was discovered that the OpenJDK Java platform incompletely enforced configuration settings used in Jar signing verifications.",
+      "dsa": "DSA-4899"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20824",
+                "comment": "openjdk-11 DPKG is earlier than 11.0.11+9-1~deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

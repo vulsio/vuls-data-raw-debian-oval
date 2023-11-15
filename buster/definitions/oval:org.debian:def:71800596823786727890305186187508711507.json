@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:71800596823786727890305186187508711507",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-22217 c-ares",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "c-ares"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-22217",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-22217"
+      }
+    ],
+    "description": "Buffer overflow vulnerability in c-ares before 1_16_1 thru 1_17_0 via function ares_parse_soa_reply in ares_parse_soa_reply.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19196",
+                "comment": "c-ares DPKG is earlier than 1.14.0-1+deb10u4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

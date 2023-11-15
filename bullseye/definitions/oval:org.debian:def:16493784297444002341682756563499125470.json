@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:16493784297444002341682756563499125470",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5510-1 libvpx",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libvpx"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-5217",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-5217"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nClement Lecigne discovered a heap-based buffer overflow in libvpx, a multimedia library for the VP8 and VP9 video codecs, which may result in the execution of arbitrary code if a specially crafted VP8 media stream is processed.",
+      "dsa": "DSA-5510",
+      "date": "2023-09-29"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28280",
+                "comment": "libvpx DPKG is earlier than 1.9.0-1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

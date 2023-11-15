@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:306489803307067149965375373291248167536",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-0098 clamav",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "clamav"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-0098",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0098"
+      }
+    ],
+    "description": "ClamAV before 0.96 does not properly handle the (1) CAB and (2) 7z file formats, which allows remote attackers to bypass virus detection via a crafted archive that is compatible with standard archive utilities.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3269",
+                "comment": "clamav DPKG is earlier than 0.96+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

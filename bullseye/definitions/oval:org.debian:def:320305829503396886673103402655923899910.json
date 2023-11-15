@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:320305829503396886673103402655923899910",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-29376 ircii",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ircii"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-29376",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29376"
+      }
+    ],
+    "description": "ircII before 20210314 allows remote attackers to cause a denial of service (segmentation fault and client crash, disconnecting the victim from an IRC server) via a crafted CTCP UTC message.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:21308",
+                "comment": "ircii DPKG is earlier than 20210314-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

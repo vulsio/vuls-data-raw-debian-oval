@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:184641485655857562208820785289727160522",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-2752 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2752",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2752"
+      }
+    ],
+    "description": "The XEN_DOMCTL_memory_mapping hypercall in Xen 3.2.x through 4.5.x, when using a PCI passthrough device, is not preemptible, which allows local x86 HVM domain users to cause a denial of service (host CPU consumption) via a crafted request to the device model (qemu-dm).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7475",
+                "comment": "xen DPKG is earlier than 4.4.1-9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

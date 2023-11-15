@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:147223160735692798495888082983926992436",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-12372 thunderbird",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "thunderbird"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-12372",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12372"
+      }
+    ],
+    "description": "Decrypted S/MIME parts, when included in HTML crafted for an attack, can leak plaintext when included in a a HTML reply/forward. This vulnerability affects Thunderbird < 52.9.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13773",
+                "comment": "thunderbird DPKG is earlier than 1:52.9.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

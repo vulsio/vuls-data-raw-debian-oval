@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:75219842641590256180752549593301852480",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-2972 exim4",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "exim4"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-2972",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2972"
+      }
+    ],
+    "description": "expand.c in Exim before 4.83 expands mathematical comparisons twice, which allows local users to gain privileges and execute arbitrary commands via a crafted lookup value.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6621",
+                "comment": "exim4 DPKG is earlier than 4.82.1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

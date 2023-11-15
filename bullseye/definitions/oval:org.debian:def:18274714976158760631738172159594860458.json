@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:18274714976158760631738172159594860458",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-23451 barbican",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "barbican"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23451",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23451"
+      }
+    ],
+    "description": "An authorization flaw was found in openstack-barbican. The default policy rules for the secret metadata API allowed any authenticated user to add, modify, or delete metadata from any secret regardless of ownership. This flaw allows an attacker on the network to modify or delete protected data, causing a denial of service by consuming protected resources.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24003",
+                "comment": "barbican DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

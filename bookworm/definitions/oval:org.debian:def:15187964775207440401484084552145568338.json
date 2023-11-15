@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:15187964775207440401484084552145568338",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-32190 golang-1.19",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "golang-1.19"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-32190",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32190"
+      }
+    ],
+    "description": "JoinPath and URL.JoinPath do not remove ../ path elements appended to a relative path. For example, JoinPath(\"https://go.dev\", \"../go\") returns the URL \"https://go.dev/../go\", despite the JoinPath documentation stating that ../ path elements are removed from the result.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23740",
+                "comment": "golang-1.19 DPKG is earlier than 1.19.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:42584129699630797327378135130884779825",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-10059 cacti",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "cacti"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-10059",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10059"
+      }
+    ],
+    "description": "Cacti before 1.1.37 has XSS because the get_current_page function in lib/functions.php relies on $_SERVER['PHP_SELF'] instead of $_SERVER['SCRIPT_NAME'] to determine a page name.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13006",
+                "comment": "cacti DPKG is earlier than 1.1.37+ds1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

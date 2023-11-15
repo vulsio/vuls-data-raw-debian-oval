@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:252920670601790545243670851351660699887",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-13863 node-mongodb",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "node-mongodb"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-13863",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-13863"
+      }
+    ],
+    "description": "The MongoDB bson JavaScript module (also known as js-bson) versions 0.5.0 to 1.0.x before 1.0.5 is vulnerable to a Regular Expression Denial of Service (ReDoS) in lib/bson/decimal128.js. The flaw is triggered when the Decimal128.fromString() function is called to parse a long untrusted string.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13524",
+                "comment": "node-mongodb DPKG is earlier than 3.1.10+~3.1.9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

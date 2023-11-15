@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:220507251848750176847507352828291486019",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-0759 znc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "znc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0759",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0759"
+      }
+    ],
+    "description": "Multiple CRLF injection vulnerabilities in webadmin in ZNC before 0.066 allow remote authenticated users to modify the znc.conf configuration file and gain privileges via CRLF sequences in the quit message and other vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2770",
+                "comment": "znc DPKG is earlier than 0.066-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

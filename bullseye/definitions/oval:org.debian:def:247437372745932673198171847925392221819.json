@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:247437372745932673198171847925392221819",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-13952 gdnsd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gdnsd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-13952",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13952"
+      }
+    ],
+    "description": "The set_ipv6() function in zscan_rfc1035.rl in gdnsd before 2.4.3 and 3.x before 3.2.1 has a stack-based buffer overflow via a long and malformed IPv6 address in zone data.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:16268",
+                "comment": "gdnsd DPKG is earlier than 3.5.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

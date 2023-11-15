@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:306317400096657955904464397040090591870",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-3372 avahi",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "avahi"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-3372",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3372"
+      }
+    ],
+    "description": "The Avahi daemon in Avahi before 0.6.20 allows attackers to cause a denial of service (exit) via empty TXT data over D-Bus, which triggers an assert error.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1845",
+                "comment": "avahi DPKG is earlier than 0.6.20-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

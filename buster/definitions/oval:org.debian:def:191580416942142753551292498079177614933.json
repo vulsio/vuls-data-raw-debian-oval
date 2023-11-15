@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:191580416942142753551292498079177614933",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-33178 nagvis",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "nagvis"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-33178",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33178"
+      }
+    ],
+    "description": "The Manage Backgrounds functionality within NagVis versions prior to 1.9.29 is vulnerable to an authenticated path traversal vulnerability. Exploitation of this results in a malicious actor having the ability to arbitrarily delete files on the local system.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:21620",
+                "comment": "nagvis DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

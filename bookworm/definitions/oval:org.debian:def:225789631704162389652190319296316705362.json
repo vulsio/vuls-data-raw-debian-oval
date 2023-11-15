@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:225789631704162389652190319296316705362",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-12474 telegram-desktop",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "telegram-desktop"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-12474",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12474"
+      }
+    ],
+    "description": "Telegram Desktop through 2.0.1, Telegram through 6.0.1 for Android, and Telegram through 6.0.1 for iOS allow an IDN Homograph attack via Punycode in a public URL or a group chat invitation URL.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17751",
+                "comment": "telegram-desktop DPKG is earlier than 2.1.0+ds-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

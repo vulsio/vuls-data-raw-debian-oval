@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:46548699280210242699999493351687574780",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-2211 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2211",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2211"
+      }
+    ],
+    "description": "The libxenlight (libxl) toolstack library in Xen 4.0.x, 4.1.x, and 4.2.x uses weak permissions for xenstore keys for paravirtualised and emulated serial console devices, which allows local guest administrators to modify the xenstore value via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5667",
+                "comment": "xen DPKG is earlier than 4.3.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:220844009472911438705691603505255881458",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4550-1 file",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "file"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-18218",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18218"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nA buffer overflow was found in file, a file type classification tool, which may result in denial of service or potentially the execution of arbitrary code if a malformed CDF (Composite Document File) file is processed.",
+      "dsa": "DSA-4550",
+      "date": "2019-10-25"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3180",
+                "comment": "file DPKG is earlier than 1:5.30-1+deb9u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

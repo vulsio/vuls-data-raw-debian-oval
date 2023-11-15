@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:180419801022202356005491740112858013090",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-44031 redmine",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "redmine"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-44031",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44031"
+      }
+    ],
+    "description": "Redmine before 4.2.9 and 5.0.x before 5.0.4 allows persistent XSS in its Textile formatter due to improper sanitization of the blockquote syntax in Textile-formatted fields.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24683",
+                "comment": "redmine DPKG is earlier than 5.0.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:104212072485958632058238159431207479025",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-6746 telepathy-idle",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "telepathy-idle"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-6746",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6746"
+      }
+    ],
+    "description": "telepathy-idle before 0.1.15 does not verify (1) that the issuer is a trusted CA, (2) that the server hostname matches a domain name in the subject's Common Name (CN), or (3) the expiration date of the X.509 certificate, which allows man-in-the-middle attackers to spoof SSL servers via an arbitrary valid certificate.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2152",
+                "comment": "telepathy-idle DPKG is earlier than 0.1.15-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

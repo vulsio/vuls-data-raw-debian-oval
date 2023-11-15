@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:295594340449645341226791999340288655958",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-1721 cyrus-sasl2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cyrus-sasl2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-1721",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1721"
+      }
+    ],
+    "description": "digestmd5.c in the CMU Cyrus Simple Authentication and Security Layer (SASL) library 2.1.18, and possibly other versions before 2.1.21, allows remote unauthenticated attackers to cause a denial of service (segmentation fault) via malformed inputs in DIGEST-MD5 negotiation.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1269",
+                "comment": "cyrus-sasl2 DPKG is earlier than 2.1.19.dfsg1-0.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

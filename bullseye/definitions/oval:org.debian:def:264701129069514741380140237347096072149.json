@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:264701129069514741380140237347096072149",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-0366 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-0366",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0366"
+      }
+    ],
+    "description": "Mediawiki before 1.28.1 / 1.27.2 / 1.23.16 contains a flaw allowing to evade SVG filter using default attribute values in DTD declaration.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10515",
+                "comment": "mediawiki DPKG is earlier than 1:1.27.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

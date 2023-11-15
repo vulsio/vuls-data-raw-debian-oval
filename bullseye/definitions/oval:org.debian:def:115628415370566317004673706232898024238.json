@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:115628415370566317004673706232898024238",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-15377 suricata",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "suricata"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-15377",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15377"
+      }
+    ],
+    "description": "In Suricata before 4.x, it was possible to trigger lots of redundant checks on the content of crafted network traffic with a certain signature, because of DetectEngineContentInspection in detect-engine-content-inspection.c. The search engine doesn't stop when it should after no match is found; instead, it stops only upon reaching inspection-recursion-limit (3000 by default).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11556",
+                "comment": "suricata DPKG is earlier than 1:4.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:64352644360547405523196715095524634764",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-0542 fuse",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "fuse"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-0542",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0542"
+      }
+    ],
+    "description": "fusermount in fuse 2.8.5 and earlier does not perform a chdir to / before performing a mount or umount, which allows local users to unmount arbitrary directories via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3962",
+                "comment": "fuse DPKG is earlier than 2.8.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:278737869844577713175723553123654722500",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1996 libfs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libfs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1996",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1996"
+      }
+    ],
+    "description": "X.org libFS 1.0.4 and earlier allows X servers to trigger allocation of insufficient memory and a buffer overflow via vectors related to an unexpected sign extension in the FSOpenServer function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5351",
+                "comment": "libfs DPKG is earlier than 2:1.0.4-1+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

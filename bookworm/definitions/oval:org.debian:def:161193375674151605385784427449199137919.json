@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:161193375674151605385784427449199137919",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-17448 telegram-desktop",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "telegram-desktop"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-17448",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-17448"
+      }
+    ],
+    "description": "Telegram Desktop through 2.1.13 allows a spoofed file type to bypass the Dangerous File Type Execution protection mechanism, as demonstrated by use of the chat window with a filename that lacks an extension.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18273",
+                "comment": "telegram-desktop DPKG is earlier than 2.2.0+ds-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

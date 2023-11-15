@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:37616425439162011809463450341870264613",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-38199 modsecurity-crs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "modsecurity-crs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-38199",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38199"
+      }
+    ],
+    "description": "coreruleset (aka OWASP ModSecurity Core Rule Set) through 3.3.4 does not detect multiple Content-Type request headers on some platforms. This might allow attackers to bypass a WAF with a crafted payload, aka \"Content-Type confusion\" between the WAF and the backend application. This occurs when the web application relies on only the last Content-Type header. Other platforms may reject the additional Content-Type header or merge conflicting headers, leading to detection as a malformed header.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26285",
+                "comment": "modsecurity-crs DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

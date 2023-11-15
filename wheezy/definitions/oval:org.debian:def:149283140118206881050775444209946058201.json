@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:149283140118206881050775444209946058201",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2842-1 libspring-java",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "libspring-java"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4152",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4152"
+      }
+    ],
+    "description": "denial of service",
+    "debian": {
+      "moreinfo": "\nAlvaro Munoz discovered a XML External Entity (XXE) injection in the Spring Framework which can be used for conducting CSRF and DoS attacks on other sites.",
+      "dsa": "DSA-2842",
+      "date": "2014-01-13"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:889",
+                "comment": "libspring-java DPKG is earlier than 3.0.6.RELEASE-6+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

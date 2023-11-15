@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:290822505423206881242140623418796830878",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-3626 perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-3626",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3626"
+      }
+    ],
+    "description": "Perl 5.10.1 allows context-dependent attackers to cause a denial of service (application crash) via a UTF-8 character with a large, invalid codepoint, which is not properly handled during a regular-expression match.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3214",
+                "comment": "perl DPKG is earlier than 5.10.1-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

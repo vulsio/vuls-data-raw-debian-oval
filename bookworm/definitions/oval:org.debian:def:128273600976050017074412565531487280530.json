@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:128273600976050017074412565531487280530",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-1216 krb5",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "krb5"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-1216",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1216"
+      }
+    ],
+    "description": "Double free vulnerability in the GSS-API library (lib/gssapi/krb5/k5unseal.c), as used by the Kerberos administration daemon (kadmind) in MIT krb5 before 1.6.1, when used with the authentication method provided by the RPCSEC_GSS RPC library, allows remote authenticated users to execute arbitrary code and modify the Kerberos key database via a message with an \"an invalid direction encoding\".",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1678",
+                "comment": "krb5 DPKG is earlier than 1.4.4-8"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

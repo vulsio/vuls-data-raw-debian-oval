@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:110905010343951244341148122966694820148",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-5209 ntp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ntp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-5209",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5209"
+      }
+    ],
+    "description": "An Information Disclosure vulnerability exists in NTP 4.2.7p25 private (mode 6/7) messages via a GET_RESTRICT control message, which could let a malicious user obtain sensitive information.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6921",
+                "comment": "ntp DPKG is earlier than 1:4.2.8p3+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

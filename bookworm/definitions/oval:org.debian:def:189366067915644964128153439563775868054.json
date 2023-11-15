@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:189366067915644964128153439563775868054",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-2147 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2147",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2147"
+      }
+    ],
+    "description": "The HP Smart Array controller disk-array driver and Compaq SMART2 controller disk-array driver in the Linux kernel through 3.9.4 do not initialize certain data structures, which allows local users to obtain sensitive information from kernel memory via (1) a crafted IDAGETPCIINFO command for a /dev/ida device, related to the ida_locked_ioctl function in drivers/block/cpqarray.c or (2) a crafted CCISS_PASSTHRU32 command for a /dev/cciss device, related to the cciss_ioctl32_passthru function in drivers/block/cciss.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5415",
+                "comment": "linux DPKG is earlier than 3.11.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

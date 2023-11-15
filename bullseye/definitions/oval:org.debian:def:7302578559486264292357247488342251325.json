@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:7302578559486264292357247488342251325",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-9258 soundtouch",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "soundtouch"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-9258",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9258"
+      }
+    ],
+    "description": "The TDStretch::processSamples function in source/SoundTouch/TDStretch.cpp in SoundTouch 1.9.2 allows remote attackers to cause a denial of service (infinite loop and CPU consumption) via a crafted wav file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13084",
+                "comment": "soundtouch DPKG is earlier than 1.9.2-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

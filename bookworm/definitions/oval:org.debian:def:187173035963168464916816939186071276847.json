@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:187173035963168464916816939186071276847",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2003-1294 xscreensaver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xscreensaver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2003-1294",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1294"
+      }
+    ],
+    "description": "Xscreensaver before 4.15 creates temporary files insecurely in (1) driver/passwd-kerberos.c, (2) driver/xscreensaver-getimage-video, (3) driver/xscreensaver.kss.in, and the (4) vidwhacker and (5) webcollage screensavers, which allows local users to overwrite arbitrary files via a symlink attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:335",
+                "comment": "xscreensaver DPKG is earlier than 4.15-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

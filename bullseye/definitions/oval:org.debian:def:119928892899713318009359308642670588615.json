@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:119928892899713318009359308642670588615",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-8102 xpdf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xpdf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-8102",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8102"
+      }
+    ],
+    "description": "The JBIG2MMRDecoder::getBlackCode function in JBIG2Stream.cc in xpdf 4.00 allows attackers to launch denial of service (buffer over-read and application crash) via a specific pdf file, as demonstrated by pdftohtml.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15422",
+                "comment": "xpdf DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

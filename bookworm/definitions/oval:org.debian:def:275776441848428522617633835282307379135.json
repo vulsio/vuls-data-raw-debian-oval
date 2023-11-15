@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:275776441848428522617633835282307379135",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-32685 kanboard",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "kanboard"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-32685",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32685"
+      }
+    ],
+    "description": "Kanboard is project management software that focuses on the Kanban methodology. Due to improper handling of elements under the `contentEditable` element, maliciously crafted clipboard content can inject arbitrary HTML tags into the DOM. A low-privileged attacker with permission to attach a document on a vulnerable Kanboard instance can trick the victim into pasting malicious screenshot data and achieve cross-site scripting if CSP is improperly configured. This issue has been patched in version 1.2.29.\n",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26044",
+                "comment": "kanboard DPKG is earlier than 1.2.26+ds-2+deb12u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

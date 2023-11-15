@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:98891062536849113408365869947955512536",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-7443 apt-cacher",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "apt-cacher"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-7443",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7443"
+      }
+    ],
+    "description": "apt-cacher before 1.7.15 and apt-cacher-ng before 3.4 allow HTTP response splitting via encoded newline characters, related to lack of blocking for the %0[ad] regular expression.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12658",
+                "comment": "apt-cacher DPKG is earlier than 1.7.15"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

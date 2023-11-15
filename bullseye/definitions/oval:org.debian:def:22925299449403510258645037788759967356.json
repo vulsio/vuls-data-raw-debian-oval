@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:22925299449403510258645037788759967356",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-4005 bomberclone",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "bomberclone"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-4005",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4005"
+      }
+    ],
+    "description": "BomberClone 0.11.6 and earlier allows remote attackers to cause a denial of service (daemon crash) via (1) a certain malformed PKGF_ackreq packet, which triggers a crash in the rscache_add() function in pkgcache.c; and (2) an error packet, which is intended to be received by clients and force client shutdown, but also triggers server shutdown.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1449",
+                "comment": "bomberclone DPKG is earlier than 0.11.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

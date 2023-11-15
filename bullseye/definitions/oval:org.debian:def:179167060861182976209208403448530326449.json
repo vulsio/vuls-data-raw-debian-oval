@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:179167060861182976209208403448530326449",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-7246 network-manager",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "network-manager"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-7246",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-7246"
+      }
+    ],
+    "description": "NetworkManager 0.9.x does not pin a certificate's subject to an ESSID when 802.11X authentication is used.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1647",
+                "comment": "network-manager DPKG is earlier than 0.9.4.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

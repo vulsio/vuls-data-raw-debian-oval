@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:139700697426076741147562539740318400880",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2664-1 stunnel4",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "stunnel4"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1762",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1762"
+      }
+    ],
+    "description": "buffer overflow",
+    "debian": {
+      "moreinfo": "\nStunnel, a program designed to work as an universal SSL tunnel for network daemons, is prone to a buffer overflow vulnerability when using the Microsoft NT LAN Manager (NTLM) authentication (<q>protocolAuthentication = NTLM</q>) together with the <q>connect</q> protocol method (<q>protocol = connect</q>). With these prerequisites and using stunnel4 in SSL client mode (<q>client = yes</q>) on a 64 bit host, an attacker could possibly execute arbitrary code with the privileges of the stunnel process, if the attacker can either control the specified proxy server or perform man-in-the-middle attacks on the tcp session between stunnel and the proxy sever.",
+      "dsa": "DSA-2664",
+      "date": "2013-05-02"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:630",
+                "comment": "stunnel4 DPKG is earlier than 3:4.53-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:255879566834841805081608568025271815474",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-7758 gummi",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gummi"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-7758",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-7758"
+      }
+    ],
+    "description": "Gummi 0.6.5 allows local users to write to arbitrary files via a symlink attack on a temporary dot file that uses the name of an existing file and a (1) .aux, (2) .log, (3) .out, (4) .pdf, or (5) .toc extension for the file name, as demonstrated by .thesis.tex.aux.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8260",
+                "comment": "gummi DPKG is earlier than 0.6.5-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

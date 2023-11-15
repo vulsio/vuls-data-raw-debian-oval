@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:159977737706194408866210029872958841735",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5080-1 snapd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "snapd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-44730",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44730"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-44731",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44731"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple vulnerabilties were discovered in snapd, a daemon and tooling that enable Snap packages, which could result in bypass of access restrictions or privilege escalation.",
+      "dsa": "DSA-5080",
+      "date": "2022-02-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27864",
+                "comment": "snapd DPKG is earlier than 2.49-1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

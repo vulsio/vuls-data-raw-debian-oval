@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:79637386307134606521525929210676353812",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-24331 trousers",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "trousers"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-24331",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24331"
+      }
+    ],
+    "description": "An issue was discovered in TrouSerS through 0.3.14. If the tcsd daemon is started with root privileges, the tss user still has read and write access to the /etc/tcsd.conf file (which contains various settings related to this daemon).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19128",
+                "comment": "trousers DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

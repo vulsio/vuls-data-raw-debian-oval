@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:46920963881063946424467954381337653776",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-0701 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-0701",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0701"
+      }
+    ],
+    "description": "wp-admin/async-upload.php in the media uploader in WordPress before 3.0.5 allows remote authenticated users to read (1) draft posts or (2) private posts via a modified attachment_id parameter.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3815",
+                "comment": "wordpress DPKG is earlier than 3.0.5+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

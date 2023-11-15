@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:170698481480156122283322988070341499252",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-39536 libxsmm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libxsmm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-39536",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-39536"
+      }
+    ],
+    "description": "An issue was discovered in libxsmm through v1.16.1-93. The JIT code has a heap-based buffer overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:21654",
+                "comment": "libxsmm DPKG is earlier than 1.17-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

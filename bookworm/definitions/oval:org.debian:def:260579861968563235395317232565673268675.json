@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:260579861968563235395317232565673268675",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-2743 revelation",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "revelation"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2743",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2743"
+      }
+    ],
+    "description": "Revelation 0.4.13-2 and earlier does not iterate through SHA hashing algorithms for AES encryption, which makes it easier for context-dependent attackers to guess passwords via a brute force attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4631",
+                "comment": "revelation DPKG is earlier than 0.4.11-10"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

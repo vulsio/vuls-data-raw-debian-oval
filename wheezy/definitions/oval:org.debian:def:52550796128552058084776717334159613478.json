@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:52550796128552058084776717334159613478",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3100-1 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9277",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9277"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nA flaw was discovered in mediawiki, a wiki engine: cross-domain-policy mangling allows an article editor to inject code into API consumers that deserialize PHP representations of the page from the API.",
+      "dsa": "DSA-3100",
+      "date": "2014-12-12"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1905",
+                "comment": "mediawiki DPKG is earlier than 1:1.19.20+dfsg-0+deb7u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

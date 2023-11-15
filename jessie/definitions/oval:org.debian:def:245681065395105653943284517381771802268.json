@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:245681065395105653943284517381771802268",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4221-1 libvncserver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "libvncserver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-7225",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7225"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAlexander Peslyak discovered that insufficient input sanitising of RFB packets in LibVNCServer could result in the disclosure of memory contents.",
+      "dsa": "DSA-4221",
+      "date": "2018-06-08"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3752",
+                "comment": "libvncserver DPKG is earlier than 0.9.9+dfsg2-6.1+deb8u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

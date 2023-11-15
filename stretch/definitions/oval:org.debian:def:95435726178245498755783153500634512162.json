@@ -1,0 +1,69 @@
+{
+  "id": "oval:org.debian:def:95435726178245498755783153500634512162",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4260-1 libmspack",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "libmspack"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-14679",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14679"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-14680",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14680"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-14681",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14681"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-14682",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14682"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities were discovered in libsmpack, a library used to handle Microsoft compression formats. A remote attacker could craft malicious CAB, CHM or KWAJ files and use these flaws to cause a denial of service via application crash, or potentially execute arbitrary code.",
+      "dsa": "DSA-4260",
+      "date": "2018-08-02"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2142",
+                "comment": "libmspack DPKG is earlier than 0.5-1+deb9u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

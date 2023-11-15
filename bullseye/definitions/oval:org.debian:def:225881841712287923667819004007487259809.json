@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:225881841712287923667819004007487259809",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-9983 webkit2gtk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "webkit2gtk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-9983",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9983"
+      }
+    ],
+    "description": "An out-of-bounds write issue was addressed with improved bounds checking. This issue is fixed in Safari 14.0. Processing maliciously crafted web content may lead to code execution.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20502",
+                "comment": "webkit2gtk DPKG is earlier than 2.30.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

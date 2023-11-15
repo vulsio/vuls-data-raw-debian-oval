@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:33533486512995843477773621655922331648",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-0901 rubygems",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "rubygems"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-0901",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0901"
+      }
+    ],
+    "description": "RubyGems version 2.6.12 and earlier fails to validate specification names, allowing a maliciously crafted gem to potentially overwrite any file on the filesystem.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10542",
+                "comment": "rubygems DPKG is earlier than 3.2.0~rc.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

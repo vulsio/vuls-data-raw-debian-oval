@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:3663760184620665266862374082233308382",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-10121 firejail",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "firejail"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-10121",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10121"
+      }
+    ],
+    "description": "Firejail uses weak permissions for /dev/shm/firejail and possibly other files, which allows local users to gain privileges.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8783",
+                "comment": "firejail DPKG is earlier than 0.9.38-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

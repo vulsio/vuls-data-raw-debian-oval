@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:311047329666743924349044087571282257333",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3784-1 viewvc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "viewvc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5938",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5938"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nThomas Gerbet discovered that viewvc, a web interface for CVS and Subversion repositories, did not properly sanitize user input. This problem resulted in a potential Cross-Site Scripting vulnerability.",
+      "dsa": "DSA-3784",
+      "date": "2017-02-09"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4473",
+                "comment": "viewvc DPKG is earlier than 1.1.22-1+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:142381581412004490984482064676940781275",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-14176 breezy",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "breezy"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-14176",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14176"
+      }
+    ],
+    "description": "Bazaar through 2.7.0, when Subprocess SSH is used, allows remote attackers to execute arbitrary commands via a bzr+ssh URL with an initial dash character in the hostname, a related issue to CVE-2017-9800, CVE-2017-12836, CVE-2017-12976, CVE-2017-16228, CVE-2017-1000116, and CVE-2017-1000117.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10964",
+                "comment": "breezy DPKG is earlier than 3.0.0~bzr6772-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:47700435013695584378655459127602436644",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5130-1 dpdk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dpdk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3839",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3839"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-0669",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0669"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Two vulnerabilities were discovered in the vhost code of DPDK, a set of libraries for fast packet processing, which could result in denial of service or the execution of arbitrary code.",
+      "dsa": "DSA-5130",
+      "date": "2022-05-05"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27911",
+                "comment": "dpdk DPKG is earlier than 20.11.5-1~deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

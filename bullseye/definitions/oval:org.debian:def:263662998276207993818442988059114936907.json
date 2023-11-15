@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:263662998276207993818442988059114936907",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-3100 barbican",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "barbican"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-3100",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-3100"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Douglas Mendizabal discovered that Barbican, the OpenStack Key Management Service, incorrectly parsed requests which could allow an authenticated user to bypass Barbican access policies.",
+      "dsa": "DSA-5247"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24676",
+                "comment": "barbican DPKG is earlier than 1:11.0.0-3+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

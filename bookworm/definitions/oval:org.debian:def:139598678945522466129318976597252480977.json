@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:139598678945522466129318976597252480977",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-20781 gnome-keyring",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "gnome-keyring"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-20781",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20781"
+      }
+    ],
+    "description": "In pam/gkr-pam-module.c in GNOME Keyring before 3.27.2, the user's password is kept in a session-child process spawned from the LightDM daemon. This can expose the credential in cleartext.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14411",
+                "comment": "gnome-keyring DPKG is earlier than 3.28.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

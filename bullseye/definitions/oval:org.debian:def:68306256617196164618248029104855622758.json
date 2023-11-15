@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:68306256617196164618248029104855622758",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-25706 cacti",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cacti"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-25706",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25706"
+      }
+    ],
+    "description": "A cross-site scripting (XSS) vulnerability exists in templates_import.php (Cacti 1.2.13) due to Improper escaping of error message during template import preview in the xml_path field",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19281",
+                "comment": "cacti DPKG is earlier than 1.2.14+ds1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

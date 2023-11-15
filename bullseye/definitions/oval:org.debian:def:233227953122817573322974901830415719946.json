@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:233227953122817573322974901830415719946",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-0531 vlc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "vlc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-0531",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0531"
+      }
+    ],
+    "description": "demux/mkv/mkv.hpp in the MKV demuxer plugin in VideoLAN VLC media player 1.1.6.1 and earlier allows remote attackers to cause a denial of service (crash) and execute arbitrary commands via a crafted MKV (WebM or Matroska) file that triggers memory corruption, related to \"class mismatching\" and the MKV_IS_ID macro.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3958",
+                "comment": "vlc DPKG is earlier than 1.1.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

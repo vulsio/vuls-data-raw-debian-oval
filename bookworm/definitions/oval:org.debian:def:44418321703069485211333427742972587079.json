@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:44418321703069485211333427742972587079",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-1000024 shotwell",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "shotwell"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-1000024",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000024"
+      }
+    ],
+    "description": "Shotwell version 0.24.4 or earlier and 0.25.3 or earlier is vulnerable to an information disclosure in the web publishing plugins resulting in potential password and oauth token plaintext transmission",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10192",
+                "comment": "shotwell DPKG is earlier than 0.25.4+really0.24.5-0.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

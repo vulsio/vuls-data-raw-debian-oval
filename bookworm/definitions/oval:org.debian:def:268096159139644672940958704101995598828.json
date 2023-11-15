@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:268096159139644672940958704101995598828",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-3588 bluez",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "bluez"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3588",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3588"
+      }
+    ],
+    "description": "The cli_feat_read_cb() function in src/gatt-database.c does not perform bounds checks on the 'offset' variable before using it as an index into an array for reading.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:21230",
+                "comment": "bluez DPKG is earlier than 5.55-3.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

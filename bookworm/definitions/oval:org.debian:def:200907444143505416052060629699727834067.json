@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:200907444143505416052060629699727834067",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-18185 qpdf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "qpdf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-18185",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18185"
+      }
+    ],
+    "description": "An issue was discovered in QPDF before 7.0.0. There is a large heap-based out-of-bounds read in the Pl_Buffer::write function in Pl_Buffer.cc. It is caused by an integer overflow in the PNG filter.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11542",
+                "comment": "qpdf DPKG is earlier than 7.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

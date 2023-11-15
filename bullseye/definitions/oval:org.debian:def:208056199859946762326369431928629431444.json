@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:208056199859946762326369431928629431444",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-2200 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2200",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2200"
+      }
+    ],
+    "description": "WordPress before 3.5.2 does not properly check the capabilities of roles, which allows remote authenticated users to bypass intended restrictions on publishing and authorship reassignment via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5657",
+                "comment": "wordpress DPKG is earlier than 3.5.2+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

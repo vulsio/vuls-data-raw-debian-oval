@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:304113045675913915748422163327700583341",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3404-1 python-django",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "python-django"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8213",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8213"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nRyan Butterfield discovered a vulnerability in the date template filter in python-django, a high-level Python web development framework. A remote attacker can take advantage of this flaw to obtain any secret in the application's settings.",
+      "dsa": "DSA-3404",
+      "date": "2015-11-25"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4119",
+                "comment": "python-django DPKG is earlier than 1.7.7-1+deb8u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

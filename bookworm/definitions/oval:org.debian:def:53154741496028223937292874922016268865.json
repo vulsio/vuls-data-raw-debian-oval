@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:53154741496028223937292874922016268865",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-11729 awl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "awl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-11729",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11729"
+      }
+    ],
+    "description": "An issue was discovered in DAViCal Andrew's Web Libraries (AWL) through 0.60. Long-term session cookies, uses to provide long-term session continuity, are not generated securely, enabling a brute-force attack that may be successful.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17644",
+                "comment": "awl DPKG is earlier than 0.61-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

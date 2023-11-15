@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:104059898466194811988156369300985082776",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4705-1 python-django",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "python-django"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-9402",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9402"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-13254",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-13254"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-13596",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-13596"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that Django, a high-level Python web development framework, did not properly sanitize input. This would allow a remote attacker to perform SQL injection attacks, Cross-Site Scripting (XSS) attacks, or leak sensitive information.",
+      "dsa": "DSA-4705",
+      "date": "2020-06-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3519",
+                "comment": "python-django DPKG is earlier than 1:1.10.7-2+deb9u9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

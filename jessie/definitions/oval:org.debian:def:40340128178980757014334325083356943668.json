@@ -1,0 +1,69 @@
+{
+  "id": "oval:org.debian:def:40340128178980757014334325083356943668",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3899-1 vlc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "vlc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-8310",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8310"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-8311",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8311"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-8312",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8312"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-8313",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8313"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities have been found in VLC, the VideoLAN project's media player. Processing malformed subtitles or movie files could lead to denial of service and potentially the execution of arbitrary code.",
+      "dsa": "DSA-3899",
+      "date": "2017-06-27"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3480",
+                "comment": "vlc DPKG is earlier than 2.2.6-1~deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

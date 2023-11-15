@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:161365188380394755608346045932404612677",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-4361 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4361",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4361"
+      }
+    ],
+    "description": "The fbld instruction emulation in Xen 3.3.x through 4.3.x does not use the correct variable for the source effective address, which allows local HVM guests to obtain hypervisor stack information by reading the values used by the instruction.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6071",
+                "comment": "xen DPKG is earlier than 4.4.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

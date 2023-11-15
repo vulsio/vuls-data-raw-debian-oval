@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:261079899423826211877341236653827856206",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2749-1 asterisk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "asterisk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-5641",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5641"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-5642",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5642"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nColin Cuthbertson and Walter Doekes discovered two vulnerabilities in the SIP processing code of Asterisk - an open source PBX and telephony  toolkit -, which could result in denial of service.",
+      "dsa": "DSA-2749",
+      "date": "2013-09-02"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1015",
+                "comment": "asterisk DPKG is earlier than 1.8.13.1~dfsg-3+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

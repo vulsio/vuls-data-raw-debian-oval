@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:235735814433854017652805592749442029605",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-25514 nvidia-cuda-toolkit",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "nvidia-cuda-toolkit"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-25514",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25514"
+      }
+    ],
+    "description": "NVIDIA CUDA toolkit for Linux and Windows contains a vulnerability in cuobjdump, where an attacker may cause an out-of-bounds read by tricking a user into running cuobjdump on a malformed input file. A successful exploit of this vulnerability may lead to limited denial of service, code execution, and limited information disclosure.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25509",
+                "comment": "nvidia-cuda-toolkit DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

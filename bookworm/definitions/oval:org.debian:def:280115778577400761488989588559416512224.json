@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:280115778577400761488989588559416512224",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-3099 open-iscsi",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "open-iscsi"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-3099",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3099"
+      }
+    ],
+    "description": "usr/mgmt_ipc.c in iscsid in open-iscsi (iscsi-initiator-utils) before 2.0-865 checks the client's UID on the listening AF_LOCAL socket instead of the new connection, which allows remote attackers to access the management interface and cause a denial of service (iscsid exit or iSCSI connection loss).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1821",
+                "comment": "open-iscsi DPKG is earlier than 2.0.865-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

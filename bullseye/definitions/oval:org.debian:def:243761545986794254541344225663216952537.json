@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:243761545986794254541344225663216952537",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8172 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8172",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8172"
+      }
+    ],
+    "description": "The filesystem implementation in the Linux kernel before 3.13 performs certain operations on lists of files with an inappropriate locking approach, which allows local users to cause a denial of service (soft lockup or system crash) via unspecified use of Asynchronous I/O (AIO) operations.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7124",
+                "comment": "linux DPKG is earlier than 3.13.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

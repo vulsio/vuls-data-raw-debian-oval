@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:77497221878892785826848661075201561061",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4764-1 inspircd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "inspircd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-20917",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-20917"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-25269",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25269"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nTwo security issues were discovered in the pgsql and mysql modules of the InspIRCd IRC daemon, which could result in denial of service.",
+      "dsa": "DSA-4764",
+      "date": "2020-09-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27152",
+                "comment": "inspircd DPKG is earlier than 2.0.27-1+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

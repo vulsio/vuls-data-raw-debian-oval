@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:82929289875245410309849003692726120178",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-0142 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0142",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0142"
+      }
+    ],
+    "description": "QEMU, possibly before 2.0.0, allows local users to cause a denial of service (divide-by-zero error and crash) via a zero value in the (1) tracks field to the seek_to_sector function in block/parallels.c or (2) extent_size field in the bochs function in block/bochs.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6117",
+                "comment": "qemu DPKG is earlier than 2.0.0+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:268491365875259238368006444068748738369",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-16790 mongo-c-driver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mongo-c-driver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-16790",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16790"
+      }
+    ],
+    "description": "_bson_iter_next_internal in bson-iter.c in libbson 1.12.0, as used in MongoDB mongo-c-driver and other products, has a heap-based buffer over-read via a crafted bson buffer.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14241",
+                "comment": "mongo-c-driver DPKG is earlier than 1.13.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

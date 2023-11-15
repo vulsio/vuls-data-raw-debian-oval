@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:156579937917959191532445081371596852187",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2749 isc-dhcp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "isc-dhcp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2749",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2749"
+      }
+    ],
+    "description": "The server in ISC DHCP 3.x and 4.x before 4.2.2, 3.1-ESV before 3.1-ESV-R3, and 4.1-ESV before 4.1-ESV-R3 allows remote attackers to cause a denial of service (daemon exit) via a crafted BOOTP packet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4219",
+                "comment": "isc-dhcp DPKG is earlier than 4.2.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

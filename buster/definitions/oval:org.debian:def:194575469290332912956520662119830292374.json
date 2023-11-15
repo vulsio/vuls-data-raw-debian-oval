@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:194575469290332912956520662119830292374",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-1266 evolution",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "evolution"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-1266",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1266"
+      }
+    ],
+    "description": "Evolution 2.8.1 and earlier does not properly use the --status-fd argument when invoking GnuPG, which prevents Evolution from visually distinguishing between signed and unsigned portions of OpenPGP messages with multiple components, which allows remote attackers to forge the contents of a message without detection.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1742",
+                "comment": "evolution DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

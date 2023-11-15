@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:48933400087654641660727185838037118996",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2627-1 nginx",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "nginx"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-4929",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4929"
+      }
+    ],
+    "description": "information leak",
+    "debian": {
+      "moreinfo": "\nJuliano Rizzo and Thai Duong discovered a weakness in the TLS/SSL protocol when using compression. This side channel attack, dubbed <q>CRIME</q>, allows eavesdroppers to gather information to recover the original plaintext in the protocol. This update to nginx disables SSL compression.",
+      "dsa": "DSA-2627",
+      "date": "2013-02-17"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:436",
+                "comment": "nginx DPKG is earlier than 1.1.16-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

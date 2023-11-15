@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:234310288912931015621750555255994078463",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-5637 zookeeper",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "zookeeper"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5637",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5637"
+      }
+    ],
+    "description": "Two four letter word commands \"wchp/wchc\" are CPU intensive and could cause spike of CPU utilization on Apache ZooKeeper server if abused, which leads to the server unable to serve legitimate client requests. Apache ZooKeeper thru version 3.4.9 and 3.5.2 suffer from this issue, fixed in 3.4.10, 3.5.3, and later.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11929",
+                "comment": "zookeeper DPKG is earlier than 3.4.9-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

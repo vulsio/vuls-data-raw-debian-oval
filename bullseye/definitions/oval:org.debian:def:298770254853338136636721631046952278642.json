@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:298770254853338136636721631046952278642",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-12558 libemail-address-perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libemail-address-perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-12558",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12558"
+      }
+    ],
+    "description": "The parse() method in the Email::Address module through 1.909 for Perl is vulnerable to Algorithmic complexity on specially prepared input, leading to Denial of Service. Prepared special input that caused this problem contained 30 form-field characters (\"\\f\").",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13818",
+                "comment": "libemail-address-perl DPKG is earlier than 1.912-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

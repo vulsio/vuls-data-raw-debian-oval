@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:179704197172162871278459443874226773886",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4632-1 ppp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "ppp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-8597",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-8597"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIlja Van Sprundel reported a logic flaw in the Extensible Authentication Protocol (EAP) packet parser in the Point-to-Point Protocol Daemon (pppd). An unauthenticated attacker can take advantage of this flaw to trigger a stack-based buffer overflow, leading to denial of service (pppd daemon crash).",
+      "dsa": "DSA-4632",
+      "date": "2020-02-22"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4481",
+                "comment": "ppp DPKG is earlier than 2.4.7-1+4+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

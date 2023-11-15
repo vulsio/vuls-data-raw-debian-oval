@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:137033725002139977582154636137600023866",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-4800 ffmpeg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ffmpeg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-4800",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4800"
+      }
+    ],
+    "description": "Multiple buffer overflows in libavcodec in ffmpeg before 0.4.9_p20060530 allow remote attackers to cause a denial of service or possibly execute arbitrary code via multiple unspecified vectors in (1) dtsdec.c, (2) vorbis.c, (3) rm.c, (4) sierravmd.c, (5) smacker.c, (6) tta.c, (7) 4xm.c, (8) alac.c, (9) cook.c, (10) shorten.c, (11) smacker.c, (12) snow.c, and (13) tta.c.  NOTE: it is likely that this is a different vulnerability than CVE-2005-4048 and CVE-2006-2802.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1475",
+                "comment": "ffmpeg DPKG is earlier than 0.cvs20060329-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

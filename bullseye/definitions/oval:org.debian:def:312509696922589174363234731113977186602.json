@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:312509696922589174363234731113977186602",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-29501 slurm-wlm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "slurm-wlm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-29501",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29501"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Two security issues were discovered in the Simple Linux Utility for Resource Management (SLURM), a cluster resource management and job scheduling system, which could result in privilege escalation.",
+      "dsa": "DSA-5166"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24545",
+                "comment": "slurm-wlm DPKG is earlier than 20.11.7+really20.11.4-2+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

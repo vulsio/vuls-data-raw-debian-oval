@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:257975209041973610172070693495051084953",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4222-1 gnupg2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "gnupg2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-12020",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12020"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMarcus Brinkmann discovered that GnuPG performed insufficient sanitisation of file names displayed in status messages, which could be abused to fake the verification status of a signed email.",
+      "dsa": "DSA-4222",
+      "date": "2018-06-08"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2005",
+                "comment": "gnupg2 DPKG is earlier than 2.1.18-8~deb9u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

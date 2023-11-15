@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:330660927376059717523826210052321056068",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-3625 mplayer",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "mplayer"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-3625",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3625"
+      }
+    ],
+    "description": "Stack-based buffer overflow in the sub_read_line_sami function in subreader.c in MPlayer, as used in SMPlayer 0.6.9, allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long string in a SAMI subtitle file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4466",
+                "comment": "mplayer DPKG is earlier than 2:1.0~rc4.dfsg1+svn33713-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

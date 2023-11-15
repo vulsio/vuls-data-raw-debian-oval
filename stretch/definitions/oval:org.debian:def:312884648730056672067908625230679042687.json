@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:312884648730056672067908625230679042687",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4037-1 jackson-databind",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "jackson-databind"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-15095",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15095"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that jackson-databind, a Java library used to parse JSON and other data formats, improperly validated user input prior to deserializing: following DSA-4004-1 for  <a href=\"https://security-tracker.debian.org/tracker/CVE-2017-7525\">\\ CVE-2017-7525</a>, an additional set of classes was identified as unsafe  for deserialization.",
+      "dsa": "DSA-4037",
+      "date": "2017-11-16"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3966",
+                "comment": "jackson-databind DPKG is earlier than 2.8.6-1+deb9u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

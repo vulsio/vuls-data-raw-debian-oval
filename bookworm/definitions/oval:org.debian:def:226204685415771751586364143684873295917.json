@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:226204685415771751586364143684873295917",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-2762 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-2762",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2762"
+      }
+    ],
+    "description": "wp-login.php in WordPress 2.8.3 and earlier allows remote attackers to force a password reset for the first user in the database, possibly the administrator, via a key[] array variable in a resetpass (aka rp) action, which bypasses a check that assumes that $key is not an array.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2972",
+                "comment": "wordpress DPKG is earlier than 2.8.3-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

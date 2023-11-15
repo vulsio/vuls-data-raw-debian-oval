@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:75928302659590613181433258135548998683",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1583 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1583",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1583"
+      }
+    ],
+    "description": "Multiple integer overflows in tools/libxc/xc_dom_bzimageloader.c in Xen 3.2, 3.3, 4.0, and 4.1 allow local users to cause a denial of service and possibly execute arbitrary code via a crafted paravirtualised guest kernel image that triggers (1) a buffer overflow during a decompression loop or (2) an out-of-bounds read in the loader involving unspecified length fields.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4205",
+                "comment": "xen DPKG is earlier than 4.1.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

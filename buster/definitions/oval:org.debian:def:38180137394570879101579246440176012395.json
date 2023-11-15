@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:38180137394570879101579246440176012395",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-6579 request-tracker4",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "request-tracker4"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-6579",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6579"
+      }
+    ],
+    "description": "Best Practical Solutions RT 3.8.x before 3.8.15 and 4.0.x before 4.0.8, when GnuPG is enabled, allows remote attackers to configure encryption or signing for certain outbound e-mail, and possibly cause a denial of service (loss of e-mail readability), via an e-mail message to a queue's address.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5403",
+                "comment": "request-tracker4 DPKG is earlier than 4.0.7-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

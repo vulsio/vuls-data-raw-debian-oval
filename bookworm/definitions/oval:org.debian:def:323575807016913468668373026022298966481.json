@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:323575807016913468668373026022298966481",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-6108 f2fs-tools",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "f2fs-tools"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-6108",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-6108"
+      }
+    ],
+    "description": "An exploitable code execution vulnerability exists in the fsck_chk_orphan_node functionality of F2fs-Tools F2fs.Fsck 1.13. A specially crafted f2fs filesystem can cause a heap buffer overflow resulting in a code execution. An attacker can provide a malicious file to trigger this vulnerability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19351",
+                "comment": "f2fs-tools DPKG is earlier than 1.14.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

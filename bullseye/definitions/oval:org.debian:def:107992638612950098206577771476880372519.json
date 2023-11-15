@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:107992638612950098206577771476880372519",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-5668 freetype",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "freetype"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-5668",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5668"
+      }
+    ],
+    "description": "FreeType before 2.4.11 allows context-dependent attackers to cause a denial of service (NULL pointer dereference and crash) via vectors related to BDF fonts and the improper handling of an \"allocation error\" in the bdf_free_font function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5163",
+                "comment": "freetype DPKG is earlier than 2.4.9-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

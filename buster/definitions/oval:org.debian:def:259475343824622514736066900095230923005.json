@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:259475343824622514736066900095230923005",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-5607 nspr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "nspr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-5607",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5607"
+      }
+    ],
+    "description": "Integer overflow in the PL_ArenaAllocate function in Mozilla Netscape Portable Runtime (NSPR) before 4.10.2, as used in Firefox before 25.0.1, Firefox ESR 17.x before 17.0.11 and 24.x before 24.1.1, and SeaMonkey before 2.22.1, allows remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact via a crafted X.509 certificate, a related issue to CVE-2013-1741.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6229",
+                "comment": "nspr DPKG is earlier than 2:4.10.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

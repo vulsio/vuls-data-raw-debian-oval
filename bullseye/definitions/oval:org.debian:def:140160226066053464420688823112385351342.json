@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:140160226066053464420688823112385351342",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8851 node-uuid",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "node-uuid"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8851",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8851"
+      }
+    ],
+    "description": "node-uuid before 1.4.4 uses insufficiently random data to create a GUID, which could make it easier for attackers to have unspecified impact via brute force guessing.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8541",
+                "comment": "node-uuid DPKG is earlier than 1.4.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

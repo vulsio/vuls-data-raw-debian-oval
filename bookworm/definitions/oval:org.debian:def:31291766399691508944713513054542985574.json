@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:31291766399691508944713513054542985574",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-2140 nova",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "nova"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-2140",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2140"
+      }
+    ],
+    "description": "The libvirt driver in OpenStack Compute (Nova) before 2015.1.4 (kilo) and 12.0.x before 12.0.3 (liberty), when using raw storage and use_cow_images is set to false, allows remote authenticated users to read arbitrary files via a crafted qcow2 header in an ephemeral or root disk.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8775",
+                "comment": "nova DPKG is earlier than 2:13.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

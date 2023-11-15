@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:270889231107102278458845451023742113144",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4210-1 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-3639",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3639"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nThis update provides mitigations for the Spectre v4 variant in x86-based micro processors. On Intel CPUs this requires updated microcode which is currently not released publicly (but your hardware vendor may have issued an update). For servers with AMD CPUs no microcode update is needed, please refer to <a href=\"https://xenbits.xen.org/xsa/advisory-263.html\">\\ https://xenbits.xen.org/xsa/advisory-263.html</a> for further information.",
+      "dsa": "DSA-4210",
+      "date": "2018-05-25"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4119",
+                "comment": "xen DPKG is earlier than 4.8.3+xsa262+shim4.10.0+comet3-1+deb9u7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

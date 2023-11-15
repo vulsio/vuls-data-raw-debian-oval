@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:117003700234651803355294766588844149040",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-0554 netpbm-free",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "netpbm-free"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-0554",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0554"
+      }
+    ],
+    "description": "Buffer overflow in the readImageData function in giftopnm.c in netpbm before 10.27 in netpbm before 10.27 allows remote user-assisted attackers to cause a denial of service (crash) and possibly execute arbitrary code via a crafted GIF image, a similar issue to CVE-2006-4484.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2195",
+                "comment": "netpbm-free DPKG is earlier than 10.0-11.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

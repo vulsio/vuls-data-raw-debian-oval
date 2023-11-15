@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:192110813324322633995328223287229210712",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4389-1 libu2f-host",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "libu2f-host"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-20340",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20340"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nChristian Reitter discovered that libu2f-host, a library implementing the host-side of the U2F protocol, failed to properly check for a buffer overflow. This would allow an attacker with a custom made malicious USB device masquerading as a security key, and physical access to a computer where PAM U2F or an application with libu2f-host integrated, to potentially execute arbitrary code on that computer.",
+      "dsa": "DSA-4389",
+      "date": "2019-02-11"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2405",
+                "comment": "libu2f-host DPKG is earlier than 1.1.2-2+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

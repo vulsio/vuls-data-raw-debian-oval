@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:319690579305792482880065531746222750897",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-2008 yaws",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "yaws"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-2008",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2008"
+      }
+    ],
+    "description": "Yaws Webserver 1.55 and earlier allows remote attackers to obtain the source code for yaws scripts via a request to a yaw script with a trailing %00 (null).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:865",
+                "comment": "yaws DPKG is earlier than 1.56-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

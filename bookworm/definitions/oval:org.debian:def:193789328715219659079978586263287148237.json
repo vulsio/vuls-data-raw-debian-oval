@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:193789328715219659079978586263287148237",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-1313 nullmailer",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "nullmailer"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-1313",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1313"
+      }
+    ],
+    "description": "nullmailer 1.00RC5 and earlier allows local users to cause a denial of service via an email to a local user that does not exist, which generates an error that causes nullmailer to stop sending mail to all users.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:88",
+                "comment": "nullmailer DPKG is earlier than 1.00RC5-17"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

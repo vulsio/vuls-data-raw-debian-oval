@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:51700145042038279613876900938877207977",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-8800 rdesktop",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "rdesktop"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-8800",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8800"
+      }
+    ],
+    "description": "rdesktop versions up to and including v1.8.3 contain a Heap-Based Buffer Overflow in function ui_clip_handle_data() that results in a memory corruption and probably even a remote code execution.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15680",
+                "comment": "rdesktop DPKG is earlier than 1.8.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

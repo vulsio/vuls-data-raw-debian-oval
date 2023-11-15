@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:39585361429042075655779662580096804394",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-3280 nova",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "nova"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3280",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3280"
+      }
+    ],
+    "description": "OpenStack Compute (nova) before 2014.2.4 (juno) and 2015.1.x before 2015.1.2 (kilo) does not properly delete instances from compute nodes, which allows remote authenticated users to cause a denial of service (disk consumption) by deleting instances while in the resize state.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7853",
+                "comment": "nova DPKG is earlier than 1:12.0.0-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

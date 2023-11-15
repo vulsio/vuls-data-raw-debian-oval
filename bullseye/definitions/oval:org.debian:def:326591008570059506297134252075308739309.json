@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:326591008570059506297134252075308739309",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-0718 python-oslo.utils",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "python-oslo.utils"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-0718",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0718"
+      }
+    ],
+    "description": "A flaw was found in python-oslo-utils. Due to improper parsing, passwords with a double quote ( \" ) in them cause incorrect masking in debug logs, causing any part of the password after the double quote to be plaintext.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23388",
+                "comment": "python-oslo.utils DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

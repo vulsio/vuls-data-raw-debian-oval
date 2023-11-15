@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:194003670385615319428433276949413314576",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-2235 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-2235",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2235"
+      }
+    ],
+    "description": "A use-after-free vulnerability in the Linux Kernel Performance Events system can be exploited to achieve local privilege escalation.\n\nThe perf_group_detach function did not check the event's siblings' attach_state before calling add_event_to_groups(), but remove_on_exec made it possible to call list_del_event() on before detaching from their group, making it possible to use a dangling pointer causing a use-after-free vulnerability.\n\nWe recommend upgrading past commit fd0815f632c24878e325821943edccc7fde947a2.\n\n",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25320",
+                "comment": "linux DPKG is earlier than 6.1.25-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

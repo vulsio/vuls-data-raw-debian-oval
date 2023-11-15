@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:312179261936992781902693536459128621830",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-16846 ceph",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ceph"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-16846",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16846"
+      }
+    ],
+    "description": "It was found in Ceph versions before 13.2.4 that authenticated ceph RGW users can cause a denial of service against OMAPs holding bucket indices.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13850",
+                "comment": "ceph DPKG is earlier than 12.2.11+dfsg1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

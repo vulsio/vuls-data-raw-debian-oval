@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:192828008711952141093660189817577965541",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4617-1 qtbase-opensource-src",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "qtbase-opensource-src"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-0569",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0569"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-0570",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0570"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nTwo security issues were found in the Qt library, which could result in plugins and libraries being loaded from the current working directory, resulting in potential code execution.",
+      "dsa": "DSA-4617",
+      "date": "2020-02-03"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3448",
+                "comment": "qtbase-opensource-src DPKG is earlier than 5.7.1+dfsg-3+deb9u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

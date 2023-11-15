@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:135490615396379338403842031001394841973",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-1000069 freeplane",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "freeplane"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1000069",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000069"
+      }
+    ],
+    "description": "FreePlane version 1.5.9 and earlier contains a XML External Entity (XXE) vulnerability in XML Parser in mindmap loader that can result in stealing data from victim's machine. This attack appears to require the victim to open a specially crafted mind map file. This vulnerability appears to have been fixed in 1.6+.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12906",
+                "comment": "freeplane DPKG is earlier than 1.6.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:184004043591697398153477702283843239806",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-4508 tor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "tor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-4508",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4508"
+      }
+    ],
+    "description": "Unspecified vulnerability in (1) Tor 0.1.0.x before 0.1.0.18 and 0.1.1.x before 0.1.1.23, and (2) ScatterChat before 1.0.2, allows remote attackers operating a Tor entry node to route arbitrary Tor traffic through clients or cause a denial of service (flood) via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1496",
+                "comment": "tor DPKG is earlier than 0.1.1.23-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

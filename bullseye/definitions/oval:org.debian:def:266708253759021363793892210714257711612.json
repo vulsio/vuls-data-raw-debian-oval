@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:266708253759021363793892210714257711612",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-1349 bind9",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "bind9"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-1349",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1349"
+      }
+    ],
+    "description": "named in ISC BIND 9.7.0 through 9.9.6 before 9.9.6-P2 and 9.10.x before 9.10.1-P2, when DNSSEC validation and the managed-keys feature are enabled, allows remote attackers to cause a denial of service (assertion failure and daemon exit, or daemon crash) by triggering an incorrect trust-anchor management scenario in which no key is ready for use.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7596",
+                "comment": "bind9 DPKG is earlier than 1:9.9.5.dfsg-9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

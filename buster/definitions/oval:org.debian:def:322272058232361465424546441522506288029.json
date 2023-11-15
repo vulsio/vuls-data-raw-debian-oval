@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:322272058232361465424546441522506288029",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8650 python-requests-kerberos",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "python-requests-kerberos"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8650",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8650"
+      }
+    ],
+    "description": "python-requests-Kerberos through 0.5 does not handle mutual authentication",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7389",
+                "comment": "python-requests-kerberos DPKG is earlier than 0.5-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

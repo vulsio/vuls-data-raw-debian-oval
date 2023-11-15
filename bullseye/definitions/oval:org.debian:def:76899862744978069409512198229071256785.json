@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:76899862744978069409512198229071256785",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-0301 poppler",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "poppler"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-0301",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0301"
+      }
+    ],
+    "description": "Heap-based buffer overflow in Splash.cc in xpdf, as used in other products such as (1) poppler, (2) kdegraphics, (3) gpdf, (4) pdfkit.framework, and others, allows attackers to cause a denial of service and possibly execute arbitrary code via crafted splash images that produce certain values that exceed the width or height of the associated bitmap.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1180",
+                "comment": "poppler DPKG is earlier than 0.4.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:192863308549627147120017243926121097716",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-32082 mariadb-10.5",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mariadb-10.5"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-32082",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32082"
+      }
+    ],
+    "description": "MariaDB v10.5 to v10.7 was discovered to contain an assertion failure at table->get_ref_count() == 0 in dict0dict.cc.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24793",
+                "comment": "mariadb-10.5 DPKG is earlier than 1:10.5.18-0+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

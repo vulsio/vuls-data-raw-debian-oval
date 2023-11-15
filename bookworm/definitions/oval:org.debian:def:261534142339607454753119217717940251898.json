@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:261534142339607454753119217717940251898",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2719 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2719",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2719"
+      }
+    ],
+    "description": "libraries/auth/swekey/swekey.auth.lib.php in phpMyAdmin 3.x before 3.3.10.3 and 3.4.x before 3.4.3.2 does not properly manage sessions associated with Swekey authentication, which allows remote attackers to modify the SESSION superglobal array, other superglobal arrays, and certain swekey.auth.lib.php local variables via a crafted query string, a related issue to CVE-2011-2505.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4042",
+                "comment": "phpmyadmin DPKG is earlier than 4:3.4.3.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:68332998450134915005970319390036409741",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1838 nova",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "nova"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1838",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1838"
+      }
+    ],
+    "description": "OpenStack Compute (Nova) Grizzly, Folsom (2012.2), and Essex (2012.1) does not properly implement a quota for fixed IPs, which allows remote authenticated users to cause a denial of service (resource exhaustion and failure to spawn new instances) via a large number of calls to the addFixedIp function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5499",
+                "comment": "nova DPKG is earlier than 2012.1.1-15"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

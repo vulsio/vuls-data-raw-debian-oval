@@ -1,0 +1,47 @@
+{
+  "id": "oval:org.debian:def:255600435822061913528143446721117382091",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3708-1 mat",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "mat"
+    },
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nHartmut Goebel discovered that MAT, a toolkit to anonymise/remove metadata from files did not remove metadata from images embededed in PDF documents.",
+      "dsa": "DSA-3708",
+      "date": "2016-11-07"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4400",
+                "comment": "mat DPKG is earlier than 0.5.2-3+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

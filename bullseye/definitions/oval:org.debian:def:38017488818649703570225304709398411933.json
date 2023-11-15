@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:38017488818649703570225304709398411933",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-3299 awffull",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "awffull"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-3299",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3299"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in AWFFull before 3.7.4, when AllSearchStr (aka the All Search Terms report) is enabled, allows remote attackers to inject arbitrary web script or HTML via a search string.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1906",
+                "comment": "awffull DPKG is earlier than 3.7.4final-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

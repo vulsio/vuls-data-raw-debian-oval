@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:13048603521319473290386444860684072215",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-24882 freerdp2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "freerdp2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-24882",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24882"
+      }
+    ],
+    "description": "FreeRDP is a free implementation of the Remote Desktop Protocol (RDP). In versions prior to 2.7.0, NT LAN Manager (NTLM) authentication does not properly abort when someone provides and empty password value. This issue affects FreeRDP based RDP Server implementations. RDP clients are not affected. The vulnerability is patched in FreeRDP 2.7.0. There are currently no known workarounds.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23656",
+                "comment": "freerdp2 DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

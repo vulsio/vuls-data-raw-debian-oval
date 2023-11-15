@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:291593385363733499495518514941674333246",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-1897 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-1897",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1897"
+      }
+    ],
+    "description": "SQL injection vulnerability in xmlrpc (xmlrpc.php) in WordPress 2.1.2, and probably earlier, allows remote authenticated users to execute arbitrary SQL commands via a string parameter value in an XML RPC mt.setPostCategories method call, related to the post_id variable.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1757",
+                "comment": "wordpress DPKG is earlier than 2.1.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

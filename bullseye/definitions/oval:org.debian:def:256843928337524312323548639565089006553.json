@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:256843928337524312323548639565089006553",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-1635 samba",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "samba"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-1635",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1635"
+      }
+    ],
+    "description": "The chain_reply function in process.c in smbd in Samba before 3.4.8 and 3.5.x before 3.5.2 allows remote attackers to cause a denial of service (NULL pointer dereference and process crash) via a Negotiate Protocol request with a certain 0x0003 field value followed by a Session Setup AndX request with a certain 0x8003 field value.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3535",
+                "comment": "samba DPKG is earlier than 2:3.6.1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

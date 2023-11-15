@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:109959956508363769542133171264522149759",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-3897 dovecot",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dovecot"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-3897",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3897"
+      }
+    ],
+    "description": "Dovecot 1.2.x before 1.2.8 sets 0777 permissions during creation of certain directories at installation time, which allows local users to access arbitrary user accounts by replacing the auth socket, related to the parent directories of the base_dir directory, and possibly the base_dir directory itself.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3277",
+                "comment": "dovecot DPKG is earlier than 1:1.2.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

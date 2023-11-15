@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:116804732776988360761070674812256034923",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-6596 partclone",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "partclone"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-6596",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6596"
+      }
+    ],
+    "description": "partclone.chkimg in partclone 0.2.89 is prone to a heap-based buffer overflow vulnerability due to insufficient validation of the partclone image header. An attacker may be able to launch a 'Denial of Service attack' in the context of the user running the affected application.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12492",
+                "comment": "partclone DPKG is earlier than 0.2.89-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:170655873404211653951243215226036365107",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-3146 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-3146",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3146"
+      }
+    ],
+    "description": "Multiple buffer overflows in packet_ncp2222.inc in Wireshark (formerly Ethereal) 0.9.7 through 1.0.2 allow attackers to cause a denial of service (application crash) and possibly execute arbitrary code via a crafted NCP packet that causes an invalid pointer to be used.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2398",
+                "comment": "wireshark DPKG is earlier than 1.0.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

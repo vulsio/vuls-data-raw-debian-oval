@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:60711390563830572363232607023728444081",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2087 mojarra",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mojarra"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2087",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2087"
+      }
+    ],
+    "description": "Oracle Mojarra 1.2_14 and 2.0.2, as used in IBM WebSphere Application Server, Caucho Resin, and other applications, does not properly handle an unencrypted view state, which allows remote attackers to conduct cross-site scripting (XSS) attacks or execute arbitrary Expression Language (EL) statements via vectors that involve modifying the serialized view object.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3442",
+                "comment": "mojarra DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

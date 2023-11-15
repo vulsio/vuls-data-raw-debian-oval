@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:168982497632654466189750953058499436023",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1835 ecryptfs-utils",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ecryptfs-utils"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1835",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1835"
+      }
+    ],
+    "description": "The encrypted private-directory setup process in utils/ecryptfs-setup-private in ecryptfs-utils before 90 does not properly ensure that the passphrase file is created, which might allow local users to bypass intended access restrictions at a certain time in the new-user creation steps.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4107",
+                "comment": "ecryptfs-utils DPKG is earlier than 92-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

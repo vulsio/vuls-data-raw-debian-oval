@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:250708154136944466168626898486429345430",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-7224 puppet-module-puppetlabs-mysql",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "puppet-module-puppetlabs-mysql"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-7224",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-7224"
+      }
+    ],
+    "description": "puppetlabs-mysql 3.1.0 through 3.6.0 allow remote attackers to bypass authentication by leveraging creation of a database account without a password when a 'mysql_user' user parameter contains a host with a netmask.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7899",
+                "comment": "puppet-module-puppetlabs-mysql DPKG is earlier than 3.6.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

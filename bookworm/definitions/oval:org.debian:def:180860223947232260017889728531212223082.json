@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:180860223947232260017889728531212223082",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-4191 emacspeak",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "emacspeak"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-4191",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4191"
+      }
+    ],
+    "description": "extract-table.pl in Emacspeak 26 and 28 allows local users to overwrite arbitrary files via a symlink attack on the extract-table.csv temporary file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2472",
+                "comment": "emacspeak DPKG is earlier than 28.0-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

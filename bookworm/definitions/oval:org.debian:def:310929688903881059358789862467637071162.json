@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:310929688903881059358789862467637071162",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-8048 ruby-loofah",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ruby-loofah"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-8048",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8048"
+      }
+    ],
+    "description": "In the Loofah gem through 2.2.0 for Ruby, non-whitelisted HTML attributes may occur in sanitized output by republishing a crafted HTML fragment.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14978",
+                "comment": "ruby-loofah DPKG is earlier than 2.2.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

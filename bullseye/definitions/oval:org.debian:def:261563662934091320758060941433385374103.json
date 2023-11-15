@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:261563662934091320758060941433385374103",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-1358 apt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "apt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-1358",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1358"
+      }
+    ],
+    "description": "apt-get in apt before 0.7.21 does not check for the correct error code from gpgv, which causes apt to treat a repository as valid even when it has been signed with a key that has been revoked or expired, which might allow remote attackers to trick apt into installing malicious repositories.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2964",
+                "comment": "apt DPKG is earlier than 0.7.21"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

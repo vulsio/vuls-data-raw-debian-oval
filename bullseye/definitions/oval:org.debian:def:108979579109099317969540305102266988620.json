@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:108979579109099317969540305102266988620",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1753 python2.7",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "python2.7"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1753",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1753"
+      }
+    ],
+    "description": "The gzip_decode function in the xmlrpc client library in Python 3.4 and earlier allows remote attackers to cause a denial of service (memory consumption) via a crafted HTTP request.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5468",
+                "comment": "python2.7 DPKG is earlier than 2.7.9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

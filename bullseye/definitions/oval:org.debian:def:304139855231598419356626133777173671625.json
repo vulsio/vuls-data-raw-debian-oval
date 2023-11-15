@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:304139855231598419356626133777173671625",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-7965 dokuwiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dokuwiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-7965",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7965"
+      }
+    ],
+    "description": "DokuWiki 2016-06-26a and older uses $_SERVER[HTTP_HOST] instead of the baseurl setting as part of the password-reset URL. This can lead to phishing attacks. (A remote unauthenticated attacker can change the URL's hostname via the HTTP Host header.) The vulnerability can be triggered only if the Host header is not part of the web server routing process (e.g., if several domains are served by the same web server).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10099",
+                "comment": "dokuwiki DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

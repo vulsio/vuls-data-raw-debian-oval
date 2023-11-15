@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:16798982740430613872654199373549233656",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-3621 tiff",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "tiff"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-3621",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3621"
+      }
+    ],
+    "description": "The LZWEncode function in tif_lzw.c in the bmp2tiff tool in LibTIFF 4.0.6 and earlier, when the \"-c lzw\" option is used, allows remote attackers to cause a denial of service (buffer over-read) via a crafted BMP image.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9321",
+                "comment": "tiff DPKG is earlier than 4.0.6-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

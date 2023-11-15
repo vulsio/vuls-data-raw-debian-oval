@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:130901827270534680630977826510868587738",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-0134 nova",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "nova"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0134",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0134"
+      }
+    ],
+    "description": "The instance rescue mode in OpenStack Compute (Nova) 2013.2 before 2013.2.3 and Icehouse before 2014.1, when using libvirt to spawn images and use_cow_images is set to false, allows remote authenticated users to read certain compute host files by overwriting an instance disk with a crafted image.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6114",
+                "comment": "nova DPKG is earlier than 2013.2.2-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

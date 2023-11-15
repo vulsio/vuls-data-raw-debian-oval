@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:89513895420150966421859255761352157969",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-4641 jhead",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "jhead"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-4641",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4641"
+      }
+    ],
+    "description": "The DoCommand function in jhead.c in Matthias Wandel jhead 2.84 and earlier allows attackers to execute arbitrary commands via shell metacharacters in unspecified input.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2620",
+                "comment": "jhead DPKG is earlier than 2.84-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

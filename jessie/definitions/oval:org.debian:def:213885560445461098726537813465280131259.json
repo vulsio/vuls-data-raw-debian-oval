@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:213885560445461098726537813465280131259",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3337-1 gdk-pixbuf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "gdk-pixbuf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-4491",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4491"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nGustavo Grieco discovered a heap overflow in the processing of BMP images which may result in the execution of arbitrary code if a malformed image is opened.",
+      "dsa": "DSA-3337",
+      "date": "2015-08-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4058",
+                "comment": "gdk-pixbuf DPKG is earlier than 2.31.1-2+deb8u4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

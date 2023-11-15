@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:45584796467106975098652785822689202899",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-4996 initramfs-tools",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "initramfs-tools"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-4996",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4996"
+      }
+    ],
+    "description": "init in initramfs-tools 0.92f allows local users to overwrite arbitrary files via a symlink attack on the /tmp/initramfs.debug temporary file.  NOTE: the vendor disputes this vulnerability, stating that \"init is [used in] a single-user context; there's no possibility that this is exploitable.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2650",
+                "comment": "initramfs-tools DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

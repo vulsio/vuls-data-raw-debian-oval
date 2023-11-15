@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:271359858831167259270207911005766443786",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3282-1 strongswan",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "strongswan"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-4171",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4171"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAlexander E. Patrakov discovered an issue in strongSwan, an IKE/IPsec suite used to establish IPsec protected links.",
+      "dsa": "DSA-3282",
+      "date": "2015-06-08"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3630",
+                "comment": "strongswan DPKG is earlier than 5.3.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

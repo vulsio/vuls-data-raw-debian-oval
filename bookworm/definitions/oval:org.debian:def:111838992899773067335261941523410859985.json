@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:111838992899773067335261941523410859985",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2587 vlc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "vlc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2587",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2587"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the DemuxAudioSipr function in real.c in the RealMedia demuxer in VideoLAN VLC media player 1.1.x before 1.1.11 allows remote attackers to cause a denial of service (application crash) or possibly execute arbitrary code via a crafted Real Media file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4023",
+                "comment": "vlc DPKG is earlier than 1.1.11-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

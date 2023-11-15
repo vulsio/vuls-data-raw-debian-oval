@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:61486505951079278682211445949073292249",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-4405 argyll",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "argyll"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-4405",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4405"
+      }
+    ],
+    "description": "Multiple integer underflows in the icmLut_allocate function in International Color Consortium (ICC) Format library (icclib), as used in Ghostscript 9.06 and Argyll Color Management System, allow remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a crafted (1) PostScript or (2) PDF file with embedded images, which triggers a heap-based buffer overflow.  NOTE: this issue is also described as an array index error.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4816",
+                "comment": "argyll DPKG is earlier than 1.4.0-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

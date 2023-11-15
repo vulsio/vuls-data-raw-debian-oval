@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:177945964088158772810063406810530937805",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3617-1 horizon",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "horizon"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3219",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3219"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-4428",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-4428"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nTwo cross-site scripting vulnerabilities have been found in Horizon, a web application to control an OpenStack cloud.",
+      "dsa": "DSA-3617",
+      "date": "2016-07-06"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3747",
+                "comment": "horizon DPKG is earlier than 3:9.0.1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

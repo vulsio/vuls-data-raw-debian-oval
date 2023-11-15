@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:98683370015999176225424908076488251015",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-28368 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-28368",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28368"
+      }
+    ],
+    "description": "Xen through 4.14.x allows guest OS administrators to obtain sensitive information (such as AES keys from outside the guest) via a side-channel attack on a power/energy monitoring interface, aka a \"Platypus\" attack. NOTE: there is only one logically independent fix: to change the access control for each such interface in Xen.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19579",
+                "comment": "xen DPKG is earlier than 4.14.0+80-gd101b417b7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

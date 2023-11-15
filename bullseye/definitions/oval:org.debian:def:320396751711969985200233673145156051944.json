@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:320396751711969985200233673145156051944",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-0703 perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-0703",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-0703"
+      }
+    ],
+    "description": "An interaction between the Perl MD5 module (perl-Digest-MD5) and Perl could produce incorrect MD5 checksums for UTF-8 data, which could prevent a system from properly verifying the integrity of the data.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:45",
+                "comment": "perl DPKG is earlier than 5.8.0-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

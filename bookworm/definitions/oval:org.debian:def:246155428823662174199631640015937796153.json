@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:246155428823662174199631640015937796153",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-17191 netbeans",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "netbeans"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-17191",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17191"
+      }
+    ],
+    "description": "Apache NetBeans (incubating) 9.0 NetBeans Proxy Auto-Configuration (PAC) interpretation is vulnerable for remote command execution (RCE). Using the nashorn script engine the environment of the javascript execution for the Proxy Auto-Configuration leaks privileged objects, that can be used to circumvent the execution limits. If a different script engine was used, no execution limits were in place. Both vectors allow remote code execution.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13908",
+                "comment": "netbeans DPKG is earlier than 10.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

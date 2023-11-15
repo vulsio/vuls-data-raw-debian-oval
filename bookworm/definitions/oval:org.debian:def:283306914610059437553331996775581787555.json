@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:283306914610059437553331996775581787555",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1995 libxi",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libxi"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1995",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1995"
+      }
+    ],
+    "description": "X.org libXi 1.7.1 and earlier allows X servers to trigger allocation of insufficient memory and a buffer overflow via vectors related to an unexpected sign extension in the XListInputDevices function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5350",
+                "comment": "libxi DPKG is earlier than 2:1.6.1-1+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

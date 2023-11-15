@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:210587035568610224315753879176671368612",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1817 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1817",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1817"
+      }
+    ],
+    "description": "MediaWiki before 1.19.4 and 1.20.x before 1.20.3 contains an error in the api.php script which allows remote attackers to obtain sensitive information.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5279",
+                "comment": "mediawiki DPKG is earlier than 1:1.19.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:321422281098636680749509907925929525405",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-1160 nano",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "nano"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-1160",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1160"
+      }
+    ],
+    "description": "GNU nano before 2.2.4 does not verify whether a file has been changed before it is overwritten in a file-save operation, which allows local user-assisted attackers to overwrite arbitrary files via a symlink attack on an attacker-owned file that is being edited by the victim.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3599",
+                "comment": "nano DPKG is earlier than 2.2.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

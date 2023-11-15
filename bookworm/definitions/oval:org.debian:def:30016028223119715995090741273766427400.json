@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:30016028223119715995090741273766427400",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-1226 s3d",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "s3d"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-1226",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1226"
+      }
+    ],
+    "description": "The pipe_init_terminal function in main.c in s3dvt allows local users to gain privileges by leveraging setuid permissions and usage of bash 4.3 and earlier.  NOTE: This vulnerability exists because of an incomplete fix for CVE-2013-6876.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6209",
+                "comment": "s3d DPKG is earlier than 0.2.2-13"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

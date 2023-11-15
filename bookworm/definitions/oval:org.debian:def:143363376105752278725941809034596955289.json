@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:143363376105752278725941809034596955289",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-0544 sdl-image1.2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "sdl-image1.2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-0544",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0544"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the IMG_LoadLBM_RW function in IMG_lbm.c in SDL_image before 1.2.7 allows remote attackers to cause a denial of service (application crash) or possibly execute arbitrary code via a crafted IFF ILBM file.  NOTE: some of these details are obtained from third party information.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2193",
+                "comment": "sdl-image1.2 DPKG is earlier than 1.2.6-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

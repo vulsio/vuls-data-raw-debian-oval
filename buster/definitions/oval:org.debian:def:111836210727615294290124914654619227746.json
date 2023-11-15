@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:111836210727615294290124914654619227746",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-1741 thunderbird",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "thunderbird"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-1741",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1741"
+      }
+    ],
+    "description": "Mozilla Firefox 1.x before 1.5 and 1.0.x before 1.0.8, Mozilla Suite before 1.7.13, and SeaMonkey before 1.0 allows remote attackers to inject arbitrary Javascript into other sites by (1) \"using a modal alert to suspend an event handler while a new page is being loaded\", (2) using eval(), and using certain variants involving (3) \"new Script;\" and (4) using window.__proto__ to extend eval, aka \"cross-site JavaScript injection\".",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1292",
+                "comment": "thunderbird DPKG is earlier than 1.5.0.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

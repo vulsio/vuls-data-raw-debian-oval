@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:62607703485211908632354355734748600704",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2631 tiff",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "tiff"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2631",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2631"
+      }
+    ],
+    "description": "LibTIFF 3.9.0 ignores tags in certain situations during the first stage of TIFF file processing and does not properly handle this during the second stage, which allows remote attackers to cause a denial of service (application crash) via a crafted file, a different vulnerability than CVE-2010-2481.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3768",
+                "comment": "tiff DPKG is earlier than 3.9.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

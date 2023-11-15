@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:132522897109168747261097908743961139378",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-38633 librsvg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "librsvg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-38633",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38633"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Zac Sims discovered a directory traversal in the URL decoder of librsvg, a SAX-based renderer library for SVG files, which could result in read of arbitrary files when processing a specially crafted SVG file with an XInclude element.",
+      "dsa": "DSA-5484"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27233",
+                "comment": "librsvg DPKG is earlier than 2.50.3+dfsg-1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

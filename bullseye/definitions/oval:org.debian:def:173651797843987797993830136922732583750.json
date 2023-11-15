@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:173651797843987797993830136922732583750",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-5794 libnss-ldap",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libnss-ldap"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-5794",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5794"
+      }
+    ],
+    "description": "Race condition in nss_ldap, when used in applications that are linked against the pthread library and fork after a call to nss_ldap, might send user data to the wrong process because of improper handling of the LDAP connection. NOTE: this issue was originally reported for Dovecot with the wrong mailboxes being returned, but other applications might also be affected.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2122",
+                "comment": "libnss-ldap DPKG is earlier than 256-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

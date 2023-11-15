@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:46778798527709181250926469433016387795",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2872-1 udisks",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "udisks"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0004",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0004"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nFlorian Weimer discovered a buffer overflow in udisks's mount path  parsing code which may result in privilege escalation.",
+      "dsa": "DSA-2872",
+      "date": "2014-03-10"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1176",
+                "comment": "udisks DPKG is earlier than 1.0.4-7wheezy1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

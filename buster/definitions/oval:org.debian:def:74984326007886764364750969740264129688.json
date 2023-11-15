@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:74984326007886764364750969740264129688",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-3221 neutron",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "neutron"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3221",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3221"
+      }
+    ],
+    "description": "OpenStack Neutron before 2014.2.4 (juno) and 2015.1.x before 2015.1.1 (kilo), when using the IPTables firewall driver, allows remote authenticated users to cause a denial of service (L2 agent crash) by adding an address pair that is rejected by the ipset tool.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8026",
+                "comment": "neutron DPKG is earlier than 2015.1.0+2015.06.24.git61.bdf194a0e1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

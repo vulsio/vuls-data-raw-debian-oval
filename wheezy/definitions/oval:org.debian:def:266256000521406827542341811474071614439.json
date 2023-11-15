@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:266256000521406827542341811474071614439",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2535-1 rtfm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "rtfm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2768",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2768"
+      }
+    ],
+    "description": "cross-site scripting",
+    "debian": {
+      "moreinfo": "\nIt was discovered that rtfm, the Request Tracker FAQ Manager, contains multiple cross-site scripting vulnerabilities in the topic administration page.",
+      "dsa": "DSA-2535",
+      "date": "2012-08-29"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2974",
+                "comment": "rtfm DPKG is earlier than 4.0.6-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:139247968296018783693664243040118586880",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-3698 pidgin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "pidgin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-3698",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3698"
+      }
+    ],
+    "description": "The jabber_idn_validate function in jutil.c in the Jabber protocol plugin in libpurple in Pidgin before 2.10.10 allows remote attackers to obtain sensitive information from process memory via a crafted XMPP message.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6536",
+                "comment": "pidgin DPKG is earlier than 2.10.10-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:199892115081329557530660382792436405463",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-23903 speex",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "speex"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-23903",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-23903"
+      }
+    ],
+    "description": "A Divide by Zero vulnerability in the function static int read_samples of Speex v1.2 allows attackers to cause a denial of service (DoS) via a crafted WAV file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18492",
+                "comment": "speex DPKG is earlier than 1.2~rc1.2-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

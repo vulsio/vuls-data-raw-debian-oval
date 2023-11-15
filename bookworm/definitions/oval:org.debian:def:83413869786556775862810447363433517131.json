@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:83413869786556775862810447363433517131",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-1471 evolution",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "evolution"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-1471",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1471"
+      }
+    ],
+    "description": "The camel component for Ximian Evolution 1.0.x and earlier does not verify certificates when it establishes a new SSL connection after previously verifying a certificate, which could allow remote attackers to monitor or modify sessions via a man-in-the-middle attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:119",
+                "comment": "evolution DPKG is earlier than 1.2.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:182217517082559343676601173383978299719",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-3955 kubernetes",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "kubernetes"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-3955",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-3955"
+      }
+    ],
+    "description": "A security issue was discovered in Kubernetes where a user\n that can create pods on Windows nodes may be able to escalate to admin \nprivileges on those nodes. Kubernetes clusters are only affected if they\n include Windows nodes.\n",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26401",
+                "comment": "kubernetes DPKG is earlier than 1.20.5+really1.20.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:210690360109870260678749272007926433693",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-23351 golang-github-pires-go-proxyproto",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "golang-github-pires-go-proxyproto"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-23351",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23351"
+      }
+    ],
+    "description": "The package github.com/pires/go-proxyproto before 0.5.0 are vulnerable to Denial of Service (DoS) via the parseVersion1() function. The reader in this package is a default bufio.Reader wrapping a net.Conn. It will read from the connection until it finds a newline. Since no limits are implemented in the code, a deliberately malformed V1 header could be used to exhaust memory in a server process using this code - and create a DoS. This can be exploited by sending a stream starting with PROXY and continuing to send data (which does not contain a newline) until the target stops acknowledging. The risk here is small, because only trusted sources should be allowed to send proxy protocol headers.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20994",
+                "comment": "golang-github-pires-go-proxyproto DPKG is earlier than 0.4.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

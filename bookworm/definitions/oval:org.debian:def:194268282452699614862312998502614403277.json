@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:194268282452699614862312998502614403277",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-0064 pango1.0",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "pango1.0"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-0064",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0064"
+      }
+    ],
+    "description": "The hb_buffer_ensure function in hb-buffer.c in HarfBuzz, as used in Pango 1.28.3, Firefox, and other products, does not verify that memory reallocations succeed, which allows remote attackers to cause a denial of service (NULL pointer dereference and application crash) or possibly execute arbitrary code via crafted OpenType font data that triggers use of an incorrect index.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3770",
+                "comment": "pango1.0 DPKG is earlier than 1.28.3-2~sid1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

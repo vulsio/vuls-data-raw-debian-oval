@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:289812708365025063858667999164328195461",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-2669 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2669",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2669"
+      }
+    ],
+    "description": "The main function in tools/hv/hv_kvp_daemon.c in hypervkvpd, as distributed in the Linux kernel before 3.4.5, does not validate the origin of Netlink messages, which allows local users to spoof Netlink communication via a crafted connector message.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4808",
+                "comment": "linux DPKG is earlier than 3.2.23-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

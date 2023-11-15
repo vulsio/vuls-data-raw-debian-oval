@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:299143221686879471515700497906606974098",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3052-1 wpa",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "wpa"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-3686",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3686"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nJouni Malinen discovered an input sanitization issue in the wpa_cli and hostapd_cli tools included in the wpa package.  A remote wifi system within range could provide a crafted string triggering arbitrary code execution running with privileges of the affected wpa_cli or hostapd_cli process.",
+      "dsa": "DSA-3052",
+      "date": "2014-10-15"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3409",
+                "comment": "wpa DPKG is earlier than 1.0-3+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

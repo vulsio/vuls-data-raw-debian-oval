@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:51107844810689914096892196210602655787",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-6110 bcron",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "bcron"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-6110",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6110"
+      }
+    ],
+    "description": "bcron-exec in bcron before 0.10 does not close file descriptors associated with temporary files when running a cron job, which allows local users to modify job files and send spam messages by accessing an open file descriptor.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5207",
+                "comment": "bcron DPKG is earlier than 0.09-13"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

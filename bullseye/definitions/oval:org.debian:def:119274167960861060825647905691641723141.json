@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:119274167960861060825647905691641723141",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-1183 asterisk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "asterisk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-1183",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1183"
+      }
+    ],
+    "description": "Stack-based buffer overflow in the milliwatt_generate function in the Miliwatt application in Asterisk 1.4.x before 1.4.44, 1.6.x before 1.6.2.23, 1.8.x before 1.8.10.1, and 10.x before 10.2.1, when the o option is used and the internal_timing option is off, allows remote attackers to cause a denial of service (application crash) via a large number of samples in an audio packet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4672",
+                "comment": "asterisk DPKG is earlier than 1:1.8.10.0~dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

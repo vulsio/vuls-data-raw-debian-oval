@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:324461219323846595601931508981720627494",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5296-1 xfce4-settings",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xfce4-settings"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-45062",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-45062"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nRobin Peraglie and Johannes Moritz discovered an argument injection bug in the xfce4-mime-helper component of xfce4-settings, which can be exploited using the xdg-open common tool. Since xdg-open is used by multiple standard applications for opening links, this bug could be exploited by an attacker to run arbitrary code on an user machine by providing a malicious PDF file with specifically crafted links.",
+      "dsa": "DSA-5296",
+      "date": "2022-12-06"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28075",
+                "comment": "xfce4-settings DPKG is earlier than 4.16.0-1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

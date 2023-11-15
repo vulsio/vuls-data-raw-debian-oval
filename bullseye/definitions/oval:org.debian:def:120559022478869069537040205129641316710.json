@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:120559022478869069537040205129641316710",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-25076 sniproxy",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "sniproxy"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-25076",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25076"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "An issue has been found in sniproxy, a transparent TLS and HTTP layer 4 proxy with SNI support. Due to bad handling of wildcard backend hosts, a crafted HTTP or TLS packet might lead to remote arbitrary code execution.",
+      "dsa": "DSA-5413"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26469",
+                "comment": "sniproxy DPKG is earlier than 0.6.0-2+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

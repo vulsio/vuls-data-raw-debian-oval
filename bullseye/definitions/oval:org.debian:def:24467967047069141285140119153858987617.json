@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:24467967047069141285140119153858987617",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-2673 libgc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libgc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2673",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2673"
+      }
+    ],
+    "description": "Multiple integer overflows in the (1) GC_generic_malloc and (2) calloc functions in malloc.c, and the (3) GC_generic_malloc_ignore_off_page function in mallocx.c in Boehm-Demers-Weiser GC (libgc) before 7.2 make it easier for context-dependent attackers to perform memory-related attacks such as buffer overflows via a large size value, which causes less memory to be allocated than expected.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4811",
+                "comment": "libgc DPKG is earlier than 1:7.1-9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

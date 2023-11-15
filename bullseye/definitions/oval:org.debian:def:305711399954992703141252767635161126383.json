@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:305711399954992703141252767635161126383",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-20197 clamav",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "clamav"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-20197",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20197"
+      }
+    ],
+    "description": "A vulnerability in the filesystem image parser for Hierarchical File System Plus (HFS+) of ClamAV could allow an unauthenticated, remote attacker to cause a denial of service (DoS) condition on an affected device.\r\n\r This vulnerability is due to an incorrect check for completion when a file is decompressed, which may result in a loop condition that could cause the affected software to stop responding. An attacker could exploit this vulnerability by submitting a crafted HFS+ filesystem image to be scanned by ClamAV on an affected device. A successful exploit could allow the attacker to cause the ClamAV scanning process to stop responding, resulting in a DoS condition on the affected software and consuming available system resources.\r\n\r For a description of this vulnerability, see the ClamAV blog .",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26247",
+                "comment": "clamav DPKG is earlier than 0.103.9+dfsg-0+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

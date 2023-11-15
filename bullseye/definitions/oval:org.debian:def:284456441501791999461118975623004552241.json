@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:284456441501791999461118975623004552241",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-15962 chromium",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "chromium"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-15962",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-15962"
+      }
+    ],
+    "description": "Insufficient policy validation in serial in Google Chrome prior to 85.0.4183.121 allowed a remote attacker to potentially perform out of bounds memory access via a crafted HTML page.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18678",
+                "comment": "chromium DPKG is earlier than 87.0.4280.88-0.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

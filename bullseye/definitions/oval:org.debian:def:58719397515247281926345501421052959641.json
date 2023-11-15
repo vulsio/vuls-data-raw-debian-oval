@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:58719397515247281926345501421052959641",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-0987 packagekit",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "packagekit"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-0987",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0987"
+      }
+    ],
+    "description": "A flaw was found in PackageKit in the way some of the methods exposed by the Transaction interface examines files. This issue allows a local user to measure the time the methods take to execute and know whether a file owned by root or other users exists.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23441",
+                "comment": "packagekit DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

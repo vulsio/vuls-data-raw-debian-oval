@@ -1,0 +1,47 @@
+{
+  "id": "oval:org.debian:def:186387819912969324629935723193612722684",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2173-1 pam-pgsql",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "pam-pgsql"
+    },
+    "description": "buffer overflow",
+    "debian": {
+      "moreinfo": "\nIt was discovered that pam-pgsql, a PAM module to authenticate using a PostgreSQL database, was vulnerable to a buffer overflow in supplied IP-addresses.",
+      "dsa": "DSA-2173",
+      "date": "2011-02-26"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2860",
+                "comment": "pam-pgsql DPKG is earlier than 0.7.1-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

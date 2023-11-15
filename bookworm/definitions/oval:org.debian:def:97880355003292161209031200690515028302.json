@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:97880355003292161209031200690515028302",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-17505 hdf5",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "hdf5"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-17505",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17505"
+      }
+    ],
+    "description": "In HDF5 1.10.1, there is a NULL pointer dereference in the function H5O_pline_decode in the H5Opline.c file in libhdf5.a. For example, h5dump would crash when someone opens a crafted hdf5 file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11409",
+                "comment": "hdf5 DPKG is earlier than 1.10.4+repack-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

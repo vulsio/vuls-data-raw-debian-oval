@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:147619905172396174328440885457436907264",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-35853 suricata",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "suricata"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-35853",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-35853"
+      }
+    ],
+    "description": "In Suricata before 6.0.13, an adversary who controls an external source of Lua rules may be able to execute Lua code. This is addressed in 6.0.13 by disabling Lua unless allow-rules is true in the security lua configuration section.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26172",
+                "comment": "suricata DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

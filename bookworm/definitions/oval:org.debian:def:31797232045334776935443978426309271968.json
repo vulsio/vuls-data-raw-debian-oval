@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:31797232045334776935443978426309271968",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8101 xorg-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xorg-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8101",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8101"
+      }
+    ],
+    "description": "The RandR extension in XFree86 4.2.0, X.Org X Window System (aka X11 or X) X11R6.7, and X.Org Server (aka xserver and xorg-server) before 1.16.3 allows remote authenticated users to cause a denial of service (out-of-bounds read or write) or possibly execute arbitrary code via a crafted length or index value to the (1) SProcRRQueryVersion, (2) SProcRRGetScreenInfo, (3) SProcRRSelectInput, or (4) SProcRRConfigureOutputProperty function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6826",
+                "comment": "xorg-server DPKG is earlier than 2:1.16.2.901-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

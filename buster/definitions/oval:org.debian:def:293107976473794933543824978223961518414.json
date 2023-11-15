@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:293107976473794933543824978223961518414",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-23527 libapache2-mod-auth-openidc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "libapache2-mod-auth-openidc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23527",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23527"
+      }
+    ],
+    "description": "mod_auth_openidc is an OpenID Certified™ authentication and authorization module for the Apache 2.x HTTP server. Versions prior to 2.4.12.2 are vulnerable to Open Redirect. When providing a logout parameter to the redirect URI, the existing code in oidc_validate_redirect_url() does not properly check for URLs that start with /\\t, leading to an open redirect. This issue has been patched in version 2.4.12.2. Users unable to upgrade can mitigate the issue by configuring mod_auth_openidc to only allow redirection when the destination matches a given regular expression with OIDCRedirectURLsAllowed.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23529",
+                "comment": "libapache2-mod-auth-openidc DPKG is earlier than 2.3.10.2-1+deb10u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

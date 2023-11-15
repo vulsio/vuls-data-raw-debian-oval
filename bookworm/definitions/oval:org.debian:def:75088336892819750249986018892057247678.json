@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:75088336892819750249986018892057247678",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-16516 yajl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "yajl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-16516",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16516"
+      }
+    ],
+    "description": "In the yajl-ruby gem 1.3.0 for Ruby, when a crafted JSON file is supplied to Yajl::Parser.new.parse, the whole ruby process crashes with a SIGABRT in the yajl_string_decode function in yajl_encode.c. This results in the whole ruby process terminating and potentially a denial of service.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11275",
+                "comment": "yajl DPKG is earlier than 2.1.0-3+deb12u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

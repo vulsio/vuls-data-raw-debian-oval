@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:254295381020252619102060979634978782413",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-5839 chromium",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "chromium"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-5839",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5839"
+      }
+    ],
+    "description": "Excessive data validation in URL parser in Google Chrome prior to 75.0.3770.80 allowed a remote attacker who convinced a user to input a URL to bypass website URL validation via a crafted URL.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17440",
+                "comment": "chromium DPKG is earlier than 75.0.3770.80-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

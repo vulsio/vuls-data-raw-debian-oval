@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:242739578215832329351519922442895545631",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4198-1 prosody",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "prosody"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-18265",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18265"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAlbert Dengg discovered that incorrect parsing of &lt;stream:error&gt; messages in the Prosody Jabber/XMPP server may result in denial of service.",
+      "dsa": "DSA-4198",
+      "date": "2018-05-09"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4109",
+                "comment": "prosody DPKG is earlier than 0.9.12-2+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

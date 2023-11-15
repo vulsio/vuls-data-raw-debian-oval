@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:224222499671253757320419861413308204441",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-35503 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-35503",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-35503"
+      }
+    ],
+    "description": "A NULL pointer dereference flaw was found in the megasas-gen2 SCSI host bus adapter emulation of QEMU in versions before and including 6.0. This issue occurs in the megasas_command_cancelled() callback function while dropping a SCSI request. This flaw allows a privileged guest user to crash the QEMU process on the host, resulting in a denial of service. The highest threat from this vulnerability is to system availability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19075",
+                "comment": "qemu DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

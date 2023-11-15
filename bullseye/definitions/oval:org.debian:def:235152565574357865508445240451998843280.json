@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:235152565574357865508445240451998843280",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-3592 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-3592",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3592"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in the PMA_unInlineEditRow function in js/sql.js in phpMyAdmin 3.4.x before 3.4.5 allow remote authenticated users to inject arbitrary web script or HTML via a (1) database name, (2) table name, or (3) column name that is not properly handled after an inline-editing operation.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4323",
+                "comment": "phpmyadmin DPKG is earlier than 4:3.4.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

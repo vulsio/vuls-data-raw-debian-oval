@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:277008323070384468896169236356698668097",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-1308 lucene-solr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "lucene-solr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1308",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1308"
+      }
+    ],
+    "description": "This vulnerability in Apache Solr 1.2 to 6.6.2 and 7.0.0 to 7.2.1 relates to an XML external entity expansion (XXE) in the `&dataConfig=<inlinexml>` parameter of Solr's DataImportHandler. It can be used as XXE using file/ftp/http protocols in order to read arbitrary local files from the Solr server or the internal network.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14055",
+                "comment": "lucene-solr DPKG is earlier than 3.6.2+dfsg-12"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:5169135898683541967133190708602707417",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2501-1 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-0217",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0217"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-0218",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0218"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2934",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2934"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities were discovered in Xen, a hypervisor.",
+      "dsa": "DSA-2501",
+      "date": "2012-06-24"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:212",
+                "comment": "xen DPKG is earlier than 4.1.3~rc1+hg-20120614.a9c0a89c08f2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

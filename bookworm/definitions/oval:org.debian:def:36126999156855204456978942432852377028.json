@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:36126999156855204456978942432852377028",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-5223 swift",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "swift"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-5223",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5223"
+      }
+    ],
+    "description": "OpenStack Object Storage (Swift) before 2.4.0 allows attackers to obtain sensitive information via a PUT tempurl and a DLO object manifest that references an object in another container.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7747",
+                "comment": "swift DPKG is earlier than 2.4.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

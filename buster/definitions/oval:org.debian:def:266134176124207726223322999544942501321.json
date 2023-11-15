@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:266134176124207726223322999544942501321",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-2491 gnumeric",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "gnumeric"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-2491",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2491"
+      }
+    ],
+    "description": "Integer overflow in pcre_compile.c in Perl Compatible Regular Expressions (PCRE) before 6.2, as used in multiple products such as Python, Ethereal, and PHP, allows attackers to execute arbitrary code via quantifier values in regular expressions, which leads to a heap-based buffer overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:943",
+                "comment": "gnumeric DPKG is earlier than 1.5.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

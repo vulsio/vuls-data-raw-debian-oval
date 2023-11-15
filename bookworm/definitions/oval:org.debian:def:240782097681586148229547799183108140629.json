@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:240782097681586148229547799183108140629",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-2016 user-mode-linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "user-mode-linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-2016",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-2016"
+      }
+    ],
+    "description": "User-mode Linux (UML) 2.4.17-8 does not restrict access to kernel address space, which allows local users to execute arbitrary code.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:144",
+                "comment": "user-mode-linux DPKG is earlier than 2.4.17-9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

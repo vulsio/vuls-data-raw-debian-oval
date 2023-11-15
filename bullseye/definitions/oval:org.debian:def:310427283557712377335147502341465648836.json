@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:310427283557712377335147502341465648836",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-41910 lldpd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "lldpd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-41910",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41910"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Matteo Memelli reported an out-of-bounds read flaw when parsing CDP addresses in lldpd, an implementation of the IEEE 802.1ab (LLDP) protocol. A remote attacker can take advantage of this flaw to cause a denial of service via a specially crafted CDP PDU packet.",
+      "dsa": "DSA-5505"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27402",
+                "comment": "lldpd DPKG is earlier than 1.0.11-1+deb11u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

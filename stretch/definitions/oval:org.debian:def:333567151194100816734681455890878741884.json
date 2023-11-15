@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:333567151194100816734681455890878741884",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4252-1 znc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "znc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-14055",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14055"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-14056",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14056"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nJeriko One discovered two vulnerabilities in the ZNC IRC bouncer which could result in privilege escalation or denial of service.",
+      "dsa": "DSA-4252",
+      "date": "2018-07-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4158",
+                "comment": "znc DPKG is earlier than 1.6.5-1+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:109526795933596423401590389949915506333",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-39241 haproxy",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "haproxy"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-39241",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-39241"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Several vulnerabilities were discovered in HAProxy, a fast and reliable load balancing reverse proxy, which can result in HTTP request smuggling. By carefully crafting HTTP/2 requests, it is possible to smuggle another HTTP request to the backend selected by the HTTP/2 request. With certain configurations, it allows an attacker to send an HTTP request to a backend, circumventing the backend selection logic.",
+      "dsa": "DSA-4960"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22490",
+                "comment": "haproxy DPKG is earlier than 2.2.9-2+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

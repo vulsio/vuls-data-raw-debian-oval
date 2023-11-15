@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:133436202921627928822511650299366638615",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1935 libpcap",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libpcap"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1935",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1935"
+      }
+    ],
+    "description": "pcap-linux.c in libpcap 1.1.1 before commit ea9432fabdf4b33cbc76d9437200e028f1c47c93 when snaplen is set may truncate packets, which might allow remote attackers to send arbitrary data while avoiding detection via crafted packets.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4124",
+                "comment": "libpcap DPKG is earlier than 1.1.1-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

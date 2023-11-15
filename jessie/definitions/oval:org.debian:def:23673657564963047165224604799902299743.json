@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:23673657564963047165224604799902299743",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3651-1 rails",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "rails"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-6316",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6316"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAndrew Carpenter of Critical Juncture discovered a cross-site scripting vulnerability affecting Action View in rails, a web application framework written in Ruby. Text declared as <q>HTML safe</q> will not have quotes escaped when used as attribute values in tag helpers.",
+      "dsa": "DSA-3651",
+      "date": "2016-08-25"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2191",
+                "comment": "rails DPKG is earlier than 2:4.1.8-1+deb8u4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

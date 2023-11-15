@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:169425287312462917806454717207568994202",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-17476 otrs2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "otrs2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-17476",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17476"
+      }
+    ],
+    "description": "Open Ticket Request System (OTRS) 4.0.x before 4.0.28, 5.0.x before 5.0.26, and 6.0.x before 6.0.3, when cookie support is disabled, might allow remote attackers to hijack web sessions and consequently gain privileges via a crafted email.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11763",
+                "comment": "otrs2 DPKG is earlier than 6.0.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

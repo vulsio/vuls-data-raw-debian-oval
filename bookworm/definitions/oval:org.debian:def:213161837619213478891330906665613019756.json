@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:213161837619213478891330906665613019756",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-0786 apache2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "apache2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-0786",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0786"
+      }
+    ],
+    "description": "The IPv6 URI parsing routines in the apr-util library for Apache 2.0.50 and earlier allow remote attackers to cause a denial of service (child process crash) via a certain URI, as demonstrated using the Codenomicon HTTP Test Tool.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:447",
+                "comment": "apache2 DPKG is earlier than 2.0.51"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

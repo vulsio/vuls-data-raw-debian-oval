@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:70812115349522159770116382261340667207",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1147 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1147",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1147"
+      }
+    ],
+    "description": "phpMyAdmin 2.6.0-pl2, and other versions before 2.6.1, with external transformations enabled, allows remote attackers to execute arbitrary commands via shell metacharacters.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:534",
+                "comment": "phpmyadmin DPKG is earlier than 2:2.6.1-rc1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

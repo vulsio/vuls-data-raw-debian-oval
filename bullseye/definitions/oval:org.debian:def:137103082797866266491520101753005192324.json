@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:137103082797866266491520101753005192324",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-5380 rails",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "rails"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-5380",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5380"
+      }
+    ],
+    "description": "Session fixation vulnerability in Rails before 1.2.4, as used for Ruby on Rails, allows remote attackers to hijack web sessions via unspecified vectors related to \"URL-based sessions.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2096",
+                "comment": "rails DPKG is earlier than 1.2.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

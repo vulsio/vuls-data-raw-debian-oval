@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:35814325407302131265027749837388295774",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2683-1 libxi",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "libxi"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1984",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1984"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1995",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1995"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1998",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1998"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nIlja van Sprundel of IOActive discovered several security issues in multiple components of the X.org graphics stack and the related libraries: Various integer overflows, sign handling errors in integer conversions, buffer overflows, memory corruption and missing input sanitising may lead to privilege escalation or denial of service.",
+      "dsa": "DSA-2683",
+      "date": "2013-05-23"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3066",
+                "comment": "libxi DPKG is earlier than 2:1.6.1-1+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

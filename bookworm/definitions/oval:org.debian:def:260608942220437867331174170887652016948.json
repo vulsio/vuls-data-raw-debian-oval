@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:260608942220437867331174170887652016948",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-14823 jss",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "jss"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-14823",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14823"
+      }
+    ],
+    "description": "A flaw was found in the \"Leaf and Chain\" OCSP policy implementation in JSS' CryptoManager versions after 4.4.6, 4.5.3, 4.6.0, where it implicitly trusted the root certificate of a certificate chain. Applications using this policy may not properly verify the chain and could be vulnerable to attacks such as Man in the Middle.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15906",
+                "comment": "jss DPKG is earlier than 4.6.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

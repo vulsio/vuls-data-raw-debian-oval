@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:32146134395553084546970593847553915073",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-1514 abcmidi",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "abcmidi"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-1514",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1514"
+      }
+    ],
+    "description": "Multiple buffer overflows in the abcmidi-yaps translator in abcmidi 20050101, and other versions, allow remote attackers to execute arbitrary code via crafted ABC music files that trigger the overflows during translation into PostScript.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1215",
+                "comment": "abcmidi DPKG is earlier than 20060422-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

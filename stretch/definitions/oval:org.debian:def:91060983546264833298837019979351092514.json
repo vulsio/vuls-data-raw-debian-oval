@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:91060983546264833298837019979351092514",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4688-1 dpdk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "dpdk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-10722",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10722"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-10723",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10723"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-10724",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10724"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMultiple vulnerabilities were discovered in the vhost code of DPDK, a set of libraries for fast packet processing, which could result in denial of service or the execution of arbitrary code by malicious guests/containers.",
+      "dsa": "DSA-4688",
+      "date": "2020-05-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3454",
+                "comment": "dpdk DPKG is earlier than 16.11.11-1+deb9u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

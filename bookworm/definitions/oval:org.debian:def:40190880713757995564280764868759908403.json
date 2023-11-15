@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:40190880713757995564280764868759908403",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-13132 yubico-piv-tool",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "yubico-piv-tool"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-13132",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-13132"
+      }
+    ],
+    "description": "An issue was discovered in Yubico libykpiv before 2.1.0. An attacker can trigger an incorrect free() in the ykpiv_util_generate_key() function in lib/util.c through incorrect error handling code. This could be used to cause a denial of service attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17814",
+                "comment": "yubico-piv-tool DPKG is earlier than 2.1.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:125461930586273124395503979868367541709",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-2191 mailman",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "mailman"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-2191",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2191"
+      }
+    ],
+    "description": "Format string vulnerability in Mailman before 2.1.9 allows attackers to execute arbitrary code via unspecified vectors. NOTE: the vendor has disputed this vulnerability, stating that it is \"unexploitable.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1316",
+                "comment": "mailman DPKG is earlier than 1:2.1.9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

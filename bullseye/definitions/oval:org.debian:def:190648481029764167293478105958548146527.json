@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:190648481029764167293478105958548146527",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-19358 gnome-keyring",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gnome-keyring"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-19358",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19358"
+      }
+    ],
+    "description": "GNOME Keyring through 3.28.2 allows local users to retrieve login credentials via a Secret Service API call and the D-Bus interface if the keyring is unlocked, a similar issue to CVE-2008-7320. One perspective is that this occurs because available D-Bus protection mechanisms (involving the busconfig and policy XML elements) are not used. NOTE: the vendor disputes this because, according to the security model, untrusted applications must not be allowed to access the user's session bus socket.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14554",
+                "comment": "gnome-keyring DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

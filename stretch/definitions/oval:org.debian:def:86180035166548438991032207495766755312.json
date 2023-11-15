@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:86180035166548438991032207495766755312",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3845-1 libtirpc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "libtirpc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-8779",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8779"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nGuido Vranken discovered that incorrect memory management in libtirpc, a transport-independent RPC library used by rpcbind and other programs may result in denial of service via memory exhaustion (depending on memory management settings).",
+      "dsa": "DSA-3845",
+      "date": "2017-05-08"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1752",
+                "comment": "libtirpc DPKG is earlier than 0.2.5-1.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

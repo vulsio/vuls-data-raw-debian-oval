@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:328983428776494771559414399191152490716",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3816-1 samba",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "samba"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-2619",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-2619"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nJann Horn of Google discovered a time-of-check, time-of-use race condition in Samba, a SMB/CIFS file, print, and login server for Unix. A malicious client can take advantage of this flaw by exploiting a symlink race to access areas of the server file system not exported under a share definition.",
+      "dsa": "DSA-3816",
+      "date": "2017-03-23"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4505",
+                "comment": "samba DPKG is earlier than 2:4.2.14+dfsg-0+deb8u4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

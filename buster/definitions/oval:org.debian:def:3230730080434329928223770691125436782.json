@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:3230730080434329928223770691125436782",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-16010 libjs-i18next",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "libjs-i18next"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-16010",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16010"
+      }
+    ],
+    "description": "i18next is a language translation framework. When using the .init method, passing interpolation options without passing an escapeValue will default to undefined rather than the assumed true. This can result in a cross-site scripting vulnerability because user input is assumed to be escaped, but is not. This vulnerability affects i18next 2.0.0 and later.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11760",
+                "comment": "libjs-i18next DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

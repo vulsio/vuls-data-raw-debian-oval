@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:272490208473732667025850431338749948919",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-2078 robocode",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "robocode"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-2078",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2078"
+      }
+    ],
+    "description": "Robocode before 1.6.0 allows user-assisted remote attackers to \"access the internals of the Robocode game\" via unspecified vectors related to the AWT Event Queue.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2414",
+                "comment": "robocode DPKG is earlier than 1.6.0~beta2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

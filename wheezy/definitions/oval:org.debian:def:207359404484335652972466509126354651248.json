@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:207359404484335652972466509126354651248",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3057-1 libxml2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "libxml2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-3660",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3660"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSogeti found a denial of service flaw in libxml2, a library providing support to read, modify and write XML and HTML files. A remote attacker could provide a specially crafted XML file that, when processed by an application using libxml2, would lead to excessive CPU consumption (denial of service) based on excessive entity substitutions, even if entity substitution was disabled, which is the parser default behavior. (<a href=\"https://security-tracker.debian.org/tracker/CVE-2014-3660\">CVE-2014-3660</a>)",
+      "dsa": "DSA-3057",
+      "date": "2014-10-26"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3414",
+                "comment": "libxml2 DPKG is earlier than 2.8.0+dfsg1-7+wheezy1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

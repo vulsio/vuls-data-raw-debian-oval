@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:187938364470657052456510845229318302516",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5091-1 containerd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "containerd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23648",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23648"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Felix Wilhelm discovered that the containerd container runtime was susceptible to information disclosure via malformed container images.",
+      "dsa": "DSA-5091",
+      "date": "2022-03-06"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27875",
+                "comment": "containerd DPKG is earlier than 1.4.13~ds1-1~deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:18094450394918596358017719156735259609",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2726-1 php-radius",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "php-radius"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2220",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2220"
+      }
+    ],
+    "description": "buffer overflow",
+    "debian": {
+      "moreinfo": "\nA buffer overflow has been discovered in the Radius extension for PHP. The function handling Vendor Specific Attributes assumed that the attributes given would always be of valid length. An attacker could use this assumption to trigger a buffer overflow.",
+      "dsa": "DSA-2726",
+      "date": "2013-07-25"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:741",
+                "comment": "php-radius DPKG is earlier than 1.2.5-2.3+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

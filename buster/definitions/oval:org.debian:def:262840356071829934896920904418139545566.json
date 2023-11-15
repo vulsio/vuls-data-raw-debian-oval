@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:262840356071829934896920904418139545566",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-1010127 vcftools",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "vcftools"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-1010127",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1010127"
+      }
+    ],
+    "description": "VCFTools vcftools prior to version 0.1.15 is affected by: Use-after-free. The impact is: Denial of Service or possibly other impact (eg. code execution or information disclosure). The component is: The header::add_FILTER_descriptor method in header.cpp. The attack vector is: The victim must open a specially crafted VCF file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15821",
+                "comment": "vcftools DPKG is earlier than 0.1.16-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

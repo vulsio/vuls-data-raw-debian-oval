@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:339280253608062024300065925830844058510",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-12399 nss",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "nss"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-12399",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12399"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Several vulnerabilities were discovered in NSS, a set of cryptographic libraries, which may result in side channel/timing attacks or denial of service.",
+      "dsa": "DSA-4726"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18443",
+                "comment": "nss DPKG is earlier than 2:3.42.1-1+deb10u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:123541362994189093715264810254416486701",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-3139 tcmu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "tcmu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3139",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3139"
+      }
+    ],
+    "description": "In Open-iSCSI tcmu-runner 1.3.x, 1.4.x, and 1.5.x through 1.5.2, xcopy_locate_udev in tcmur_cmd_handler.c lacks a check for transport-layer restrictions, allowing remote attackers to read or write files via directory traversal in an XCOPY request. For example, an attack can occur over a network if the attacker has access to one iSCSI LUN. NOTE: relative to CVE-2020-28374, this is a similar mistake in a different algorithm.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:21657",
+                "comment": "tcmu DPKG is earlier than 1.5.2-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

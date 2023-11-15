@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:15050396160539926817346820884280009708",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-17828 zziplib",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "zziplib"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-17828",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17828"
+      }
+    ],
+    "description": "Directory traversal vulnerability in ZZIPlib 0.13.69 allows attackers to overwrite arbitrary files via a .. (dot dot) in a zip file, because of the function unzzip_cat in the bins/unzzipcat-mem.c file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14545",
+                "comment": "zziplib DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

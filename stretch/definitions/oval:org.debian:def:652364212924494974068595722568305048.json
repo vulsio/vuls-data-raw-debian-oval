@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:652364212924494974068595722568305048",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4318-1 moin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "moin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5934",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5934"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nNitin Venkatesh discovered a cross-site scripting vulnerability in moin, a Python clone of WikiWiki. A remote attacker can conduct cross-site scripting attacks via the GUI editor's link dialogue. This only affects installations which have set up fckeditor (not enabled by default).",
+      "dsa": "DSA-4318",
+      "date": "2018-10-15"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1537",
+                "comment": "moin DPKG is earlier than 1.9.9-1+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

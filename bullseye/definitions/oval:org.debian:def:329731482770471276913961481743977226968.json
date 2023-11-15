@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:329731482770471276913961481743977226968",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-11746 tenshi",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "tenshi"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-11746",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11746"
+      }
+    ],
+    "description": "Tenshi 0.15 creates a tenshi.pid file after dropping privileges to a non-root account, which might allow local users to kill arbitrary processes by leveraging access to this non-root account for tenshi.pid modification before a root script executes a \"kill `cat /pathname/tenshi.pid`\" command.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10855",
+                "comment": "tenshi DPKG is earlier than 0.13-2.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

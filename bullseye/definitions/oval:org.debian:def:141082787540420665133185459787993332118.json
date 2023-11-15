@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:141082787540420665133185459787993332118",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-9434 libcrypto++",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libcrypto++"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-9434",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9434"
+      }
+    ],
+    "description": "Crypto++ (aka cryptopp) through 5.6.5 contains an out-of-bounds read vulnerability in zinflate.cpp in the Inflator filter.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13132",
+                "comment": "libcrypto++ DPKG is earlier than 5.6.4-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

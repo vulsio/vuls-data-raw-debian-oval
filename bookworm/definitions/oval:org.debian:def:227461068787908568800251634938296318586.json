@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:227461068787908568800251634938296318586",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-1090 libesmtp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libesmtp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-1090",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1090"
+      }
+    ],
+    "description": "Buffer overflow in read_smtp_response of protocol.c in libesmtp before 0.8.11 allows a remote SMTP server to (1) execute arbitrary code via a certain response or (2) cause a denial of service via long server responses.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:63",
+                "comment": "libesmtp DPKG is earlier than 0.8.11-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

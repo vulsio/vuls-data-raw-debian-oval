@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:259741548227824461349288548650745755630",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3709-1 libxslt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "libxslt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-4738",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-4738"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nNick Wellnhofer discovered that the xsltFormatNumberConversion function in libxslt, an XSLT processing runtime library, does not properly check for a zero byte terminating the pattern string. This flaw can be exploited to leak a couple of bytes after the buffer that holds the pattern string.",
+      "dsa": "DSA-3709",
+      "date": "2016-11-08"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1935",
+                "comment": "libxslt DPKG is earlier than 1.1.28-2+deb8u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

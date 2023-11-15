@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:217803194851704211482842184066329347369",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-6334 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-6334",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6334"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in the Parser::replaceInternalLinks2 method in MediaWiki before 1.23.15, 1.26.x before 1.26.4, and 1.27.x before 1.27.1 allows remote attackers to inject arbitrary web script or HTML via vectors involving replacement of percent encoding in unclosed internal links.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9455",
+                "comment": "mediawiki DPKG is earlier than 1:1.27.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

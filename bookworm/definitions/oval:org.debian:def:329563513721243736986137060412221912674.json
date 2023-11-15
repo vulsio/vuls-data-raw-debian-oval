@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:329563513721243736986137060412221912674",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-4941 arb",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "arb"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-4941",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4941"
+      }
+    ],
+    "description": "arb-common 0.0.20071207.1 allows local users to overwrite arbitrary files via a symlink attack on (a) /tmp/arb_fdnaml_*, (b) /tmp/arb_pids_*, (c) /tmp/arbdsmz.html, and (d) /tmp/arbdsmz.htm temporary files, related to the (1) arb_fastdnaml and (2) dszmconnect.pl scripts.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2536",
+                "comment": "arb DPKG is earlier than 0.0.20071207.1-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

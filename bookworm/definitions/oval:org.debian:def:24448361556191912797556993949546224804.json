@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:24448361556191912797556993949546224804",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-0357 iucode-tool",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "iucode-tool"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-0357",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0357"
+      }
+    ],
+    "description": "A heap-overflow flaw exists in the -tr loader of iucode-tool starting with v1.4 and before v2.1.1, potentially leading to SIGSEGV, or heap corruption.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10151",
+                "comment": "iucode-tool DPKG is earlier than 2.1.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

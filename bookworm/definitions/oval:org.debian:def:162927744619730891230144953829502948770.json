@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:162927744619730891230144953829502948770",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-3639 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-3639",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3639"
+      }
+    ],
+    "description": "WordPress before 2.2.2 allows remote attackers to redirect visitors to other websites and potentially obtain sensitive information via (1) the _wp_http_referer parameter to wp-pass.php, related to the wp_get_referer function in wp-includes/functions.php; and possibly other vectors related to (2) wp-includes/pluggable.php and (3) the wp_nonce_ays function in wp-includes/functions.php.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1874",
+                "comment": "wordpress DPKG is earlier than 2.2.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

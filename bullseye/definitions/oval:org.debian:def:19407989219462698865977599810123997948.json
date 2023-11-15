@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:19407989219462698865977599810123997948",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-1690 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-1690",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1690"
+      }
+    ],
+    "description": "The help function in net/netfilter/nf_nat_irc.c in the Linux kernel before 3.12.8 allows remote attackers to obtain sensitive information from kernel memory by establishing an IRC DCC session in which incorrect packet data is transmitted during use of the NAT mangle feature.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6484",
+                "comment": "linux DPKG is earlier than 3.12.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

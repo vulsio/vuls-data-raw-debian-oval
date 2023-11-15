@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:53408127754088811299501559565972461093",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-9268 nsis",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "nsis"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-9268",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-9268"
+      }
+    ],
+    "description": "Nullsoft Scriptable Install System (NSIS) before 2.49 has unsafe implicit linking against Version.dll. In other words, there is no protection mechanism in which a wrapper function resolves the dependency at an appropriate time during runtime.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8329",
+                "comment": "nsis DPKG is earlier than 2.50-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:416131870265181055727869500653214561",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-5884 gtk-vnc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "gtk-vnc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5884",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5884"
+      }
+    ],
+    "description": "gtk-vnc before 0.7.0 does not properly check boundaries of subrectangle-containing tiles, which allows remote servers to execute arbitrary code via the src x, y coordinates in a crafted (1) rre, (2) hextile, or (3) copyrect tile.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12512",
+                "comment": "gtk-vnc DPKG is earlier than 0.6.0-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

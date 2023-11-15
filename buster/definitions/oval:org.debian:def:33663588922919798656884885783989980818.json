@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:33663588922919798656884885783989980818",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-5313 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-5313",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-5313"
+      }
+    ],
+    "description": "Race condition in arch/x86/kvm/x86.c in the Linux kernel before 2.6.38 allows L2 guest OS users to cause a denial of service (L1 guest OS crash) via a crafted instruction that triggers an L2 emulation failure report, a similar issue to CVE-2014-7842.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4031",
+                "comment": "linux DPKG is earlier than 2.6.38-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:3463819448195411434205735362761140855",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-2269 pads",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pads"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-2269",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-2269"
+      }
+    ],
+    "description": "Stack-based buffer overflow in pads.c in Passive Asset Detection System (Pads) might allow local users to execute arbitrary code via a long report file name argument. NOTE: since Pads is not normally installed setuid, this may not be a vulnerability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:647",
+                "comment": "pads DPKG is earlier than 1.1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

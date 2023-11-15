@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:44164864379131961544274536288818847577",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4206-1 gitlab",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "gitlab"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-0920",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0920"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-8971",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8971"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities have been discovered in Gitlab, a software platform to collaborate on code:",
+      "dsa": "DSA-4206",
+      "date": "2018-05-21"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2818",
+                "comment": "gitlab DPKG is earlier than 8.13.11+dfsg1-8+deb9u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

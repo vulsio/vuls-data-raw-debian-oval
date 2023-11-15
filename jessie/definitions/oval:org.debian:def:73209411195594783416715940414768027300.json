@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:73209411195594783416715940414768027300",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2765-1 davfs2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "davfs2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4362",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4362"
+      }
+    ],
+    "description": "privilege escalation",
+    "debian": {
+      "moreinfo": "\nDavfs2, a filesystem client for WebDAV, calls the function system() insecurely while is setuid root. This might allow a privilege escalation.",
+      "dsa": "DSA-2765",
+      "date": "2013-09-26"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3802",
+                "comment": "davfs2 DPKG is earlier than 1.4.7-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

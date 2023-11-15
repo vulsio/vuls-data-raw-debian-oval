@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:95823403278526173310494116514155852734",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-1183 hsqldb1.8.0",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "hsqldb1.8.0"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-1183",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-1183"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Gregor Kopf of Secfault Security GmbH discovered that HSQLDB, a Java SQL database engine, allowed the execution of spurious scripting commands in .script and .log files. Hsqldb supports a <q>SCRIPT</q> keyword which is normally used to record the commands input by the database admin to output such a script. In combination with LibreOffice, an attacker could craft an odb containing a \"database/script\" file which itself contained a SCRIPT command where the contents of the file could be written to a new file whose location was determined by the attacker.",
+      "dsa": "DSA-5436"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26137",
+                "comment": "hsqldb1.8.0 DPKG is earlier than 1.8.0.10+dfsg-10+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

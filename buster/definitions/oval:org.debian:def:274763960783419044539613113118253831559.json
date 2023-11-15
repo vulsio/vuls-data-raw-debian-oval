@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:274763960783419044539613113118253831559",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-43599 openimageio",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "openimageio"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-43599",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-43599"
+      }
+    ],
+    "description": "Multiple code execution vulnerabilities exist in the IFFOutput::close() functionality of OpenImageIO Project OpenImageIO v2.4.4.2. A specially crafted ImageOutput Object can lead to a heap buffer overflow. An attacker can provide malicious input to trigger these vulnerabilities.This vulnerability arises when the `xmax` variable is set to 0xFFFF and `m_spec.format` is `TypeDesc::UINT8`",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24913",
+                "comment": "openimageio DPKG is earlier than 2.0.5~dfsg0-1+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

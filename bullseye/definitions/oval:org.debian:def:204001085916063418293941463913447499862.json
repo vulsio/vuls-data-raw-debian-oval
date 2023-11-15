@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:204001085916063418293941463913447499862",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-6309 tnef",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "tnef"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-6309",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6309"
+      }
+    ],
+    "description": "An issue was discovered in tnef before 1.4.13. Two type confusions have been identified in the parse_file() function. These might lead to invalid read and write operations, controlled by an attacker.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12424",
+                "comment": "tnef DPKG is earlier than 1.4.12-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

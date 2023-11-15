@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:2070638681971419408356329782538911042",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-3167 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-3167",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3167"
+      }
+    ],
+    "description": "Incomplete blacklist vulnerability in MediaWiki before 1.4.11 does not properly remove certain CSS inputs (HTML inline style attributes) that are processed as active content by Internet Explorer, which allows remote attackers to conduct cross-site scripting (XSS) attacks.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1025",
+                "comment": "mediawiki DPKG is earlier than 1.4.11-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:69460678012226556280701800017412080281",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-7544 openvpn",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "openvpn"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-7544",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7544"
+      }
+    ],
+    "description": "A cross-protocol scripting issue was discovered in the management interface in OpenVPN through 2.4.5. When this interface is enabled over TCP without a password, and when no other clients are connected to this interface, attackers can execute arbitrary management commands, obtain sensitive information, or cause a denial of service (SIGTERM) by triggering XMLHttpRequest actions in a web browser. This is demonstrated by a multipart/form-data POST to http://localhost:23000 with a \"signal SIGTERM\" command in a TEXTAREA element. NOTE: The vendor disputes that this is a vulnerability. They state that this is the result of improper configuration of the OpenVPN instance rather than an intrinsic vulnerability, and now more explicitly warn against such configurations in both the management-interface documentation, and with a runtime warning",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15575",
+                "comment": "openvpn DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

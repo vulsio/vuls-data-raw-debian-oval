@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:162454997764054002070275157289377223077",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-16844 procmail",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "procmail"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-16844",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16844"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the loadbuf function in formisc.c in formail in procmail 3.22 allows remote attackers to cause a denial of service (application crash) or possibly execute arbitrary code via a crafted e-mail message because of a hardcoded realloc size, a different vulnerability than CVE-2014-3618.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11331",
+                "comment": "procmail DPKG is earlier than 3.22-26"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

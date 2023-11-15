@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:26379157296514773878256730851274793814",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-0885 checkpw",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "checkpw"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-0885",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-0885"
+      }
+    ],
+    "description": "checkpw 1.02 and earlier allows remote attackers to cause a denial of service (infinite loop) via a -- (dash dash) in a username.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7556",
+                "comment": "checkpw DPKG is earlier than 1.02-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

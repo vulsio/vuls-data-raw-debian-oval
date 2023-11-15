@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:4661073344485173206799152277073433493",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2092 cacti",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cacti"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2092",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2092"
+      }
+    ],
+    "description": "SQL injection vulnerability in graph.php in Cacti 0.8.7e and earlier allows remote attackers to execute arbitrary SQL commands via a crafted rra_id parameter in a GET request in conjunction with a valid rra_id value in a POST request or a cookie, which causes the POST or cookie value to bypass the validation routine, but inserts the $_GET value into the resulting query.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3572",
+                "comment": "cacti DPKG is earlier than 0.8.7e-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

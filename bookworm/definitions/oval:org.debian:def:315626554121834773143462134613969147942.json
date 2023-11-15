@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:315626554121834773143462134613969147942",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-0624 cpio",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "cpio"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-0624",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0624"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the rmt_read__ function in lib/rtapelib.c in the rmt client functionality in GNU tar before 1.23 and GNU cpio before 2.11 allows remote rmt servers to cause a denial of service (memory corruption) or possibly execute arbitrary code by sending more data than was requested, related to archive filenames that contain a : (colon) character.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3326",
+                "comment": "cpio DPKG is earlier than 2.11-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:44145707735610548365982391536198717851",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-17784 gimp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gimp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-17784",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17784"
+      }
+    ],
+    "description": "In GIMP 2.8.22, there is a heap-based buffer over-read in load_image in plug-ins/common/file-gbr.c in the gbr import parser, related to mishandling of UTF-8 data.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11828",
+                "comment": "gimp DPKG is earlier than 2.8.20-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

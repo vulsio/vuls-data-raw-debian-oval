@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:102889097819330384118589620058436953042",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-4950 dpkg-cross",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dpkg-cross"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-4950",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4950"
+      }
+    ],
+    "description": "gccross in dpkg-cross 2.3.0 allows local users to overwrite arbitrary files via a symlink attack on the tmp/gccross2.log temporary file.  NOTE: the vendor disputes this vulnerability, stating that \"There is no sense in this bug - the script ... is called under specific cross-building environments within a chroot.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2632",
+                "comment": "dpkg-cross DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

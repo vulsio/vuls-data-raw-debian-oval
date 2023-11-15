@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:119801773638580168417600926851565025829",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-4536 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4536",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4536"
+      }
+    ],
+    "description": "An user able to alter the savevm data (either on the disk or over the wire during migration) could use this flaw to to corrupt QEMU process memory on the (destination) host, which could potentially result in arbitrary code execution on the host with the privileges of the QEMU process.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5993",
+                "comment": "qemu DPKG is earlier than 2.1+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:167367447505959606702357675624662456923",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-24191 htmldoc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "htmldoc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-24191",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24191"
+      }
+    ],
+    "description": "In HTMLDOC 1.9.14, an infinite loop in the gif_read_lzw function can lead to a pointer arbitrarily pointing to heap memory and resulting in a buffer overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23065",
+                "comment": "htmldoc DPKG is earlier than 1.9.15-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

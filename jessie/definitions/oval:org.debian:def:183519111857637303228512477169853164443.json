@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:183519111857637303228512477169853164443",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3334-1 gnutls28",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "gnutls28"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-6251",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-6251"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nKurt Roeckx discovered that decoding a specific certificate with very long DistinguishedName (DN) entries leads to double free. A remote attacker can take advantage of this flaw by creating a specially crafted certificate that, when processed by an application compiled against GnuTLS, could cause the application to crash resulting in a denial of service.",
+      "dsa": "DSA-3334",
+      "date": "2015-08-12"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:942",
+                "comment": "gnutls28 DPKG is earlier than 3.3.8-6+deb8u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

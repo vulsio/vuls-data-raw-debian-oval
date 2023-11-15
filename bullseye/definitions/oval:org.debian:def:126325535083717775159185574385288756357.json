@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:126325535083717775159185574385288756357",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-29481 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-29481",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29481"
+      }
+    ],
+    "description": "An issue was discovered in Xen through 4.14.x. Access rights of Xenstore nodes are per domid. Unfortunately, existing granted access rights are not removed when a domain is being destroyed. This means that a new domain created with the same domid will inherit the access rights to Xenstore nodes from the previous domain(s) with the same domid. Because all Xenstore entries of a guest below /local/domain/<domid> are being deleted by Xen tools when a guest is destroyed, only Xenstore entries of other guests still running are affected. For example, a newly created guest domain might be able to read sensitive information that had belonged to a previously existing guest domain. Both Xenstore implementations (C and Ocaml) are vulnerable.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19674",
+                "comment": "xen DPKG is earlier than 4.14.0+88-g1d1d1f5391-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:19775809195182016664256855643682957056",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-45481 webkit2gtk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "webkit2gtk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-45481",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45481"
+      }
+    ],
+    "description": "In WebKitGTK before 2.32.4, there is incorrect memory allocation in WebCore::ImageBufferCairoImageSurfaceBackend::create, leading to a segmentation violation and application crash, a different vulnerability than CVE-2021-30889.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22159",
+                "comment": "webkit2gtk DPKG is earlier than 2.34.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

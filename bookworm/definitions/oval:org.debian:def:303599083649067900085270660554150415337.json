@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:303599083649067900085270660554150415337",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-1194 libesmtp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libesmtp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-1194",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1194"
+      }
+    ],
+    "description": "The match_component function in smtp-tls.c in libESMTP 1.0.3.r1, and possibly other versions including 1.0.4, treats two strings as equal if one is a substring of the other, which allows remote attackers to spoof trusted certificates via a crafted subjectAltName.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3373",
+                "comment": "libesmtp DPKG is earlier than 1.0.4-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

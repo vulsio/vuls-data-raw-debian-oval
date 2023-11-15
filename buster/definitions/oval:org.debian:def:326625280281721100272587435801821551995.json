@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:326625280281721100272587435801821551995",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-0766 erlang",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "erlang"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-0766",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0766"
+      }
+    ],
+    "description": "The random number generator in the Crypto application before 2.0.2.2, and SSH before 2.0.5, as used in the Erlang/OTP ssh library before R14B03, uses predictable seeds based on the current time, which makes it easier for remote attackers to guess DSA host and SSH session keys.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4110",
+                "comment": "erlang DPKG is earlier than 1:14.b.3-dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:150829395318564292654263940975851163233",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-6598 dovecot",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dovecot"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-6598",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6598"
+      }
+    ],
+    "description": "Dovecot before 1.0.10, with certain configuration options including use of %variables, does not properly maintain the LDAP+auth cache, which might allow remote authenticated users to login as a different user who has the same password.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2213",
+                "comment": "dovecot DPKG is earlier than 1:1.0.10-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

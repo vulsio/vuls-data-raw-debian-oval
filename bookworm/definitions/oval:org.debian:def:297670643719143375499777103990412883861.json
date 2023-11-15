@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:297670643719143375499777103990412883861",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-5240 neutron",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "neutron"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-5240",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5240"
+      }
+    ],
+    "description": "Race condition in OpenStack Neutron before 2014.2.4 and 2015.1 before 2015.1.2, when using the ML2 plugin or the security groups AMQP API, allows remote authenticated users to bypass IP anti-spoofing controls by changing the device owner of a port to start with network: before the security group rules are applied.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7758",
+                "comment": "neutron DPKG is earlier than 1:7.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:190355562510748521629415560441388580696",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1051 sudo",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "sudo"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1051",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1051"
+      }
+    ],
+    "description": "sudo before 1.6.8p2 allows local users to execute arbitrary commands by using \"()\" style environment variables to create functions that have the same name as any program within the bash script that is called without using the program's full pathname.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:522",
+                "comment": "sudo DPKG is earlier than 1.6.8p3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:18444247290286767627555168365140456616",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-23467 openrazer",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "openrazer"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23467",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23467"
+      }
+    ],
+    "description": "OpenRazer is an open source driver and user-space daemon to control Razer device lighting and other features on GNU/Linux. Using a modified USB device an attacker can leak stack addresses of the `razer_attr_read_dpi_stages`, potentially bypassing KASLR. To exploit this vulnerability an attacker would need to access to a users keyboard or mouse or would need to convince a user to use a modified device. The issue has been patched in v3.5.1. Users are advised to upgrade and should be reminded not to plug in unknown USB devices.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24006",
+                "comment": "openrazer DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

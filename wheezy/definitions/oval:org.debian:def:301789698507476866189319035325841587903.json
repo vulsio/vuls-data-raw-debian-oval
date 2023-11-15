@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:301789698507476866189319035325841587903",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2354-1 cups",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "cups"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2896",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2896"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-3170",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3170"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nPetr Sklenar and Tomas Hoger discovered that missing input sanitising in the GIF decoder inside the CUPS printing system could lead to denial of service or potentially arbitrary code execution through crafted GIF files.",
+      "dsa": "DSA-2354",
+      "date": "2011-11-28"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:147",
+                "comment": "cups DPKG is earlier than 1.5.0-8"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

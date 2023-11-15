@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:270956153296324823768198617068974011847",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-1999010 ffmpeg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ffmpeg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1999010",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1999010"
+      }
+    ],
+    "description": "FFmpeg before commit cced03dd667a5df6df8fd40d8de0bff477ee02e8 contains multiple out of array access vulnerabilities in the mms protocol that can result in attackers accessing out of bound data. This attack appear to be exploitable via network connectivity. This vulnerability appears to have been fixed in cced03dd667a5df6df8fd40d8de0bff477ee02e8 and later.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14658",
+                "comment": "ffmpeg DPKG is earlier than 7:4.0.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

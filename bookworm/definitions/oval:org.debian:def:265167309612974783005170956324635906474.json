@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:265167309612974783005170956324635906474",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-31212 dbus-broker",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "dbus-broker"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-31212",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-31212"
+      }
+    ],
+    "description": "An issue was discovered in dbus-broker before 31. It depends on c-uitl/c-shquote to parse the DBus service's Exec line. c-shquote contains a stack-based buffer over-read if a malicious Exec line is supplied.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23673",
+                "comment": "dbus-broker DPKG is earlier than 30-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

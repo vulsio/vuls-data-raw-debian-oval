@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:31472413264492069042841328756010012475",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-4516 ghostscript",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ghostscript"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-4516",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4516"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the jpc_cox_getcompparms function in libjasper/jpc/jpc_cs.c in JasPer 1.900.1 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted numrlvls value in a coding style default (COD) marker segment in a JPEG2000 file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4258",
+                "comment": "ghostscript DPKG is earlier than 8.64~dfsg-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

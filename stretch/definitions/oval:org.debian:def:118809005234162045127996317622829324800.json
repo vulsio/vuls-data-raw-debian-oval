@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:118809005234162045127996317622829324800",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3915-1 ruby-mixlib-archive",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "ruby-mixlib-archive"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-1000026",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000026"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that ruby-mixlib-archive, a Chef Software's library used to handle various archive formats, was vulnerable to a directory traversal attack. This allowed attackers to overwrite arbitrary files by using a malicious tar archive containing \"..\" in its entries.",
+      "dsa": "DSA-3915",
+      "date": "2017-07-20"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:692",
+                "comment": "ruby-mixlib-archive DPKG is earlier than 0.2.0-1+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

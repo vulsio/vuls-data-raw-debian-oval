@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:234524991198898744112510437992239333158",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-11506 graphicsmagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "graphicsmagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-11506",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11506"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "This update fixes several vulnerabilities in Graphicsmagick: Various memory handling problems and cases of missing or incomplete input sanitising may result in denial of service, memory disclosure or the execution of arbitrary code if malformed media files are processed.",
+      "dsa": "DSA-4640"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:16032",
+                "comment": "graphicsmagick DPKG is earlier than 1.4~hg15978-1+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

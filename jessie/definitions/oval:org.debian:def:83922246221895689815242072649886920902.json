@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:83922246221895689815242072649886920902",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3833-1 libav",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "libav"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9821",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9821"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9822",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9822"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral security issues have been corrected in multiple demuxers and decoders of the libav multimedia library. A full list of the changes is available at <a href=\"https://git.libav.org/?p=libav.git;a=blob;f=Changelog;hb=refs/tags/v11.9\"> https://git.libav.org/?p=libav.git;a=blob;f=Changelog;hb=refs/tags/v11.9</a>",
+      "dsa": "DSA-3833",
+      "date": "2017-04-24"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2462",
+                "comment": "libav DPKG is earlier than 6:11.9-1~deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

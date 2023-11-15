@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:60747843799808045601712558473456234409",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2329-1 torque",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "torque"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2193",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2193"
+      }
+    ],
+    "description": "buffer overflow",
+    "debian": {
+      "moreinfo": "\nBartlomiej Balcerek discovered several buffer overflows in TORQUE server, a PBS-derived batch processing server.  This allows an attacker to crash the service or execute arbitrary code with privileges of the server via crafted job or host names.",
+      "dsa": "DSA-2329",
+      "date": "2011-10-27"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2901",
+                "comment": "torque DPKG is earlier than 2.4.15+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

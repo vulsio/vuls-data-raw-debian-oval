@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:271586606405546289383594290601215183328",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2062 mplayer",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mplayer"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2062",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2062"
+      }
+    ],
+    "description": "Integer underflow in the real_get_rdt_chunk function in real.c, as used in modules/access/rtsp/real.c in VideoLAN VLC media player before 1.0.1 and stream/realrtsp/real.c in MPlayer before r29447, allows remote attackers to execute arbitrary code via a crafted length value in an RDT chunk header.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3562",
+                "comment": "mplayer DPKG is earlier than 2:1.0~rc3+svn20100502-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

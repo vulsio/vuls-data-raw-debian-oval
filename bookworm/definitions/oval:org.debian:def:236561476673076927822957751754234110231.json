@@ -1,0 +1,47 @@
+{
+  "id": "oval:org.debian:def:236561476673076927822957751754234110231",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5443-1 gst-plugins-base1.0",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "gst-plugins-base1.0"
+    },
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMultiple multiple vulnerabilities were discovered in plugins for the GStreamer media framework and its codecs and demuxers, which may result in denial of service or potentially the execution of arbitrary code if a malformed media file is opened.",
+      "dsa": "DSA-5443",
+      "date": "2023-07-02"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26907",
+                "comment": "gst-plugins-base1.0 DPKG is earlier than 1.22.0-3+deb12u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:226148524031049895561792091450621175832",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4279-1 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-3620",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3620"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-3646",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-3646"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMultiple researchers have discovered a vulnerability in the way the Intel processor designs have implemented speculative execution of instructions in combination with handling of page-faults. This flaw could allow an attacker controlling an unprivileged process to read memory from arbitrary (non-user controlled) addresses, including from the kernel and all other processes running on the system or cross guest/host boundaries to read host memory.",
+      "dsa": "DSA-4279",
+      "date": "2018-08-20"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2447",
+                "comment": "linux DPKG is earlier than 4.9.110-3+deb9u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

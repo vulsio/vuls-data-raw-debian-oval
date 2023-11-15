@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:12716950049188633424368411796389127400",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-32207 curl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "curl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-32207",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32207"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple security vulnerabilities have been discovered in cURL, an URL transfer library. These flaws may allow remote attackers to obtain sensitive information, leak authentication or cookie header data or facilitate a denial of service attack.",
+      "dsa": "DSA-5197"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24814",
+                "comment": "curl DPKG is earlier than 7.74.0-1.3+deb11u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

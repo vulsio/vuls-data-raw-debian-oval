@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:17220081617541839668027601987266629899",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-6718 mplayer",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mplayer"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-6718",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6718"
+      }
+    ],
+    "description": "MPlayer, possibly 1.0rc1, allows remote attackers to cause a denial of service (SIGSEGV and application crash) via (1) a malformed MP3 file, as demonstrated by lol-mplayer.mp3; (2) a malformed Ogg Vorbis file, as demonstrated by lol-mplayer.ogg; (3) a malformed MPEG-1 file, as demonstrated by lol-mplayer.mpg; (4) a malformed MPEG-2 file, as demonstrated by lol-mplayer.m2v; (5) a malformed MPEG-4 AVI file, as demonstrated by lol-mplayer.avi; (6) a malformed FLAC file, as demonstrated by lol-mplayer.flac; (7) a malformed Ogg Theora file, as demonstrated by lol-mplayer.ogm; (8) a malformed WMV file, as demonstrated by lol-mplayer.wmv; or (9) a malformed AAC file, as demonstrated by lol-mplayer.aac.  NOTE: vector 5 might overlap CVE-2007-4938, and vector 6 might overlap CVE-2008-0486.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2144",
+                "comment": "mplayer DPKG is earlier than 1.0~rc3+svn20100502-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

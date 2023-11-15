@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:127484989874557100801498306924018786233",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8143 samba",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "samba"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8143",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8143"
+      }
+    ],
+    "description": "Samba 4.0.x before 4.0.24, 4.1.x before 4.1.16, and 4.2.x before 4.2rc4, when an Active Directory Domain Controller (AD DC) is configured, allows remote authenticated users to set the LDB userAccountControl UF_SERVER_TRUST_ACCOUNT bit, and consequently gain privileges, by leveraging delegation of authority for user-account or computer-account creation.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6855",
+                "comment": "samba DPKG is earlier than 2:4.1.17+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

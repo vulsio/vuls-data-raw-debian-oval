@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:145854677884236660071173716548852936568",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3736-1 libupnp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "libupnp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-6255",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6255"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-8863",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8863"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nTwo vulnerabilities were discovered in libupnp, a portable SDK for UPnP devices.",
+      "dsa": "DSA-3736",
+      "date": "2016-12-16"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:639",
+                "comment": "libupnp DPKG is earlier than 1:1.6.19+git20160116-1.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

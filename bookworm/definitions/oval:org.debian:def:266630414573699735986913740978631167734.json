@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:266630414573699735986913740978631167734",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-8933 menu-cache",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "menu-cache"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-8933",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8933"
+      }
+    ],
+    "description": "Libmenu-cache 1.0.2 insecurely uses /tmp for a socket file, allowing a local user to cause a denial of service (menu unavailability).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12605",
+                "comment": "menu-cache DPKG is earlier than 1.0.2-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:37989216663163569823465882822361221598",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-27114 htmldoc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "htmldoc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-27114",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27114"
+      }
+    ],
+    "description": "There is a vulnerability in htmldoc 1.9.16. In image_load_jpeg function image.cxx when it calls malloc,'img->width' and 'img->height' they are large enough to cause an integer overflow. So, the malloc function may return a heap blosmaller than the expected size, and it will cause a buffer overflow/Address boundary error in the jpeg_read_scanlines function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24349",
+                "comment": "htmldoc DPKG is earlier than 1.9.11-4+deb11u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

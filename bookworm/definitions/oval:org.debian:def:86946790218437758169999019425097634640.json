@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:86946790218437758169999019425097634640",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-2792 phpldapadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "phpldapadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-2792",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2792"
+      }
+    ],
+    "description": "Directory traversal vulnerability in welcome.php in phpLDAPadmin 0.9.6 and 0.9.7 allows remote attackers to read arbitrary files via a .. (dot dot) in the custom_welcome_page parameter.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:940",
+                "comment": "phpldapadmin DPKG is earlier than 0.9.6c-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

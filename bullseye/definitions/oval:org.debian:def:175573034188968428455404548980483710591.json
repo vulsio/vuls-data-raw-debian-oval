@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:175573034188968428455404548980483710591",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-37454 pysha3",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pysha3"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-37454",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-37454"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Nicky Mouha discovered a buffer overflow in <q>sha3</q>, a Python library for the SHA-3 hashing functions.",
+      "dsa": "DSA-5267"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25176",
+                "comment": "pysha3 DPKG is earlier than 1.0.2-4.1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

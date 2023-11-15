@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:261702988468270048069772680846791127065",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-5187 imlib2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "imlib2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-5187",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5187"
+      }
+    ],
+    "description": "The load function in the XPM loader for imlib2 1.4.2, and possibly other versions, allows attackers to cause a denial of service (crash) and possibly execute arbitrary code via a crafted XPM file that triggers a \"pointer arithmetic error\" and a heap-based buffer overflow, a different vulnerability than CVE-2008-2426.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2587",
+                "comment": "imlib2 DPKG is earlier than 1.4.0-1.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

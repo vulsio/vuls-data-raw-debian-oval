@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:137404949777785241942627922431099263142",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-7969 libass",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libass"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-7969",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7969"
+      }
+    ],
+    "description": "The wrap_lines_smart function in ass_render.c in libass before 0.13.4 allows remote attackers to cause a denial of service (out-of-bounds read) via unspecified vectors, related to \"0/3 line wrapping equalization.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9752",
+                "comment": "libass DPKG is earlier than 0.13.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:127143202768498200924966819247729215822",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-0213 bind9",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "bind9"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-0213",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0213"
+      }
+    ],
+    "description": "BIND 9.7.1 and 9.7.1-P1, when a recursive validating server has a trust anchor that is configured statically or via DNSSEC Lookaside Validation (DLV), allows remote attackers to cause a denial of service (infinite loop) via a query for an RRSIG record whose answer is not in the cache, which causes BIND to repeatedly send RRSIG queries to the authoritative servers.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3276",
+                "comment": "bind9 DPKG is earlier than 9.7.1.dfsg.P2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

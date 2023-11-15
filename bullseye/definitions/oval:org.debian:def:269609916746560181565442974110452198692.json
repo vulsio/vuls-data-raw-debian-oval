@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:269609916746560181565442974110452198692",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-18346 davical",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "davical"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-18346",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18346"
+      }
+    ],
+    "description": "A CSRF issue was discovered in DAViCal through 1.1.8. If an authenticated user visits an attacker-controlled webpage, the attacker can send arbitrary requests in the name of the user to the application. If the attacked user is an administrator, the attacker could for example add a new admin user.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:16772",
+                "comment": "davical DPKG is earlier than 1.1.9.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

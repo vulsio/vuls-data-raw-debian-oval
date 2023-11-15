@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:236125645977925351578715889900834666407",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-5293 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-5293",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-5293"
+      }
+    ],
+    "description": "wp-includes/comment.php in WordPress before 3.0.2 does not properly whitelist trackbacks and pingbacks in the blogroll, which allows remote attackers to bypass intended spam restrictions via a crafted URL, as demonstrated by a URL that triggers a substring match.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3747",
+                "comment": "wordpress DPKG is earlier than 3.0.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

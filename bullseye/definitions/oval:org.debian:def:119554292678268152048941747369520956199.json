@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:119554292678268152048941747369520956199",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-5294 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-5294",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-5294"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in the request_filesystem_credentials function in wp-admin/includes/file.php in WordPress before 3.0.2 allow remote servers to inject arbitrary web script or HTML by providing a crafted error message for a (1) FTP or (2) SSH connection attempt.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3897",
+                "comment": "wordpress DPKG is earlier than 3.0.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

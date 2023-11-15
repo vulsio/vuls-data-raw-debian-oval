@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:246113588108465598136245094619635486962",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-22045 openjdk-11",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "openjdk-11"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-22045",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-22045"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Several vulnerabilities have been discovered in the OpenJDK Java runtime, which may result in bypass of sandbox restrictions, information disclosure, reduced cryptographic strength of the AES implementation, directory traversal or denial of service.        For the oldstable distribution (bullseye), these problems have been fixed in version 11.0.20+8-1~deb11u1.",
+      "dsa": "DSA-5478"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26312",
+                "comment": "openjdk-11 DPKG is earlier than 11.0.20+8-1~deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

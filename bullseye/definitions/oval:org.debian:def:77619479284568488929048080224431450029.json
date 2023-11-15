@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:77619479284568488929048080224431450029",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-11441 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-11441",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11441"
+      }
+    ],
+    "description": "phpMyAdmin 5.0.2 allows CRLF injection, as demonstrated by %0D%0Astring%0D%0A inputs to login form fields causing CRLF sequences to be reflected on an error page. NOTE: the vendor states \"I don't see anything specifically exploitable.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18157",
+                "comment": "phpmyadmin DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:117335346793909595522575405630170938804",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-36151 libmysofa",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libmysofa"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-36151",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36151"
+      }
+    ],
+    "description": "Incorrect handling of input data in mysofa_resampler_reset_mem function in the libmysofa library 0.5 - 1.1 will lead to heap buffer overflow and overwriting large memory block.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19154",
+                "comment": "libmysofa DPKG is earlier than 1.2~dfsg0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

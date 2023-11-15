@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:36388543469460439096168746950274431997",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-48579 unrar-nonfree",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "unrar-nonfree"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-48579",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48579"
+      }
+    ],
+    "description": "UnRAR before 6.2.3 allows extraction of files outside of the destination folder via symlink chains.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25909",
+                "comment": "unrar-nonfree DPKG is earlier than 1:6.0.3-1+deb11u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

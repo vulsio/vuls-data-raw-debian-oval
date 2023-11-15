@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:16088591516320759377761339104265676096",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-1140 samba",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "samba"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1140",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1140"
+      }
+    ],
+    "description": "A missing input sanitization flaw was found in the implementation of LDP database used for the LDAP server. An attacker could use this flaw to cause a denial of service against a samba server, used as a Active Directory Domain Controller. All versions of Samba from 4.8.0 onwards are vulnerable",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13804",
+                "comment": "samba DPKG is earlier than 2:4.8.4+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

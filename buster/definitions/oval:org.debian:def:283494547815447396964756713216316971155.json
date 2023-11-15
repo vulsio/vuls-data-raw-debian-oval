@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:283494547815447396964756713216316971155",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-42715 libstb",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "libstb"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-42715",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42715"
+      }
+    ],
+    "description": "An issue was discovered in stb stb_image.h 1.33 through 2.27. The HDR loader parsed truncated end-of-file RLE scanlines as an infinite sequence of zero-length runs. An attacker could potentially have caused denial of service in applications using stb_image by submitting crafted HDR files.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22493",
+                "comment": "libstb DPKG is earlier than 0.0~git20180212.15.e6afb9c-1+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

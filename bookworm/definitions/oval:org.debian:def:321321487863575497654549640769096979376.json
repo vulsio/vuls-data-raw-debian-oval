@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:321321487863575497654549640769096979376",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-3360 nova",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "nova"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3360",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3360"
+      }
+    ],
+    "description": "Directory traversal vulnerability in virt/disk/api.py in OpenStack Compute (Nova) Folsom (2012.2) and Essex (2012.1), when used over libvirt-based hypervisors, allows remote authenticated users to write arbitrary files to the disk image via a .. (dot dot) in the path attribute of a file element.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4680",
+                "comment": "nova DPKG is earlier than 2012.1.1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

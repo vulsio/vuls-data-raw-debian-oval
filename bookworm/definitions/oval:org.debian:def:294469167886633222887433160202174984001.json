@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:294469167886633222887433160202174984001",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-0165 ikiwiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ikiwiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-0165",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0165"
+      }
+    ],
+    "description": "Cross-site request forgery (CSRF) vulnerability in Ikiwiki before 2.42 allows remote attackers to modify user preferences, including passwords, via the (1) preferences and (2) edit forms.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2169",
+                "comment": "ikiwiki DPKG is earlier than 2.42"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

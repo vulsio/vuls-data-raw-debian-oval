@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:118809005234162045127996317622829324800",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-1000026 ruby-mixlib-archive",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "ruby-mixlib-archive"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-1000026",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000026"
+      }
+    ],
+    "description": "Chef Software's mixlib-archive versions 0.3.0 and older are vulnerable to a directory traversal attack allowing attackers to overwrite arbitrary files by using \"..\" in tar archive entries",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10695",
+                "comment": "ruby-mixlib-archive DPKG is earlier than 0.4.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

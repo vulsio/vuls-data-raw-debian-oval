@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:229675214028087205365272462062299477169",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-4758 otrs2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "otrs2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-4758",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4758"
+      }
+    ],
+    "description": "installer.pl in Open Ticket Request System (OTRS) before 3.0.3 has an Inbound Mail Password field that uses the text type, instead of the password type, for its INPUT element, which makes it easier for physically proximate attackers to obtain the password by reading the workstation screen.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3869",
+                "comment": "otrs2 DPKG is earlier than 3.0.8+dfsg1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

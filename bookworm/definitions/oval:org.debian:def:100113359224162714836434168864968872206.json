@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:100113359224162714836434168864968872206",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-10191 mruby",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mruby"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-10191",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10191"
+      }
+    ],
+    "description": "In versions of mruby up to and including 1.4.0, an integer overflow exists in src/vm.c::mrb_vm_exec() when handling OP_GETUPVAR in the presence of deep scope nesting, resulting in a use-after-free. An attacker that can cause Ruby code to be run can use this to possibly execute arbitrary code.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13027",
+                "comment": "mruby DPKG is earlier than 1.4.0+20180418+git54905e98-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

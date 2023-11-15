@@ -1,0 +1,69 @@
+{
+  "id": "oval:org.debian:def:286478708699765791856024302977776603715",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5039-1 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-21661",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21661"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-21662",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21662"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-21663",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21663"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-21664",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21664"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities were discovered in Wordpress, a web blogging tool. They allowed remote attackers to perform SQL injection, run unchecked SQL queries, bypass hardening, or perform Cross-Site Scripting (XSS) attacks.",
+      "dsa": "DSA-5039",
+      "date": "2022-01-11"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27824",
+                "comment": "wordpress DPKG is earlier than 5.7.5+dfsg1-0+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

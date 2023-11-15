@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:252233467171366318405291888381915237338",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-3603 xpdf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xpdf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-3603",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3603"
+      }
+    ],
+    "description": "Integer overflow in the SplashBitmap::SplashBitmap function in Xpdf 3.x before 3.02pl4 and Poppler before 0.12.1 might allow remote attackers to execute arbitrary code via a crafted PDF document that triggers a heap-based buffer overflow.  NOTE: some of these details are obtained from third party information.  NOTE: this issue reportedly exists because of an incomplete fix for CVE-2009-1188.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3079",
+                "comment": "xpdf DPKG is earlier than 3.02-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

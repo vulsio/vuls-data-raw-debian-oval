@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:110747754528920447552907881294309676742",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-27674 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-27674",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27674"
+      }
+    ],
+    "description": "An issue was discovered in Xen through 4.14.x allowing x86 PV guest OS users to gain guest OS privileges by modifying kernel memory contents, because invalidation of TLB entries is mishandled during use of an INVLPG-like attack technique.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18811",
+                "comment": "xen DPKG is earlier than 4.14.0+80-gd101b417b7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

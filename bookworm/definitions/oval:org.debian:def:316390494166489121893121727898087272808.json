@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:316390494166489121893121727898087272808",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1140 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1140",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1140"
+      }
+    ],
+    "description": "Multiple stack consumption vulnerabilities in the dissect_ms_compressed_string and dissect_mscldap_string functions in Wireshark 1.0.x, 1.2.0 through 1.2.14, and 1.4.0 through 1.4.3 allow remote attackers to cause a denial of service (infinite recursion) via a crafted (1) SMB or (2) Connection-less LDAP (CLDAP) packet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3855",
+                "comment": "wireshark DPKG is earlier than 1.4.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

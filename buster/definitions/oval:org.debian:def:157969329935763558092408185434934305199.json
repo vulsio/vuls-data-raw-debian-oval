@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:157969329935763558092408185434934305199",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-4869 kino",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "kino"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-4869",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4869"
+      }
+    ],
+    "description": "FFmpeg 0.4.9, as used by MPlayer, allows context-dependent attackers to cause a denial of service (memory consumption) via unknown vectors, aka a \"Tcp/udp memory leak.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2647",
+                "comment": "kino DPKG is earlier than 1.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

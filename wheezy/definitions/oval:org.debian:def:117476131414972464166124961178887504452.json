@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:117476131414972464166124961178887504452",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2525-1 expat",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "expat"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-0876",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0876"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-1148",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1148"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nIt was discovered that Expat, a C library to parse XML, is vulnerable to denial of service through hash collisions and a memory leak in pool handling.",
+      "dsa": "DSA-2525",
+      "date": "2012-08-06"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2970",
+                "comment": "expat DPKG is earlier than 2.1.0~beta3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

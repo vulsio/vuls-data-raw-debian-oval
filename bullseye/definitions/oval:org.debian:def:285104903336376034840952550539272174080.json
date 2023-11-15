@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:285104903336376034840952550539272174080",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1125 xpdf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xpdf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1125",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1125"
+      }
+    ],
+    "description": "Buffer overflow in the Gfx::doImage function in Gfx.cc for xpdf 3.00, and other products that share code such as tetex-bin and kpdf in KDE 3.2.x to 3.2.3 and 3.3.x to 3.3.2, allows remote attackers to cause a denial of service (application crash) and possibly execute arbitrary code via a crafted PDF file that causes the boundaries of a maskColors array to be exceeded.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:552",
+                "comment": "xpdf DPKG is earlier than 3.00-11"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

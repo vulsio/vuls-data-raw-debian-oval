@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:160659422628337994366250449668752204817",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-1391 glibc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "glibc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-1391",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1391"
+      }
+    ],
+    "description": "Multiple integer overflows in libc in NetBSD 4.x, FreeBSD 6.x and 7.x, and probably other BSD and Apple Mac OS platforms allow context-dependent attackers to execute arbitrary code via large values of certain integer fields in the format argument to (1) the strfmon function in lib/libc/stdlib/strfmon.c, related to the GET_NUMBER macro; and (2) the printf function, related to left_prec and right_prec.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2341",
+                "comment": "glibc DPKG is earlier than 2.11-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

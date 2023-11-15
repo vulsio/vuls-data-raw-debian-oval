@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:26967585374126985119409042187035317633",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-3688 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-3688",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3688"
+      }
+    ],
+    "description": "The SCTP implementation in the Linux kernel before 3.17.4 allows remote attackers to cause a denial of service (memory consumption) by triggering a large number of chunks in an association's output queue, as demonstrated by ASCONF probes, related to net/sctp/inqueue.c and net/sctp/sm_statefuns.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6529",
+                "comment": "linux DPKG is earlier than 3.16.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

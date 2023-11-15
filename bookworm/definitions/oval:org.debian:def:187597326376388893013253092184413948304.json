@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:187597326376388893013253092184413948304",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1500 pithos",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "pithos"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1500",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1500"
+      }
+    ],
+    "description": "PreferencesPithosDialog.py in Pithos 0.3.7 does not properly restrict permissions for the .config/pithos.ini file in a user's home directory, which allows local users to obtain Pandora credentials by reading this file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3894",
+                "comment": "pithos DPKG is earlier than 0.3.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

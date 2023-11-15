@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:265141876555025412985962970556285280956",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5466-1 ntpsec",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ntpsec"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-4012",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4012"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that ntpd in ntpsec, a secure, hardened, and improved implementation derived from the original NTP project, could crash if NTS is disabled and an NTS-enabled client request (mode 3) is received.",
+      "dsa": "DSA-5466",
+      "date": "2023-08-04"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26927",
+                "comment": "ntpsec DPKG is earlier than 1.2.2+dfsg1-1+deb12u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

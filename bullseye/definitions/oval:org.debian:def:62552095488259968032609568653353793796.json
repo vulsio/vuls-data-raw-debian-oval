@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:62552095488259968032609568653353793796",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-0877 dnsmasq",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dnsmasq"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-0877",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0877"
+      }
+    ],
+    "description": "Dnsmasq before 2.21 allows remote attackers to poison the DNS cache via answers to queries that were not made by Dnsmasq.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:805",
+                "comment": "dnsmasq DPKG is earlier than 2.21"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

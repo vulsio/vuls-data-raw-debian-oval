@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:222321617676317212300730133132616261680",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-5963 nvidia-graphics-drivers-tesla-418",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "nvidia-graphics-drivers-tesla-418"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-5963",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-5963"
+      }
+    ],
+    "description": "NVIDIA Windows GPU Display Driver, all versions, contains a vulnerability in the Inter Process Communication APIs, in which improper access control may lead to code execution, denial of service, or information disclosure.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20010",
+                "comment": "nvidia-graphics-drivers-tesla-418 DPKG is earlier than 418.152.00-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

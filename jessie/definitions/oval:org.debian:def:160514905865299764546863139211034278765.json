@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:160514905865299764546863139211034278765",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3677-1 libarchive",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "libarchive"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-5418",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5418"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-6250",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6250"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-7166",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7166"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities were discovered in libarchive, a multi-format archive and compression library, which may lead to denial of service (memory consumption and application crash), bypass of sandboxing restrictions and overwrite arbitrary files with arbitrary data from an archive, or the execution of arbitrary code.",
+      "dsa": "DSA-3677",
+      "date": "2016-09-25"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4371",
+                "comment": "libarchive DPKG is earlier than 3.1.2-11+deb8u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

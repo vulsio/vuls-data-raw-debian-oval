@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:199990289356893556839262475479436284938",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2701-1 krb5",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "krb5"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-2443",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-2443"
+      }
+    ],
+    "description": "denial of service",
+    "debian": {
+      "moreinfo": "\nIt was discovered that the kpasswd service running on UDP port 464 could respond to response packets, creating a packet loop and a denial of service condition.",
+      "dsa": "DSA-2701",
+      "date": "2013-05-29"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4",
+                "comment": "krb5 DPKG is earlier than 1.10.1+dfsg-5+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

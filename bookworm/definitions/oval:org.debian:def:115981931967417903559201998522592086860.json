@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:115981931967417903559201998522592086860",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-26955 rust-xcb",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "rust-xcb"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-26955",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-26955"
+      }
+    ],
+    "description": "An issue was discovered in the xcb crate through 2021-02-04 for Rust. It has a soundness violation because xcb::xproto::GetAtomNameReply::name() calls std::str::from_utf8_unchecked() on unvalidated bytes from an X server.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20360",
+                "comment": "rust-xcb DPKG is earlier than 1.1.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

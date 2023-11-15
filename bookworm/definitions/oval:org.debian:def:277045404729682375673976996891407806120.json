@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:277045404729682375673976996891407806120",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-14173 imagemagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "imagemagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-14173",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14173"
+      }
+    ],
+    "description": "In the function ReadTXTImage() in coders/txt.c in ImageMagick 7.0.6-10, an integer overflow might occur for the addition operation \"GetQuantumRange(depth)+1\" when \"depth\" is large, producing a smaller value than expected. As a result, an infinite loop would occur for a crafted TXT file that claims a very large \"max_value\" value.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10961",
+                "comment": "imagemagick DPKG is earlier than 8:6.9.9.34+dfsg-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

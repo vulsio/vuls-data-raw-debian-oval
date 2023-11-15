@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:6831496943759269515774692824220973162",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-44506 fis-gtm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "fis-gtm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-44506",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44506"
+      }
+    ],
+    "description": "An issue was discovered in FIS GT.M through V7.0-000 (related to the YottaDB code base). A lack of input validation in calls to do_verify in sr_unix/do_verify.c allows attackers to attempt to jump to a NULL pointer by corrupting a function pointer.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22078",
+                "comment": "fis-gtm DPKG is earlier than 7.0-002-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

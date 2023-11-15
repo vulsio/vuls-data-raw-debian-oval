@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:23994200215914103371463979238406946761",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-14850 nbdkit",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "nbdkit"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-14850",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14850"
+      }
+    ],
+    "description": "A denial of service vulnerability was discovered in nbdkit 1.12.7, 1.14.1 and 1.15.1. An attacker could connect to the nbdkit service and cause it to perform a large amount of work in initializing backend plugins, by simply opening a connection to the service. This vulnerability could cause resource consumption and degradation of service in nbdkit, depending on the plugins configured on the server-side.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:16610",
+                "comment": "nbdkit DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

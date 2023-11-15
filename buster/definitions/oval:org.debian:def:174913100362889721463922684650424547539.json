@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:174913100362889721463922684650424547539",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-3435 pam",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "pam"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-3435",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3435"
+      }
+    ],
+    "description": "The (1) pam_env and (2) pam_mail modules in Linux-PAM (aka pam) before 1.1.2 use root privileges during read access to files and directories that belong to arbitrary user accounts, which might allow local users to obtain sensitive information by leveraging this filesystem activity, as demonstrated by a symlink attack on the .pam_environment file in a user's home directory.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3855",
+                "comment": "pam DPKG is earlier than 1.1.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

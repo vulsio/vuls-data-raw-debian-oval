@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:145918779375158836996359079484392409425",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2887-1 ruby-actionmailer-3.2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "ruby-actionmailer-3.2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4389",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4389"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAaron Neyer discovered that missing input sanitising in the logging component of Ruby Actionmailer could result in denial of service through a malformed e-mail message.",
+      "dsa": "DSA-2887",
+      "date": "2014-03-27"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:941",
+                "comment": "ruby-actionmailer-3.2 DPKG is earlier than 3.2.6-2+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

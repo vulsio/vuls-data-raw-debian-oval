@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:165821677389890730985237965064765634239",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-4270 ghostscript",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "ghostscript"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-4270",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4270"
+      }
+    ],
+    "description": "Stack-based buffer overflow in the errprintf function in base/gsmisc.c in ghostscript 8.64 through 8.70 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a crafted PDF file, as originally reported for debug logging code in gdevcups.c in the CUPS output driver.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3407",
+                "comment": "ghostscript DPKG is earlier than 8.70~dfsg-2.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

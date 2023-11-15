@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:241707199432560781505193036482279935832",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-36369 dropbear",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "dropbear"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-36369",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-36369"
+      }
+    ],
+    "description": "An issue was discovered in Dropbear through 2020.81. Due to a non-RFC-compliant check of the available authentication methods in the client-side SSH code, it is possible for an SSH server to change the login process in its favor. This attack can bypass additional security measures such as FIDO2 tokens or SSH-Askpass. Thus, it allows an attacker to abuse a forwarded agent for logging on to another server unnoticed.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:21888",
+                "comment": "dropbear DPKG is earlier than 2018.76-5+deb10u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

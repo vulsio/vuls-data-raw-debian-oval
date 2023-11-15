@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:65615662407433718142359818769509947342",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-1163 sudo",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "sudo"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-1163",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1163"
+      }
+    ],
+    "description": "The command matching functionality in sudo 1.6.8 through 1.7.2p5 does not properly handle when a file in the current working directory has the same name as a pseudo-command in the sudoers file and the PATH contains an entry for \".\", which allows local users to execute arbitrary commands via a Trojan horse executable, as demonstrated using sudoedit, a different vulnerability than CVE-2010-0426.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3366",
+                "comment": "sudo DPKG is earlier than 1.7.2p6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

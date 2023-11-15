@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:158114804071809938050726940444620846046",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3867-1 sudo",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "sudo"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-1000367",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000367"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nThe Qualys Security team discovered that sudo, a program designed to provide limited super user privileges to specific users, does not properly parse \"/proc/[pid]/stat\" to read the device number of the tty from field 7 (tty_nr). A sudoers user can take advantage of this flaw on an SELinux-enabled system to obtain full root privileges.",
+      "dsa": "DSA-3867",
+      "date": "2017-05-30"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4555",
+                "comment": "sudo DPKG is earlier than 1.8.10p3-1+deb8u4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

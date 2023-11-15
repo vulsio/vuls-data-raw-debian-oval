@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:222142249939679647001214156585359769772",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-4664 fwbuilder",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "fwbuilder"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-4664",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4664"
+      }
+    ],
+    "description": "Firewall Builder 3.0.4, 3.0.5, and 3.0.6, when running on Linux, allows local users to gain privileges via a symlink attack on an unspecified temporary file that is created by the iptables script.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3229",
+                "comment": "fwbuilder DPKG is earlier than 3.0.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

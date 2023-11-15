@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:166910172767609673488016817675589034220",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4364-1 ruby-loofah",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "ruby-loofah"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-16468",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16468"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that ruby-loofah, a general library for manipulating and transforming HTML/XML documents and fragments, performed insufficient sanitising of SVG elements.",
+      "dsa": "DSA-4364",
+      "date": "2019-01-08"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2197",
+                "comment": "ruby-loofah DPKG is earlier than 2.0.3-2+deb9u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

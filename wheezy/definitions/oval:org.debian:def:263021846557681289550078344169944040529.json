@@ -1,0 +1,69 @@
+{
+  "id": "oval:org.debian:def:263021846557681289550078344169944040529",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2642-1 sudo",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "sudo"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1775",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1775"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1776",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1776"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2776",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2776"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2777",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2777"
+      }
+    ],
+    "description": "several issues",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities have been discovered in sudo, a program designed to allow a sysadmin to give limited root privileges to users. The Common Vulnerabilities and Exposures project identifies the following problems:",
+      "dsa": "DSA-2642",
+      "date": "2013-03-09"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:758",
+                "comment": "sudo DPKG is earlier than 1.8.5p2-1+nmu1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:108669446865124684663291704069493335391",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-9735 neutron",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "neutron"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-9735",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9735"
+      }
+    ],
+    "description": "An issue was discovered in the iptables firewall module in OpenStack Neutron before 10.0.8, 11.x before 11.0.7, 12.x before 12.0.6, and 13.x before 13.0.3. By setting a destination port in a security group rule along with a protocol that doesn't support that option (for example, VRRP), an authenticated user may block further application of security group rules for instances from any project/tenant on the compute hosts to which it's applied. (Only deployments using the iptables security group driver are affected.)",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18096",
+                "comment": "neutron DPKG is earlier than 2:13.0.2-13"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

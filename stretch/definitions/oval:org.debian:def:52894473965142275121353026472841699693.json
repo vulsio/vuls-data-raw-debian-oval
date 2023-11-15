@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:52894473965142275121353026472841699693",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4072-1 bouncycastle",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "bouncycastle"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-13098",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13098"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nHanno Boeck, Juraj Somorovsky and Craig Young discovered that the TLS implementation in Bouncy Castle is vulnerable to an adaptive chosen ciphertext attack against RSA keys.",
+      "dsa": "DSA-4072",
+      "date": "2017-12-21"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3999",
+                "comment": "bouncycastle DPKG is earlier than 1.56-1+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

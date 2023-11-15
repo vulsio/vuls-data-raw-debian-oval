@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:162166695995136150336883446163611865931",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-1335 w3m",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "w3m"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-1335",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1335"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in w3m 0.3.2 does not escape an HTML tag in a frame, which allows remote attackers to insert arbitrary web script or HTML and access files or cookies.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:91",
+                "comment": "w3m DPKG is earlier than 0.3.2.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

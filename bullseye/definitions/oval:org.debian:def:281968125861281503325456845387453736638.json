@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:281968125861281503325456845387453736638",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-4945 policykit-1",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "policykit-1"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-4945",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4945"
+      }
+    ],
+    "description": "PolicyKit 0.103 sets the AdminIdentities to \"wheel\" by default, which allows local users in the wheel group to gain root privileges without authentication.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4490",
+                "comment": "policykit-1 DPKG is earlier than 0.103-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

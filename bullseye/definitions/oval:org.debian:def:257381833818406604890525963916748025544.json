@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:257381833818406604890525963916748025544",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-5389 libreswan",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libreswan"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-5389",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5389"
+      }
+    ],
+    "description": "The Internet Key Exchange v1 main mode is vulnerable to offline dictionary or brute force attacks. Reusing a key pair across different versions and modes of IKE could lead to cross-protocol authentication bypasses. It is well known, that the aggressive mode of IKEv1 PSK is vulnerable to offline dictionary or brute force attacks. For the main mode, however, only an online attack against PSK authentication was thought to be feasible. This vulnerability could allow an attacker to recover a weak Pre-Shared Key or enable the impersonation of a victim host or network.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15122",
+                "comment": "libreswan DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

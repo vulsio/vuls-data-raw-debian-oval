@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:1623390996771950887857747513039878162",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-6821 ffmpeg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ffmpeg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-6821",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-6821"
+      }
+    ],
+    "description": "The ff_mpv_common_init function in libavcodec/mpegvideo.c in FFmpeg before 2.7.2 does not properly maintain the encoding context, which allows remote attackers to cause a denial of service (invalid pointer access) or possibly have unspecified other impact via crafted MPEG data.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7882",
+                "comment": "ffmpeg DPKG is earlier than 7:2.7.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

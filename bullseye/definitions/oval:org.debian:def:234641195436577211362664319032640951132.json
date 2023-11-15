@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:234641195436577211362664319032640951132",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-5526 libcgi-pm-perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libcgi-pm-perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-5526",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5526"
+      }
+    ],
+    "description": "CGI.pm module before 3.63 for Perl does not properly escape newlines in (1) Set-Cookie or (2) P3P headers, which might allow remote attackers to inject arbitrary headers into responses from applications that use CGI.pm.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5135",
+                "comment": "libcgi-pm-perl DPKG is earlier than 3.61-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

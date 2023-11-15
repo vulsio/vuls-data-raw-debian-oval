@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:180444103933517558494398246867268116639",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-3164 xorg-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xorg-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3164",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3164"
+      }
+    ],
+    "description": "The authentication setup in XWayland 1.16.x and 1.17.x before 1.17.2 starts the server in non-authenticating mode, which allows local users to read from or send information to arbitrary X11 clients via vectors involving a UNIX socket.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7518",
+                "comment": "xorg-server DPKG is earlier than 2:1.17.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

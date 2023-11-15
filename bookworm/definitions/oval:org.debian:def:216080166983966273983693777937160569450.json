@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:216080166983966273983693777937160569450",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-3702 poppler",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "poppler"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-3702",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3702"
+      }
+    ],
+    "description": "The Gfx::getPos function in the PDF parser in xpdf before 3.02pl5, poppler 0.8.7 and possibly other versions up to 0.15.1, CUPS, kdegraphics, and possibly other products allows context-dependent attackers to cause a denial of service (crash) via unknown vectors that trigger an uninitialized pointer dereference.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3617",
+                "comment": "poppler DPKG is earlier than 0.12.4-1.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

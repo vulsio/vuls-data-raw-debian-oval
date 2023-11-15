@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:198490426382145111991152443142621270217",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-5739 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-5739",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5739"
+      }
+    ],
+    "description": "The default configuration of WordPress before 3.6.1 does not prevent uploads of .swf and .exe files, which might make it easier for remote authenticated users to conduct cross-site scripting (XSS) attacks via a crafted file, related to the get_allowed_mime_types function in wp-includes/functions.php.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5847",
+                "comment": "wordpress DPKG is earlier than 3.6.1+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

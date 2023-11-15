@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:317151803921955765942892441221070031638",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-0224 libast",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libast"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-0224",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0224"
+      }
+    ],
+    "description": "Buffer overflow in Library of Assorted Spiffy Things (LibAST) 0.6.1 and earlier, as used in Eterm and possibly other software, allows local users to execute arbitrary code as the utmp user via a long -X command line argument (alternative configuration file name).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1168",
+                "comment": "libast DPKG is earlier than 0.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:329963578149650807349995032196011969347",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-24809 net-snmp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "net-snmp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-24809",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24809"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Yu Zhang and Nanyu Zhong discovered several vulnerabilities in net-snmp, a suite of Simple Network Management Protocol applications, which could result in denial of service or the execution of arbitrary code.",
+      "dsa": "DSA-5209"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24155",
+                "comment": "net-snmp DPKG is earlier than 5.9+dfsg-4+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

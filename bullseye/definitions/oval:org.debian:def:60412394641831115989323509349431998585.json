@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:60412394641831115989323509349431998585",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-47360 vlc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "vlc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-47360",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-47360"
+      }
+    ],
+    "description": "Videolan VLC prior to version 3.0.20 contains an Integer underflow that leads to an incorrect packet length.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27626",
+                "comment": "vlc DPKG is earlier than 3.0.20-0+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

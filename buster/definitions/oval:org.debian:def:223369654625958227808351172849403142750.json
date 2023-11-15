@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:223369654625958227808351172849403142750",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-7386 boinc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "boinc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-7386",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-7386"
+      }
+    ],
+    "description": "Format string vulnerability in the PROJECT::write_account_file function in client/cs_account.cpp in BOINC, possibly 7.2.33, allows remote attackers to cause a denial of service (crash) or possibly execute arbitrary code via format string specifiers in the gui_urls item in an account file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6449",
+                "comment": "boinc DPKG is earlier than 7.1.10+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:318585352964552277641475990240686097462",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2904-1 virtualbox",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "virtualbox"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0981",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0981"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0983",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0983"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nFrancisco Falcon discovered that missing input sanitizing in the 3D  acceleration code in VirtualBox could lead to the execution of arbitrary  code on the host system.",
+      "dsa": "DSA-2904",
+      "date": "2014-04-15"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3270",
+                "comment": "virtualbox DPKG is earlier than 4.1.18-dfsg-2+deb7u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

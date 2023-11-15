@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:23543929049205478120005169941759872737",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-6247 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-6247",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-6247"
+      }
+    ],
+    "description": "The dissect_openflow_tablemod_v5 function in epan/dissectors/packet-openflow_v5.c in the OpenFlow dissector in Wireshark 1.12.x before 1.12.7 does not validate a certain offset value, which allows remote attackers to cause a denial of service (infinite loop) via a crafted packet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8131",
+                "comment": "wireshark DPKG is earlier than 1.12.7+g7fc8978-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

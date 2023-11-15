@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:137889848843808563036120959705083865702",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-40468 tinyproxy",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "tinyproxy"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-40468",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-40468"
+      }
+    ],
+    "description": "Potential leak of left-over heap data if custom error page templates containing special non-standard variables are used. Tinyproxy commit 84f203f and earlier use uninitialized buffers in process_request() function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24351",
+                "comment": "tinyproxy DPKG is earlier than 1.11.1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

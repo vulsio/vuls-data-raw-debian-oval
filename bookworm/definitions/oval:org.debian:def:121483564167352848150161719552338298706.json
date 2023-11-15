@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:121483564167352848150161719552338298706",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-2027 jython",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "jython"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2027",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2027"
+      }
+    ],
+    "description": "Jython 2.2.1 uses the current umask to set the privileges of the class cache files, which allows local users to bypass intended access restrictions via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5372",
+                "comment": "jython DPKG is earlier than 2.7.1+repack-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

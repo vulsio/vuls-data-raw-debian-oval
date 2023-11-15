@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:274697104417616282662243112538062519951",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2665-1 strongswan",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "strongswan"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2944",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2944"
+      }
+    ],
+    "description": "authentication bypass",
+    "debian": {
+      "moreinfo": "\nKevin Wojtysiak discovered a vulnerability in strongSwan, an IPsec based VPN solution.",
+      "dsa": "DSA-2665",
+      "date": "2013-04-30"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3050",
+                "comment": "strongswan DPKG is earlier than 4.5.2-1.5+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

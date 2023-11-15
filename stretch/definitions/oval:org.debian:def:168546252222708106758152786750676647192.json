@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:168546252222708106758152786750676647192",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4038-1 shibboleth-sp2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "shibboleth-sp2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-16852",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16852"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nRod Widdowson of Steading System Software LLP discovered a coding error in the <q>Dynamic</q> metadata plugin of the Shibboleth Service Provider, causing the plugin to fail configuring itself with the filters provided and omitting whatever checks they are intended to perform.",
+      "dsa": "DSA-4038",
+      "date": "2017-11-16"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1257",
+                "comment": "shibboleth-sp2 DPKG is earlier than 2.6.0+dfsg1-4+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

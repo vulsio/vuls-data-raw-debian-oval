@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:89679124212652435848636079068194904799",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-35533 libraw",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libraw"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-35533",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-35533"
+      }
+    ],
+    "description": "In LibRaw, an out-of-bounds read vulnerability exists within the \"LibRaw::adobe_copy_pixel()\" function (libraw\\src\\decoders\\dng.cpp) when reading data from the image file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19767",
+                "comment": "libraw DPKG is earlier than 0.20.0-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

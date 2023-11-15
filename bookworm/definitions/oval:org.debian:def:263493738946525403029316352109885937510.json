@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:263493738946525403029316352109885937510",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1025 openldap",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openldap"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1025",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1025"
+      }
+    ],
+    "description": "bind.cpp in back-ndb in OpenLDAP 2.4.x before 2.4.24 does not require authentication for the root Distinguished Name (DN), which allows remote attackers to bypass intended access restrictions via an arbitrary password.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3840",
+                "comment": "openldap DPKG is earlier than 2.4.25-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

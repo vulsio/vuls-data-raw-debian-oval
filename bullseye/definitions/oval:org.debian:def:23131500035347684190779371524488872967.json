@@ -1,0 +1,74 @@
+{
+  "id": "oval:org.debian:def:23131500035347684190779371524488872967",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5316-1 netty",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "netty"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-37136",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-37136"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-37137",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-37137"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-43797",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-43797"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-41881",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-41881"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-41915",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-41915"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral out-of-memory, stack overflow or HTTP request smuggling vulnerabilities have been discovered in Netty, a Java NIO client/server socket framework, which may allow attackers to cause a denial of service or bypass restrictions when used as a proxy.",
+      "dsa": "DSA-5316",
+      "date": "2023-01-11"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28095",
+                "comment": "netty DPKG is earlier than 1:4.1.48-4+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

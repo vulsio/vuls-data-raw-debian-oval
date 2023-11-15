@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:174649055164572790903781602182731475440",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-20124 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-20124",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20124"
+      }
+    ],
+    "description": "hw/rdma/rdma_backend.c in QEMU allows guest OS users to trigger out-of-bounds access via a PvrdmaSqWqe ring element with a large num_sge value.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14286",
+                "comment": "qemu DPKG is earlier than 1:4.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

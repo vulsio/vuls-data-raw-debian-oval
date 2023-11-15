@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:141873738188990721658881739807407618364",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5286-1 krb5",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "krb5"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-42898",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-42898"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nGreg Hudson discovered integer overflow flaws in the PAC parsing in krb5, the MIT implementation of Kerberos, which may result in remote code execution (in a KDC, kadmin, or GSS or Kerberos application server process), information exposure (to a cross-realm KDC acting maliciously), or denial of service (KDC or kadmind process crash).",
+      "dsa": "DSA-5286",
+      "date": "2022-11-19"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28065",
+                "comment": "krb5 DPKG is earlier than 1.18.3-6+deb11u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

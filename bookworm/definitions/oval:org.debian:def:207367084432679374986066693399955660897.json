@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:207367084432679374986066693399955660897",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-3716 nbdkit",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "nbdkit"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3716",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3716"
+      }
+    ],
+    "description": "A flaw was found in nbdkit due to to improperly caching plaintext state across the STARTTLS encryption boundary. A MitM attacker could use this flaw to inject a plaintext NBD_OPT_STRUCTURED_REPLY before proxying everything else a client sends to the server, potentially leading the client to terminate the NBD session. The highest threat from this vulnerability is to system availability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:21364",
+                "comment": "nbdkit DPKG is earlier than 1.26.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

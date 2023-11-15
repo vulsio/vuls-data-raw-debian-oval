@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:274245954132504421324870213389207499449",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1796 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1796",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1796"
+      }
+    ],
+    "description": "The kvm_set_msr_common function in arch/x86/kvm/x86.c in the Linux kernel through 3.8.4 does not ensure a required time_page alignment during an MSR_KVM_SYSTEM_TIME operation, which allows guest OS users to cause a denial of service (buffer overflow and host OS memory corruption) or possibly have unspecified other impact via a crafted application.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5648",
+                "comment": "linux DPKG is earlier than 3.2.41-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

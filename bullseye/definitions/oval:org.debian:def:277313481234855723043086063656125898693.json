@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:277313481234855723043086063656125898693",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-4986 wims",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wims"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-4986",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4986"
+      }
+    ],
+    "description": "wims 3.62 allows local users to overwrite arbitrary files via a symlink attack on (a) /tmp/env#####, (b) /tmp/sed#####, and (c) /tmp/referer-home.log temporary files, related to the (1) coqweb and (2) account.sh scripts.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2647",
+                "comment": "wims DPKG is earlier than 3.62-13.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

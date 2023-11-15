@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:85328944748689607398745761056756975106",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-24976 atheme-services",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "atheme-services"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-24976",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24976"
+      }
+    ],
+    "description": "Atheme IRC Services before 7.2.12, when used in conjunction with InspIRCd, allows authentication bypass by ending an IRC handshake at a certain point during a challenge-response login sequence.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23669",
+                "comment": "atheme-services DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

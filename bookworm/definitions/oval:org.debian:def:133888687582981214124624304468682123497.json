@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:133888687582981214124624304468682123497",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-5902 krb5",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "krb5"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-5902",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5902"
+      }
+    ],
+    "description": "Integer overflow in the svcauth_gss_get_principal function in lib/rpc/svc_auth_gss.c in MIT Kerberos 5 (krb5) allows remote attackers to have an unknown impact via a large length value for a GSS client name in an RPC request.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2054",
+                "comment": "krb5 DPKG is earlier than 1.6.dfsg.4~beta1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

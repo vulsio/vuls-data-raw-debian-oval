@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:185335885036010779293840197638684151350",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8326 libiptables-parse-perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "libiptables-parse-perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8326",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8326"
+      }
+    ],
+    "description": "The IPTables-Parse module before 1.6 for Perl allows local users to write to arbitrary files owned by the current user.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8560",
+                "comment": "libiptables-parse-perl DPKG is earlier than 1.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

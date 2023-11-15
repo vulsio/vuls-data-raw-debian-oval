@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:188230079282053773081000188348122384507",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-4104 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-4104",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4104"
+      }
+    ],
+    "description": "Xen 3.3.x through 4.5.x does not properly restrict access to PCI MSI mask bits, which allows local x86 HVM guest users to cause a denial of service (unexpected interrupt and host crash) via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7657",
+                "comment": "qemu DPKG is earlier than 1:2.3+dfsg-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

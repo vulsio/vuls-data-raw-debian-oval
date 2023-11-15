@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:135021483671720635043893722477383434958",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3978-1 gdk-pixbuf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "gdk-pixbuf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-2862",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-2862"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMarcin Noga discovered a buffer overflow in the JPEG loader of the GDK Pixbuf library, which may result in the execution of arbitrary code if a malformed file is opened.",
+      "dsa": "DSA-3978",
+      "date": "2017-09-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2973",
+                "comment": "gdk-pixbuf DPKG is earlier than 2.31.1-2+deb8u6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

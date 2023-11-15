@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:162790347700149476727258186053953295275",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-29050 sphinxsearch",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "sphinxsearch"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-29050",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29050"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "It was discovered that sphinxsearch, a fast standalone full-text SQL search engine, could allow arbitrary files to be read by abusing a configuration option.",
+      "dsa": "DSA-5036"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19749",
+                "comment": "sphinxsearch DPKG is earlier than 2.2.11-2+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

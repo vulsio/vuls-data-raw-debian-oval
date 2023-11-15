@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:40548792932940031641035057961464352511",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3014-1 squid3",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "squid3"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-3609",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3609"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMatthew Daley discovered that Squid3, a fully featured web proxy cache, did not properly perform input validation in request parsing. A remote attacker could use this flaw to mount a denial of service by sending crafted Range requests.",
+      "dsa": "DSA-3014",
+      "date": "2014-08-28"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1582",
+                "comment": "squid3 DPKG is earlier than 3.1.20-2.2+deb7u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

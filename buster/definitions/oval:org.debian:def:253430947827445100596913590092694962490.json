@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:253430947827445100596913590092694962490",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-0839 hplip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "hplip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-0839",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-0839"
+      }
+    ],
+    "description": "The hp-plugin utility in HP Linux Imaging and Printing (HPLIP) makes it easier for man-in-the-middle attackers to execute arbitrary code by leveraging use of a short GPG key id from a keyserver to verify print plugin downloads.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7726",
+                "comment": "hplip DPKG is earlier than 3.15.11+repack0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:206376766956324287659661832172078989235",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5114-1 chromium",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "chromium"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-1232",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-1232"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Sergei Glazunov discovered a security issue in Chromium, which could result in the execution of arbitrary code if a malicious website is visited.",
+      "dsa": "DSA-5114",
+      "date": "2022-04-07"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27896",
+                "comment": "chromium DPKG is earlier than 100.0.4896.75-1~deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

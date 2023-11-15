@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:319557707608795810506829644735501919706",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-26037 zoneminder",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "zoneminder"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-26037",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-26037"
+      }
+    ],
+    "description": "ZoneMinder is a free, open source Closed-circuit television software application for Linux which supports IP, USB and Analog cameras. Versions prior to 1.36.33 and 1.37.33 contain an SQL Injection. The minTime and maxTime request parameters are not properly validated and could be used execute arbitrary SQL. This issue is fixed in versions 1.36.33 and 1.37.33.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25568",
+                "comment": "zoneminder DPKG is earlier than 1.36.33+dfsg1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

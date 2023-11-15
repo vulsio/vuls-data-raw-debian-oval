@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:240740260391622378584569658131025212848",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-29449 zabbix",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "zabbix"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-29449",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-29449"
+      }
+    ],
+    "description": "JavaScript preprocessing, webhooks and global scripts can cause uncontrolled CPU, memory, and disk I/O utilization. Preprocessing/webhook/global script configuration and testing are only available to Administrative roles (Admin and Superadmin). Administrative privileges should be typically granted to users who need to perform tasks that require more control over the system. The security risk is limited because not all users have this level of access. ",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26753",
+                "comment": "zabbix DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

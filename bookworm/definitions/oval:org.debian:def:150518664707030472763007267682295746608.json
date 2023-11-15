@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:150518664707030472763007267682295746608",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-8372 libmad",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libmad"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-8372",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8372"
+      }
+    ],
+    "description": "The mad_layer_III function in layer3.c in Underbit MAD libmad 0.15.1b, if NDEBUG is omitted, allows remote attackers to cause a denial of service (assertion failure and application exit) via a crafted audio file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12536",
+                "comment": "libmad DPKG is earlier than 0.15.1b-9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

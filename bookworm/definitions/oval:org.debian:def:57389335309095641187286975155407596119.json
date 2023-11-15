@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:57389335309095641187286975155407596119",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2432 cups",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "cups"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2432",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2432"
+      }
+    ],
+    "description": "The cupsDoAuthentication function in auth.c in the client in CUPS before 1.4.4, when HAVE_GSSAPI is omitted, does not properly handle a demand for authorization, which allows remote CUPS servers to cause a denial of service (infinite loop) via HTTP_UNAUTHORIZED responses.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3474",
+                "comment": "cups DPKG is earlier than 1.4.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

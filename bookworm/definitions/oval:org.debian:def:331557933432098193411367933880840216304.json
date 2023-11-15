@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:331557933432098193411367933880840216304",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-10778 mp3gain",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mp3gain"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-10778",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10778"
+      }
+    ],
+    "description": "Read access violation in the III_dequantize_sample function in mpglibDBL/layer3.c in mp3gain through 1.5.2-r2 allows remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact, a different vulnerability than CVE-2017-9872 and CVE-2017-14409.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13090",
+                "comment": "mp3gain DPKG is earlier than 1.6.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

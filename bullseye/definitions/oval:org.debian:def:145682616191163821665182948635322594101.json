@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:145682616191163821665182948635322594101",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-2230 reportbug",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "reportbug"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-2230",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2230"
+      }
+    ],
+    "description": "Untrusted search path vulnerability in (1) reportbug 3.8 and 3.31, and (2) reportbug-ng before 0.2008.06.04, allows local users to execute arbitrary code via a malicious module file in the current working directory.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2423",
+                "comment": "reportbug DPKG is earlier than 3.41"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:275689253026807875929288148159400694530",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-3533 libbpf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libbpf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-3533",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-3533"
+      }
+    ],
+    "description": "A vulnerability was found in Linux Kernel. It has been rated as problematic. This issue affects the function parse_usdt_arg of the file tools/lib/bpf/usdt.c of the component BPF. The manipulation of the argument reg_name leads to memory leak. It is recommended to apply a patch to fix this issue. The associated identifier of this vulnerability is VDB-211031.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24026",
+                "comment": "libbpf DPKG is earlier than 1.1.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:262464805873483960422263240079290807450",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-6109 ruby-rack",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ruby-rack"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-6109",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6109"
+      }
+    ],
+    "description": "lib/rack/multipart.rb in Rack before 1.1.4, 1.2.x before 1.2.6, 1.3.x before 1.3.7, and 1.4.x before 1.4.2 uses an incorrect regular expression, which allows remote attackers to cause a denial of service (infinite loop) via a crafted Content-Disposion header.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5206",
+                "comment": "ruby-rack DPKG is earlier than 1.4.1-2.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

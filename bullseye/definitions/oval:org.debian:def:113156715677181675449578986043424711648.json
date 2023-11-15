@@ -1,0 +1,47 @@
+{
+  "id": "oval:org.debian:def:113156715677181675449578986043424711648",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5165-1 vlc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "vlc"
+    },
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMultiple vulnerabilities were discovered in the VLC media player, which could result in the execution of arbitrary code or denial of service if a malformed file is opened.",
+      "dsa": "DSA-5165",
+      "date": "2022-06-20"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27944",
+                "comment": "vlc DPKG is earlier than 3.0.17.4-0+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

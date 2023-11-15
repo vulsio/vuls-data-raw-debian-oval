@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:319081378915034959228895526794851385687",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-6008 linux-ftpd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux-ftpd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-6008",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6008"
+      }
+    ],
+    "description": "ftpd in Linux Netkit (linux-ftpd) 0.17, and possibly other versions, does not check the return status of certain seteuid, setgid, and setuid calls, which might allow remote authenticated users to gain privileges if these calls fail in cases such as PAM failures or resource limits, a different vulnerability than CVE-2006-5778.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1536",
+                "comment": "linux-ftpd DPKG is earlier than 0.17-23"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

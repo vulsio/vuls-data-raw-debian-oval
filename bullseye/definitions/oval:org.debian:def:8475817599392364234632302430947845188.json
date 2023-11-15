@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:8475817599392364234632302430947845188",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-0979 lightdm-gtk-greeter",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "lightdm-gtk-greeter"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0979",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0979"
+      }
+    ],
+    "description": "The start_authentication function in lightdm-gtk-greeter.c in LightDM GTK+ Greeter before 1.7.1 does not properly handle the return value from the lightdm_greeter_get_authentication_user function, which allows local users to cause a denial of service (NULL pointer dereference) via an empty username.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6442",
+                "comment": "lightdm-gtk-greeter DPKG is earlier than 1.6.1-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

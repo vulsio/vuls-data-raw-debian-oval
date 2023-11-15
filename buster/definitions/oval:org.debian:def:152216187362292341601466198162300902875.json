@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:152216187362292341601466198162300902875",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-29242 libengine-gost-openssl1.1",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "libengine-gost-openssl1.1"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-29242",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29242"
+      }
+    ],
+    "description": "GOST engine is a reference implementation of the Russian GOST crypto algorithms for OpenSSL. TLS clients using GOST engine when ciphersuite `TLS_GOSTR341112_256_WITH_KUZNYECHIK_CTR_OMAC` is agreed and the server uses 512 bit GOST secret keys are vulnerable to buffer overflow. GOST engine version 3.0.1 contains a patch for this issue. Disabling ciphersuite `TLS_GOSTR341112_256_WITH_KUZNYECHIK_CTR_OMAC` is a possible workaround.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23974",
+                "comment": "libengine-gost-openssl1.1 DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:29334241456977307298419805538780013156",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-2807 eggdrop",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "eggdrop"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-2807",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2807"
+      }
+    ],
+    "description": "Stack-based buffer overflow in mod/server.mod/servrmsg.c in Eggdrop 1.6.18, and possibly earlier, allows user-assisted, remote IRC servers to execute arbitrary code via a long private message.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1804",
+                "comment": "eggdrop DPKG is earlier than 1.6.18-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

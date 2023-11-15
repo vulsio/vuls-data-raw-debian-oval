@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:279821878024924764092435830953652341508",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-2936 varnish",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "varnish"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-2936",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2936"
+      }
+    ],
+    "description": "The Command Line Interface (aka Server CLI or administration interface) in the master process in the reverse proxy server in Varnish before 2.1.0 does not require authentication for commands received through a TCP port, which allows remote attackers to (1) execute arbitrary code via a vcl.inline directive that provides a VCL configuration file containing inline C code; (2) change the ownership of the master process via param.set, stop, and start directives; (3) read the initial line of an arbitrary file via a vcl.load directive; or (4) conduct cross-site request forgery (CSRF) attacks that leverage a victim's location on a trusted network and improper input validation of directives.  NOTE: the vendor disputes this report, saying that it is \"fundamentally misguided and pointless.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3098",
+                "comment": "varnish DPKG is earlier than 2.1.0-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

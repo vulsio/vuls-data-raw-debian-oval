@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:21559810480765776563944511866728980158",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-25825 zoneminder",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "zoneminder"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-25825",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-25825"
+      }
+    ],
+    "description": "ZoneMinder is a free, open source Closed-circuit television software application for Linux which supports IP, USB and Analog cameras. Versions prior to 1.36.33 are vulnerable to Cross-site Scripting. Log entries can be injected into the database logs, containing a malicious referrer field.  This is unescaped when viewing the logs in the web ui. This issue is patched in version 1.36.33. ",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25560",
+                "comment": "zoneminder DPKG is earlier than 1.36.33+dfsg1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

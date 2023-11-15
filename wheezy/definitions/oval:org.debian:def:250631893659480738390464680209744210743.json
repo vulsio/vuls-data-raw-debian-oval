@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:250631893659480738390464680209744210743",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2369-1 libsoup2.4",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "libsoup2.4"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2524",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2524"
+      }
+    ],
+    "description": "insufficient input sanitization",
+    "debian": {
+      "moreinfo": "\nIt was discovered that libsoup, a HTTP library implementation in C, is not properly validating input when processing requests made to SoupServer. A remote attacker can exploit this flaw to access system files via a directory traversal attack.",
+      "dsa": "DSA-2369",
+      "date": "2011-12-21"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2911",
+                "comment": "libsoup2.4 DPKG is earlier than 2.34.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

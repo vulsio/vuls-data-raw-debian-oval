@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:66356183620574506537072390677171458591",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-1000825 freecol",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "freecol"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1000825",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000825"
+      }
+    ],
+    "description": "FreeCol version <= nightly-2018-08-22 contains a XML External Entity (XXE) vulnerability in FreeColXMLReader parser that can result in Disclosure of confidential data, denial of service, SSRF, port scanning. This attack appear to be exploitable via Freecol file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12982",
+                "comment": "freecol DPKG is earlier than 0.11.6+dfsg2-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

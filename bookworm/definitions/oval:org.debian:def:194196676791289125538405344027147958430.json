@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:194196676791289125538405344027147958430",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-6578 request-tracker4",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "request-tracker4"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-6578",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6578"
+      }
+    ],
+    "description": "Best Practical Solutions RT 3.8.x before 3.8.15 and 4.0.x before 4.0.8, when GnuPG is enabled with a \"Sign by default\" queue configuration, uses a queue's key for signing, which might allow remote attackers to spoof messages by leveraging the lack of authentication semantics.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5037",
+                "comment": "request-tracker4 DPKG is earlier than 4.0.7-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

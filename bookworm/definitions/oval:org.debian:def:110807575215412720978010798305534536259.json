@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:110807575215412720978010798305534536259",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-10921 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-10921",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10921"
+      }
+    ],
+    "description": "The grant-table feature in Xen through 4.8.x does not ensure sufficient type counts for a GNTMAP_device_map and GNTMAP_host_map mapping, which allows guest OS users to cause a denial of service (count mismanagement and memory corruption) or obtain privileged host OS access, aka XSA-224 bug 2.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10321",
+                "comment": "xen DPKG is earlier than 4.8.1-1+deb9u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

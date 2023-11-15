@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:87705944558847755179943983208232225383",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1932 widelands",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "widelands"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1932",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1932"
+      }
+    ],
+    "description": "Directory traversal vulnerability in io/filesystem/filesystem.cc in Widelands before 15.1 might allow remote attackers to overwrite arbitrary files via . (dot) characters in a pathname that is used for a file transfer in an Internet game.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4122",
+                "comment": "widelands DPKG is earlier than 1:15-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

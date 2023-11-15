@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:166619995586796130690173812093496391622",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8736 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8736",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8736"
+      }
+    ],
+    "description": "The mp2t_find_next_pcr function in wiretap/mp2t.c in the MP2T file parser in Wireshark 2.0.x before 2.0.1 does not reserve memory for a trailer, which allows remote attackers to cause a denial of service (stack-based buffer overflow and application crash) via a crafted file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8691",
+                "comment": "wireshark DPKG is earlier than 2.0.1+g59ea380-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

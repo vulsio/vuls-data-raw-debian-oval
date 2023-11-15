@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:277234030561578197179426338408626497342",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2712-1 otrs2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "otrs2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4088",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4088"
+      }
+    ],
+    "description": "privilege escalation",
+    "debian": {
+      "moreinfo": "\nIt was discovered that users with a valid agent login could use crafted URLs to bypass access control restrictions and read tickets to which they should not have access.",
+      "dsa": "DSA-2712",
+      "date": "2013-06-19"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3094",
+                "comment": "otrs2 DPKG is earlier than 3.1.7+dfsg1-8+deb7u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

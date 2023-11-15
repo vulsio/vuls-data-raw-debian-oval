@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:60652859441624672654029094511935070198",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-5635 glusterfs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "glusterfs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-5635",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5635"
+      }
+    ],
+    "description": "The GlusterFS functionality in Red Hat Storage Management Console 2.0, Native Client, and Server 2.0 allows local users to overwrite arbitrary files via a symlink attack on multiple temporary files created by (1) tests/volume.rc, (2) extras/hook-scripts/S30samba-stop.sh, and possibly other vectors, different vulnerabilities than CVE-2012-4417.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4947",
+                "comment": "glusterfs DPKG is earlier than 3.5.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:256754485150010868622883435472750834535",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3656-1 tryton-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "tryton-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-1241",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1241"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-1242",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1242"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nTwo vulnerabilities have been discovered in the server for the Tryton application platform, which may result in information disclosure of password hashes or file contents.",
+      "dsa": "DSA-3656",
+      "date": "2016-08-30"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4350",
+                "comment": "tryton-server DPKG is earlier than 3.4.0-3+deb8u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

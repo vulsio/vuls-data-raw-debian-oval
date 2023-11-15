@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:225404606661174377075227938212872917509",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-6790 plasma-workspace",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "plasma-workspace"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-6790",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6790"
+      }
+    ],
+    "description": "An issue was discovered in KDE Plasma Workspace before 5.12.0. dataengines/notifications/notificationsengine.cpp allows remote attackers to discover client IP addresses via a URL in a notification, as demonstrated by the src attribute of an IMG element.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14818",
+                "comment": "plasma-workspace DPKG is earlier than 4:5.12.0-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

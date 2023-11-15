@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:81351331083202269482734011302898745309",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-20593 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-20593",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20593"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Tavis Ormandy discovered that under specific microarchitectural circumstances, a vector register in AMD <q>Zen 2</q> CPUs may not be written to 0 correctly.  This flaw allows an attacker to leak sensitive information across concurrent processes, hyper threads and virtualized guests.",
+      "dsa": "DSA-5462"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25270",
+                "comment": "linux DPKG is earlier than 6.1.38-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

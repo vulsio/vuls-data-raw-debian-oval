@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:298276885813136605613759563513140796599",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8240 tigervnc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "tigervnc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8240",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8240"
+      }
+    ],
+    "description": "Integer overflow in TigerVNC allows remote VNC servers to cause a denial of service (crash) and possibly execute arbitrary code via vectors related to screen size handling, which triggers a heap-based buffer overflow, a similar issue to CVE-2014-6051.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7324",
+                "comment": "tigervnc DPKG is earlier than 1.7.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:272486712055775798794270524736299958977",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3956-1 connman",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "connman"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-12865",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12865"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSecurity consultants in NRI Secure Technologies discovered a stack overflow vulnerability in ConnMan, a network manager for embedded devices. An attacker with control of the DNS responses to the DNS proxy in ConnMan might crash the service and, in same cases, remotely execute arbitrary commands in the host running the service.",
+      "dsa": "DSA-3956",
+      "date": "2017-08-27"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:890",
+                "comment": "connman DPKG is earlier than 1.33-3+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

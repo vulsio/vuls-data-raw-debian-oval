@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:59719501658381593045361165528916698605",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-5368 zoneminder",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "zoneminder"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5368",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5368"
+      }
+    ],
+    "description": "ZoneMinder v1.30 and v1.29, an open-source CCTV server web application, is vulnerable to CSRF (Cross Site Request Forgery) which allows a remote attack to make changes to the web application as the current logged in victim. If the victim visits a malicious web page, the attacker can silently and automatically create a new admin user within the web application for remote persistence and further attacks. The URL is /zm/index.php and sample parameters could include action=user uid=0 newUser[Username]=attacker1 newUser[Password]=Password1234 conf_password=Password1234 newUser[System]=Edit (among others).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11833",
+                "comment": "zoneminder DPKG is earlier than 1.30.4+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

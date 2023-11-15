@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:118338948194434566774557488936954968507",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-17490 salt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "salt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-17490",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-17490"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Several vulnerabilities were discovered in salt, a powerful remote execution manager. The flaws could result in authentication bypass and invocation of Salt SSH, creation of certificates with weak file permissions via the TLS execution module or shell injections with the Salt API using the SSH client.",
+      "dsa": "DSA-4837"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18991",
+                "comment": "salt DPKG is earlier than 2018.3.4+dfsg1-6+deb10u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

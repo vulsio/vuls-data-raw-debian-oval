@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:141496782566444570161531141467320971309",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-14636 neutron",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "neutron"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-14636",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14636"
+      }
+    ],
+    "description": "Live-migrated instances are briefly able to inspect traffic for other instances on the same hypervisor. This brief window could be extended indefinitely if the instance's port is set administratively down prior to live-migration and kept down after the migration is complete. This is possible due to the Open vSwitch integration bridge being connected to the instance during migration. When connected to the integration bridge, all traffic for instances using the same Open vSwitch instance would potentially be visible to the migrated guest, as the required Open vSwitch VLAN filters are only applied post-migration. Versions of openstack-neutron before 13.0.0.0b2, 12.0.3, 11.0.5 are vulnerable.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14242",
+                "comment": "neutron DPKG is earlier than 2:13.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

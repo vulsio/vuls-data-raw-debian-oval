@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:247804748383614817719595879417716416329",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-12831 frr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "frr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-12831",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12831"
+      }
+    ],
+    "description": "An issue was discovered in FRRouting FRR (aka Free Range Routing) through 7.3.1. When using the split-config feature, the init script creates an empty config file with world-readable default permissions, leading to a possible information leak via tools/frr.in and tools/frrcommon.sh.in. NOTE: some parties consider this user error, not a vulnerability, because the permissions are under the control of the user before any sensitive information is present in the file",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17796",
+                "comment": "frr DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

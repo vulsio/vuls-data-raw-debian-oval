@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:155190529579671898599621306296053534648",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-13250 consul",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "consul"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-13250",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-13250"
+      }
+    ],
+    "description": "HashiCorp Consul and Consul Enterprise include an HTTP API (introduced in 1.2.0) and DNS (introduced in 1.4.3) caching feature that was vulnerable to denial of service. Fixed in 1.6.6 and 1.7.4.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18365",
+                "comment": "consul DPKG is earlier than 1.7.4+dfsg1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

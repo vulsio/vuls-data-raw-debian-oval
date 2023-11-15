@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:59480818300725642798421690826972152883",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-2095 catfish",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "catfish"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-2095",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2095"
+      }
+    ],
+    "description": "Untrusted search path vulnerability in Catfish 0.6.0 through 1.0.0, when a Fedora package such as 0.8.2-1 is not used, allows local users to gain privileges via a Trojan horse bin/catfish.pyc under the current working directory.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6541",
+                "comment": "catfish DPKG is earlier than 1.0.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

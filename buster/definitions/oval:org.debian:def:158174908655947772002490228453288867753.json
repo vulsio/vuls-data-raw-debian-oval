@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:158174908655947772002490228453288867753",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-9728 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9728",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9728"
+      }
+    ],
+    "description": "The UDF filesystem implementation in the Linux kernel before 3.18.2 does not validate certain lengths, which allows local users to cause a denial of service (buffer over-read and system crash) via a crafted filesystem image, related to fs/udf/inode.c and fs/udf/symlink.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7577",
+                "comment": "linux DPKG is earlier than 3.16.7-ckt4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

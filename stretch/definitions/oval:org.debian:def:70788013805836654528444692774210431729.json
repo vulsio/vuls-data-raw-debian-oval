@@ -1,0 +1,69 @@
+{
+  "id": "oval:org.debian:def:70788013805836654528444692774210431729",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3815-1 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-6814",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6814"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-6815",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6815"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-6816",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6816"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-6817",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6817"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities were discovered in wordpress, a web blogging tool. They would allow remote attackers to delete unintended files, mount Cross-Site Scripting attacks, or bypass redirect URL validation mechanisms.",
+      "dsa": "DSA-3815",
+      "date": "2017-03-23"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3801",
+                "comment": "wordpress DPKG is earlier than 4.7.3+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

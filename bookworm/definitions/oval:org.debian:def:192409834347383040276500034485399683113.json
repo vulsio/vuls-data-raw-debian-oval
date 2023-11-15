@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:192409834347383040276500034485399683113",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1138 vim",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "vim"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1138",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1138"
+      }
+    ],
+    "description": "VIM before 6.3 and gVim before 6.3 allow local users to execute arbitrary commands via a file containing a crafted modeline that is executed when the file is viewed using options such as (1) termcap, (2) printdevice, (3) titleold, (4) filetype, (5) syntax, (6) backupext, (7) keymap, (8) patchmode, or (9) langmenu.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:533",
+                "comment": "vim DPKG is earlier than 1:6.3-046+0sarge1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

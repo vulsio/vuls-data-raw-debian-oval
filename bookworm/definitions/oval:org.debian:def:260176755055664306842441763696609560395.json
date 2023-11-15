@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:260176755055664306842441763696609560395",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-0353 lsh-utils",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "lsh-utils"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-0353",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0353"
+      }
+    ],
+    "description": "unix_random.c in lshd for lsh 2.0.1 leaks file descriptors related to the randomness generator, which allows local users to cause a denial of service by truncating the seed file, which prevents the server from starting, or obtain sensitive seed information that could be used to crack keys.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1151",
+                "comment": "lsh-utils DPKG is earlier than 2.0.1cdbs-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

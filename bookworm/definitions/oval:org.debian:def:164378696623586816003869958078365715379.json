@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:164378696623586816003869958078365715379",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-8854 wolfssl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wolfssl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-8854",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8854"
+      }
+    ],
+    "description": "wolfSSL before 3.10.2 has an out-of-bounds memory access with loading crafted DH parameters, aka a buffer overflow triggered by a malformed temporary DH file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12592",
+                "comment": "wolfssl DPKG is earlier than 3.10.2+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

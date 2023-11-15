@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:5591147504313367638807040055998121144",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-1859 xscreensaver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xscreensaver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-1859",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1859"
+      }
+    ],
+    "description": "XScreenSaver 4.10, when using a remote directory service for credentials, does not properly handle the results from the getpwuid function in drivers/lock.c when there is no network connectivity, which causes XScreenSaver to crash and unlock the screen and allows local users to bypass authentication.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1803",
+                "comment": "xscreensaver DPKG is earlier than 5.03-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

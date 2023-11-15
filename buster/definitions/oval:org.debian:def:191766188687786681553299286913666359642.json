@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:191766188687786681553299286913666359642",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-1235 heimdal",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "heimdal"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-1235",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1235"
+      }
+    ],
+    "description": "The kadm_ser_in function in (1) the Kerberos v4compatibility administration daemon (kadmind4) in the MIT Kerberos 5 (krb5) krb5-1.2.6 and earlier, (2) kadmind in KTH Kerberos 4 (eBones) before 1.2.1, and (3) kadmind in KTH Kerberos 5 (Heimdal) before 0.5.1 when compiled with Kerberos 4 support, does not properly verify the length field of a request, which allows remote attackers to execute arbitrary code via a buffer overflow attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:89",
+                "comment": "heimdal DPKG is earlier than 0.4e-22"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:75129378431310652587456414874418628790",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3203-1 tor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "tor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2688",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2688"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2689",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2689"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral denial-of-service issues have been discovered in Tor, a connection-based low-latency anonymous communication system.",
+      "dsa": "DSA-3203",
+      "date": "2015-03-22"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3554",
+                "comment": "tor DPKG is earlier than 0.2.4.26-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

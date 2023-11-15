@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:285230179222938041614749447550284721564",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-3801 thunderbird",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "thunderbird"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-3801",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3801"
+      }
+    ],
+    "description": "Mozilla Firefox 1.5 before 1.5.0.5 and SeaMonkey before 1.0.3 does not properly clear a JavaScript reference to a frame or window, which leaves a pointer to a deleted object that allows remote attackers to execute arbitrary native code.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1443",
+                "comment": "thunderbird DPKG is earlier than 1.5.0.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

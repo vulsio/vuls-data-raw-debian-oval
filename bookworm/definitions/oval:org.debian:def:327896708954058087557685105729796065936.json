@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:327896708954058087557685105729796065936",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-3285 openafs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openafs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3285",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3285"
+      }
+    ],
+    "description": "The pioctl for the OSD FS command in OpenAFS before 1.6.13 uses the wrong pointer when writing the results of the RPC, which allows local users to cause a denial of service (memory corruption and kernel panic) via a crafted OSD FS command.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7577",
+                "comment": "openafs DPKG is earlier than 1.6.13-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

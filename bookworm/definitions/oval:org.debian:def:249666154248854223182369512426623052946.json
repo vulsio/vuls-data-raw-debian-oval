@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:249666154248854223182369512426623052946",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-2937 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2937",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2937"
+      }
+    ],
+    "description": "MediaWiki before 1.19.24, 1.2x before 1.23.9, and 1.24.x before 1.24.2, when using HHVM or Zend PHP, allows remote attackers to cause a denial of service (\"quadratic blowup\" and memory consumption) via an XML file containing an entity declaration with long replacement text and many references to this entity, a different vulnerability than CVE-2015-2942.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7503",
+                "comment": "mediawiki DPKG is earlier than 1:1.19.20+dfsg-2.3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

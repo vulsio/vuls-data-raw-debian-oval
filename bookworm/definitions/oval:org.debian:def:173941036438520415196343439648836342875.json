@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:173941036438520415196343439648836342875",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-43785 libx11",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libx11"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-43785",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-43785"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple security vulnerabilities were discovered in libx11, the X11 client-side library, which may result in denial of service or the execution of arbitrary code.",
+      "dsa": "DSA-5517"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26609",
+                "comment": "libx11 DPKG is earlier than 2:1.8.4-2+deb12u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

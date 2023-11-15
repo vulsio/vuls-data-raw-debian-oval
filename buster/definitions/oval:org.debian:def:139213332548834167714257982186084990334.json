@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:139213332548834167714257982186084990334",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-44686 calibre",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "calibre"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-44686",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44686"
+      }
+    ],
+    "description": "calibre before 5.32.0 contains a regular expression that is vulnerable to ReDoS (Regular Expression Denial of Service) in html_preprocess_rules in ebooks/conversion/preprocess.py.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22635",
+                "comment": "calibre DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

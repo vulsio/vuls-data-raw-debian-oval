@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:251313762155490754980676092383904116893",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-2352 sympa",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "sympa"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2352",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2352"
+      }
+    ],
+    "description": "The archive management (arc_manage) page in wwsympa/wwsympa.fcgi.in in Sympa before 6.1.11 does not check permissions, which allows remote attackers to list, read, and delete arbitrary list archives via vectors related to the (1) do_arc_manage, (2) do_arc_download, or (3) do_arc_delete functions.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4589",
+                "comment": "sympa DPKG is earlier than 6.1.11~dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

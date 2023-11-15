@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:225504486236941809466819868254132696178",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-1595 ocsinventory-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ocsinventory-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-1595",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1595"
+      }
+    ],
+    "description": "Multiple SQL injection vulnerabilities in ocsreports/index.php in OCS Inventory NG 1.02.1 allow remote attackers to execute arbitrary SQL commands via the (1) c, (2) val_1, or (3) onglet_bis parameter.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3402",
+                "comment": "ocsinventory-server DPKG is earlier than 1.02.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

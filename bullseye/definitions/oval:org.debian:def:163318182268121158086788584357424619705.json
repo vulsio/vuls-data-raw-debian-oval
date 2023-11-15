@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:163318182268121158086788584357424619705",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-20188 libpod",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libpod"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-20188",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-20188"
+      }
+    ],
+    "description": "A flaw was found in podman before 1.7.0. File permissions for non-root users running in a privileged container are not correctly checked. This flaw can be abused by a low-privileged user inside the container to access any other file in the container, even if owned by the root user inside the container. It does not allow to directly escape the container, though being a privileged container means that a lot of security features are disabled when running the container. The highest threat from this vulnerability is to data confidentiality and integrity as well as system availability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20594",
+                "comment": "libpod DPKG is earlier than 2.0.2+dfsg1-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

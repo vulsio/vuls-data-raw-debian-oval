@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:7535968627288836936146037130298625568",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-4418 util-vserver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "util-vserver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-4418",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-4418"
+      }
+    ],
+    "description": "util-vserver before 0.30.208-1 with kernel-patch-vserver before 1.9.5.5 and 2.x before 2.3 for Debian GNU/Linux sets a default policy that trusts unknown capabilities, which could allow local users to conduct unauthorized activities.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1116",
+                "comment": "util-vserver DPKG is earlier than 0.30.208-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

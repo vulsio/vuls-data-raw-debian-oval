@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:311999954531639793799391674614426644893",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-4254 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4254",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4254"
+      }
+    ],
+    "description": "The validate_event function in arch/arm/kernel/perf_event.c in the Linux kernel before 3.10.8 on the ARM platform allows local users to gain privileges or cause a denial of service (NULL pointer dereference and system crash) by adding a hardware event to an event group led by a software event.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5622",
+                "comment": "linux DPKG is earlier than 3.10.11-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

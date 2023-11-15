@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:271563972969265076760521547253488404213",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-14028 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-14028",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14028"
+      }
+    ],
+    "description": "In WordPress 4.9.7, plugins uploaded via the admin area are not verified as being ZIP files. This allows for PHP files to be uploaded. Once a PHP file is uploaded, the plugin extraction fails, but the PHP file remains in a predictable wp-content/uploads location, allowing for an attacker to then execute the file. This represents a security risk in limited scenarios where an attacker (who does have the required capabilities for plugin uploads) cannot simply place arbitrary PHP code into a valid plugin ZIP file and upload that plugin, because a machine's wp-content/plugins directory permissions were set up to block all new plugins.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13923",
+                "comment": "wordpress DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

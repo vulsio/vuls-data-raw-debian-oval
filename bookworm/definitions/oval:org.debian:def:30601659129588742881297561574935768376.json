@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:30601659129588742881297561574935768376",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-1000532 beep",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "beep"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1000532",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000532"
+      }
+    ],
+    "description": "beep version 1.3 and up contains a External Control of File Name or Path vulnerability in --device option that can result in Local unprivileged user can inhibit execution of arbitrary programs by other users, allowing DoS. This attack appear to be exploitable via The system must allow local users to run beep.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12958",
+                "comment": "beep DPKG is earlier than 1.4.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

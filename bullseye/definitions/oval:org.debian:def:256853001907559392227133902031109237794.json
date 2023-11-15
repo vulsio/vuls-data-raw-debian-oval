@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:256853001907559392227133902031109237794",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-4803 graphviz",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "graphviz"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-4803",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-4803"
+      }
+    ],
+    "description": "graphviz before 2.2.1 allows local users to overwrite arbitrary files via a symlink attack on temporary files.  NOTE: this issue was originally associated with a different CVE identifier, CVE-2005-2965, which had been used for multiple different issues.  This is the correct identifier.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1137",
+                "comment": "graphviz DPKG is earlier than 2.2.1-1sarge1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

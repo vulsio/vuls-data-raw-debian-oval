@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:87247112196011085909004382771495169648",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-3441 abcm2ps",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "abcm2ps"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-3441",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-3441"
+      }
+    ],
+    "description": "Multiple buffer overflows in abcm2ps before 5.9.12 might allow remote attackers to execute arbitrary code via (1) a crafted input file, related to the PUT0 and PUT1 output macros; (2) a crafted input file, related to the trim_title function; and possibly (3) a long -O option on a command line.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3736",
+                "comment": "abcm2ps DPKG is earlier than 5.9.13-0.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

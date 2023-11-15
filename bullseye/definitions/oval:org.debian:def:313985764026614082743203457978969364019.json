@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:313985764026614082743203457978969364019",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-4551 strongswan",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "strongswan"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-4551",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4551"
+      }
+    ],
+    "description": "strongSwan 4.2.6 and earlier allows remote attackers to cause a denial of service (daemon crash) via an IKE_SA_INIT message with a large number of NULL values in a Key Exchange payload, which triggers a NULL pointer dereference for the return value of the mpz_export function in the GNU Multiprecision Library (GMP).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2586",
+                "comment": "strongswan DPKG is earlier than 4.2.4-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

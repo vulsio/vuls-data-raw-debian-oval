@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:153779843360970678114074392276408735955",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8367 libraw",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libraw"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8367",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8367"
+      }
+    ],
+    "description": "The phase_one_correct function in Libraw before 0.17.1 allows attackers to cause memory errors and possibly execute arbitrary code, related to memory object initialization.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8375",
+                "comment": "libraw DPKG is earlier than 0.17.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

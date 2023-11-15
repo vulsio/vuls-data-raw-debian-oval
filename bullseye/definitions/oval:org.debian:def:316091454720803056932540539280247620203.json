@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:316091454720803056932540539280247620203",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-4077 curl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "curl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-4077",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-4077"
+      }
+    ],
+    "description": "Multiple off-by-one errors in the cURL library (libcurl) 7.11.2 through 7.15.0 allow local users to trigger a buffer overflow and cause a denial of service or bypass PHP security restrictions via certain URLs that (1) are malformed in a way that prevents a terminating null byte from being added to either a hostname or path buffer, or (2) contain a \"?\"  separator in the hostname portion, which causes a \"/\" to be prepended to the resulting string.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1111",
+                "comment": "curl DPKG is earlier than 7.15.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

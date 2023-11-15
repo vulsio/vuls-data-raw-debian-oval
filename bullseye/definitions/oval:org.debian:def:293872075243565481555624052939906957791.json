@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:293872075243565481555624052939906957791",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-9474 mpfr4",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mpfr4"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9474",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9474"
+      }
+    ],
+    "description": "Buffer overflow in the mpfr_strtofr function in GNU MPFR before 3.1.2-p11 allows context-dependent attackers to have unspecified impact via vectors related to incorrect documentation for mpn_set_str.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7305",
+                "comment": "mpfr4 DPKG is earlier than 3.1.2-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

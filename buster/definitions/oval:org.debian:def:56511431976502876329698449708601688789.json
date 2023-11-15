@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:56511431976502876329698449708601688789",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-1189 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-1189",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1189"
+      }
+    ],
+    "description": "MediaWiki before 1.15.2 does not prevent wiki editors from linking to images from other web sites in wiki pages, which allows editors to obtain IP addresses and other information of wiki users by adding a link to an image on an attacker-controlled web site, aka \"CSS validation issue.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3605",
+                "comment": "mediawiki DPKG is earlier than 1:1.15.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

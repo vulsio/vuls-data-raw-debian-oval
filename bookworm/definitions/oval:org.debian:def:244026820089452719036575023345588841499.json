@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:244026820089452719036575023345588841499",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2060 beanstalkd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "beanstalkd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2060",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2060"
+      }
+    ],
+    "description": "The put command functionality in beanstalkd 1.4.5 and earlier allows remote attackers to execute arbitrary Beanstalk commands via the body in a job that is too big, which is not properly handled by the dispatch_cmd function in prot.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3433",
+                "comment": "beanstalkd DPKG is earlier than 1.4.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

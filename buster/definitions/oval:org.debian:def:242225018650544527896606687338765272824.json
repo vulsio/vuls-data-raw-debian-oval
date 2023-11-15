@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:242225018650544527896606687338765272824",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-2277 perltidy",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "perltidy"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-2277",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2277"
+      }
+    ],
+    "description": "The make_temporary_filename function in perltidy 20120701-1 and earlier allows local users to obtain sensitive information or write to arbitrary files via a symlink attack, related to use of the tmpnam function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6735",
+                "comment": "perltidy DPKG is earlier than 20130922-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

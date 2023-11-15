@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:99873421086295814304646980911458982479",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-2935 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2935",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2935"
+      }
+    ],
+    "description": "MediaWiki before 1.19.24, 1.2x before 1.23.9, and 1.24.x before 1.24.2 allows remote attackers to bypass the SVG filtering and obtain sensitive user information via a mixed case @import in a style element in an SVG file, as demonstrated by \"@imporT.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7781",
+                "comment": "mediawiki DPKG is earlier than 1:1.19.20+dfsg-2.3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

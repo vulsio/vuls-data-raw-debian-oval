@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:72361370392160414661277864019699799122",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4357-1 libapache-mod-jk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "libapache-mod-jk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-11759",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11759"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nRaphael Arrouas and Jean Lejeune discovered an access control bypass vulnerability in mod_jk, the Apache connector for the Tomcat Java servlet engine. The vulnerability is addressed by upgrading mod_jk to the new upstream version 1.2.46, which includes additional changes.",
+      "dsa": "DSA-4357",
+      "date": "2018-12-20"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4261",
+                "comment": "libapache-mod-jk DPKG is earlier than 1:1.2.46-0+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

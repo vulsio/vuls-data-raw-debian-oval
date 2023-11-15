@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:11755421724479314608619487046895808766",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-0669 dpdk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "dpdk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-0669",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0669"
+      }
+    ],
+    "description": "A flaw was found in dpdk. This flaw allows a malicious vhost-user master to attach an unexpected number of fds as ancillary data to VHOST_USER_GET_INFLIGHT_FD / VHOST_USER_SET_INFLIGHT_FD messages that are not closed by the vhost-user slave. By sending such messages continuously, the vhost-user master exhausts available fd in the vhost-user slave process, leading to a denial of service.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22396",
+                "comment": "dpdk DPKG is earlier than 20.11.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

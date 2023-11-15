@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:70973225515850240213536363949936472561",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-0894 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-0894",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0894"
+      }
+    ],
+    "description": "MediaWiki before 1.9.2 allows remote attackers to obtain sensitive information via a direct request to (1) Simple.deps.php, (2) MonoBook.deps.php, (3) MySkin.deps.php, or (4) Chick.deps.php in wiki/skins, which shows the installation path in the resulting error message.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1711",
+                "comment": "mediawiki DPKG is earlier than 1:1.10"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

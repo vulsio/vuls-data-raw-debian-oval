@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:227160644589604238185395219906938269851",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3583-1 swift-plugin-s3",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "swift-plugin-s3"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8466",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8466"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that the swift3 (S3 compatibility) middleware plugin for Swift performed insufficient validation of date headers which might result in replay attacks.",
+      "dsa": "DSA-3583",
+      "date": "2016-05-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1170",
+                "comment": "swift-plugin-s3 DPKG is earlier than 1.7-5+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:54961638185683070352847649158291477667",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3082-1 flac",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "flac"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8962",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8962"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9028",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9028"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMichele Spagnuolo, of Google Security Team, and Miroslav Lichvar, of Red Hat, discovered two issues in flac, a library handling Free Lossless Audio Codec media: by providing a specially crafted FLAC file, an attacker could execute arbitrary code.",
+      "dsa": "DSA-3082",
+      "date": "2014-11-30"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3437",
+                "comment": "flac DPKG is earlier than 1.2.1-6+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

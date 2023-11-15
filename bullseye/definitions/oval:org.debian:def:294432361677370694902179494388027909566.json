@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:294432361677370694902179494388027909566",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-5730 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-5730",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5730"
+      }
+    ],
+    "description": "Heap-based buffer overflow in QEMU 0.8.2, as used in Xen and possibly other products, allows local users to execute arbitrary code via crafted data in the \"net socket listen\" option, aka QEMU \"net socket\" heap overflow.  NOTE: some sources have used CVE-2007-1321 to refer to this issue as part of \"NE2000 network driver and the socket code,\" but this is the correct identifier for the individual net socket listen vulnerability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2118",
+                "comment": "qemu DPKG is earlier than 0.9.0-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

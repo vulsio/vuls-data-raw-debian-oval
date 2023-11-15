@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:17797687200669728820718394507985279237",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3753-1 libvncserver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "libvncserver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9941",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9941"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9942",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9942"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that libvncserver, a collection of libraries used to implement VNC/RFB clients and servers, incorrectly processed incoming network packets. This resulted in several heap-based buffer overflows, allowing a rogue server to either cause a DoS by crashing the client, or potentially execute arbitrary code on the client side.",
+      "dsa": "DSA-3753",
+      "date": "2017-01-05"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4444",
+                "comment": "libvncserver DPKG is earlier than 0.9.9+dfsg2-6.1+deb8u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:216829761109149292368394851816349832587",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-4456 keystone",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "keystone"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-4456",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4456"
+      }
+    ],
+    "description": "The (1) OS-KSADM/services and (2) tenant APIs in OpenStack Keystone Essex before 2012.1.2 and Folsom before folsom-2 do not properly validate X-Auth-Token, which allow remote attackers to read the roles for an arbitrary user or get, create, or delete arbitrary services.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5190",
+                "comment": "keystone DPKG is earlier than 2012.1.1-9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

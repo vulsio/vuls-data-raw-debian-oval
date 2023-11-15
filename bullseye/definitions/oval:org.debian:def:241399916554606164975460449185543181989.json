@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:241399916554606164975460449185543181989",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1868 vlc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "vlc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1868",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1868"
+      }
+    ],
+    "description": "Multiple buffer overflows in VideoLAN VLC media player 2.0.4 and earlier allow remote attackers to cause a denial of service (crash) and execute arbitrary code via vectors related to the (1) freetype renderer and (2) HTML subtitle parser.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5513",
+                "comment": "vlc DPKG is earlier than 2.0.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

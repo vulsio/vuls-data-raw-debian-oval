@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:139113816222405247972428576176468046839",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4261-1 vim-syntastic",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "vim-syntastic"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-11319",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11319"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nEnrico Zini discovered a vulnerability in Syntastic, an addon module for the Vim editor that runs a file through external checkers and displays any resulting errors. Config files were looked up in the current working directory which could result in arbitrary shell code execution if a malformed source code file is opened.",
+      "dsa": "DSA-4261",
+      "date": "2018-08-03"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4167",
+                "comment": "vim-syntastic DPKG is earlier than 3.7.0-1+deb9u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

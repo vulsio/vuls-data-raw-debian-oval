@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:180446739161137348757212226617265013620",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-47022 hwloc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "hwloc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-47022",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-47022"
+      }
+    ],
+    "description": "An issue was discovered in open-mpi hwloc 2.1.0 allows attackers to cause a denial of service or other unspecified impacts via glibc-cpuset in topology-linux.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25836",
+                "comment": "hwloc DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

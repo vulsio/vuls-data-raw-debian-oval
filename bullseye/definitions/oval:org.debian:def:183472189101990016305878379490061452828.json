@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:183472189101990016305878379490061452828",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-18235 exempi",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "exempi"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-18235",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18235"
+      }
+    ],
+    "description": "An issue was discovered in Exempi before 2.4.3. The VPXChunk class in XMPFiles/source/FormatSupport/WEBP_Support.cpp does not ensure nonzero widths and heights, which allows remote attackers to cause a denial of service (assertion failure and application exit) via a crafted .webp file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11951",
+                "comment": "exempi DPKG is earlier than 2.4.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

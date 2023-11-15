@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:87586793592452650709038347874204189340",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4169-1 pcs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "pcs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1086",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1086"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nCĂŠdric Buissart from Red Hat discovered an information disclosure bug in pcs, a pacemaker command line interface and GUI. The REST interface normally doesn't allow passing --debug parameter to prevent information leak, but the check wasn't sufficient.",
+      "dsa": "DSA-4169",
+      "date": "2018-04-11"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4084",
+                "comment": "pcs DPKG is earlier than 0.9.155+dfsg-2+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

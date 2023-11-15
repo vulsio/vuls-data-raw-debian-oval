@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:91022489505776313379610165251893821087",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8793 roundcube",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "roundcube"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8793",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8793"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in program/include/rcmail.php in Roundcube before 1.0.6 and 1.1.x before 1.1.2 allows remote attackers to inject arbitrary web script or HTML via the _mbox parameter in a mail task to the default URL, a different vulnerability than CVE-2011-2937.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8520",
+                "comment": "roundcube DPKG is earlier than 1.1.2+dfsg.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

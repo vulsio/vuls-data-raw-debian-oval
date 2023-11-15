@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:269237378246323874506178902424272138207",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-14155 pcre3",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "pcre3"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-14155",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14155"
+      }
+    ],
+    "description": "libpcre in PCRE before 8.44 allows an integer overflow via a large number after a (?C substring.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17914",
+                "comment": "pcre3 DPKG is earlier than 2:8.39-13"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

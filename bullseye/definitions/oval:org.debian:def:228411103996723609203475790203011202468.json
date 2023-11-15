@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:228411103996723609203475790203011202468",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-20001 apache2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "apache2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-20001",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-20001"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple vulnerabilities have been discovered in the Apache HTTP server, which may result in HTTP response splitting or denial of service.",
+      "dsa": "DSA-5376"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1300",
+                "comment": "apache2 DPKG is earlier than 2.4.56-1~deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

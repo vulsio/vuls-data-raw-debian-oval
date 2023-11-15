@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:78269096360421837276630291723563060824",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-14687 mupdf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mupdf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-14687",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14687"
+      }
+    ],
+    "description": "Artifex MuPDF 1.11 allows attackers to cause a denial of service or possibly have unspecified other impact via a crafted .xps file, related to \"Data from Faulting Address controls Branch Selection starting at mupdf+0x000000000016cb4f\" on Windows. This occurs because of mishandling of XML tag name comparisons.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11419",
+                "comment": "mupdf DPKG is earlier than 1.11+ds1-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

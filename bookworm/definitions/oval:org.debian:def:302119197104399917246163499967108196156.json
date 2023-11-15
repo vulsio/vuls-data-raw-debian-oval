@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:302119197104399917246163499967108196156",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-3547 openttd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openttd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-3547",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3547"
+      }
+    ],
+    "description": "Buffer overflow in the server in OpenTTD 0.6.1 and earlier allows remote authenticated users to cause a denial of service (persistent game disruption) or possibly execute arbitrary code via vectors involving many long names for \"companies and clients.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2423",
+                "comment": "openttd DPKG is earlier than 0.6.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

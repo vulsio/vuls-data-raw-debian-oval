@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:260305202695127840665320657223185211101",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2515 packagekit",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "packagekit"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2515",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2515"
+      }
+    ],
+    "description": "PackageKit 0.6.17 allows installation of unsigned RPM packages as though they were signed which may allow installation of non-trusted packages and execution of arbitrary code.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4016",
+                "comment": "packagekit DPKG is earlier than 0.6.17-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

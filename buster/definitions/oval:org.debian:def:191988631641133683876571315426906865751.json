@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:191988631641133683876571315426906865751",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-0407 pcsc-lite",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "pcsc-lite"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-0407",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0407"
+      }
+    ],
+    "description": "Multiple buffer overflows in the MSGFunctionDemarshall function in winscard_svc.c in the PC/SC Smart Card daemon (aka PCSCD) in MUSCLE PCSC-Lite before 1.5.4 allow local users to gain privileges via crafted message data, which is improperly demarshalled.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3535",
+                "comment": "pcsc-lite DPKG is earlier than 1.5.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:323368008489125644128929424117935864839",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-0006 xorg-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xorg-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-0006",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0006"
+      }
+    ],
+    "description": "Buffer overflow in (1) X.Org Xserver before 1.4.1, and (2) the libfont and libXfont libraries on some platforms including Sun Solaris, allows context-dependent attackers to execute arbitrary code via a PCF font with a large difference between the last col and first col values in the PCF_BDF_ENCODINGS table.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2157",
+                "comment": "xorg-server DPKG is earlier than 2:1.4.1~git20080105-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

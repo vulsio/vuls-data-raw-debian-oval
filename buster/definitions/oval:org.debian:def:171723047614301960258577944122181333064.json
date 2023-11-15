@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:171723047614301960258577944122181333064",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-10068 imagemagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "imagemagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-10068",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10068"
+      }
+    ],
+    "description": "The MSL interpreter in ImageMagick before 6.9.6-4 allows remote attackers to cause a denial of service (segmentation fault and application crash) via a crafted XML file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8968",
+                "comment": "imagemagick DPKG is earlier than 8:6.9.6.5+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

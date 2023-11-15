@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:262584133008915005707202521109096685220",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1001 shadow",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "shadow"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1001",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1001"
+      }
+    ],
+    "description": "Unknown vulnerability in the passwd_check function in Shadow 4.0.4.1, and possibly other versions before 4.0.5, allows local users to conduct unauthorized activities when an error from a pam_chauthtok function call is not properly handled.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:527",
+                "comment": "shadow DPKG is earlier than 1:4.0.3-35"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:236581246442298808099555208335650248471",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-4422 quassel",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "quassel"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4422",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4422"
+      }
+    ],
+    "description": "SQL injection vulnerability in Quassel IRC before 0.9.1, when Qt 4.8.5 or later and PostgreSQL 8.2 or later are used, allows remote attackers to execute arbitrary SQL commands via a \\ (backslash) in a message.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5705",
+                "comment": "quassel DPKG is earlier than 0.9.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

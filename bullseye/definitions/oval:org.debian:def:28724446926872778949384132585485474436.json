@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:28724446926872778949384132585485474436",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1006 libcgroup",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libcgroup"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1006",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1006"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the parse_cgroup_spec function in tools/tools-common.c in the Control Group Configuration Library (aka libcgroup or libcg) before 0.37.1 allows local users to gain privileges via a crafted controller list on the command line of an application.  NOTE: it is not clear whether this issue crosses privilege boundaries.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3989",
+                "comment": "libcgroup DPKG is earlier than 0.37.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

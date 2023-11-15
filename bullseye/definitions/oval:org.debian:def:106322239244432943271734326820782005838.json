@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:106322239244432943271734326820782005838",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-1594 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-1594",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1594"
+      }
+    ],
+    "description": "epan/dissectors/packet-ieee80211.c in the IEEE 802.11 dissector in Wireshark 1.6.x before 1.6.6 allows remote attackers to cause a denial of service (infinite loop) via a crafted packet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4699",
+                "comment": "wireshark DPKG is earlier than 1.6.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:299356125742928528153095232082095759863",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-14938 freedroidrpg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "freedroidrpg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-14938",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14938"
+      }
+    ],
+    "description": "An issue was discovered in map.c in FreedroidRPG 1.0rc2. It assumes lengths of data sets read from saved game files. It copies data from a file into a fixed-size heap-allocated buffer without size verification, leading to a heap-based buffer overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17991",
+                "comment": "freedroidrpg DPKG is earlier than 1.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

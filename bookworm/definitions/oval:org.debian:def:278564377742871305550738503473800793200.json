@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:278564377742871305550738503473800793200",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-9112 cpio",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "cpio"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9112",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9112"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the process_copy_in function in GNU Cpio 2.11 allows remote attackers to cause a denial of service via a large block value in a cpio archive.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6978",
+                "comment": "cpio DPKG is earlier than 2.11+dfsg-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

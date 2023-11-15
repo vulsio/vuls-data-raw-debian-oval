@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:121002381557254543216420653525975278449",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-16652 symfony",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "symfony"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-16652",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16652"
+      }
+    ],
+    "description": "An issue was discovered in Symfony 2.7.x before 2.7.38, 2.8.x before 2.8.31, 3.2.x before 3.2.14, and 3.3.x before 3.3.13. DefaultAuthenticationSuccessHandler or DefaultAuthenticationFailureHandler takes the content of the _target_path parameter and generates a redirect response, but no check is performed on the path, which could be an absolute URL to an external domain. This Open redirect vulnerability can be exploited for example to mount effective phishing attacks.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11669",
+                "comment": "symfony DPKG is earlier than 3.4.0+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:157576004167769433390108559914545965486",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-0464 roundcube",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "roundcube"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-0464",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0464"
+      }
+    ],
+    "description": "Roundcube 0.3.1 and earlier does not request that the web browser avoid DNS prefetching of domain names contained in e-mail messages, which makes it easier for remote attackers to determine the network location of the webmail user by logging DNS requests.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3321",
+                "comment": "roundcube DPKG is earlier than 0.3.1-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

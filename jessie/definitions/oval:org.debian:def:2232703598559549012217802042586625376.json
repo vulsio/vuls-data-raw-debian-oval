@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:2232703598559549012217802042586625376",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3747-1 exim4",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "exim4"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9963",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9963"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nBjoern Jacke discovered that Exim, Debian's default mail transfer agent, may leak the private DKIM signing key to the log files if specific configuration options are met.",
+      "dsa": "DSA-3747",
+      "date": "2016-12-25"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4438",
+                "comment": "exim4 DPKG is earlier than 4.84.2-2+deb8u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

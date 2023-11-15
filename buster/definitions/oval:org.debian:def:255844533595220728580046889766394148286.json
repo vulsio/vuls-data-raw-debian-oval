@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:255844533595220728580046889766394148286",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-4029 xorg-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "xorg-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-4029",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4029"
+      }
+    ],
+    "description": "The LockServer function in os/utils.c in X.Org xserver before 1.11.2 allows local users to change the permissions of arbitrary files to 444, read those files, and possibly cause a denial of service (removed execution permission) via a symlink attack on a temporary lock file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4500",
+                "comment": "xorg-server DPKG is earlier than 2:1.11.1.901-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

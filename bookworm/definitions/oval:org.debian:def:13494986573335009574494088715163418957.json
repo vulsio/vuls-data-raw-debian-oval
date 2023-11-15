@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:13494986573335009574494088715163418957",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-7191 ldap-account-manager",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ldap-account-manager"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-7191",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-7191"
+      }
+    ],
+    "description": "Untrusted search path vulnerability in lamdaemon.pl in LDAP Account Manager (LAM) before 1.0.0 allows local users to gain privileges via a modified PATH that points to a malicious rm program.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1588",
+                "comment": "ldap-account-manager DPKG is earlier than 1.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:171093200110662320124389194711924659902",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-6570 chromium",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "chromium"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-6570",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-6570"
+      }
+    ],
+    "description": "Information leakage in WebRTC in Google Chrome prior to 85.0.4183.83 allowed a remote attacker to obtain potentially sensitive information via a crafted WebRTC interaction.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19543",
+                "comment": "chromium DPKG is earlier than 87.0.4280.88-0.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

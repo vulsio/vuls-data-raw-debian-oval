@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:288859429689112040790739025616615100312",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4612-1 prosody-modules",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "prosody-modules"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-8086",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-8086"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that the LDAP authentication modules for the Prosody Jabber/XMPP server incorrectly validated the XMPP address when checking whether a user has admin access.",
+      "dsa": "DSA-4612",
+      "date": "2020-01-31"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3597",
+                "comment": "prosody-modules DPKG is earlier than 0.0~hg20170123.3ed504b944e5+dfsg-1+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:239661379381697282930245616720070480297",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-24455 tpm2-tss",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "tpm2-tss"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-24455",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24455"
+      }
+    ],
+    "description": "Missing initialization of a variable in the TPM2 source may allow a privileged user to potentially enable an escalation of privilege via local access. This affects tpm2-tss before 3.0.1 and before 2.4.3.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18527",
+                "comment": "tpm2-tss DPKG is earlier than 3.0.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:214138830505449061983265723227071301021",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-0192 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-0192",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0192"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in WordPress 2.0.9 and earlier allow remote attackers to inject arbitrary web script or HTML via the popuptitle parameter to (1) wp-admin/post.php or (2) wp-admin/page-new.php.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2174",
+                "comment": "wordpress DPKG is earlier than 2.0.10-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

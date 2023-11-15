@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:294179974302455175184853212798724222109",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-5023 fail2ban",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "fail2ban"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-5023",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-5023"
+      }
+    ],
+    "description": "The (1) dshield.conf, (2) mail-buffered.conf, (3) mynetwatchman.conf, and (4) mynetwatchman.conf actions in action.d/ in Fail2ban before 0.8.5 allows local users to write to arbitrary files via a symlink attack on temporary files with predictable names, as demonstrated by /tmp/fail2ban-mail.txt.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3243",
+                "comment": "fail2ban DPKG is earlier than 0.8.4+svn20110323-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

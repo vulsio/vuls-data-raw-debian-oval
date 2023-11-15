@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:7031485371367755831403385765971699618",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-0489 apt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "apt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0489",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0489"
+      }
+    ],
+    "description": "APT before 1.0.9, when the Acquire::GzipIndexes option is enabled, does not validate checksums, which allows remote attackers to execute arbitrary code via a crafted package.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6438",
+                "comment": "apt DPKG is earlier than 1.0.9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

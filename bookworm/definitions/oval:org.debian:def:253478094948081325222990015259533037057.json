@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:253478094948081325222990015259533037057",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1951 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1951",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1951"
+      }
+    ],
+    "description": "A cross-site scripting (XSS) vulnerability in MediaWiki before 1.19.5 and 1.20.x before 1.20.4 and allows remote attackers to inject arbitrary web script or HTML via Lua function names.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5321",
+                "comment": "mediawiki DPKG is earlier than 1:1.19.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:58699409763076772450568383198993493719",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-8907 google-compute-image-packages",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "google-compute-image-packages"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-8907",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-8907"
+      }
+    ],
+    "description": "A vulnerability in Google Cloud Platform's guest-oslogin versions between 20190304 and 20200507 allows a user that is only granted the role \"roles/compute.osLogin\" to escalate privileges to root. Using their membership to the \"docker\" group, an attacker with this role is able to run docker and mount the host OS. Within docker, it is possible to modify the host OS filesystem and modify /etc/groups to gain administrative privileges. All images created after 2020-May-07 (20200507) are fixed, and if you cannot update, we recommend you edit /etc/group/security.conf and remove the \"docker\" user from the OS Login entry.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20459",
+                "comment": "google-compute-image-packages DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:241866431828677590395051557489451032699",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2055 ghostscript",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ghostscript"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2055",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2055"
+      }
+    ],
+    "description": "Ghostscript 8.71 and earlier reads initialization files from the current working directory, which allows local users to execute arbitrary PostScript commands via a Trojan horse file, related to improper support for the -P- option to the gs program, as demonstrated using gs_init.ps, a different vulnerability than CVE-2010-4820.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3556",
+                "comment": "ghostscript DPKG is earlier than 8.71~dfsg2-6.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

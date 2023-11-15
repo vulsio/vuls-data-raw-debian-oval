@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:161511083521200348880778101093539213440",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-1168 sarg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "sarg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-1168",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1168"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in Squid Analysis Report Generator (Sarg) 2.2.3.1 allows remote attackers to inject arbitrary web script or HTML via the User-Agent header, which is not properly handled when displaying the Squid proxy log.  NOTE: the provenance of this information is unknown; the details are obtained solely from third party information.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2244",
+                "comment": "sarg DPKG is earlier than 2.2.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:136388330945196840958803119247369843037",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2578-1 rssh",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "rssh"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2251",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2251"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2252",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2252"
+      }
+    ],
+    "description": "insufficient filtering of rsync command line",
+    "debian": {
+      "moreinfo": "\nJames Clawson discovered that rssh, a restricted shell for OpenSSH to be used with scp, sftp, rdist and cvs, was not correctly filtering command line options. This could be used to force the execution of a remote script and thus allow arbitrary command execution. Two CVE were assigned:",
+      "dsa": "DSA-2578",
+      "date": "2012-11-28"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:294",
+                "comment": "rssh DPKG is earlier than 2.3.3-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

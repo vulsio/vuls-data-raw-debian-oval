@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:152502822583012199102217721194382776081",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-3743 imagemagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "imagemagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-3743",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3743"
+      }
+    ],
+    "description": "Multiple buffer overflows in ImageMagick before 6.2.9 allow user-assisted attackers to execute arbitrary code via crafted XCF images.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1390",
+                "comment": "imagemagick DPKG is earlier than 7:6.2.4.5.dfsg1-0.10"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

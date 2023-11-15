@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:25895134322261161086225678055152714365",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4034-1 varnish",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "varnish"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-8807",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8807"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\n'shamger' and Carlo Cannas discovered that a programming error in Varnish, a state of the art, high-performance web accelerator, may result in disclosure of memory contents or denial of service.",
+      "dsa": "DSA-4034",
+      "date": "2017-11-15"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1753",
+                "comment": "varnish DPKG is earlier than 5.0.0-7+deb9u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

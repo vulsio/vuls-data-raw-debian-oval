@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:339135788141141782258956039546705222789",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-4339 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4339",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4339"
+      }
+    ],
+    "description": "WordPress before 3.6.1 does not properly validate URLs before use in an HTTP redirect, which allows remote attackers to bypass intended redirection restrictions via a crafted string.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6055",
+                "comment": "wordpress DPKG is earlier than 3.6.1+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

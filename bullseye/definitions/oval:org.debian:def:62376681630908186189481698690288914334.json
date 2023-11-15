@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:62376681630908186189481698690288914334",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1444 txt2man",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "txt2man"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1444",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1444"
+      }
+    ],
+    "description": "A certain Debian patch for txt2man 1.5.5, as used in txt2man 1.5.5-2, 1.5.5-4, and others, allows local users to overwrite arbitrary files via a symlink attack on /tmp/2222.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5427",
+                "comment": "txt2man DPKG is earlier than 1.5.5-4.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:138646068689648568325390208574819260970",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-1028 calibre",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "calibre"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-1028",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1028"
+      }
+    ],
+    "description": "Integer overflow in the decompression functionality in the Web Open Fonts Format (WOFF) decoder in Mozilla Firefox 3.6 before 3.6.2 and 3.7 before 3.7 alpha 3 allows remote attackers to execute arbitrary code via a crafted WOFF file that triggers a buffer overflow, as demonstrated by the vd_ff module in VulnDisco 9.0.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3483",
+                "comment": "calibre DPKG is earlier than 2.38.0+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

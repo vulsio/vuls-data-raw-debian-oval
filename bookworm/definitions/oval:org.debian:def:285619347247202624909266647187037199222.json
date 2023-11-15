@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:285619347247202624909266647187037199222",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-14928 poppler",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "poppler"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-14928",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14928"
+      }
+    ],
+    "description": "In Poppler 0.59.0, a NULL Pointer Dereference exists in AnnotRichMedia::Configuration::Configuration in Annot.cc via a crafted PDF document.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11081",
+                "comment": "poppler DPKG is earlier than 0.61.1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

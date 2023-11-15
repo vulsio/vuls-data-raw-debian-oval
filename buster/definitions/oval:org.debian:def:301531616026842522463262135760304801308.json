@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:301531616026842522463262135760304801308",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-1519 squid",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "squid"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-1519",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1519"
+      }
+    ],
+    "description": "Squid 2.5 STABLE9 and earlier, when the DNS client port is unfiltered and the environment does not prevent IP spoofing, allows remote attackers to spoof DNS lookups.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:845",
+                "comment": "squid DPKG is earlier than 2.5.9-9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

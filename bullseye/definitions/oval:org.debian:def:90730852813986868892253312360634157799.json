@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:90730852813986868892253312360634157799",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-4021 pgpdump",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pgpdump"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-4021",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-4021"
+      }
+    ],
+    "description": "The read_binary function in buffer.c in pgpdump before 0.30 allows context-dependent attackers to cause a denial of service (infinite loop and CPU consumption) via crafted input, as demonstrated by the \\xa3\\x03 string.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9393",
+                "comment": "pgpdump DPKG is earlier than 0.31-0.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

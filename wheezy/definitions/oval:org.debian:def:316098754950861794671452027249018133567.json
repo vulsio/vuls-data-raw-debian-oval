@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:316098754950861794671452027249018133567",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2849-1 curl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "curl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0015",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0015"
+      }
+    ],
+    "description": "information disclosure",
+    "debian": {
+      "moreinfo": "\nParas Sethia discovered that libcurl, a client-side URL transfer library, would sometimes mix up multiple HTTP and HTTPS connections with NTLM authentication to the same server, sending requests for one user over the connection authenticated as a different user.",
+      "dsa": "DSA-2849",
+      "date": "2014-01-31"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1177",
+                "comment": "curl DPKG is earlier than 7.26.0-1+wheezy8"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

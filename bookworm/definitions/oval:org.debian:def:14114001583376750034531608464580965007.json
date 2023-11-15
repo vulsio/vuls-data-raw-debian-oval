@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:14114001583376750034531608464580965007",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-3912 cfrpki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "cfrpki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3912",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3912"
+      }
+    ],
+    "description": "OctoRPKI tries to load the entire contents of a repository in memory, and in the case of a GZIP bomb, unzip it in memory, making it possible to create a repository that makes OctoRPKI run out of memory (and thus crash).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:21592",
+                "comment": "cfrpki DPKG is earlier than 1.4.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:152465345528751288649922974937840559563",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3687-1 nspr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "nspr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-1951",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1951"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nTwo vulnerabilities were reported in NSPR, a library to abstract over operating system interfaces developed by the Mozilla project.",
+      "dsa": "DSA-3687",
+      "date": "2016-10-05"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1593",
+                "comment": "nspr DPKG is earlier than 2:4.12-1+debu8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

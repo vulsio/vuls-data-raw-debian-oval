@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:327066290170731258983724840078615192558",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-1410 kadu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "kadu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-1410",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1410"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in the History Window implementation in Kadu 0.9.0 through 0.11.0 allow remote attackers to inject arbitrary web script or HTML via a crafted (1) SMS message, (2) presence message, or (3) status description.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4817",
+                "comment": "kadu DPKG is earlier than 0.11.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

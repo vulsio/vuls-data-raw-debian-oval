@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:277046036206273192204580594652742075956",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-37601 prosody",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "prosody"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-37601",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-37601"
+      }
+    ],
+    "description": "muc.lib.lua in Prosody 0.11.0 through 0.11.9 allows remote attackers to obtain sensitive information (list of admins, members, owners, and banned entities of a Multi-User chat room) in some common configurations.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22271",
+                "comment": "prosody DPKG is earlier than 0.11.9-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

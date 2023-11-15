@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:288953973647385588566111619713109577585",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-1694 otrs2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "otrs2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-1694",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1694"
+      }
+    ],
+    "description": "Multiple cross-site request forgery (CSRF) vulnerabilities in (1) CustomerPreferences.pm, (2) CustomerTicketMessage.pm, (3) CustomerTicketProcess.pm, and (4) CustomerTicketZoom.pm in Kernel/Modules/ in Open Ticket Request System (OTRS) 3.1.x before 3.1.19, 3.2.x before 3.2.14, and 3.3.x before 3.3.4 allow remote attackers to hijack the authentication of arbitrary users for requests that (5) create tickets or (6) send follow-ups to existing tickets.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6487",
+                "comment": "otrs2 DPKG is earlier than 3.3.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

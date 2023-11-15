@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:200439076672472795963374903746195518538",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2822-1 xorg-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "xorg-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6424",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6424"
+      }
+    ],
+    "description": "integer underflow",
+    "debian": {
+      "moreinfo": "\nBryan Quigley discovered an integer underflow in the Xorg X server which could lead to denial of service or the execution of arbitrary code.",
+      "dsa": "DSA-2822",
+      "date": "2013-12-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1065",
+                "comment": "xorg-server DPKG is earlier than 1.12.4-6+deb7u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

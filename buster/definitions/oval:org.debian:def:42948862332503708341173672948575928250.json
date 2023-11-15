@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:42948862332503708341173672948575928250",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-0022 exim4",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "exim4"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-0022",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0022"
+      }
+    ],
+    "description": "Buffer overflow in the spa_base64_to_bits function in Exim before 4.43, as originally obtained from Samba code, and as called by the auth_spa_client function, may allow attackers to execute arbitrary code during SPA authentication.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:690",
+                "comment": "exim4 DPKG is earlier than 4.34-10"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

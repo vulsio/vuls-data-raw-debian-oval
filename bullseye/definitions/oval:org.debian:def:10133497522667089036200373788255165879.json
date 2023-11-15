@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:10133497522667089036200373788255165879",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-0411 ghostscript",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ghostscript"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-0411",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0411"
+      }
+    ],
+    "description": "Stack-based buffer overflow in the zseticcspace function in zicc.c in Ghostscript 8.61 and earlier allows remote attackers to execute arbitrary code via a postscript (.ps) file containing a long Range array in a .seticcspace operator.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2267",
+                "comment": "ghostscript DPKG is earlier than 8.61.dfsg.1-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

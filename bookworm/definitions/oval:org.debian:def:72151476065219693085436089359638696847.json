@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:72151476065219693085436089359638696847",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-5302 perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-5302",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5302"
+      }
+    ],
+    "description": "Race condition in the rmtree function in File::Path 1.08 and 2.07 (lib/File/Path.pm) in Perl 5.8.8 and 5.10.0 allows local users to create arbitrary setuid binaries via a symlink attack, a different vulnerability than CVE-2005-0448, CVE-2004-0452, and CVE-2008-2827. NOTE: this is a regression error related to CVE-2005-0448.  It is different from CVE-2008-5303 due to affected versions.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2602",
+                "comment": "perl DPKG is earlier than 5.10.0-18"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

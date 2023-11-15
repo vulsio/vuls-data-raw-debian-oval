@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:148454119699373259241587807838396319680",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-10912 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-10912",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10912"
+      }
+    ],
+    "description": "Xen through 4.8.x mishandles page transfer, which allows guest OS users to obtain privileged host OS access, aka XSA-217.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10312",
+                "comment": "xen DPKG is earlier than 4.8.1-1+deb9u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

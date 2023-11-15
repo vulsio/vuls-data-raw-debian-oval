@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:135541176761773736502093554450775076674",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-18026 redmine",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "redmine"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-18026",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18026"
+      }
+    ],
+    "description": "Redmine before 3.2.9, 3.3.x before 3.3.6, and 3.4.x before 3.4.4 does not block the --config and --debugger flags to the Mercurial hg program, which allows remote attackers to execute arbitrary commands (through the Mercurial adapter) via vectors involving a branch whose name begins with a --config= or --debugger= substring, a related issue to CVE-2017-17536.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11525",
+                "comment": "redmine DPKG is earlier than 3.4.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

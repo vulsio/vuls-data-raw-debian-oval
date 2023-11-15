@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:148051383043773686071994274583579911580",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-0548 aspell",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "aspell"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-0548",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0548"
+      }
+    ],
+    "description": "Multiple stack-based buffer overflows in the word-list-compress functionality in compress.c for Aspell allow local users to execute arbitrary code via a long entry in the wordlist that is not properly handled when using the (1) \"c\" compress option or (2) \"d\" decompress option.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:431",
+                "comment": "aspell DPKG is earlier than 0.50.5-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

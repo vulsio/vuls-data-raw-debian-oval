@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:59337280072513714027918993454091520769",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3419-1 cups-filters",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "cups-filters"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8560",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8560"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAdam Chester discovered that missing input sanitising in the foomatic-rip print filter might result in the execution of arbitrary commands.",
+      "dsa": "DSA-3419",
+      "date": "2015-12-15"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4133",
+                "comment": "cups-filters DPKG is earlier than 1.0.61-5+deb8u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

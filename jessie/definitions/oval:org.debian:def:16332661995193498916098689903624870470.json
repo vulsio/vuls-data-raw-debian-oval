@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:16332661995193498916098689903624870470",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4068-1 rsync",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "rsync"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-16548",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16548"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-17433",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17433"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-17434",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17434"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities were discovered in rsync, a fast, versatile, remote (and local) file-copying tool, allowing a remote attacker to bypass intended access restrictions or cause a denial of service.",
+      "dsa": "DSA-4068",
+      "date": "2017-12-17"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2880",
+                "comment": "rsync DPKG is earlier than 3.1.1-3+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

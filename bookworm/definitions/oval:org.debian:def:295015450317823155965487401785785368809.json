@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:295015450317823155965487401785785368809",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-11646 webkit2gtk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "webkit2gtk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-11646",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11646"
+      }
+    ],
+    "description": "webkitFaviconDatabaseSetIconForPageURL and webkitFaviconDatabaseSetIconURLForPageURL in UIProcess/API/glib/WebKitFaviconDatabase.cpp in WebKit, as used in WebKitGTK+ through 2.21.3, mishandle an unset pageURL, leading to an application crash.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13270",
+                "comment": "webkit2gtk DPKG is earlier than 2.20.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

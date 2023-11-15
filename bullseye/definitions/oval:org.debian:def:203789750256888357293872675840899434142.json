@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:203789750256888357293872675840899434142",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-12767 libexif",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libexif"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-12767",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12767"
+      }
+    ],
+    "description": "exif_entry_get_value in exif-entry.c in libexif 0.6.21 has a divide-by-zero error.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18328",
+                "comment": "libexif DPKG is earlier than 0.6.21-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

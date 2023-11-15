@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:138389315521405106455103144157065711124",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-2978 netpbm-free",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "netpbm-free"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-2978",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2978"
+      }
+    ],
+    "description": "pnmtopng in netpbm before 10.25, when using the -trans option, uses uninitialized size and index variables when converting Portable Anymap (PNM) images to Portable Network Graphics (PNG), which might allow attackers to execute arbitrary code by modifying the stack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1000",
+                "comment": "netpbm-free DPKG is earlier than 2:10.0-10"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

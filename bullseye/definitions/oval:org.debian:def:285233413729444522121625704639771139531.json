@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:285233413729444522121625704639771139531",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-14412 mp3gain",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mp3gain"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-14412",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14412"
+      }
+    ],
+    "description": "An invalid memory write was discovered in copy_mp in interface.c in mpglibDBL, as used in MP3Gain version 1.5.2. The vulnerability causes a denial of service (segmentation fault and application crash) or possibly unspecified other impact.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11364",
+                "comment": "mp3gain DPKG is earlier than 1.6.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

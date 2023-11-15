@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:222824453724191204177370043947990785595",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1440 putty",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "putty"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1440",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1440"
+      }
+    ],
+    "description": "Multiple heap-based buffer overflows in the modpow function in PuTTY before 0.55 allow (1) remote attackers to execute arbitrary code via an SSH2 packet with a base argument that is larger than the mod argument, which causes the modpow function to write memory before the beginning of its buffer, and (2) remote malicious servers to cause a denial of service (client crash) and possibly execute arbitrary code via a large bignum during authentication.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:581",
+                "comment": "putty DPKG is earlier than 0.56-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

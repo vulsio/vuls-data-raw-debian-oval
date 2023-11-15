@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:178103585926720313978969332801343195765",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3543-1 oar",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "oar"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-1235",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1235"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nEmmanuel Thome discovered that missing sanitising in the oarsh command of OAR, a software used to manage jobs and resources of HPC clusters, could result in privilege escalation.",
+      "dsa": "DSA-3543",
+      "date": "2016-04-05"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3798",
+                "comment": "oar DPKG is earlier than 2.5.2-3+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

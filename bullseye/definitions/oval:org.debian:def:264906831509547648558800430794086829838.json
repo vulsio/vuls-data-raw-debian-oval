@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:264906831509547648558800430794086829838",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-23634 puma",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "puma"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23634",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23634"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple security vulnerabilities were discovered in Puma, a HTTP server for Ruby/Rack applications, which could result in HTTP request smuggling or information disclosure.",
+      "dsa": "DSA-5146"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24038",
+                "comment": "puma DPKG is earlier than 4.3.8-1+deb11u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

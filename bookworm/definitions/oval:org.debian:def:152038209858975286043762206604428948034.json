@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:152038209858975286043762206604428948034",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-33546 janino",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "janino"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-33546",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-33546"
+      }
+    ],
+    "description": "Janino 3.1.9 and earlier are subject to denial of service (DOS) attacks when using the expression evaluator.guess parameter name method. If the parser runs on user-supplied input, an attacker could supply content that causes the parser to crash due to a stack overflow. NOTE: this is disputed by multiple parties because Janino is not intended for use with untrusted input.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26080",
+                "comment": "janino DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

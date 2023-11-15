@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:291115468425787646929504792683056929200",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-25623 erlang",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "erlang"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-25623",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25623"
+      }
+    ],
+    "description": "Erlang/OTP 22.3.x before 22.3.4.6 and 23.x before 23.1 allows Directory Traversal. An attacker can send a crafted HTTP request to read arbitrary files, if httpd in the inets application is used.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18608",
+                "comment": "erlang DPKG is earlier than 1:23.1+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

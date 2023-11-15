@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:321376496925748569912959441438604226553",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8140 unzip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "unzip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8140",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8140"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the test_compr_eb function in Info-ZIP UnZip 6.0 and earlier allows remote attackers to execute arbitrary code via a crafted zip file in the -t command argument to the unzip command.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6853",
+                "comment": "unzip DPKG is earlier than 6.0-13"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

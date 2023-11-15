@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:60086510847357986734517823178739051886",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-16035 chromium",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "chromium"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-16035",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-16035"
+      }
+    ],
+    "description": "Insufficient data validation in cros-disks in Google Chrome on ChromeOS prior to 87.0.4280.66 allowed a remote attacker who had compromised the browser process to bypass noexec restrictions via a malicious file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18183",
+                "comment": "chromium DPKG is earlier than 87.0.4280.88-0.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

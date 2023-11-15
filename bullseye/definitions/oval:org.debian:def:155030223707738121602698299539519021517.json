@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:155030223707738121602698299539519021517",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-38253 w3m",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "w3m"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-38253",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38253"
+      }
+    ],
+    "description": "An out-of-bounds read flaw was found in w3m, in the growbuf_to_Str function in indep.c. This issue may allow an attacker to cause a denial of service through a crafted HTML file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27198",
+                "comment": "w3m DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

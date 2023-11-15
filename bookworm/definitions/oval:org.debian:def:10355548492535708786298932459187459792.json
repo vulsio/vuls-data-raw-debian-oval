@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:10355548492535708786298932459187459792",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-26929 php-horde-text-filter",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "php-horde-text-filter"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-26929",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-26929"
+      }
+    ],
+    "description": "An XSS issue was discovered in Horde Groupware Webmail Edition through 5.2.22 (where the Horde_Text_Filter library before 2.3.7 is used). The attacker can send a plain text e-mail message, with JavaScript encoded as a link or email that is mishandled by preProcess in Text2html.php, because bespoke use of \\x00\\x00\\x00 and \\x01\\x01\\x01 interferes with XSS defenses.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20351",
+                "comment": "php-horde-text-filter DPKG is earlier than 2.3.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:271463577781887285060024628480585527045",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-7844 bsd-mailx",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "bsd-mailx"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-7844",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7844"
+      }
+    ],
+    "description": "BSD mailx 8.1.2 and earlier allows remote attackers to execute arbitrary commands via a crafted email address.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6802",
+                "comment": "bsd-mailx DPKG is earlier than 8.1.2-0.20141216cvs-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

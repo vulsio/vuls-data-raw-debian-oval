@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:313589023679974423032770666567212652739",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-1999-1572 cpio",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cpio"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-1999-1572",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-1572"
+      }
+    ],
+    "description": "cpio on FreeBSD 2.1.0, Debian GNU/Linux 3.0, and possibly other operating systems, uses a 0 umask when creating files using the -O (archive) or -F options, which creates the files with mode 0666 and allows local users to read or overwrite those files.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6",
+                "comment": "cpio DPKG is earlier than 2.5-1.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:242375807170846425323914927690978643166",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-9670 gnuplot",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "gnuplot"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-9670",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9670"
+      }
+    ],
+    "description": "An uninitialized stack variable vulnerability in load_tic_series() in set.c in gnuplot 5.2.rc1 allows an attacker to cause Denial of Service (Segmentation fault and Memory Corruption) or possibly have unspecified other impact when a victim opens a specially crafted file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12785",
+                "comment": "gnuplot DPKG is earlier than 5.0.5+dfsg1-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:50310534570804699632352199497235625339",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8958 imagemagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "imagemagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8958",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8958"
+      }
+    ],
+    "description": "coders/sun.c in ImageMagick before 6.9.0-4 Beta allows remote attackers to cause a denial of service (out-of-bounds read and application crash) via a crafted SUN file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8606",
+                "comment": "imagemagick DPKG is earlier than 8:6.9.6.2+dfsg-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

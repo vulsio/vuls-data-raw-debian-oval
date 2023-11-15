@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:88132975450050623176535751689065669212",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-0858 djbdns",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "djbdns"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0858",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0858"
+      }
+    ],
+    "description": "The response_addname function in response.c in Daniel J. Bernstein djbdns 1.05 and earlier does not constrain offsets in the required manner, which allows remote attackers, with control over a third-party subdomain served by tinydns and axfrdns, to trigger DNS responses containing arbitrary records via crafted zone data for this subdomain.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2904",
+                "comment": "djbdns DPKG is earlier than 1:1.05-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

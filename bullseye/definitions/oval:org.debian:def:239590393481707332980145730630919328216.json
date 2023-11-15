@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:239590393481707332980145730630919328216",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-4514 libgsf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libgsf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-4514",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4514"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the ole_info_read_metabat function in Gnome Structured File library (libgsf) 1.14.0, and other versions before 1.14.2, allows context-dependent attackers to execute arbitrary code via a large num_metabat value in an OLE document, which causes the ole_init_info function to allocate insufficient memory.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1499",
+                "comment": "libgsf DPKG is earlier than 1.14.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

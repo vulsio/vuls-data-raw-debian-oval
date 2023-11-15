@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:123529588390285591596598171393943076746",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-3644 libarchive",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libarchive"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-3644",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3644"
+      }
+    ],
+    "description": "archive_read_support_format_tar.c in libarchive before 2.2.4 allows user-assisted remote attackers to cause a denial of service (infinite loop) via (1) an end-of-file condition within a pax extension header or (2) a malformed pax extension header in an (a) PAX or a (b) TAR archive.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1876",
+                "comment": "libarchive DPKG is earlier than 2.2.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

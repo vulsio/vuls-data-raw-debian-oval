@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:267552708535620697515232737820781360513",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-0184 tcpdump",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "tcpdump"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-0184",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0184"
+      }
+    ],
+    "description": "Integer underflow in the isakmp_id_print for TCPDUMP 3.8.1 and earlier allows remote attackers to cause a denial of service (crash) via an ISAKMP packet with an Identification payload with a length that becomes less than 8 during byte order conversion, which causes an out-of-bounds read, as demonstrated by the Striker ISAKMP Protocol Test Suite.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:393",
+                "comment": "tcpdump DPKG is earlier than 3.7.2-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

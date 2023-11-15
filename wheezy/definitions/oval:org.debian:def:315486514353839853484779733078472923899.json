@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:315486514353839853484779733078472923899",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3194-1 libxfont",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "libxfont"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-1802",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1802"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-1803",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1803"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-1804",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1804"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIlja van Sprundel, Alan Coopersmith and William Robinet discovered multiple issues in libxfont's code to process BDF fonts, which might result in privilege escalation.",
+      "dsa": "DSA-3194",
+      "date": "2015-03-17"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3545",
+                "comment": "libxfont DPKG is earlier than 1.4.5-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

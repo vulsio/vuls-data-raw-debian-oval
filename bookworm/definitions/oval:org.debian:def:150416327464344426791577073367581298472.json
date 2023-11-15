@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:150416327464344426791577073367581298472",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-9997 spip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "spip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9997",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9997"
+      }
+    ],
+    "description": "SPIP 3.1.x suffers from a Reflected Cross Site Scripting Vulnerability in /ecrire/exec/puce_statut.php involving the `$id` parameter, as demonstrated by a /ecrire/?exec=puce_statut URL.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10140",
+                "comment": "spip DPKG is earlier than 3.1.4-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

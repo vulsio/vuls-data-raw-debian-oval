@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:302903824838047216070429212569732145389",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-23418 glances",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "glances"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-23418",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23418"
+      }
+    ],
+    "description": "The package glances before 3.2.1 are vulnerable to XML External Entity (XXE) Injection via the use of Fault to parse untrusted XML data, which is known to be vulnerable to XML attacks.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20223",
+                "comment": "glances DPKG is earlier than 3.2.3.1+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:202673705285222699445623530194366145577",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-5129 mesa",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mesa"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-5129",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5129"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the WebGL subsystem in Google Chrome OS before 23.0.1271.94 allows remote attackers to cause a denial of service (GPU process crash) or possibly have unspecified other impact via unknown vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5107",
+                "comment": "mesa DPKG is earlier than 8.0.5-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

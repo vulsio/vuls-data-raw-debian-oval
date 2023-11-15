@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:255746326914595321874696087426058704342",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2540 mapserver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mapserver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2540",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2540"
+      }
+    ],
+    "description": "mapserv.c in mapserv in MapServer before 4.10.6 and 5.x before 5.6.4 does not properly restrict the use of CGI command-line arguments that were intended for debugging, which allows remote attackers to have an unspecified impact via crafted arguments.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3506",
+                "comment": "mapserver DPKG is earlier than 5.6.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

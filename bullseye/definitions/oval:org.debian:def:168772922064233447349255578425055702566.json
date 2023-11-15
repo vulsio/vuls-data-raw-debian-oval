@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:168772922064233447349255578425055702566",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-3602 golang-github-containers-buildah",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "golang-github-containers-buildah"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3602",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3602"
+      }
+    ],
+    "description": "An information disclosure flaw was found in Buildah, when building containers using chroot isolation. Running processes in container builds (e.g. Dockerfile RUN commands) can access environment variables from parent and grandparent processes. When run in a container in a CI/CD environment, environment variables may include sensitive information that was shared with the container in order to be used only by Buildah itself (e.g. container registry credentials).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22115",
+                "comment": "golang-github-containers-buildah DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

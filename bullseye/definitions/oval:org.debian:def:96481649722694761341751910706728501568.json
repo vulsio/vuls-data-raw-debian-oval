@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:96481649722694761341751910706728501568",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-4208 filezilla",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "filezilla"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4208",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4208"
+      }
+    ],
+    "description": "The rsa_verify function in PuTTY before 0.63 (1) does not clear sensitive process memory after use and (2) does not free certain structures containing sensitive process memory, which might allow local users to discover private RSA and DSA keys.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5835",
+                "comment": "filezilla DPKG is earlier than 3.7.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:229303463825881599813520554572535791552",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8613 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8613",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8613"
+      }
+    ],
+    "description": "Stack-based buffer overflow in the megasas_ctrl_get_info function in QEMU, when built with SCSI MegaRAID SAS HBA emulation support, allows local guest users to cause a denial of service (QEMU instance crash) via a crafted SCSI controller CTRL_GET_INFO command.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8119",
+                "comment": "qemu DPKG is earlier than 1:2.5+dfsg-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

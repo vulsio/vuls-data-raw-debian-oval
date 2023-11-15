@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:297434141728464784334154236640811459039",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-2314 pygresql",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pygresql"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-2314",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2314"
+      }
+    ],
+    "description": "PostgreSQL 8.1.x before 8.1.4, 8.0.x before 8.0.8, 7.4.x before 7.4.13, 7.3.x before 7.3.15, and earlier versions allows context-dependent attackers to bypass SQL injection protection methods in applications that use multibyte encodings that allow the \"\\\" (backslash) byte 0x5c to be the trailing byte of a multibyte character, such as SJIS, BIG5, GBK, GB18030, and UHC, which cannot be handled correctly by a client that does not understand multibyte encodings, aka a second variant of \"Encoding-Based SQL Injection.\" NOTE: it could be argued that this is a class of issue related to interaction errors between the client and PostgreSQL, but a CVE has been assigned since PostgreSQL is treating this as a preventative measure against this class of problem.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1321",
+                "comment": "pygresql DPKG is earlier than 3.8-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

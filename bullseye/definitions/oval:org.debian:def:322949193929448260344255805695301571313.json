@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:322949193929448260344255805695301571313",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-11805 spamassassin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "spamassassin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-11805",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11805"
+      }
+    ],
+    "description": "In Apache SpamAssassin before 3.4.3, nefarious CF files can be configured to run system commands without any output or errors. With this, exploits can be injected in a number of scenarios. In addition to upgrading to SA 3.4.3, we recommend that users should only use update channels or 3rd party .cf files from trusted places.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13700",
+                "comment": "spamassassin DPKG is earlier than 3.4.3~rc6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

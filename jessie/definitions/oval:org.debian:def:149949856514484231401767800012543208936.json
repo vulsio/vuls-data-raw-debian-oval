@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:149949856514484231401767800012543208936",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3678-1 python-django",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "python-django"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-7401",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7401"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSergey Bobrov discovered that cookie parsing in Django and Google Analytics interacted such a way that an attacker could set arbitrary cookies.  This allows other malicious web sites to bypass the Cross-Site Request Forgery (CSRF) protections built into Django.",
+      "dsa": "DSA-3678",
+      "date": "2016-09-26"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2263",
+                "comment": "python-django DPKG is earlier than 1.7.11-1+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

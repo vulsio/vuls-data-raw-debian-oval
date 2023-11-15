@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:139462063504107623027311047035169256478",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-2322 connman",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "connman"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2322",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2322"
+      }
+    ],
+    "description": "Integer overflow in the dhcpv6_get_option function in gdhcp/client.c in ConnMan before 0.85 allows remote attackers to cause a denial of service (infinite loop and crash) via an invalid length value in a DHCP packet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4770",
+                "comment": "connman DPKG is earlier than 1.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

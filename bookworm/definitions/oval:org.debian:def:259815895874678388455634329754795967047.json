@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:259815895874678388455634329754795967047",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-44466 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-44466",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-44466"
+      }
+    ],
+    "description": "An issue was discovered in net/ceph/messenger_v2.c in the Linux kernel before 6.4.5. There is an integer signedness error, leading to a buffer overflow and remote code execution via HELLO or one of the AUTH frames. This occurs because of an untrusted length taken from a TCP packet in ceph_decode_32.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26631",
+                "comment": "linux DPKG is earlier than 6.1.52-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

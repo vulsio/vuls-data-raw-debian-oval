@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:161527363225640221468967814061279144241",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5447-1 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-29141",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-29141"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-36674",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-36674"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-36675",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-36675"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMultiple security issues were discovered in MediaWiki, a website engine for collaborative work, which could result in cross-site scripting, a bypass of vandalism protections or information disclosure.",
+      "dsa": "DSA-5447",
+      "date": "2023-07-05"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26911",
+                "comment": "mediawiki DPKG is earlier than 1:1.39.4-1~deb12u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

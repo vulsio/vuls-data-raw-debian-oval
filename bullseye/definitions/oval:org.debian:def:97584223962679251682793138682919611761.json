@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:97584223962679251682793138682919611761",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-3518 tor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "tor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3518",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3518"
+      }
+    ],
+    "description": "The networkstatus_parse_vote_from_string function in routerparse.c in Tor before 0.2.2.38 does not properly handle an invalid flavor name, which allows remote attackers to cause a denial of service (out-of-bounds read and daemon crash) via a crafted (1) vote document or (2) consensus document.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4954",
+                "comment": "tor DPKG is earlier than 0.2.3.20-rc-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

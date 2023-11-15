@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:230470679002953617841790799247757666765",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-23841 openssl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "openssl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-23841",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23841"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple vulnerabilities have been discovered in OpenSSL, a Secure Sockets Layer toolkit. An overflow bug in the x64_64 Montgomery squaring procedure, an integer overflow in CipherUpdate and a NULL pointer dereference flaw X509_issuer_and_serial_hash() were found, which could result in denial of service.",
+      "dsa": "DSA-4855"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20928",
+                "comment": "openssl DPKG is earlier than 1.1.1d-0+deb10u5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:165738590167928484428408079921877818294",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-24919 zabbix",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "zabbix"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-24919",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24919"
+      }
+    ],
+    "description": "An authenticated user can create a link with reflected Javascript code inside it for graphs’ page and send it to other users. The payload can be executed only with a known CSRF token value of the victim, which is changed periodically and is difficult to predict. Malicious code has access to all the same objects as the rest of the web page and can make arbitrary modifications to the contents of the page being displayed to a victim during social engineering attacks.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24174",
+                "comment": "zabbix DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

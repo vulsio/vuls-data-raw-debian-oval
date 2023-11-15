@@ -1,0 +1,47 @@
+{
+  "id": "oval:org.debian:def:138222844538302044526655617225758479039",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5424-1 php7.4",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "php7.4"
+    },
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that PHP's implementation of SOAP HTTP Digest authentication performed insufficient error validation, which may result in a stack information leak or use of weak randomness.",
+      "dsa": "DSA-5424",
+      "date": "2023-06-13"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28205",
+                "comment": "php7.4 DPKG is earlier than 7.4.33-1+deb11u4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:225816246164782109268428358464014282601",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-2270 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-2270",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2270"
+      }
+    ],
+    "description": "Xen 4.6.x and earlier allows local guest administrators to cause a denial of service (host reboot) via vectors related to multiple mappings of MMIO pages with different cachability settings.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9134",
+                "comment": "xen DPKG is earlier than 4.8.0~rc3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

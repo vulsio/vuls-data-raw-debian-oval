@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:320059926056691461404365202407701315789",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-6692 zabbix",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "zabbix"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-6692",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6692"
+      }
+    ],
+    "description": "Multiple format string vulnerabilities in zabbix before 20061006 allow attackers to cause a denial of service (application crash) and possibly execute arbitrary code via format string specifiers in information that would be recorded in the system log using (1) zabbix_log or (2) zabbix_syslog.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1570",
+                "comment": "zabbix DPKG is earlier than 1:1.1.2-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

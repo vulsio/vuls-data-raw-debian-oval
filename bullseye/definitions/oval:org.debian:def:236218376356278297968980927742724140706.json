@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:236218376356278297968980927742724140706",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-5168 thunderbird",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "thunderbird"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-5168",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5168"
+      }
+    ],
+    "description": "Sites can bypass security checks on permissions to install lightweight themes by manipulating the \"baseURI\" property of the theme element. This could allow a malicious site to install a theme without user interaction which could contain offensive or embarrassing images. This vulnerability affects Thunderbird < 52.8, Thunderbird ESR < 52.8, Firefox < 60, and Firefox ESR < 52.8.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15085",
+                "comment": "thunderbird DPKG is earlier than 1:52.8.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

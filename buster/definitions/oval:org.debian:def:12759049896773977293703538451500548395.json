@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:12759049896773977293703538451500548395",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-3331 mgdiff",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "mgdiff"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-3331",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3331"
+      }
+    ],
+    "description": "viewpatch in mgdiff 1.0 allows local users to overwrite arbitrary files via a symlink attack on temporary files.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1049",
+                "comment": "mgdiff DPKG is earlier than 1.0-28"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

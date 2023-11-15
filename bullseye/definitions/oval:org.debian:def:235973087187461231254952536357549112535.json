@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:235973087187461231254952536357549112535",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-28181 nvidia-graphics-drivers-tesla-470",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "nvidia-graphics-drivers-tesla-470"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-28181",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-28181"
+      }
+    ],
+    "description": "NVIDIA GPU Display Driver for Windows and Linux contains a vulnerability in the kernel mode layer, where an unprivileged regular user on the network can cause an out-of-bounds write through a specially crafted shader, which may lead to code execution, denial of service, escalation of privileges, information disclosure, and data tampering. The scope of the impact may extend to other components.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24427",
+                "comment": "nvidia-graphics-drivers-tesla-470 DPKG is earlier than 470.129.06-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

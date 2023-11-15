@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:301393261625155488366302597821220535726",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-1184 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-1184",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-1184"
+      }
+    ],
+    "description": "A use-after-free flaw was found in fs/ext4/namei.c:dx_insert_block() in the Linux kernel’s filesystem sub-component. This flaw allows a local attacker with a user privilege to cause a denial of service.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22504",
+                "comment": "linux DPKG is earlier than 5.19.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

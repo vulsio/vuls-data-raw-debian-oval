@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:154797583667411808112455436605644388318",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-9425 w3m",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "w3m"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9425",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9425"
+      }
+    ],
+    "description": "An issue was discovered in the Tatsuya Kinoshita w3m fork before 0.5.3-31. Heap-based buffer overflow in the addMultirowsForm function in w3m allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a crafted HTML page.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9949",
+                "comment": "w3m DPKG is earlier than 0.5.3-30"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

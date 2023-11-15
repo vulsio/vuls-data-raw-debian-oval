@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:335798743679777439720006982956894741587",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-4015 lintian",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "lintian"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-4015",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4015"
+      }
+    ],
+    "description": "Lintian 1.23.x through 1.23.28, 1.24.x through 1.24.2.1, and 2.x before 2.3.2 allows remote attackers to execute arbitrary commands via shell metacharacters in filename arguments.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3170",
+                "comment": "lintian DPKG is earlier than 2.3.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

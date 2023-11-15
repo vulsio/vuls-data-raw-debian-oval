@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:36991187120773966784124998750364162539",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1159 acpid",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "acpid"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1159",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1159"
+      }
+    ],
+    "description": "acpid.c in acpid before 2.0.9 does not properly handle a situation in which a process has connected to acpid.socket but is not reading any data, which allows local users to cause a denial of service (daemon hang) via a crafted application that performs a connect system call but no read system calls.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3866",
+                "comment": "acpid DPKG is earlier than 1:2.0.9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

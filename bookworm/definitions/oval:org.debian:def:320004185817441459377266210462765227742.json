@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:320004185817441459377266210462765227742",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-0015 tor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "tor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-0015",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0015"
+      }
+    ],
+    "description": "Tor before 0.2.1.29 and 0.2.2.x before 0.2.2.21-alpha does not properly check the amount of compression in zlib-compressed data, which allows remote attackers to cause a denial of service via a large compression factor.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3763",
+                "comment": "tor DPKG is earlier than 0.2.1.29-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

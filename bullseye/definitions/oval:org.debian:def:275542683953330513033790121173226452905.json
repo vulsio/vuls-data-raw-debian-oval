@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:275542683953330513033790121173226452905",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-19208 libwpd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libwpd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-19208",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19208"
+      }
+    ],
+    "description": "In libwpd 0.10.2, there is a NULL pointer dereference in the function WP6ContentListener::defineTable in WP6ContentListener.cpp that will lead to a denial of service attack. This is related to WPXTable.h.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14542",
+                "comment": "libwpd DPKG is earlier than 0.10.2-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

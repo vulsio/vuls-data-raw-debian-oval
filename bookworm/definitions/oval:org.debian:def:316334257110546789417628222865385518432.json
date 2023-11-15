@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:316334257110546789417628222865385518432",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-8050 afflib",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "afflib"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-8050",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8050"
+      }
+    ],
+    "description": "The af_get_page() function in lib/afflib_pages.cpp in AFFLIB (aka AFFLIBv3) through 3.7.16 allows remote attackers to cause a denial of service (segmentation fault) via a corrupt AFF image that triggers an unexpected pagesize value.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14979",
+                "comment": "afflib DPKG is earlier than 3.7.16-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

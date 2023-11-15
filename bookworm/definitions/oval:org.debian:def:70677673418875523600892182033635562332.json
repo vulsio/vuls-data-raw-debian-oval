@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:70677673418875523600892182033635562332",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-3600 activemq",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "activemq"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-3600",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3600"
+      }
+    ],
+    "description": "XML external entity (XXE) vulnerability in Apache ActiveMQ 5.x before 5.10.1 allows remote consumers to have unspecified impact via vectors involving an XPath based selector when dequeuing XML messages.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6490",
+                "comment": "activemq DPKG is earlier than 5.6.0+dfsg1-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

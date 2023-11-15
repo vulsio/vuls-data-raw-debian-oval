@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:66551508854225619137385304518413053173",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-8021 open-build-service",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "open-build-service"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-8021",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-8021"
+      }
+    ],
+    "description": "a Improper Access Control vulnerability in of Open Build Service allows remote attackers to read files of an OBS package where the sourceaccess/access is disabled This issue affects: Open Build Service versions prior to 2.10.5.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19637",
+                "comment": "open-build-service DPKG is earlier than 2.9.4-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

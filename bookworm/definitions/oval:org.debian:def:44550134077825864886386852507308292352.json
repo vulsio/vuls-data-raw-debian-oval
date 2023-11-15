@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:44550134077825864886386852507308292352",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-5638 sanlock",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "sanlock"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-5638",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5638"
+      }
+    ],
+    "description": "The setup_logging function in log.h in SANLock uses world-writable permissions for /var/log/sanlock.log, which allows local users to overwrite the file content or bypass intended disk-quota restrictions via standard filesystem write operations.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4948",
+                "comment": "sanlock DPKG is earlier than 2.2-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

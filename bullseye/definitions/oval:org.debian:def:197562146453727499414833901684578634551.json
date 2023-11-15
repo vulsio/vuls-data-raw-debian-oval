@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:197562146453727499414833901684578634551",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-46283 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-46283",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-46283"
+      }
+    ],
+    "description": "nf_tables_newset in net/netfilter/nf_tables_api.c in the Linux kernel before 5.12.13 allows local users to cause a denial of service (NULL pointer dereference and general protection fault) because of the missing initialization for nft_set_elem_expr_alloc. A local user can set a netfilter table expression in their own namespace.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23183",
+                "comment": "linux DPKG is earlier than 5.10.70-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

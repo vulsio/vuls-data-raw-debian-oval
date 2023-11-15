@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:229741929865768803464958765800914797870",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-0670 ceph",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ceph"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-0670",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0670"
+      }
+    ],
+    "description": "A flaw was found in Openstack manilla owning a Ceph File system \"share\", which enables the owner to read/write any manilla share or entire file system. The vulnerability is due to a bug in the \"volumes\" plugin in Ceph Manager. This allows an attacker to compromise Confidentiality and Integrity of a file system. Fixed in RHCS 5.2 and Ceph 17.2.2.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23379",
+                "comment": "ceph DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

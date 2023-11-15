@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:89535235002440987797509342757344480366",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-8034 php-horde-gollem",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "php-horde-gollem"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-8034",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-8034"
+      }
+    ],
+    "description": "Gollem before 3.0.13, as used in Horde Groupware Webmail Edition 5.2.22 and other products, is affected by a reflected Cross-Site Scripting (XSS) vulnerability via the HTTP GET dir parameter in the browser functionality, affecting breadcrumb output. An attacker can obtain access to a victim's webmail account by making them visit a malicious URL.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19639",
+                "comment": "php-horde-gollem DPKG is earlier than 3.0.12-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

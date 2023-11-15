@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:173949299722753822210465533928821311153",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2833-1 openssl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "openssl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6449",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6449"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6450",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6450"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nMultiple security issues have been fixed in OpenSSL: The TLS 1.2 support was susceptible to denial of service and retransmission of DTLS messages was fixed. In addition this update disables the insecure Dual_EC_DRBG algorithm (which was unused anyway, see <a href=\"http://marc.info/?l=openssl-announce&amp;m=138747119822324&amp;w=2\">http://marc.info/?l=openssl-announce&amp;m=138747119822324&amp;w=2</a> for further information) and no longer uses the RdRand feature available on some Intel CPUs as a sole source of entropy unless explicitly requested.",
+      "dsa": "DSA-2833",
+      "date": "2014-01-01"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1071",
+                "comment": "openssl DPKG is earlier than 1.0.1e-2+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

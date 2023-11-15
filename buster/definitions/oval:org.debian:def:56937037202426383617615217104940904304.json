@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:56937037202426383617615217104940904304",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-4413 polipo",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "polipo"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-4413",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4413"
+      }
+    ],
+    "description": "The httpClientDiscardBody function in client.c in Polipo 0.9.8, 0.9.12, 1.0.4, and possibly other versions, allows remote attackers to cause a denial of service (crash) via a request with a large Content-Length value, which triggers an integer overflow, a signed-to-unsigned conversion error with a negative value, and a segmentation fault.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3417",
+                "comment": "polipo DPKG is earlier than 1.0.4-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

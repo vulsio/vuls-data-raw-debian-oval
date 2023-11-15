@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:131094892298104241139779874981005673464",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3438-1 xscreensaver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "xscreensaver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8025",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8025"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that unplugging one of the monitors in a multi-monitor setup can cause xscreensaver to crash.  Someone with physical access to a machine could use this problem to bypass a locked session.",
+      "dsa": "DSA-3438",
+      "date": "2016-01-09"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3721",
+                "comment": "xscreensaver DPKG is earlier than 5.15-3+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

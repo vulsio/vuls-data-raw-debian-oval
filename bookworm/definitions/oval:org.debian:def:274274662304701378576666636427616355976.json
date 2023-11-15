@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:274274662304701378576666636427616355976",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-4488 varnish",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "varnish"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-4488",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4488"
+      }
+    ],
+    "description": "Varnish 2.0.6 writes data to a log file without sanitizing non-printable characters, which might allow remote attackers to modify a window's title, or possibly execute arbitrary commands or overwrite files, via an HTTP request containing an escape sequence for a terminal emulator.  NOTE: the vendor disputes the significance of this report, stating that \"This is not a security problem in Varnish or any other piece of software which writes a logfile. The real problem is the mistaken belief that you can cat(1) a random logfile to your terminal safely.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3205",
+                "comment": "varnish DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

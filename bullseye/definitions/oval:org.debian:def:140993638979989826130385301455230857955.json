@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:140993638979989826130385301455230857955",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-18265 prosody",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "prosody"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-18265",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18265"
+      }
+    ],
+    "description": "Prosody before 0.10.0 allows remote attackers to cause a denial of service (application crash), related to an incompatibility with certain versions of the LuaSocket library, such as the lua-socket package from Debian stretch. The attacker needs to trigger a stream error. A crash can be observed in, for example, the c2s module.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11966",
+                "comment": "prosody DPKG is earlier than 0.10.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

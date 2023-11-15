@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:296593621297172929265682879944909419859",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2958-1 apt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "apt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0478",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0478"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nJakub Wilk discovered that APT, the high level package manager, did not properly perform authentication checks for source packages downloaded via \"apt-get source\". This only affects use cases where source packages are downloaded via this command; it does not affect regular Debian package installation and upgrading.",
+      "dsa": "DSA-2958",
+      "date": "2014-06-12"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1269",
+                "comment": "apt DPKG is earlier than 0.9.7.9+deb7u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

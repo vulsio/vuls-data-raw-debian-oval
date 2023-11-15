@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:221392643541092229341321333618083512618",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-16545 graphicsmagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "graphicsmagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-16545",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16545"
+      }
+    ],
+    "description": "The ReadWPGImage function in coders/wpg.c in GraphicsMagick 1.3.26 does not properly validate colormapped images, which allows remote attackers to cause a denial of service (ImportIndexQuantumType invalid write and application crash) or possibly have unspecified other impact via a malformed WPG image.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11802",
+                "comment": "graphicsmagick DPKG is earlier than 1.3.26-18"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

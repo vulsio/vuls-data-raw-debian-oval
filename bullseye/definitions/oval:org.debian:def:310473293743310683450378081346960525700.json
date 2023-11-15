@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:310473293743310683450378081346960525700",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-5330 ark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5330",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5330"
+      }
+    ],
+    "description": "ark before 16.12.1 might allow remote attackers to execute arbitrary code via an executable in an archive, related to associated applications.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12192",
+                "comment": "ark DPKG is earlier than 4:16.08.3-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

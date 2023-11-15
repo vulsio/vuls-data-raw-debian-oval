@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:29496762090227765251313894519336766299",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8559 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8559",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8559"
+      }
+    ],
+    "description": "The d_walk function in fs/dcache.c in the Linux kernel through 3.17.2 does not properly maintain the semantics of rename_lock, which allows local users to cause a denial of service (deadlock and system hang) via a crafted application.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7179",
+                "comment": "linux DPKG is earlier than 3.16.7-ckt4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:322630086626523812619133537324907532353",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-3213 clutter-1.0",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "clutter-1.0"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3213",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3213"
+      }
+    ],
+    "description": "The gesture handling code in Clutter before 1.16.2 allows physically proximate attackers to bypass the lock screen via certain (1) mouse or (2) touch gestures.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7539",
+                "comment": "clutter-1.0 DPKG is earlier than 1.18.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

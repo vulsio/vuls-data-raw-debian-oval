@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:302689042408065322533580528574531510842",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-39290 zoneminder",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "zoneminder"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-39290",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-39290"
+      }
+    ],
+    "description": "ZoneMinder is a free, open source Closed-circuit television software application. In affected versions authenticated users can bypass CSRF keys by modifying the request supplied to the Zoneminder web application. These modifications include replacing HTTP POST with an HTTP GET and removing the CSRF key from the request. An attacker can take advantage of this by using an HTTP GET request to perform actions with no CSRF protection. This could allow an attacker to cause an authenticated user to perform unexpected actions on the web application. Users are advised to upgrade as soon as possible. There are no known workarounds for this issue.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24301",
+                "comment": "zoneminder DPKG is earlier than 1.36.31+dfsg1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

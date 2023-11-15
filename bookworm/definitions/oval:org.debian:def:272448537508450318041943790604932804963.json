@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:272448537508450318041943790604932804963",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-0102 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0102",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0102"
+      }
+    ],
+    "description": "The keyring_detect_cycle_iterator function in security/keys/keyring.c in the Linux kernel through 3.13.6 does not properly determine whether keyrings are identical, which allows local users to cause a denial of service (OOPS) via crafted keyctl commands.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6102",
+                "comment": "linux DPKG is earlier than 3.13.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

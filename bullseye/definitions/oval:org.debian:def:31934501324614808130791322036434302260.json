@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:31934501324614808130791322036434302260",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-2200 libmms",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libmms"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-2200",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2200"
+      }
+    ],
+    "description": "Stack-based buffer overflow in libmms, as used by (a) MiMMS 0.0.9 and (b) xine-lib 1.1.0 and earlier, allows remote attackers to cause a denial of service (application crash) and possibly execute arbitrary code via the (1) send_command, (2) string_utf16, (3) get_data, and (4) get_media_packet functions, and possibly other functions.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1314",
+                "comment": "libmms DPKG is earlier than 0.2-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

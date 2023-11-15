@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:212916135855869826133037617876501608667",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-24599 audiofile",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "audiofile"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-24599",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24599"
+      }
+    ],
+    "description": "In autofile Audio File Library 0.3.6, there exists one memory leak vulnerability in printfileinfo, in printinfo.c, which allows an attacker to leak sensitive information via a crafted file. The printfileinfo function calls the copyrightstring function to get data, however, it dosn't use zero bytes to truncate the data.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23076",
+                "comment": "audiofile DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

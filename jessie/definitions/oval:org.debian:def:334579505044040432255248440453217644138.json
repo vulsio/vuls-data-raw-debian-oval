@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:334579505044040432255248440453217644138",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3528-1 pidgin-otr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "pidgin-otr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8833",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8833"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nStefan Sperling discovered that pidgin-otr, a Pidgin plugin implementing Off-The-Record messaging, contained a use-after-free bug. This could be used by a malicious remote user to intentionally crash the application, thus causing a denial-of-service.",
+      "dsa": "DSA-3528",
+      "date": "2016-03-23"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4231",
+                "comment": "pidgin-otr DPKG is earlier than 4.0.1-1+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

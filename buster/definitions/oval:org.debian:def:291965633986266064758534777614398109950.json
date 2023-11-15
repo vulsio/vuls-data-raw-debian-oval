@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:291965633986266064758534777614398109950",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-1387 mplayer",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "mplayer"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-1387",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1387"
+      }
+    ],
+    "description": "The DirectShow loader (loader/dshow/DS_VideoDecoder.c) in MPlayer 1.0rc1 and earlier, as used in xine-lib, does not set the biSize before use in a memcpy, which allows user-assisted remote attackers to cause a buffer overflow and possibly execute arbitrary code, a different vulnerability than CVE-2007-1246.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1758",
+                "comment": "mplayer DPKG is earlier than 1.0~rc1-13"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

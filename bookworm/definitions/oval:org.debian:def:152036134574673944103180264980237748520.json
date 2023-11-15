@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:152036134574673944103180264980237748520",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-5274 symfony",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "symfony"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-5274",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-5274"
+      }
+    ],
+    "description": "In Symfony before versions 5.0.5 and 4.4.5, some properties of the Exception were not properly escaped when the `ErrorHandler` rendered it stacktrace. In addition, the stacktrace were displayed even in a non-debug configuration. The ErrorHandler now escape alls properties of the exception, and the stacktrace is only display in debug configuration. This issue is patched in symfony/http-foundation versions 4.4.5 and 5.0.5",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19318",
+                "comment": "symfony DPKG is earlier than 4.4.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

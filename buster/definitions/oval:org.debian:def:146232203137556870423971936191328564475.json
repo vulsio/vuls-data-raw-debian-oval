@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:146232203137556870423971936191328564475",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-19567 dcraw",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "dcraw"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-19567",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19567"
+      }
+    ],
+    "description": "A floating point exception in parse_tiff_ifd in dcraw through 9.28 could be used by attackers able to supply malicious files to crash an application that bundles the dcraw code.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14782",
+                "comment": "dcraw DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

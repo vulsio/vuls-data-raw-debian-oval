@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:177798188679966261412707315321587639261",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5380-1 xorg-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xorg-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-1393",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-1393"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Jan-Niklas Sohn discovered that a user-after-free flaw in the Composite extension of the X.org X server may result in privilege escalation if the X server is running under the root user.",
+      "dsa": "DSA-5380",
+      "date": "2023-03-29"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28160",
+                "comment": "xorg-server DPKG is earlier than 2:1.20.11-1+deb11u6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

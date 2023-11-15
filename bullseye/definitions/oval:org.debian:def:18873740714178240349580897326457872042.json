@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:18873740714178240349580897326457872042",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-20212 privoxy",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "privoxy"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-20212",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-20212"
+      }
+    ],
+    "description": "A flaw was found in Privoxy in versions before 3.0.29. Memory leak if multiple filters are executed and the last one is skipped due to a pcre error leading to a system crash.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20611",
+                "comment": "privoxy DPKG is earlier than 3.0.29-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:105057926135318884244796032416987969449",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-4408 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-4408",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4408"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in MediaWiki 1.13.1, 1.12.0, and possibly other versions before 1.13.2 allows remote attackers to inject arbitrary web script or HTML via the useskin parameter to an unspecified component.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2490",
+                "comment": "mediawiki DPKG is earlier than 1:1.13.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

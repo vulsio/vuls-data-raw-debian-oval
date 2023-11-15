@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:245046001121173078207948675687399382122",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1922 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1922",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1922"
+      }
+    ],
+    "description": "qemu-nbd in QEMU, as used in Xen 4.2.x, determines the format of a raw disk image based on the header, which allows local guest OS administrators to read arbitrary files on the host by modifying the header to identify a different format, which is used when the guest is restarted, a different vulnerability than CVE-2008-2004.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5529",
+                "comment": "qemu DPKG is earlier than 1.5.0+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

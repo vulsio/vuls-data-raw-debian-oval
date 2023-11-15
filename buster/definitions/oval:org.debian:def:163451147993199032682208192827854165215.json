@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:163451147993199032682208192827854165215",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-1692 eterm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "eterm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-1692",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1692"
+      }
+    ],
+    "description": "Eterm 0.9.4 opens a terminal window on :0 if -display is not specified and the DISPLAY environment variable is not set, which might allow local users to hijack X11 connections.  NOTE: realistic attack scenarios require that the victim enters a command on the wrong machine.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2402",
+                "comment": "eterm DPKG is earlier than 0.9.4.0debian1-2.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

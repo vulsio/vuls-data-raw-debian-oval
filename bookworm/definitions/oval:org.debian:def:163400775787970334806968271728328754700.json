@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:163400775787970334806968271728328754700",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-5361 request-tracker4",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "request-tracker4"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5361",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5361"
+      }
+    ],
+    "description": "Request Tracker (RT) 4.x before 4.0.25, 4.2.x before 4.2.14, and 4.4.x before 4.4.2 does not use a constant-time comparison algorithm for secrets, which makes it easier for remote attackers to obtain sensitive user password information via a timing side-channel attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11831",
+                "comment": "request-tracker4 DPKG is earlier than 4.4.1-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

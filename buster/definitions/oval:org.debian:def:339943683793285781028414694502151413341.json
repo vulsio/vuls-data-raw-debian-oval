@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:339943683793285781028414694502151413341",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-26259 libxstream-java",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "libxstream-java"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-26259",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-26259"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Liaogui Zhong discovered two security issues in XStream, a Java library to serialise objects to XML and back again, which could result in the deletion of files or server-side request forgery when unmarshalling.",
+      "dsa": "DSA-4828"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19456",
+                "comment": "libxstream-java DPKG is earlier than 1.4.11.1-1+deb10u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

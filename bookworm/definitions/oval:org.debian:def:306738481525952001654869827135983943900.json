@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:306738481525952001654869827135983943900",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-46872 nim",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "nim"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-46872",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-46872"
+      }
+    ],
+    "description": "An issue was discovered in Nim before 1.6.2. The RST module of the Nim language stdlib, as used in NimForum and other products, permits the javascript: URI scheme and thus can lead to XSS in some applications. (Nim versions 1.6.2 and later are fixed; there may be backports of the fix to some earlier versions. NimForum 2.2.0 is fixed.)",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22234",
+                "comment": "nim DPKG is earlier than 1.6.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

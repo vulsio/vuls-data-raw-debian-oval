@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:107490544911725210982032175397614020809",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5318-1 lava",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "lava"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-44641",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44641"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIgor Ponomarev discovered that LAVA, a continuous integration system for deploying operating systems onto physical and virtual hardware for running tests, was suspectible to denial of service via recursive XML entity expansion.",
+      "dsa": "DSA-5318",
+      "date": "2023-01-13"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28097",
+                "comment": "lava DPKG is earlier than 2020.12-5+deb11u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

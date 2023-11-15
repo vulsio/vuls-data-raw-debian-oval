@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:254407820233066536588770981574780584409",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-5894 krb5",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "krb5"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-5894",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5894"
+      }
+    ],
+    "description": "The reply function in ftpd.c in the gssftp ftpd in MIT Kerberos 5 (krb5) does not initialize the length variable when auth_type has a certain value, which has unknown impact and remote authenticated attack vectors.  NOTE: the original disclosure misidentifies the conditions under which the uninitialized variable is used.  NOTE: the vendor disputes this issue, stating \" The 'length' variable is only uninitialized if 'auth_type' is neither the 'KERBEROS_V4' nor 'GSSAPI'; this condition cannot occur in the unmodified source code.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2052",
+                "comment": "krb5 DPKG is earlier than 1.6.dfsg.4~beta1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

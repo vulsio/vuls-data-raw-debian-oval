@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:213466366721957506876432698828476039467",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3817-1 jbig2dec",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "jbig2dec"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9601",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9601"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMultiple security issues have been found in the JBIG2 decoder library, which may lead to lead to denial of service or the execution of arbitrary code if a malformed image file (usually embedded in a PDF document) is opened.",
+      "dsa": "DSA-3817",
+      "date": "2017-03-24"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2442",
+                "comment": "jbig2dec DPKG is earlier than 0.13-4~deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

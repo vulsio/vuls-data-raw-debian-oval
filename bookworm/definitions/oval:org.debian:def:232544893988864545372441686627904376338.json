@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:232544893988864545372441686627904376338",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-3996 openssl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openssl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-3996",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-3996"
+      }
+    ],
+    "description": "If an X.509 certificate contains a malformed policy constraint and\npolicy processing is enabled, then a write lock will be taken twice\nrecursively.  On some operating systems (most widely: Windows) this\nresults in a denial of service when the affected process hangs.  Policy\nprocessing being enabled on a publicly facing server is not considered\nto be a common setup.\n\nPolicy processing is enabled by passing the `-policy'\nargument to the command line utilities or by calling the\n`X509_VERIFY_PARAM_set1_policies()' function.\n\nUpdate (31 March 2023): The description of the policy processing enablement\nwas corrected based on CVE-2023-0466.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24331",
+                "comment": "openssl DPKG is earlier than 3.0.7-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

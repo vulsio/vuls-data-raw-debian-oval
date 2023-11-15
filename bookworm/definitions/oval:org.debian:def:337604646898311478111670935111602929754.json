@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:337604646898311478111670935111602929754",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-4468 libmspack",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libmspack"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-4468",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4468"
+      }
+    ],
+    "description": "Multiple integer overflows in the search_chunk function in chmd.c in libmspack before 0.5 allow remote attackers to cause a denial of service (buffer over-read and application crash) via a crafted CHM file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7682",
+                "comment": "libmspack DPKG is earlier than 0.4-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

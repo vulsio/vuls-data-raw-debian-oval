@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:85019297357466558009390554540541003997",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-1877 xdg-utils",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "xdg-utils"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-1877",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1877"
+      }
+    ],
+    "description": "The open_generic_xdg_mime function in xdg-open in xdg-utils 1.1.0 rc1 in Debian, when using dash, does not properly handle local variables, which allows remote attackers to execute arbitrary commands via a crafted file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7873",
+                "comment": "xdg-utils DPKG is earlier than 1.1.0~rc1+git20111210-7.4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

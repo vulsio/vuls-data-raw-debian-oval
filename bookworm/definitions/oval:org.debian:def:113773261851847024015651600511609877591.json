@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:113773261851847024015651600511609877591",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1294 tnftp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "tnftp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1294",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1294"
+      }
+    ],
+    "description": "The mget function in cmds.c for tnftp 20030825 allows remote FTP servers to overwrite arbitrary files via FTP responses containing file names with / (slash) characters.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:561",
+                "comment": "tnftp DPKG is earlier than 20050625-0.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

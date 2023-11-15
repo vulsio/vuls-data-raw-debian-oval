@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:60208949785667713632105224596372162590",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-7711 golang-github-russellhaering-goxmldsig",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "golang-github-russellhaering-goxmldsig"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-7711",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7711"
+      }
+    ],
+    "description": "This affects all versions of package github.com/russellhaering/goxmldsig. There is a crash on nil-pointer dereference caused by sending malformed XML signatures.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19623",
+                "comment": "golang-github-russellhaering-goxmldsig DPKG is earlier than 1.1.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

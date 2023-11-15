@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:68943224847596661081057848690191607434",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3682-1 c-ares",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "c-ares"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-5180",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5180"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nGzob Qq discovered that the query-building functions in c-ares, an asynchronous DNS request library would not correctly process crafted query names, resulting in a heap buffer overflow and potentially leading to arbitrary code execution.",
+      "dsa": "DSA-3682",
+      "date": "2016-09-30"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2006",
+                "comment": "c-ares DPKG is earlier than 1.10.0-2+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

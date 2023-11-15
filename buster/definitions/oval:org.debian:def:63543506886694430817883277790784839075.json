@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:63543506886694430817883277790784839075",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4772-1 httpcomponents-client",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "httpcomponents-client"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-13956",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-13956"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Priyank Nigam discovered that HttpComponents Client, a Java HTTP agent implementation, could misinterpret malformed authority component in a request URI and pick the wrong target host for request execution.",
+      "dsa": "DSA-4772",
+      "date": "2020-10-14"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27160",
+                "comment": "httpcomponents-client DPKG is earlier than 4.5.7-1+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

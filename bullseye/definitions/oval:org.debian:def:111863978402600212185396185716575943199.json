@@ -1,0 +1,47 @@
+{
+  "id": "oval:org.debian:def:111863978402600212185396185716575943199",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5527-2 webkit2gtk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "webkit2gtk"
+    },
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nThe webkit2gtk update released as 5527-1 introduced a regression that is causing programs such as yelp, liferea or gnucash to stop working in certain cases.",
+      "dsa": "DSA-5527-2",
+      "date": "2023-10-20"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28297",
+                "comment": "webkit2gtk DPKG is earlier than 2.42.1-1~deb11u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

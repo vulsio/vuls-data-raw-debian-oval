@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:127932643334244804364580087625256071687",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-17688 enigmail",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "enigmail"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-17688",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17688"
+      }
+    ],
+    "description": "The OpenPGP specification allows a Cipher Feedback Mode (CFB) malleability-gadget attack that can indirectly lead to plaintext exfiltration, aka EFAIL. NOTE: third parties report that this is a problem in applications that mishandle the Modification Detection Code (MDC) feature or accept an obsolete packet type, not a problem in the OpenPGP specification",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11974",
+                "comment": "enigmail DPKG is earlier than 2:2.0.6.1-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

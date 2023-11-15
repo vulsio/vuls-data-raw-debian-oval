@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:76815598014584341205407164467214327482",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-7298 owncloud-client",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "owncloud-client"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-7298",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-7298"
+      }
+    ],
+    "description": "ownCloud Desktop Client before 2.0.1, when compiled with a Qt release after 5.3.x, does not call QNetworkReply::ignoreSslErrors with the list of errors to be ignored, which makes it easier for remote attackers to conduct man-in-the-middle (MITM) attacks by leveraging a server using a self-signed certificate.  NOTE: this vulnerability exists because of a partial CVE-2015-4456 regression.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7903",
+                "comment": "owncloud-client DPKG is earlier than 2.0.0+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

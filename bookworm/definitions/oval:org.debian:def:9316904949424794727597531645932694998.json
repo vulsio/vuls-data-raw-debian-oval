@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:9316904949424794727597531645932694998",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-7227 pcre3",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "pcre3"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-7227",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-7227"
+      }
+    ],
+    "description": "Integer overflow in Perl-Compatible Regular Expression (PCRE) library before 6.7 allows context-dependent attackers to execute arbitrary code via a regular expression containing a large number of named subpatterns (name_count) or long subpattern names (max_name_size), which triggers a buffer overflow.  NOTE: this issue was originally subsumed by CVE-2006-7224, but that CVE has been REJECTED and split.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1594",
+                "comment": "pcre3 DPKG is earlier than 6.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

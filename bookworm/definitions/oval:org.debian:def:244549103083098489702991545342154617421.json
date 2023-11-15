@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:244549103083098489702991545342154617421",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-6678 netrik",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "netrik"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-6678",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6678"
+      }
+    ],
+    "description": "The edit_textarea function in form-file.c in Netrik 1.15.4 and earlier does not properly verify temporary filenames when editing textarea fields, which allows attackers to execute arbitrary commands via shell metacharacters in the filename.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1569",
+                "comment": "netrik DPKG is earlier than 1.15.3-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

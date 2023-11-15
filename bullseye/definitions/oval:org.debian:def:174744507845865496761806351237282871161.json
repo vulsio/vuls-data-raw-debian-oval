@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:174744507845865496761806351237282871161",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-4894 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-4894",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4894"
+      }
+    ],
+    "description": "Multiple SQL injection vulnerabilities in Wordpress before 2.2.3 and Wordpress multi-user (MU) before 1.2.5a allow remote attackers to execute arbitrary SQL commands via the post_type parameter to the pingback.extensions.getPingbacks method in the XMLRPC interface, and other unspecified parameters related to \"early database escaping\" and missing validation of \"query string like parameters.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2053",
+                "comment": "wordpress DPKG is earlier than 2.2.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

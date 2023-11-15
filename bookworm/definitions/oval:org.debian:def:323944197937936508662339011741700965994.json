@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:323944197937936508662339011741700965994",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2724 cifs-utils",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "cifs-utils"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2724",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2724"
+      }
+    ],
+    "description": "The check_mtab function in client/mount.cifs.c in mount.cifs in smbfs in Samba 3.5.10 and earlier does not properly verify that the (1) device name and (2) mountpoint strings are composed of valid characters, which allows local users to cause a denial of service (mtab corruption) via a crafted string.  NOTE: this vulnerability exists because of an incorrect fix for CVE-2010-0547.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4045",
+                "comment": "cifs-utils DPKG is earlier than 2:5.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

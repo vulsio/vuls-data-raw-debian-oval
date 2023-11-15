@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:211108432941734934518342621844263204558",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-2450 libvncserver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libvncserver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-2450",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2450"
+      }
+    ],
+    "description": "auth.c in LibVNCServer 0.7.1 allows remote attackers to bypass authentication via a request in which the client specifies an insecure security type such as \"Type 1 - None\", which is accepted even if it is not offered by the server, a different issue than CVE-2006-2369.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1295",
+                "comment": "libvncserver DPKG is earlier than 0.8.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

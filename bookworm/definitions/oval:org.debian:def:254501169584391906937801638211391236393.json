@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:254501169584391906937801638211391236393",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-29567 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-29567",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29567"
+      }
+    ],
+    "description": "An issue was discovered in Xen 4.14.x. When moving IRQs between CPUs to distribute the load of IRQ handling, IRQ vectors are dynamically allocated and de-allocated on the relevant CPUs. De-allocation has to happen when certain constraints are met. If these conditions are not met when first checked, the checking CPU may send an interrupt to itself, in the expectation that this IRQ will be delivered only after the condition preventing the cleanup has cleared. For two specific IRQ vectors, this expectation was violated, resulting in a continuous stream of self-interrupts, which renders the CPU effectively unusable. A domain with a passed through PCI device can cause lockup of a physical CPU, resulting in a Denial of Service (DoS) to the entire host. Only x86 systems are vulnerable. Arm systems are not vulnerable. Only guests with physical PCI devices passed through to them can exploit the vulnerability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19019",
+                "comment": "xen DPKG is earlier than 4.14.0+88-g1d1d1f5391-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

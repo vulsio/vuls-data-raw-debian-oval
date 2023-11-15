@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:91470323771345418825758374027142194922",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-12560 cantata",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "cantata"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-12560",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12560"
+      }
+    ],
+    "description": "An issue was discovered in the cantata-mounter D-Bus service in Cantata through 2.3.1. Arbitrary unmounts can be performed by regular users via directory traversal sequences such as a home/../sys/kernel substring.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13430",
+                "comment": "cantata DPKG is earlier than 2.3.0.ds1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

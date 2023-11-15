@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:309790541333344844716546656263406745185",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-4145 network-manager-applet",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "network-manager-applet"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-4145",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4145"
+      }
+    ],
+    "description": "nm-connection-editor in NetworkManager (NM) 0.7.x exports connection objects over D-Bus upon actions in the connection editor GUI, which allows local users to obtain sensitive information by reading D-Bus signals, as demonstrated by using dbus-monitor to discover the password for the WiFi network.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3185",
+                "comment": "network-manager-applet DPKG is earlier than 0.7.2-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:310449524276240650348867061379710957946",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-3389 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-3389",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3389"
+      }
+    ],
+    "description": "Wireshark before 0.99.6 allows remote attackers to cause a denial of service (crash) via a crafted chunked encoding in an HTTP response, possibly related to a zero-length payload.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1850",
+                "comment": "wireshark DPKG is earlier than 0.99.6pre1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

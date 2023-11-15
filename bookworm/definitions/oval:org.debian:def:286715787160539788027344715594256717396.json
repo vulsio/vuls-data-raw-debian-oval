@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:286715787160539788027344715594256717396",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-1558 mutt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mutt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-1558",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1558"
+      }
+    ],
+    "description": "The APOP protocol allows remote attackers to guess the first 3 characters of a password via man-in-the-middle (MITM) attacks that use crafted message IDs and MD5 collisions.  NOTE: this design-level issue potentially affects all products that use APOP, including (1) Thunderbird 1.x before 1.5.0.12 and 2.x before 2.0.0.4, (2) Evolution, (3) mutt, (4) fetchmail before 6.3.8, (5) SeaMonkey 1.0.x before 1.0.9 and 1.1.x before 1.1.2, (6) Balsa 2.3.16 and earlier, (7) Mailfilter before 0.8.2, and possibly other products.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1723",
+                "comment": "mutt DPKG is earlier than 1.5.18-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

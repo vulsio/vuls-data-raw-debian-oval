@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:273935458195639290575200795268926086761",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-31669 wabt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wabt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-31669",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-31669"
+      }
+    ],
+    "description": "WebAssembly wat2wasm v1.0.32 allows attackers to cause a libc++abi.dylib crash by putting '@' before a quote (\").",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25961",
+                "comment": "wabt DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

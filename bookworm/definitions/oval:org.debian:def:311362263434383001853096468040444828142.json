@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:311362263434383001853096468040444828142",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-1797 graphicsmagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "graphicsmagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-1797",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1797"
+      }
+    ],
+    "description": "Multiple integer overflows in ImageMagick before 6.3.3-5 allow remote attackers to execute arbitrary code via (1) a crafted DCM image, which results in a heap-based overflow in the ReadDCMImage function, or (2) the (a) colors or (b) comments field in a crafted XWD image, which results in a heap-based overflow in the ReadXWDImage function, different issues than CVE-2007-1667.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1745",
+                "comment": "graphicsmagick DPKG is earlier than 1.1.7-15"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

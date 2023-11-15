@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:35507553886913175490979732539074008465",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-0578 mpg123",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mpg123"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-0578",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0578"
+      }
+    ],
+    "description": "The http_open function in httpget.c in mpg123 before 0.64 allows remote attackers to cause a denial of service (infinite loop) by closing the HTTP connection early.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1650",
+                "comment": "mpg123 DPKG is earlier than 0.61-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

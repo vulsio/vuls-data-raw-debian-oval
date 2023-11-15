@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:284602343823994652760992515409533751521",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-7555 augeas",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "augeas"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-7555",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7555"
+      }
+    ],
+    "description": "Augeas versions up to and including 1.8.0 are vulnerable to heap-based buffer overflow due to improper handling of escaped strings. Attacker could send crafted strings that would cause the application using augeas to copy past the end of a buffer, leading to a crash or possible code execution.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12703",
+                "comment": "augeas DPKG is earlier than 1.8.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:261332965117354762913331909249275222427",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2825-1 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-7113",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-7113"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-7114",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-7114"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nLaurent Butti and Garming Sam discovered multiple vulnerabilities in the dissectors for NTLMSSPv2 and BSSGP, which could lead to denial of service or the execution of arbitrary code.",
+      "dsa": "DSA-2825",
+      "date": "2013-12-20"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3199",
+                "comment": "wireshark DPKG is earlier than 1.8.2-5wheezy9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:229302048702084085292119936185125308444",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-7674 gdk-pixbuf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "gdk-pixbuf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-7674",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-7674"
+      }
+    ],
+    "description": "Integer overflow in the pixops_scale_nearest function in pixops/pixops.c in gdk-pixbuf before 2.32.1 allows remote attackers to cause a denial of service (application crash) and possibly execute arbitrary code via a crafted GIF image file, which triggers a heap-based buffer overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8443",
+                "comment": "gdk-pixbuf DPKG is earlier than 2.32.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

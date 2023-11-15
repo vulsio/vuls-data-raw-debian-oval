@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:189066850170688433124482868731538183057",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-4091 rsync",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "rsync"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-4091",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4091"
+      }
+    ],
+    "description": "Multiple off-by-one errors in the sender.c in rsync 2.6.9 might allow remote attackers to execute arbitrary code via directory names that are not properly handled when calling the f_name function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1910",
+                "comment": "rsync DPKG is earlier than 2.6.9-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

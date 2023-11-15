@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:126149046677680996053762437168222349474",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3048-1 apt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "apt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-7206",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-7206"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nGuillem Jover discovered that the changelog retrieval functionality in apt-get used temporary files in an insecure way, allowing a local user to cause arbitrary files to be overwritten.",
+      "dsa": "DSA-3048",
+      "date": "2014-10-08"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3405",
+                "comment": "apt DPKG is earlier than 0.9.7.9+deb7u6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

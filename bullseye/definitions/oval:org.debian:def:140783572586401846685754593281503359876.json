@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:140783572586401846685754593281503359876",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-20533 libsolv",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libsolv"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-20533",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20533"
+      }
+    ],
+    "description": "There is a NULL pointer dereference at ext/testcase.c (function testcase_str2dep_complex) in libsolvext.a in libsolv through 0.7.2 that will cause a denial of service.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14776",
+                "comment": "libsolv DPKG is earlier than 0.6.36-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

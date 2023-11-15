@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:138751651129347494646103605338516075694",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-5704 openocd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openocd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-5704",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5704"
+      }
+    ],
+    "description": "Open On-Chip Debugger (OpenOCD) 0.10.0 does not block attempts to use HTTP POST for sending data to 127.0.0.1 port 4444, which allows remote attackers to conduct cross-protocol scripting attacks, and consequently execute arbitrary commands, via a crafted web site.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14708",
+                "comment": "openocd DPKG is earlier than 0.10.0-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

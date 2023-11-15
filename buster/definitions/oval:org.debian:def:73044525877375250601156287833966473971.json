@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:73044525877375250601156287833966473971",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-35498 openvswitch",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "openvswitch"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-35498",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-35498"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Joakim Hindersson discovered that Open vSwitch, a software-based Ethernet virtual switch, allowed a malicious user to cause a denial-of-service by sending a specially crafted packet.",
+      "dsa": "DSA-4852"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19826",
+                "comment": "openvswitch DPKG is earlier than 2.10.7+ds1-0+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

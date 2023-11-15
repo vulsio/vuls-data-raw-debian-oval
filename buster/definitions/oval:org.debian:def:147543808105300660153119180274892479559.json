@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:147543808105300660153119180274892479559",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1400 tex-common",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "tex-common"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1400",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1400"
+      }
+    ],
+    "description": "The default configuration of the shell_escape_commands directive in conf/texmf.d/95NonPath.cnf in the tex-common package before 2.08.1 in Debian GNU/Linux squeeze, Ubuntu 10.10 and 10.04 LTS, and possibly other operating systems lists certain programs, which might allow remote attackers to execute arbitrary code via a crafted TeX document.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4165",
+                "comment": "tex-common DPKG is earlier than 2.09"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

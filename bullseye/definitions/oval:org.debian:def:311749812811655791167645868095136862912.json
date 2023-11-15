@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:311749812811655791167645868095136862912",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-17022 firefox-esr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "firefox-esr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-17022",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17022"
+      }
+    ],
+    "description": "When pasting a &lt;style&gt; tag from the clipboard into a rich text editor, the CSS sanitizer does not escape &lt; and &gt; characters. Because the resulting string is pasted directly into the text node of the element this does not result in a direct injection into the webpage; however, if a webpage subsequently copies the node's innerHTML, assigning it to another innerHTML, this would result in an XSS vulnerability. Two WYSIWYG editors were identified with this behavior, more may exist. This vulnerability affects Firefox ESR < 68.4 and Firefox < 72.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:16664",
+                "comment": "firefox-esr DPKG is earlier than 68.4.0esr-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:285157105765983943133895743885254989748",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4629-1 python-django",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "python-django"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-7471",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7471"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSimon Charette discovered that Django, a high-level Python web development framework, did not properly handle input in its PostgreSQL module. A remote attacker could leverage this to perform SQL injection attacks.",
+      "dsa": "DSA-4629",
+      "date": "2020-02-19"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27028",
+                "comment": "python-django DPKG is earlier than 1:1.11.28-1~deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

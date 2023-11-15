@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:110810951449775025617023332395277107748",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-2299 puppet-module-puppetlabs-apache",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "puppet-module-puppetlabs-apache"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-2299",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-2299"
+      }
+    ],
+    "description": "Versions of the puppetlabs-apache module prior to 1.11.1 and 2.1.0 make it very easy to accidentally misconfigure TLS trust. If you specify the `ssl_ca` parameter but do not specify the `ssl_certs_dir` parameter, a default will be provided for the `ssl_certs_dir` that will trust certificates from any of the system-trusted certificate authorities. This did not affect FreeBSD.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12162",
+                "comment": "puppet-module-puppetlabs-apache DPKG is earlier than 3.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:221922329003916755594777187747800729276",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-15018 lame",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "lame"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-15018",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15018"
+      }
+    ],
+    "description": "LAME 3.99.5, 3.99.4, 3.99.3, 3.99.2, 3.99.1, 3.99, 3.98.4, 3.98.2 and 3.98 have a heap-based buffer over-read when handling a malformed file in k_34_4 in vbrquantize.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11621",
+                "comment": "lame DPKG is earlier than 3.99.5+repack1-8"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

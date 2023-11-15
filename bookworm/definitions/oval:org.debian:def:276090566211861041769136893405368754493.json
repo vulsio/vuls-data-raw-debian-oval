@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:276090566211861041769136893405368754493",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-1000420 syncthing",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "syncthing"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-1000420",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000420"
+      }
+    ],
+    "description": "Syncthing version 0.14.33 and older is vulnerable to symlink traversal resulting in arbitrary file overwrite",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10258",
+                "comment": "syncthing DPKG is earlier than 0.14.36+ds1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

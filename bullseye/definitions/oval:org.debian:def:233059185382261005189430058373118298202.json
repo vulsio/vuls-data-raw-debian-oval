@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:233059185382261005189430058373118298202",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8415 asterisk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "asterisk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8415",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8415"
+      }
+    ],
+    "description": "Race condition in the chan_pjsip channel driver in Asterisk Open Source 12.x before 12.7.1 and 13.x before 13.0.1 allows remote attackers to cause a denial of service (assertion failure and crash) via a cancel request for a SIP session with a queued action to (1) answer a session or (2) send ringing.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7149",
+                "comment": "asterisk DPKG is earlier than 1:13.1.0~dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

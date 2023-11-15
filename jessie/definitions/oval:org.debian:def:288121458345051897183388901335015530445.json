@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:288121458345051897183388901335015530445",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3579-1 xerces-c",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "xerces-c"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-2099",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2099"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nGustavo Grieco discovered an use-after-free vulnerability in xerces-c, a validating XML parser library for C++, due to not properly handling invalid characters in XML input documents in the DTDScanner.",
+      "dsa": "DSA-3579",
+      "date": "2016-05-16"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1639",
+                "comment": "xerces-c DPKG is earlier than 3.1.1-5.1+deb8u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

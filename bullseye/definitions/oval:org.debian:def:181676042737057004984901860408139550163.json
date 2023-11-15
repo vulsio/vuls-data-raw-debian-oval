@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:181676042737057004984901860408139550163",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-3404 gimp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gimp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-3404",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3404"
+      }
+    ],
+    "description": "Buffer overflow in the xcf_load_vector function in app/xcf/xcf-load.c for gimp before 2.2.12 allows user-assisted attackers to cause a denial of service (crash) and possibly execute arbitrary code via an XCF file with a large num_axes value in the VECTORS property.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1390",
+                "comment": "gimp DPKG is earlier than 2.2.11-3.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

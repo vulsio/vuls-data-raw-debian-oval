@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:52017779364377060459500270539621456590",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8476 libphp-phpmailer",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libphp-phpmailer"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8476",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8476"
+      }
+    ],
+    "description": "Multiple CRLF injection vulnerabilities in PHPMailer before 5.2.14 allow attackers to inject arbitrary SMTP commands via CRLF sequences in an (1) email address to the validateAddress function in class.phpmailer.php or (2) SMTP command to the sendCommand function in class.smtp.php, a different vulnerability than CVE-2012-0796.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8092",
+                "comment": "libphp-phpmailer DPKG is earlier than 5.2.14+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

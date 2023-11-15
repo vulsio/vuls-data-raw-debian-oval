@@ -1,0 +1,74 @@
+{
+  "id": "oval:org.debian:def:248871860264316206425084128933151146359",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4060-1 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-11408",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11408"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-13766",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13766"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-17083",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17083"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-17084",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17084"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-17085",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17085"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that wireshark, a network protocol analyzer, contained several vulnerabilities in the dissectors for CIP Safety, IWARP_MPA, NetBIOS, Profinet I/O and AMQP, which result in denial of dervice or the execution of arbitrary code.",
+      "dsa": "DSA-4060",
+      "date": "2017-12-09"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2589",
+                "comment": "wireshark DPKG is earlier than 1.12.1+g01b65bf-4+deb8u12"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

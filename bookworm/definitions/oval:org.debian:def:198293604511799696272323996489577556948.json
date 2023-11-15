@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:198293604511799696272323996489577556948",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2286 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2286",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2286"
+      }
+    ],
+    "description": "The SigComp Universal Decompressor Virtual Machine dissector in Wireshark 0.10.7 through 1.0.13 and 1.2.0 through 1.2.8 allows remote attackers to cause a denial of service (infinite loop) via unknown vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3469",
+                "comment": "wireshark DPKG is earlier than 1.2.9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

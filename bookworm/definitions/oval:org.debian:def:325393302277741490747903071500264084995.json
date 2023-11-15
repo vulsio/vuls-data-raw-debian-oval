@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:325393302277741490747903071500264084995",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-5943 graphite-web",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "graphite-web"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-5943",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5943"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in Graphite before 0.9.11 allow remote attackers to inject arbitrary web script or HTML via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5853",
+                "comment": "graphite-web DPKG is earlier than 0.9.12+debian-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

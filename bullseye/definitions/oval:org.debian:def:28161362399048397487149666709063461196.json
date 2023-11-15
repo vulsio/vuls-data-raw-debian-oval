@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:28161362399048397487149666709063461196",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-0941 libgd2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libgd2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-0941",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0941"
+      }
+    ],
+    "description": "Multiple buffer overflows in the gd graphics library (libgd) 2.0.21 and earlier may allow remote attackers to execute arbitrary code via malformed image files that trigger the overflows due to improper calls to the gdMalloc function, a different set of vulnerabilities than CVE-2004-0990.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:500",
+                "comment": "libgd2 DPKG is earlier than 2.0.33-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

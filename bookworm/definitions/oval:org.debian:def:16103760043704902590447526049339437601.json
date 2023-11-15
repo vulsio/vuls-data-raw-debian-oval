@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:16103760043704902590447526049339437601",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-7814 thunderbird",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "thunderbird"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-7814",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7814"
+      }
+    ],
+    "description": "File downloads encoded with \"blob:\" and \"data:\" URL elements bypassed normal file download checks though the Phishing and Malware Protection feature and its block lists of suspicious sites and files. This would allow malicious sites to lure users into downloading executables that would otherwise be detected as suspicious. This vulnerability affects Firefox < 56, Firefox ESR < 52.4, and Thunderbird < 52.4.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12429",
+                "comment": "thunderbird DPKG is earlier than 1:52.4.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

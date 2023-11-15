@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:76500997750367601837259656152674047974",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-4096 monkeysphere",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "monkeysphere"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-4096",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4096"
+      }
+    ],
+    "description": "share/ma/keys_for_user in Monkeysphere 0.31 and 0.32 allows local users to execute arbitrary code via unknown manipulations related to the \"monkeysphere-authentication keys-for-user\" command.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3792",
+                "comment": "monkeysphere DPKG is earlier than 0.31-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

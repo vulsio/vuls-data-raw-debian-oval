@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:325303197555395474069462785066952627724",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-5733 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-5733",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5733"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in phpMyAdmin 4.0.x before 4.0.10.16, 4.4.x before 4.4.15.7, and 4.6.x before 4.6.3 allow remote attackers to inject arbitrary web script or HTML via vectors involving (1) a crafted table name that is mishandled during privilege checking in table_row.phtml, (2) a crafted mysqld log_bin directive that is mishandled in log_selector.phtml, (3) the Transformation implementation, (4) AJAX error handling in js/ajax.js, (5) the Designer implementation, (6) the charts implementation in js/tbl_chart.js, or (7) the zoom-search implementation in rows_zoom.phtml.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9367",
+                "comment": "phpmyadmin DPKG is earlier than 4:4.6.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

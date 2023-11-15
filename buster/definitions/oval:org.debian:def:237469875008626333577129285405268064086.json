@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:237469875008626333577129285405268064086",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-2346 asterisk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "asterisk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-2346",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2346"
+      }
+    ],
+    "description": "The IAX2 protocol implementation in Asterisk Open Source 1.2.x before 1.2.35, 1.4.x before 1.4.26.2, 1.6.0.x before 1.6.0.15, and 1.6.1.x before 1.6.1.6; Business Edition B.x.x before B.2.5.10, C.2.x before C.2.4.3, and C.3.x before C.3.1.1; and s800i 1.3.x before 1.3.0.3 allows remote attackers to cause a denial of service (call-number exhaustion) by initiating many IAX2 message exchanges, a related issue to CVE-2008-3263.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3118",
+                "comment": "asterisk DPKG is earlier than 1:1.6.2.0~dfsg~beta3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

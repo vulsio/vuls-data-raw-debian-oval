@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:121860131538473353392805544670086081272",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2219-1 xmlsec1",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "xmlsec1"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1425",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1425"
+      }
+    ],
+    "description": "arbitrary file overwrite",
+    "debian": {
+      "moreinfo": "\nNicolas Gregoire discovered that the XML Security Library xmlsec allowed remote attackers to create or overwrite arbitrary files through specially crafted XML files using the libxslt output extension and a ds:Transform element during signature verification.",
+      "dsa": "DSA-2219",
+      "date": "2011-04-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2874",
+                "comment": "xmlsec1 DPKG is earlier than 1.2.14-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

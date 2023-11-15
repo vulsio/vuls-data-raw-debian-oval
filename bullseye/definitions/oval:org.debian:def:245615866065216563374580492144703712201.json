@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:245615866065216563374580492144703712201",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-1293 fex",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "fex"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-1293",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1293"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in fup in Frams' Fast File EXchange (F*EX, aka fex) before 20111129-2 allow remote attackers to inject arbitrary web script or HTML via the (1) to or (2) from parameters.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4682",
+                "comment": "fex DPKG is earlier than 20120215-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

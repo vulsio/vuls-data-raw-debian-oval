@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:138269121370736108366635052743015558332",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-37186 lemonldap-ng",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "lemonldap-ng"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-37186",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-37186"
+      }
+    ],
+    "description": "In LemonLDAP::NG before 2.0.15. some sessions are not deleted when they are supposed to be deleted according to the timeoutActivity setting. This can occur when there are at least two servers, and a session is manually removed before the time at which it would have been removed automatically.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24499",
+                "comment": "lemonldap-ng DPKG is earlier than 2.0.2+ds-7+deb10u8"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

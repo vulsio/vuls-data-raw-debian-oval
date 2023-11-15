@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:334666751004015521838284283823831238667",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-3150 weex",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "weex"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-3150",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3150"
+      }
+    ],
+    "description": "Format string vulnerability in the Log_Flush function in Weex 2.6.1.5, 2.6.1, and possibly other versions allows remote FTP servers to execute arbitrary code via format strings in filenames.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1017",
+                "comment": "weex DPKG is earlier than 2.6.1-6sarge1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:9042948467069579877370778779344651862",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-6412 augeas",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "augeas"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6412",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6412"
+      }
+    ],
+    "description": "The transform_save function in transform.c in Augeas 1.0.0 through 1.1.0 does not properly calculate the permission values when the umask contains a \"7,\" which causes world-writable permissions to be used for new files and allows local users to modify the files via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6146",
+                "comment": "augeas DPKG is earlier than 1.2.0-0.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

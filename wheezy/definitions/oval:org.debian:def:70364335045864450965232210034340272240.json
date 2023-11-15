@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:70364335045864450965232210034340272240",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2448-1 inspircd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "inspircd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-1836",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1836"
+      }
+    ],
+    "description": "buffer overflow",
+    "debian": {
+      "moreinfo": "\nIt was discovered that a heap-based buffer overflow in InspIRCd could allow remote attackers to execute arbitrary code via a crafted DNS query.",
+      "dsa": "DSA-2448",
+      "date": "2012-04-10"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2936",
+                "comment": "inspircd DPKG is earlier than 1.1.22+dfsg-4+wheezy1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

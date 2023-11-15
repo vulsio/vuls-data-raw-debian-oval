@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:313552737336833254793164223181279328342",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3180-1 libarchive",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "libarchive"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2304",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2304"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAlexander Cherepanov discovered that bsdcpio, an implementation of the <q>cpio</q> program part of the libarchive project, is susceptible to a directory traversal vulnerability via absolute paths.",
+      "dsa": "DSA-3180",
+      "date": "2015-03-05"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:576",
+                "comment": "libarchive DPKG is earlier than 3.1.2-11"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

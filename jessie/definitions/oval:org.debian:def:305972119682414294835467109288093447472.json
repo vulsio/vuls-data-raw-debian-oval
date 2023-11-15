@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:305972119682414294835467109288093447472",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3110-1 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9475",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9475"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nA flaw was discovered in mediawiki, a wiki engine: thumb.php outputs wikitext messages as raw HTML, potentially leading to cross-site scripting (XSS).",
+      "dsa": "DSA-3110",
+      "date": "2014-12-23"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:370",
+                "comment": "mediawiki DPKG is earlier than 1:1.19.20+dfsg-2.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

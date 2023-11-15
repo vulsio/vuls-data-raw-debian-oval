@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:196576470672863803751701139733372296688",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8899 dnsmasq",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dnsmasq"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8899",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8899"
+      }
+    ],
+    "description": "Dnsmasq before 2.76 allows remote servers to cause a denial of service (crash) via a reply with an empty DNS address that has an (1) A or (2) AAAA record defined locally.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8569",
+                "comment": "dnsmasq DPKG is earlier than 2.76-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

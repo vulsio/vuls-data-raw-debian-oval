@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:322124557404123616102919854124271476475",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-5298 mutt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mutt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-5298",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5298"
+      }
+    ],
+    "description": "The mutt_adv_mktemp function in the Mutt mail client 1.5.12 and earlier does not properly verify that temporary files have been created with restricted permissions, which might allow local users to create files with weak permissions via a race condition between the mktemp and safe_fopen function calls.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1500",
+                "comment": "mutt DPKG is earlier than 1.5.13-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

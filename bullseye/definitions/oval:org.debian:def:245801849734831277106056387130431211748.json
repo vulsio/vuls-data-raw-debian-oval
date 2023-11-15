@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:245801849734831277106056387130431211748",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-40823 node-matrix-js-sdk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "node-matrix-js-sdk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-40823",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-40823"
+      }
+    ],
+    "description": "A logic error in the room key sharing functionality of matrix-js-sdk (aka Matrix Javascript SDK) before 12.4.1 allows a malicious Matrix homeserver present in an encrypted room to steal room encryption keys (via crafted Matrix protocol messages) that were originally sent by affected Matrix clients participating in that room. This allows the homeserver to decrypt end-to-end encrypted messages sent by affected clients.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22664",
+                "comment": "node-matrix-js-sdk DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

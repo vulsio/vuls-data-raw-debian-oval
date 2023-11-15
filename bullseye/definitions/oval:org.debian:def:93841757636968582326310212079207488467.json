@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:93841757636968582326310212079207488467",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2003-0536 phpsysinfo",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "phpsysinfo"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2003-0536",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0536"
+      }
+    ],
+    "description": "Directory traversal vulnerability in phpSysInfo 2.1 and earlier allows attackers with write access to a local directory to read arbitrary files as the PHP user or cause a denial of service via .. (dot dot) sequences in the (1) template or (2) lng parameters.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:266",
+                "comment": "phpsysinfo DPKG is earlier than 2.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

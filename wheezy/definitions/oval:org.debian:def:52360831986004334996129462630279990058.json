@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:52360831986004334996129462630279990058",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2476-1 pidgin-otr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "pidgin-otr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2369",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2369"
+      }
+    ],
+    "description": "format string vulnerability",
+    "debian": {
+      "moreinfo": "\nintrigeri discovered a format string error in pidgin-otr, an Off-the-Record Messaging plugin for Pidgin.",
+      "dsa": "DSA-2476",
+      "date": "2012-05-19"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2949",
+                "comment": "pidgin-otr DPKG is earlier than 3.2.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

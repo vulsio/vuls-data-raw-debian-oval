@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:183541293478984149938055854811087428168",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5227-1 libgoogle-gson-java",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libgoogle-gson-java"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-25647",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25647"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that Gson, a Java library that can be used to convert Java Objects into their JSON representations and vice versa, was vulnerable to a deserialization flaw. An application would de-serialize untrusted data without sufficiently verifying that the resulting data will be valid, letting the attacker to control the state or the flow of the execution. This can lead to a denial of service or even the execution of arbitrary code.",
+      "dsa": "DSA-5227",
+      "date": "2022-09-07"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28004",
+                "comment": "libgoogle-gson-java DPKG is earlier than 2.8.6-1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

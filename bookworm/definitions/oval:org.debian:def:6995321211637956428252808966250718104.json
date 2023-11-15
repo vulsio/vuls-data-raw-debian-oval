@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:6995321211637956428252808966250718104",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-43090 gnome-shell",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "gnome-shell"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-43090",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-43090"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Mickael Karatekin discovered that the GNOME session locking didn't restrict a keyboard shortcut used for taking screenshots in GNOME Screenshot which could result in information disclosure.",
+      "dsa": "DSA-5501"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26570",
+                "comment": "gnome-shell DPKG is earlier than 43.6-1~deb12u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

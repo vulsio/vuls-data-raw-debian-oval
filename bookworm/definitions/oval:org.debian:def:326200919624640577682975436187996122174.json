@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:326200919624640577682975436187996122174",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-3343 openttd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openttd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-3343",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3343"
+      }
+    ],
+    "description": "Multiple buffer overflows in OpenTTD before 1.1.3 allow local users to cause a denial of service (daemon crash) or possibly gain privileges via (1) a crafted BMP file with RLE compression or (2) crafted dimensions in a BMP file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4123",
+                "comment": "openttd DPKG is earlier than 1.1.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

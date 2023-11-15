@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:260217771540916444072106177367165264339",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-0720 cups",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "cups"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-0720",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0720"
+      }
+    ],
+    "description": "The CUPS service on multiple platforms allows remote attackers to cause a denial of service (service hang) via a \"partially-negotiated\" SSL connection, which prevents other requests from being accepted.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1655",
+                "comment": "cups DPKG is earlier than 1.2.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

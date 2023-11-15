@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:52946706496680295275029838479569317595",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-15143 djvulibre",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "djvulibre"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-15143",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15143"
+      }
+    ],
+    "description": "In DjVuLibre 3.5.27, the bitmap reader component allows attackers to cause a denial-of-service error (resource exhaustion caused by a GBitmap::read_rle_raw infinite loop) by crafting a corrupted image file, related to libdjvu/DjVmDir.cpp and libdjvu/GBitmap.cpp.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15979",
+                "comment": "djvulibre DPKG is earlier than 3.5.27.1-11"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

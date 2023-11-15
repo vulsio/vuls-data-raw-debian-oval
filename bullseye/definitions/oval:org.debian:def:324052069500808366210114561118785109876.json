@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:324052069500808366210114561118785109876",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-0787 wine",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wine"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-0787",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0787"
+      }
+    ],
+    "description": "Wine 20050211 and earlier creates temp files with world readable permissions and predictable file names, which allows local users to obtain sensitive information, such as passwords.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:796",
+                "comment": "wine DPKG is earlier than 0.0.20050310-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

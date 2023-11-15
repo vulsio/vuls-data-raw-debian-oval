@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:92112307009952909008396768746685903562",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-2816 libofx",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libofx"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-2816",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-2816"
+      }
+    ],
+    "description": "An exploitable buffer overflow vulnerability exists in the tag parsing functionality of LibOFX 0.9.11. A specially crafted OFX file can cause a write out of bounds resulting in a buffer overflow on the stack. An attacker can construct a malicious OFX file to trigger this vulnerability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11735",
+                "comment": "libofx DPKG is earlier than 1:0.9.11-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

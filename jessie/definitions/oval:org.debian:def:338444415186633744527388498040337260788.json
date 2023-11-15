@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:338444415186633744527388498040337260788",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3857-1 mysql-connector-java",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "mysql-connector-java"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-3586",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3586"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-3589",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3589"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nTwo vulnerabilities have been found in the MySQL Connector/J JDBC driver.",
+      "dsa": "DSA-3857",
+      "date": "2017-05-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3030",
+                "comment": "mysql-connector-java DPKG is earlier than 5.1.42-1~deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

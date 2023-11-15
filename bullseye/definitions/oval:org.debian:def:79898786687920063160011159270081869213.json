@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:79898786687920063160011159270081869213",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-5025 yaws",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "yaws"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-5025",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-5025"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in the wiki application in Yaws 1.88 allow remote attackers to inject arbitrary web script or HTML via (1) the tag parameter to editTag.yaws, (2) the index parameter to showOldPage.yaws, (3) the node parameter to allRefsToMe.yaws, or (4) the text parameter to editPage.yaws.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4497",
+                "comment": "yaws DPKG is earlier than 1.92-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

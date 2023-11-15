@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:105895085268013175022812260776165895251",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-0295 vlc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "vlc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-0295",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0295"
+      }
+    ],
+    "description": "Heap-based buffer overflow in modules/access/rtsp/real_sdpplin.c in the Xine library, as used in VideoLAN VLC Media Player 0.8.6d and earlier, allows user-assisted remote attackers to cause a denial of service (crash) or execute arbitrary code via long Session Description Protocol (SDP) data.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2275",
+                "comment": "vlc DPKG is earlier than 0.8.6.c-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

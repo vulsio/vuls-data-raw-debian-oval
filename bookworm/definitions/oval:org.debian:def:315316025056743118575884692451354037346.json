@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:315316025056743118575884692451354037346",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-2126 rubygems",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "rubygems"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2126",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2126"
+      }
+    ],
+    "description": "RubyGems before 1.8.23 does not verify an SSL certificate, which allows remote attackers to modify a gem during installation via a man-in-the-middle attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4557",
+                "comment": "rubygems DPKG is earlier than 1.8.24-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

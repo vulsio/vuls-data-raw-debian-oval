@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:227881556380738472516273434154834964605",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4044-1 swauth",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "swauth"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-16613",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16613"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nA vulnerability has been discovered in swauth, an authentication system for Swift, a distributed virtual object store used in Openstack.",
+      "dsa": "DSA-4044",
+      "date": "2017-11-21"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3973",
+                "comment": "swauth DPKG is earlier than 1.2.0-2+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

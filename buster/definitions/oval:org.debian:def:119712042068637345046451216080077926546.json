@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:119712042068637345046451216080077926546",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-6264 uclibc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "uclibc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-6264",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6264"
+      }
+    ],
+    "description": "Integer signedness error in libc/string/arm/memset.S in uClibc and uClibc-ng before 1.0.16 allows context-dependent attackers to cause a denial of service (crash) via a negative length value to the memset function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9954",
+                "comment": "uclibc DPKG is earlier than 1.0.20-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

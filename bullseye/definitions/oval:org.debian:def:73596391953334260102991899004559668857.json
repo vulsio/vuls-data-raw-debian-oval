@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:73596391953334260102991899004559668857",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-4002 cacti",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cacti"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-4002",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4002"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in Cacti 0.8.8b allow remote attackers to inject arbitrary web script or HTML via the (1) drp_action parameter to cdef.php, (2) data_input.php, (3) data_queries.php, (4) data_sources.php, (5) data_templates.php, (6) graph_templates.php, (7) graphs.php, (8) host.php, or (9) host_templates.php or the (10) graph_template_input_id or (11) graph_template_id parameter to graph_templates_inputs.php.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6818",
+                "comment": "cacti DPKG is earlier than 0.8.8b+dfsg-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

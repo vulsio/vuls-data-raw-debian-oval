@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:222965620495811146813615737934453518630",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8786 rabbitmq-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "rabbitmq-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8786",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8786"
+      }
+    ],
+    "description": "The Management plugin in RabbitMQ before 3.6.1 allows remote authenticated users with certain privileges to cause a denial of service (resource consumption) via the (1) lengths_age or (2) lengths_incr parameter.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8514",
+                "comment": "rabbitmq-server DPKG is earlier than 3.6.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:223718742297965294555828691608723794629",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-3196 byacc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "byacc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-3196",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3196"
+      }
+    ],
+    "description": "skeleton.c in yacc does not properly handle reduction of a rule with an empty right hand side, which allows context-dependent attackers to cause an out-of-bounds stack access when the yacc stack pointer points to the end of the stack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2486",
+                "comment": "byacc DPKG is earlier than 20070509-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

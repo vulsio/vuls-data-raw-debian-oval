@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:58355227522561389902680389458859313061",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-1464 request-tracker4",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "request-tracker4"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-1464",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1464"
+      }
+    ],
+    "description": "RT (aka Request Tracker) before 4.0.23 and 4.2.x before 4.2.10 allows remote attackers to hijack sessions via an RSS feed URL.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7342",
+                "comment": "request-tracker4 DPKG is earlier than 4.2.8-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

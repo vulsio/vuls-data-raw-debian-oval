@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:206133272597259588873806131360546979891",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-2893 bochs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "bochs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-2893",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2893"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the bx_ne2k_c::rx_frame function in iodev/ne2k.cc in the emulated NE2000 device in Bochs 2.3 allows local users of the guest operating system to write to arbitrary memory locations and gain privileges on the host operating system via vectors that cause TXCNT register values to exceed the device memory size, aka \"RX Frame heap overflow.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1810",
+                "comment": "bochs DPKG is earlier than 2.3+20070705-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

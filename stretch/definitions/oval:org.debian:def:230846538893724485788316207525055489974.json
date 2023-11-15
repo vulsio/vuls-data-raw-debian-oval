@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:230846538893724485788316207525055489974",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3306-1 pdns",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "pdns"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-5470",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5470"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nToshifumi Sakaguchi discovered that the patch applied to pdns, an authoritative DNS server, fixing  <a href=\"https://security-tracker.debian.org/tracker/CVE-2015-1868\">\\ CVE-2015-1868</a>, was insufficient in some cases, allowing remote attackers to cause a denial of service (service-affecting CPU spikes and in some cases a crash).",
+      "dsa": "DSA-3306",
+      "date": "2015-07-09"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3637",
+                "comment": "pdns DPKG is earlier than 3.4.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

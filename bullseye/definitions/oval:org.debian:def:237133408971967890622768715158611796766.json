@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:237133408971967890622768715158611796766",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-5236 icedtea-web",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "icedtea-web"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-5236",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5236"
+      }
+    ],
+    "description": "It was discovered that the IcedTea-Web used codebase attribute of the <applet> tag on the HTML page that hosts Java applet in the Same Origin Policy (SOP) checks. As the specified codebase does not have to match the applet's actual origin, this allowed malicious site to bypass SOP via spoofed codebase value.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8036",
+                "comment": "icedtea-web DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

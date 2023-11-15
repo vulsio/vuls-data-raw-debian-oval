@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:80832792045589992027626951415341848472",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-10851 pdns-recursor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pdns-recursor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-10851",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10851"
+      }
+    ],
+    "description": "PowerDNS Authoritative Server 3.3.0 up to 4.1.4 excluding 4.1.5 and 4.0.6, and PowerDNS Recursor 3.2 up to 4.1.4 excluding 4.1.5 and 4.0.9, are vulnerable to a memory leak while parsing malformed records that can lead to remote denial of service.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13490",
+                "comment": "pdns-recursor DPKG is earlier than 4.1.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

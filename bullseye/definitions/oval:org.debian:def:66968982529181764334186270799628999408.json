@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:66968982529181764334186270799628999408",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-21699 ipython",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ipython"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-21699",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21699"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "It was discovered that IPython, an enhanced interactive Python shell, executed config files from the current working directory, which could result in cross-user attacks if run from a directory multiple users may write to.",
+      "dsa": "DSA-5065"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23812",
+                "comment": "ipython DPKG is earlier than 7.20.0-1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

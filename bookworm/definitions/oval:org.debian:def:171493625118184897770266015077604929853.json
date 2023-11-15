@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:171493625118184897770266015077604929853",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-11880 kmail",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "kmail"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-11880",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11880"
+      }
+    ],
+    "description": "An issue was discovered in KDE KMail before 19.12.3. By using the proprietary (non-RFC6068) \"mailto?attach=...\" parameter, a website (or other source of mailto links) can make KMail attach local files to a composed email message without showing a warning to the user, as demonstrated by an attach=.bash_history value.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17671",
+                "comment": "kmail DPKG is earlier than 4:20.04.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:206833308016271868073579607169352664988",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2003-0209 snort",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "snort"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2003-0209",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0209"
+      }
+    ],
+    "description": "Integer overflow in the TCP stream reassembly module (stream4) for Snort 2.0 and earlier allows remote attackers to execute arbitrary code via large sequence numbers in packets, which enable a heap-based buffer overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:226",
+                "comment": "snort DPKG is earlier than 2.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

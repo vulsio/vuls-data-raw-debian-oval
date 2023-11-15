@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:43504712337042551438607388574065081209",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-9918 qpdf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "qpdf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-9918",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-9918"
+      }
+    ],
+    "description": "libqpdf.a in QPDF through 8.0.2 mishandles certain \"expected dictionary key but found non-name object\" cases, allowing remote attackers to cause a denial of service (stack exhaustion), related to the QPDFObjectHandle and QPDF_Dictionary classes, because nesting in direct objects is not restricted.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15737",
+                "comment": "qpdf DPKG is earlier than 8.0.2-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:132538873250204140314249232877320524362",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-2763 gimp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gimp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2763",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2763"
+      }
+    ],
+    "description": "Buffer overflow in the readstr_upto function in plug-ins/script-fu/tinyscheme/scheme.c in GIMP 2.6.12 and earlier, and possibly 2.6.13, allows remote attackers to execute arbitrary code via a long string in a command to the script-fu server.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4827",
+                "comment": "gimp DPKG is earlier than 2.8.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

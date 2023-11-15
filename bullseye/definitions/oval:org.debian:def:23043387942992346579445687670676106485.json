@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:23043387942992346579445687670676106485",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-4761 otrs2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "otrs2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-4761",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4761"
+      }
+    ],
+    "description": "The customer-interface ticket-print dialog in Open Ticket Request System (OTRS) before 3.0.0-beta3 does not properly restrict customer-visible data, which allows remote authenticated users to obtain potentially sensitive information from the (1) responsible, (2) owner, (3) accounted time, (4) pending until, and (5) lock fields by reading this dialog.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3872",
+                "comment": "otrs2 DPKG is earlier than 3.0.8+dfsg1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

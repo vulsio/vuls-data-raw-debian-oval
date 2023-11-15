@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:117206661855813636395298575667128269853",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-7031 ceph",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ceph"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-7031",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7031"
+      }
+    ],
+    "description": "The RGW code in Ceph before 10.0.1, when authenticated-read ACL is applied to a bucket, allows remote attackers to list the bucket contents via a URL.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9545",
+                "comment": "ceph DPKG is earlier than 10.2.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

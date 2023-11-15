@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:251079563099712064168529018099695391655",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-12976 git-annex",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "git-annex"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-12976",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12976"
+      }
+    ],
+    "description": "git-annex before 6.20170818 allows remote attackers to execute arbitrary commands via an ssh URL with an initial dash character in the hostname, as demonstrated by an ssh://-eProxyCommand= URL, a related issue to CVE-2017-9800, CVE-2017-12836, CVE-2017-1000116, and CVE-2017-1000117.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10713",
+                "comment": "git-annex DPKG is earlier than 6.20170818-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

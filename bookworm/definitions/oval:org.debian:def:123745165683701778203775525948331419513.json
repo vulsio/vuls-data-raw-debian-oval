@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:123745165683701778203775525948331419513",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-2396 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-2396",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2396"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in MediaWiki 1.4.6 and earlier allows remote attackers to inject arbitrary web script or HTML via a parameter to the page move template.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:908",
+                "comment": "mediawiki DPKG is earlier than 1.4.9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

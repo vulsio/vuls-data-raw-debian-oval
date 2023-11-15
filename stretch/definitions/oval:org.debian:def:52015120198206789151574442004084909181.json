@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:52015120198206789151574442004084909181",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4171-1 ruby-loofah",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "ruby-loofah"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-8048",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8048"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nThe Shopify Application Security Team reported that ruby-loofah, a general library for manipulating and transforming HTML/XML documents and fragments, allows non-whitelisted attributes to be present in sanitized output when input with specially-crafted HTML fragments. This might allow to mount a code injection attack into a browser consuming sanitized output.",
+      "dsa": "DSA-4171",
+      "date": "2018-04-13"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4086",
+                "comment": "ruby-loofah DPKG is earlier than 2.0.3-2+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

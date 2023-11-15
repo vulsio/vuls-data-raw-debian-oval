@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:292666676827388247512788259960874427129",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-3387 xpdf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xpdf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-3387",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3387"
+      }
+    ],
+    "description": "Integer overflow in the StreamPredictor::StreamPredictor function in xpdf 3.02, as used in (1) poppler before 0.5.91, (2) gpdf before 2.8.2, (3) kpdf, (4) kdegraphics, (5) CUPS, (6) PDFedit, and other products, might allow remote attackers to execute arbitrary code via a crafted PDF file that triggers a stack-based buffer overflow in the StreamPredictor::getNextLine function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1914",
+                "comment": "xpdf DPKG is earlier than 3.02-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

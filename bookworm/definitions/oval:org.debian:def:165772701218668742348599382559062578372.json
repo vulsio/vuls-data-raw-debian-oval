@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:165772701218668742348599382559062578372",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-35919 rust-net2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "rust-net2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-35919",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-35919"
+      }
+    ],
+    "description": "An issue was discovered in the net2 crate before 0.2.36 for Rust. It has false expectations about the std::net::SocketAddr memory representation.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19135",
+                "comment": "rust-net2 DPKG is earlier than 0.2.37-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

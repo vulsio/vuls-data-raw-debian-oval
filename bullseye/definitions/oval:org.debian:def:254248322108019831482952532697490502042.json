@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:254248322108019831482952532697490502042",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-12755 kio-extras",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "kio-extras"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-12755",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12755"
+      }
+    ],
+    "description": "fishProtocol::establishConnection in fish/fish.cpp in KDE kio-extras through 20.04.0 makes a cacheAuthentication call even if the user had not set the keepPassword option. This may lead to unintended KWallet storage of a password.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18323",
+                "comment": "kio-extras DPKG is earlier than 4:20.08.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

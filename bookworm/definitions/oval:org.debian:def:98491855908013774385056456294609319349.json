@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:98491855908013774385056456294609319349",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-0130 erlang",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "erlang"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0130",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0130"
+      }
+    ],
+    "description": "lib/crypto/c_src/crypto_drv.c in erlang does not properly check the return value from the OpenSSL DSA_do_verify function, which might allow remote attackers to bypass validation of the certificate chain via a malformed SSL/TLS signature, a similar vulnerability to CVE-2008-5077.  NOTE: a package maintainer disputes this issue, reporting that there is a proper check within the only code that uses the applicable part of crypto_drv.c, and thus \"this report is invalid.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2702",
+                "comment": "erlang DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

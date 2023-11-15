@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:267074710364314909111742030787166137001",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2666 asterisk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "asterisk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2666",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2666"
+      }
+    ],
+    "description": "The default configuration of the SIP channel driver in Asterisk Open Source 1.4.x through 1.4.41.2 and 1.6.2.x through 1.6.2.18.2 does not enable the alwaysauthreject option, which allows remote attackers to enumerate account names by making a series of invalid SIP requests and observing the differences in the responses for different usernames, a different vulnerability than CVE-2011-2536.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4195",
+                "comment": "asterisk DPKG is earlier than 1:1.8.3.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

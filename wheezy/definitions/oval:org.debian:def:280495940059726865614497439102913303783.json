@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:280495940059726865614497439102913303783",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2370-1 unbound",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "unbound"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-4528",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4528"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-4869",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4869"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nIt was discovered that Unbound, a recursive DNS resolver, would crash when processing certain malformed DNS responses from authoritative DNS servers, leading to denial of service.",
+      "dsa": "DSA-2370",
+      "date": "2011-12-22"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:192",
+                "comment": "unbound DPKG is earlier than 1.4.14-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

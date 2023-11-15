@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:78854738033259763112366925016871246971",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-1986 puppet",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "puppet"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-1986",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1986"
+      }
+    ],
+    "description": "Puppet 2.6.x before 2.6.15 and 2.7.x before 2.7.13, and Puppet Enterprise (PE) Users 1.0, 1.1, 1.2.x, 2.0.x, and 2.5.x before 2.5.1 allows remote authenticated users with an authorized SSL key and certain permissions on the puppet master to read arbitrary files via a symlink attack in conjunction with a crafted REST request for a file in a filebucket.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4714",
+                "comment": "puppet DPKG is earlier than 2.7.13-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

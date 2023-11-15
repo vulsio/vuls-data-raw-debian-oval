@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:15089526560444177313775672214338700395",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-5078 enscript",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "enscript"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-5078",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5078"
+      }
+    ],
+    "description": "Multiple buffer overflows in the (1) recognize_eps_file function (src/psgen.c) and (2) tilde_subst function (src/util.c) in GNU enscript 1.6.1, and possibly earlier, might allow remote attackers to execute arbitrary code via an epsf escape sequence with a long filename.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2661",
+                "comment": "enscript DPKG is earlier than 1.6.4-13"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

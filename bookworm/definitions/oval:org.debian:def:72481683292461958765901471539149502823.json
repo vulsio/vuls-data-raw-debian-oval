@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:72481683292461958765901471539149502823",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-29458 zabbix",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "zabbix"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-29458",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-29458"
+      }
+    ],
+    "description": "Duktape is an 3rd-party embeddable JavaScript engine, with a focus on portability and compact footprint. When adding too many values in valstack JavaScript will crash. This issue occurs due to bug in Duktape 2.6 which is an 3rd-party solution that we use.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25806",
+                "comment": "zabbix DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

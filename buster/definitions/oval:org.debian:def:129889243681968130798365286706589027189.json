@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:129889243681968130798365286706589027189",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-0809 sudo",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "sudo"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-0809",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0809"
+      }
+    ],
+    "description": "Format string vulnerability in the sudo_debug function in Sudo 1.8.0 through 1.8.3p1 allows local users to execute arbitrary code via format string sequences in the program name for sudo.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4709",
+                "comment": "sudo DPKG is earlier than 1.8.3p2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

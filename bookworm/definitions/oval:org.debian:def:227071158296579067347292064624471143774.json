@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:227071158296579067347292064624471143774",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-1000022 electrum",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "electrum"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1000022",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000022"
+      }
+    ],
+    "description": "Electrum Technologies GmbH Electrum Bitcoin Wallet version prior to version 3.0.5 contains a Missing Authorization vulnerability in JSONRPC interface that can result in Bitcoin theft, if the user's wallet is not password protected. This attack appear to be exploitable via The victim must visit a web page with specially crafted javascript. This vulnerability appears to have been fixed in 3.0.5.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12893",
+                "comment": "electrum DPKG is earlier than 3.0.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

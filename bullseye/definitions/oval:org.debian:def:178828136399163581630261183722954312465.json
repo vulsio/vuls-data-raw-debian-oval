@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:178828136399163581630261183722954312465",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-5351 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-5351",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5351"
+      }
+    ],
+    "description": "epan/crypt/airpdcap.c in the IEEE 802.11 dissector in Wireshark 1.12.x before 1.12.12 and 2.x before 2.0.4 mishandles the lack of an EAPOL_RSN_KEY, which allows remote attackers to cause a denial of service (application crash) via a crafted packet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9652",
+                "comment": "wireshark DPKG is earlier than 2.0.4+gdd7746e-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:88822111691900845233897323303885837212",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-0751 rails",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "rails"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-0751",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0751"
+      }
+    ],
+    "description": "actionpack/lib/action_dispatch/http/mime_type.rb in Action Pack in Ruby on Rails before 3.2.22.1, 4.0.x and 4.1.x before 4.1.14.1, 4.2.x before 4.2.5.1, and 5.x before 5.0.0.beta1.1 does not properly restrict use of the MIME type cache, which allows remote attackers to cause a denial of service (memory consumption) via a crafted HTTP Accept header.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8678",
+                "comment": "rails DPKG is earlier than 2:4.2.5.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

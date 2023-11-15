@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:222398716695120364004045857947608058499",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-8647 ansible",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ansible"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-8647",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8647"
+      }
+    ],
+    "description": "An input validation vulnerability was found in Ansible's mysql_user module before 2.2.1.0, which may fail to correctly change a password in certain circumstances. Thus the previous password would still be active when it should have been changed.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9818",
+                "comment": "ansible DPKG is earlier than 2.2.0.0-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

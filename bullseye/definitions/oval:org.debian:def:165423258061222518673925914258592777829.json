@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:165423258061222518673925914258592777829",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-3537 cups",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cups"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-3537",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3537"
+      }
+    ],
+    "description": "The web interface in CUPS before 1.7.4 allows local users in the lp group to read arbitrary files via a symlink attack on a file in /var/cache/cups/rss/.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6700",
+                "comment": "cups DPKG is earlier than 1.7.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

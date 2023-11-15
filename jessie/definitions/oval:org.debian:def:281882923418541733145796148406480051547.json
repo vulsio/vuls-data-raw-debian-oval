@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:281882923418541733145796148406480051547",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2779-1 libxml2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "libxml2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2877",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2877"
+      }
+    ],
+    "description": "denial of service",
+    "debian": {
+      "moreinfo": "\nAki Helin of OUSPG discovered many out-of-bounds read issues in libxml2, the GNOME project's XML parser library, which can lead to denial of service issues when handling XML documents that end abruptly. ",
+      "dsa": "DSA-2779",
+      "date": "2013-10-13"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3805",
+                "comment": "libxml2 DPKG is earlier than 2.9.1+dfsg1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

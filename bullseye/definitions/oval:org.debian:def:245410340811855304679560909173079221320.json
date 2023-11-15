@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:245410340811855304679560909173079221320",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-0808 as31",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "as31"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-0808",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0808"
+      }
+    ],
+    "description": "as31 2.3.1-4 does not seed the random number generator and generates predictable temporary file names, which makes it easier for local users to create or truncate files via a symlink attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4573",
+                "comment": "as31 DPKG is earlier than 2.3.1-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

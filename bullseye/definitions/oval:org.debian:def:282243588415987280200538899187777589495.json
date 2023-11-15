@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:282243588415987280200538899187777589495",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-43680 expat",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "expat"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-43680",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-43680"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "A heap use-after-free vulnerability after overeager destruction of a shared DTD in the XML_ExternalEntityParserCreate function in Expat, an XML parsing C library, may result in denial of service or potentially the execution of arbitrary code.",
+      "dsa": "DSA-5266"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25657",
+                "comment": "expat DPKG is earlier than 2.2.10-2+deb11u5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

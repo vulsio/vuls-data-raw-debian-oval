@@ -1,0 +1,47 @@
+{
+  "id": "oval:org.debian:def:31534809691045232449794002846046507849",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3713-1 gst-plugins-bad0.10",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "gst-plugins-bad0.10"
+    },
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nChris Evans discovered that the GStreamer 0.10 plugin to decode NES Sound Format files allowed the execution of arbitrary code. Further details can be found in his advisory at <a href=\"http://scarybeastsecurity.blogspot.de/2016/11/0day-exploit-compromising-linux-desktop.html\">\\ http://scarybeastsecurity.blogspot.de/2016/11/0day-exploit-compromising-linux-desktop.html</a>.",
+      "dsa": "DSA-3713",
+      "date": "2016-11-15"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4405",
+                "comment": "gst-plugins-bad0.10 DPKG is earlier than 0.10.23-7.4+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

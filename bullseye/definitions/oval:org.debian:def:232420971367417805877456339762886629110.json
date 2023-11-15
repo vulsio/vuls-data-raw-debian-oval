@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:232420971367417805877456339762886629110",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-0809 mosquitto",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mosquitto"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-0809",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0809"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Several security vulnerabilities have been discovered in mosquitto, a MQTT compatible message broker, which may be abused for a denial of service attack.",
+      "dsa": "DSA-5511"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26105",
+                "comment": "mosquitto DPKG is earlier than 2.0.11-1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

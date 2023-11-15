@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:89421939530992430145590968523866554598",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-0196 ghostscript",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ghostscript"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0196",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0196"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the big2_decode_symbol_dict function (jbig2_symbol_dict.c) in the JBIG2 decoding library (jbig2dec) in Ghostscript 8.64, and probably earlier versions, allows remote attackers to execute arbitrary code via a PDF file with a JBIG2 symbol dictionary segment with a large run length value.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2828",
+                "comment": "ghostscript DPKG is earlier than 8.64~dfsg-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

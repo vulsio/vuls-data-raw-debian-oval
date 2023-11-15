@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:316801038229693784206419291634384531324",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-3857 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-3857",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3857"
+      }
+    ],
+    "description": "The kernel in Android before 2016-08-05 on Nexus 7 (2013) devices allows attackers to gain privileges via a crafted application, aka internal bug 28522518.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9036",
+                "comment": "linux DPKG is earlier than 4.7.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

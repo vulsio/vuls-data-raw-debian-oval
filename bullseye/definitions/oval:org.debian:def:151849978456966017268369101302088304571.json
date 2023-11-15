@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:151849978456966017268369101302088304571",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-0241 squid",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "squid"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-0241",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0241"
+      }
+    ],
+    "description": "The httpProcessReplyHeader function in http.c for Squid 2.5-STABLE7 and earlier does not properly set the debug context when it is handling \"oversized\" HTTP reply headers, which might allow remote attackers to poison the cache or bypass access controls based on header size.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:735",
+                "comment": "squid DPKG is earlier than 2.5.7-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

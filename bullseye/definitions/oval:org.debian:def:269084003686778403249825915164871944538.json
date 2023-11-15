@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:269084003686778403249825915164871944538",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-0155 perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-0155",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0155"
+      }
+    ],
+    "description": "The PerlIO implementation in Perl 5.8.0, when installed with setuid support (sperl), allows local users to create arbitrary files via the PERLIO_DEBUG variable.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:719",
+                "comment": "perl DPKG is earlier than 5.8.4-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

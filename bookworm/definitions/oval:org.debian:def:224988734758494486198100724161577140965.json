@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:224988734758494486198100724161577140965",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-10324 libosip2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libosip2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-10324",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10324"
+      }
+    ],
+    "description": "In libosip2 in GNU oSIP 4.1.0, a malformed SIP message can lead to a heap buffer overflow in the osip_clrncpy() function defined in osipparser2/osip_port.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8553",
+                "comment": "libosip2 DPKG is earlier than 4.1.0-2.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

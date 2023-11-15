@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:187552688008486944804655090293939418030",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-6613 libcdio",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libcdio"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-6613",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6613"
+      }
+    ],
+    "description": "Stack-based buffer overflow in the print_iso9660_recurse function in iso-info (src/iso-info.c) in GNU Compact Disc Input and Control Library (libcdio) 0.79 and earlier allows context-dependent attackers to cause a denial of service (core dump) and possibly execute arbitrary code via a disk or image that contains a long joilet file name.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2216",
+                "comment": "libcdio DPKG is earlier than 0.78.2+dfsg1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

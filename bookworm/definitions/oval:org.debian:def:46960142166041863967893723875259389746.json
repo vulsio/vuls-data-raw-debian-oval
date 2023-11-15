@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:46960142166041863967893723875259389746",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-3165 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-3165",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3165"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in MediaWiki before 1.4.9 allow remote attackers to inject arbitrary web script or HTML via (1) <math> tags or (2) Extension or <nowiki> sections that \"bypass HTML style attribute restrictions\" that are intended to protect against XSS vulnerabilities in Internet Explorer clients.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:992",
+                "comment": "mediawiki DPKG is earlier than 1.4.9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

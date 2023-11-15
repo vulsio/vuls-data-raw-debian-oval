@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:85410941231657056632614493606461938078",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-4287 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-4287",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4287"
+      }
+    ],
+    "description": "epan/dissectors/packet-mongo.c in the MongoDB dissector in Wireshark 1.8.x before 1.8.2 allows remote attackers to cause a denial of service (loop and CPU consumption) via a small value for a BSON document length.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4997",
+                "comment": "wireshark DPKG is earlier than 1.8.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

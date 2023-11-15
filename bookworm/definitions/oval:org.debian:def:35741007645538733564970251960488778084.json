@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:35741007645538733564970251960488778084",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-7506 spice",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "spice"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-7506",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7506"
+      }
+    ],
+    "description": "spice versions though 0.13 are vulnerable to out-of-bounds memory access when processing specially crafted messages from authenticated attacker to the spice server resulting into crash and/or server memory leak.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12302",
+                "comment": "spice DPKG is earlier than 0.12.8-2.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

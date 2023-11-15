@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:313680180453105474607488693992350161826",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-11742 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-11742",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11742"
+      }
+    ],
+    "description": "An issue was discovered in Xen through 4.13.x, allowing guest OS users to cause a denial of service because of bad continuation handling in GNTTABOP_copy. Grant table operations are expected to return 0 for success, and a negative number for errors. The fix for CVE-2017-12135 introduced a path through grant copy handling where success may be returned to the caller without any action taken. In particular, the status fields of individual operations are left uninitialised, and may result in errant behaviour in the caller of GNTTABOP_copy. A buggy or malicious guest can construct its grant table in such a way that, when a backend domain tries to copy a grant, it hits the incorrect exit path. This returns success to the caller without doing anything, which may cause crashes or other incorrect behaviour.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17650",
+                "comment": "xen DPKG is earlier than 4.11.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

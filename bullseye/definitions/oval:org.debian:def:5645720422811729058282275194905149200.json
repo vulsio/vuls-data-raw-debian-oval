@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:5645720422811729058282275194905149200",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-3449 openvswitch",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "openvswitch"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3449",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3449"
+      }
+    ],
+    "description": "Open vSwitch 1.4.2 uses world writable permissions for (1) /var/lib/openvswitch/pki/controllerca/incoming/ and (2) /var/lib/openvswitch/pki/switchca/incoming/, which allows local users to delete and overwrite arbitrary files.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4924",
+                "comment": "openvswitch DPKG is earlier than 1.4.2+git20120612-8"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

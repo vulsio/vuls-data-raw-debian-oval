@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:281733889203436125135425142871290069925",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4125-1 wavpack",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "wavpack"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-6767",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6767"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-7253",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7253"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-7254",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7254"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nJoonun Jang discovered several problems in wavpack, an audio compression format suite. Incorrect processing of input resulted in several heap- and stack-based buffer overflows, leading to application crash or potential code execution.",
+      "dsa": "DSA-4125",
+      "date": "2018-02-27"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4047",
+                "comment": "wavpack DPKG is earlier than 5.0.0-2+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

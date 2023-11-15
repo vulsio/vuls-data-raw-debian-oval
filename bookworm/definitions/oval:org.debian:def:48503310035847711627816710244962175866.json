@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:48503310035847711627816710244962175866",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-10253 erlang",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "erlang"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-10253",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10253"
+      }
+    ],
+    "description": "An issue was discovered in Erlang/OTP 18.x. Erlang's generation of compiled regular expressions is vulnerable to a heap overflow. Regular expressions using a malformed extpattern can indirectly specify an offset that is used as an array index. This ordinal permits arbitrary regions within the erts_alloc arena to be both read and written to.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8541",
+                "comment": "erlang DPKG is earlier than 1:19.2.1+dfsg-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

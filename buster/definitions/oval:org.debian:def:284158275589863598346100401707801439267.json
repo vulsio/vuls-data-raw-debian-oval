@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:284158275589863598346100401707801439267",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-7437 potrace",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "potrace"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-7437",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-7437"
+      }
+    ],
+    "description": "Multiple integer overflows in potrace 1.11 allow remote attackers to cause a denial of service (crash) via large dimensions in a BMP image, which triggers a buffer overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6460",
+                "comment": "potrace DPKG is earlier than 1.12-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

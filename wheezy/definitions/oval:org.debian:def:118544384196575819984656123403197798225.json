@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:118544384196575819984656123403197798225",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2725-1 tomcat6",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "tomcat6"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3544",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3544"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2067",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2067"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nTwo security issues have been found in the Tomcat servlet and JSP engine:",
+      "dsa": "DSA-2725",
+      "date": "2013-07-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:360",
+                "comment": "tomcat6 DPKG is earlier than 6.0.35-6+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

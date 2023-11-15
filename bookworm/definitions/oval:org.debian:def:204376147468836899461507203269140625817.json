@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:204376147468836899461507203269140625817",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-1539 bsdgames",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "bsdgames"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-1539",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1539"
+      }
+    ],
+    "description": "Multiple buffer overflows in the checkscores function in scores.c in tetris-bsd in bsd-games before 2.17-r1 in Gentoo Linux might allow local users with games group membership to gain privileges by modifying tetris-bsd.scores to contain crafted executable content, which is executed when another user launches tetris-bsd.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1221",
+                "comment": "bsdgames DPKG is earlier than 2.17-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

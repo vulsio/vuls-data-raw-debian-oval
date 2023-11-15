@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:163820179017773114397066050411969507098",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-3995 util-linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "util-linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3995",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "The Qualys Research Labs discovered two vulnerabilities in util-linux's libmount. These flaws allow an unprivileged user to unmount other users' filesystems that are either world-writable themselves or mounted in a world-writable directory  (<a href=\"https://security-tracker.debian.org/tracker/CVE-2021-3996\">\\ CVE-2021-3996</a>), or to unmount FUSE filesystems that belong to certain other  users  (<a href=\"https://security-tracker.debian.org/tracker/CVE-2021-3995\">\\ CVE-2021-3995</a>).",
+      "dsa": "DSA-5055"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22560",
+                "comment": "util-linux DPKG is earlier than 2.36.1-8+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

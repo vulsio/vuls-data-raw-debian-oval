@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:332747848999731537429056543083026244319",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2764 openarena",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "openarena"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2764",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2764"
+      }
+    ],
+    "description": "The FS_CheckFilenameIsNotExecutable function in qcommon/files.c in the ioQuake3 engine 1.36 and earlier, as used in World of Padman, Smokin' Guns, OpenArena, Tremulous, and ioUrbanTerror, does not properly determine dangerous file extensions, which allows remote attackers to execute arbitrary code via a crafted third-party addon that creates a Trojan horse DLL file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4343",
+                "comment": "openarena DPKG is earlier than 0.8.5-5+exp1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

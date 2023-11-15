@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:44438425966775929120143430032515335700",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2789-1 strongswan",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "strongswan"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6075",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6075"
+      }
+    ],
+    "description": "Denial of service and authorization bypass",
+    "debian": {
+      "moreinfo": "\nA vulnerability has been found in the ASN.1 parser of strongSwan, an IKE daemon used to establish IPsec protected links.",
+      "dsa": "DSA-2789",
+      "date": "2013-11-01"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3164",
+                "comment": "strongswan DPKG is earlier than 4.5.2-1.5+deb7u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

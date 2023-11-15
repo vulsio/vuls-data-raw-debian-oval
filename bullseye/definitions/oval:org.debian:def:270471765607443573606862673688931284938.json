@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:270471765607443573606862673688931284938",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-3172 cacti",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cacti"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-3172",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3172"
+      }
+    ],
+    "description": "SQL injection vulnerability in tree.php in Cacti 0.8.8g and earlier allows remote authenticated users to execute arbitrary SQL commands via the parent_id parameter in an item_edit action.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9304",
+                "comment": "cacti DPKG is earlier than 0.8.8g+ds1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

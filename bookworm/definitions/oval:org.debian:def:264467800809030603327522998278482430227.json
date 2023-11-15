@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:264467800809030603327522998278482430227",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-3802 udisks2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "udisks2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3802",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3802"
+      }
+    ],
+    "description": "A vulnerability found in udisks2. This flaw allows an attacker to input a specially crafted image file/USB leading to kernel panic. The highest threat from this vulnerability is to system availability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:21497",
+                "comment": "udisks2 DPKG is earlier than 2.9.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

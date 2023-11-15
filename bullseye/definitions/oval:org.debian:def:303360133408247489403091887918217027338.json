@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:303360133408247489403091887918217027338",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-23481 xrdp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xrdp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23481",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23481"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple security vulnerabilities have been found in xrdp, a remote desktop protocol server. Buffer overflows and out-of-bound writes may cause a denial of service or other unspecified impact.",
+      "dsa": "DSA-5502"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24014",
+                "comment": "xrdp DPKG is earlier than 0.9.21.1-1~deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

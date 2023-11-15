@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:149406261047584677908882780269828285161",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3750-1 libphp-phpmailer",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "libphp-phpmailer"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-10033",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10033"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nDawid Golunski discovered that PHPMailer, a popular library to send email from PHP applications, allowed a remote attacker to execute code if they were able to provide a crafted Sender address.",
+      "dsa": "DSA-3750",
+      "date": "2016-12-31"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1381",
+                "comment": "libphp-phpmailer DPKG is earlier than 5.2.9+dfsg-2+deb8u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

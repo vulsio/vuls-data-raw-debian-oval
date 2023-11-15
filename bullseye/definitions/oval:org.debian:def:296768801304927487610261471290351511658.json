@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:296768801304927487610261471290351511658",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-9122 libquicktime",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libquicktime"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-9122",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9122"
+      }
+    ],
+    "description": "The quicktime_read_moov function in moov.c in libquicktime 1.2.4 allows remote attackers to cause a denial of service (infinite loop and CPU consumption) via a crafted mp4 file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13040",
+                "comment": "libquicktime DPKG is earlier than 2:1.2.4-11"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

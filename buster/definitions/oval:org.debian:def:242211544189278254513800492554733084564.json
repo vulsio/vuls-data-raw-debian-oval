@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:242211544189278254513800492554733084564",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-3688 havp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "havp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-3688",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3688"
+      }
+    ],
+    "description": "sockethandler.cpp in HTTP Antivirus Proxy (HAVP) 0.88 allows remote attackers to cause a denial of service (hang) by connecting to a non-responsive server, which triggers an infinite loop due to an uninitialized variable.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2540",
+                "comment": "havp DPKG is earlier than 0.88-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

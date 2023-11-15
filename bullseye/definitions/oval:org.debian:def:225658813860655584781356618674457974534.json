@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:225658813860655584781356618674457974534",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-0374 libconfig-model-perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libconfig-model-perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-0374",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0374"
+      }
+    ],
+    "description": "lib/Config/Model.pm in Config-Model (aka libconfig-model-perl) before 2.102 allows local users to gain privileges via a crafted model in the current working directory, related to use of . with the INC array.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10523",
+                "comment": "libconfig-model-perl DPKG is earlier than 2.097-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

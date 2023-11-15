@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:215253134588016177414339945038013001419",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-5315 wpa",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wpa"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-5315",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5315"
+      }
+    ],
+    "description": "The eap_pwd_process function in eap_peer/eap_pwd.c in wpa_supplicant 2.x before 2.6 does not validate that the reassembly buffer is large enough for the final fragment when EAP-pwd is enabled in a network configuration profile, which allows remote attackers to cause a denial of service (process termination) via a large final fragment in an EAP-pwd message.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8071",
+                "comment": "wpa DPKG is earlier than 2.3-2.3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

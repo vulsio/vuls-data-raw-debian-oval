@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:54119365513051544161921837670142865282",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-4447 xtrans",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xtrans"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-4447",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4447"
+      }
+    ],
+    "description": "X.Org and XFree86, including libX11, xdm, xf86dga, xinit, xload, xtrans, and xterm, does not check the return values for setuid and seteuid calls when attempting to drop privileges, which might allow local users to gain privileges by causing those calls to fail, such as by exceeding a ulimit.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1452",
+                "comment": "xtrans DPKG is earlier than 1.0.0-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

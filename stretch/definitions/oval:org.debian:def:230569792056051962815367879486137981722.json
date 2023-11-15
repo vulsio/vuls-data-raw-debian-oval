@@ -1,0 +1,69 @@
+{
+  "id": "oval:org.debian:def:230569792056051962815367879486137981722",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4293-1 discount",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "discount"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-11468",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11468"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-11503",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11503"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-11504",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11504"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-12495",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12495"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral heap buffer overflows were found in discount, an implementation of the Markdown markup language, that could be triggered with specially crafted Markdown data and would cause discount to read past the end of internal buffers.",
+      "dsa": "DSA-4293",
+      "date": "2018-09-14"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1991",
+                "comment": "discount DPKG is earlier than 2.2.2-1+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

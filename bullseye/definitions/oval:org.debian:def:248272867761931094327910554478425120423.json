@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:248272867761931094327910554478425120423",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-21227 node-sqlite3",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "node-sqlite3"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-21227",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21227"
+      }
+    ],
+    "description": "The package sqlite3 before 5.0.3 are vulnerable to Denial of Service (DoS) which will invoke the toString function of the passed parameter. If passed an invalid Function object it will throw and crash the V8 engine.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23722",
+                "comment": "node-sqlite3 DPKG is earlier than 5.0.0+ds1-1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

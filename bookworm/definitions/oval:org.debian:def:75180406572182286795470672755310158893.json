@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:75180406572182286795470672755310158893",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-26386 thunderbird",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "thunderbird"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-26386",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-26386"
+      }
+    ],
+    "description": "Previously Firefox for macOS and Linux would download temporary files to a user-specific directory in <code>/tmp</code>, but this behavior was changed to download them to <code>/tmp</code> where they could be affected by other local users. This behavior was reverted to the original, user-specific directory. <br>*This bug only affects Firefox for macOS and Linux. Other operating systems are unaffected.*. This vulnerability affects Firefox ESR < 91.7 and Thunderbird < 91.7.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23277",
+                "comment": "thunderbird DPKG is earlier than 1:91.7.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

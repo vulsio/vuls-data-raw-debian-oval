@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:80125136772190498257864498659263858833",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1947 fetchmail",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "fetchmail"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1947",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1947"
+      }
+    ],
+    "description": "fetchmail 5.9.9 through 6.3.19 does not properly limit the wait time after issuing a (1) STARTTLS or (2) STLS request, which allows remote servers to cause a denial of service (application hang) by acknowledging the request but not sending additional packets.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4129",
+                "comment": "fetchmail DPKG is earlier than 6.3.22-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

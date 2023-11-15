@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:211225806289756159908900938708739086289",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-0996 cscope",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "cscope"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-0996",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0996"
+      }
+    ],
+    "description": "main.c in cscope 15-4 and 15-5 creates temporary files with predictable filenames, which allows local users to overwrite arbitrary files via a symlink attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:532",
+                "comment": "cscope DPKG is earlier than 15.5-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

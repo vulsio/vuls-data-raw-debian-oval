@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:149996808480468012236473149244058454782",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-3758 android-platform-dalvik",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "android-platform-dalvik"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-3758",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3758"
+      }
+    ],
+    "description": "Multiple buffer overflows in libdex/OptInvocation.cpp in DexClassLoader in Android 4.x before 4.4.4, 5.0.x before 5.0.2, 5.1.x before 5.1.1, and 6.x before 2016-07-01 allow attackers to gain privileges via a crafted application that provides a long filename, aka internal bug 27840771.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9361",
+                "comment": "android-platform-dalvik DPKG is earlier than 6.0.1+r55-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

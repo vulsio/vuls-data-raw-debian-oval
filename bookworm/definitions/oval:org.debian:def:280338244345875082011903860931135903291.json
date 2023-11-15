@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:280338244345875082011903860931135903291",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1022 libcgroup",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libcgroup"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1022",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1022"
+      }
+    ],
+    "description": "The cgre_receive_netlink_msg function in daemon/cgrulesengd.c in cgrulesengd in the Control Group Configuration Library (aka libcgroup or libcg) before 0.37.1 does not verify that netlink messages originated in the kernel, which allows local users to bypass intended resource restrictions via a crafted message.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3838",
+                "comment": "libcgroup DPKG is earlier than 0.37.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

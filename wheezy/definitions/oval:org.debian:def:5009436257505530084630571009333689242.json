@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:5009436257505530084630571009333689242",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2916-1 libmms",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "libmms"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-2892",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2892"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAlex Chapman discovered that a buffer overflow in processing <q>MMS over HTTP</q> messages could result in the execution of arbitrary code.",
+      "dsa": "DSA-2916",
+      "date": "2014-04-28"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3278",
+                "comment": "libmms DPKG is earlier than 0.6.2-3+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:46196648103674287630706430555943133662",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-7989 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-7989",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-7989"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in the user list table in WordPress before 4.3.1 allows remote authenticated users to inject arbitrary web script or HTML via a crafted e-mail address, a different vulnerability than CVE-2015-5714.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7998",
+                "comment": "wordpress DPKG is earlier than 4.3.1+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

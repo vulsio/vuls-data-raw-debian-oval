@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:310646378480698563231103000261752099183",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3938-1 libgd2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "libgd2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-7890",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7890"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMatviy Kotoniy reported that the gdImageCreateFromGifCtx() function used to load images from GIF format files in libgd2, a library for programmatic graphics creation and manipulation, does not zero stack allocated color map buffers before their use, which may result in information disclosure if a specially crafted file is processed.",
+      "dsa": "DSA-3938",
+      "date": "2017-08-12"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1726",
+                "comment": "libgd2 DPKG is earlier than 2.2.4-2+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

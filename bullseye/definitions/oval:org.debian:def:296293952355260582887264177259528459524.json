@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:296293952355260582887264177259528459524",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-7027 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-7027",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-7027"
+      }
+    ],
+    "description": "The ieee80211_radiotap_iterator_init function in net/wireless/radiotap.c in the Linux kernel before 3.11.7 does not check whether a frame contains any data outside of the header, which might allow attackers to cause a denial of service (buffer over-read) via a crafted header.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6220",
+                "comment": "linux DPKG is earlier than 3.11.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

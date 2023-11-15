@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:328824941260309774119737470341303787224",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-11446 imagemagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "imagemagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-11446",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11446"
+      }
+    ],
+    "description": "The ReadPESImage function in coders\\pes.c in ImageMagick 7.0.6-1 has an infinite loop vulnerability that can cause CPU exhaustion via a crafted PES file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10398",
+                "comment": "imagemagick DPKG is earlier than 8:6.9.7.4+dfsg-13"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

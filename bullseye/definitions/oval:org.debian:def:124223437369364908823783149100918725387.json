@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:124223437369364908823783149100918725387",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-0056 pam-mysql",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pam-mysql"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-0056",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0056"
+      }
+    ],
+    "description": "Double free vulnerability in the authentication and authentication token alteration code in PAM-MySQL 0.6.x before 0.6.2 and 0.7.x before 0.7pre3 allows remote attackers to cause a denial of service (application crash) and possibly execute arbitrary code via crafted passwords, which lead to a double free of a pointer that was created by the pam_get_item function.  NOTE: this issue only occurs in certain configurations in which there are multiple PAM modules, PAM-MySQL is not evaluated first, and there are no requisite modules before PAM-MySQL.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1156",
+                "comment": "pam-mysql DPKG is earlier than 0.6.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

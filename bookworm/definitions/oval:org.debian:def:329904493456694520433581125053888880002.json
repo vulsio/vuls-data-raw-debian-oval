@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:329904493456694520433581125053888880002",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-4300 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4300",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4300"
+      }
+    ],
+    "description": "The scm_check_creds function in net/core/scm.c in the Linux kernel before 3.11 performs a capability check in an incorrect namespace, which allows local users to gain privileges via PID spoofing.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5642",
+                "comment": "linux DPKG is earlier than 3.11.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

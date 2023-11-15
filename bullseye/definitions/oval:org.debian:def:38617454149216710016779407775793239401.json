@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:38617454149216710016779407775793239401",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-40320 libconfuse",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libconfuse"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-40320",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-40320"
+      }
+    ],
+    "description": "cfg_tilde_expand in confuse.c in libConfuse 3.3 has a heap-based buffer over-read.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25327",
+                "comment": "libconfuse DPKG is earlier than 3.3-2+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

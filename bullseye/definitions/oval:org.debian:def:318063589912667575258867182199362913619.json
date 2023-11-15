@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:318063589912667575258867182199362913619",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-0661 weechat",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "weechat"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0661",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0661"
+      }
+    ],
+    "description": "Wee Enhanced Environment for Chat (WeeChat) 0.2.6 allows remote attackers to cause a denial of service (crash) via an IRC PRIVMSG command containing crafted color codes that trigger an out-of-bounds read.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2868",
+                "comment": "weechat DPKG is earlier than 0.2.6.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

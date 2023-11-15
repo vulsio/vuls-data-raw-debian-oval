@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:147754525076972690395527474320589320689",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-41055 python-nbxmpp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "python-nbxmpp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-41055",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-41055"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "It was discovered that missing input sanitising in python-nbxmpp, a Jabber/XMPP Python library, could result in denial of service in clients based on it (such as Gajim).",
+      "dsa": "DSA-5064"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22685",
+                "comment": "python-nbxmpp DPKG is earlier than 2.0.2-1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:101370027722286993380737289847070643415",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-3086 rails",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "rails"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-3086",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3086"
+      }
+    ],
+    "description": "A certain algorithm in Ruby on Rails 2.1.0 through 2.2.2, and 2.3.x before 2.3.4, leaks information about the complexity of message-digest signature verification in the cookie store, which might allow remote attackers to forge a digest via multiple attempts.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3123",
+                "comment": "rails DPKG is earlier than 2.2.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

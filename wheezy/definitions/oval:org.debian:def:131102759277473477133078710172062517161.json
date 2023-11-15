@@ -1,0 +1,47 @@
+{
+  "id": "oval:org.debian:def:131102759277473477133078710172062517161",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3173-1 libgtk2-perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "libgtk2-perl"
+    },
+    "description": "security update",
+    "debian": {
+      "moreinfo": "It was discovered that libgtk2-perl, a Perl interface to the 2.x series of the Gimp Toolkit library, incorrectly frees memory which GTK+ still holds onto and might access later, leading to denial of service (application crash) or, potentially, to arbitrary code execution.",
+      "dsa": "DSA-3173",
+      "date": "2015-02-25"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3524",
+                "comment": "libgtk2-perl DPKG is earlier than 2:1.244-1+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

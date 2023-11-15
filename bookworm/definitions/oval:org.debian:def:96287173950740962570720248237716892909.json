@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:96287173950740962570720248237716892909",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-0887 gnome-screensaver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "gnome-screensaver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-0887",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0887"
+      }
+    ],
+    "description": "gnome-screensaver before 2.22.1, when a remote authentication server is enabled, crashes upon an unlock attempt during a network outage, which allows physically proximate attackers to gain access to the locked session, a related issue to CVE-2007-1859.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2216",
+                "comment": "gnome-screensaver DPKG is earlier than 2.22.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

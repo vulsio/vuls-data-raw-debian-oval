@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:250426128299715309481345853811506344504",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-4589 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-4589",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4589"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in the Special:Block implementation in the getContribsLink function in SpecialBlockip.php in MediaWiki 1.14.0 and 1.15.0 allows remote attackers to inject arbitrary web script or HTML via the ip parameter.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3333",
+                "comment": "mediawiki DPKG is earlier than 1:1.15.0-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

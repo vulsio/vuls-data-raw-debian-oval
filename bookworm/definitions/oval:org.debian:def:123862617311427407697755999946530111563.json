@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:123862617311427407697755999946530111563",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-7258 ssmtp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ssmtp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-7258",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-7258"
+      }
+    ],
+    "description": "The standardise function in Anibal Monsalve Salazar sSMTP 2.61 and 2.62 allows local users to cause a denial of service (application exit) via an e-mail message containing a long line that begins with a . (dot) character.  NOTE: CVE disputes this issue because it is solely a usability problem for senders of messages with certain long lines, and has no security impact",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2684",
+                "comment": "ssmtp DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

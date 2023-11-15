@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:142211362177848350804702502327792988077",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-2837 libexif",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libexif"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2837",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2837"
+      }
+    ],
+    "description": "The mnote_olympus_entry_get_value function in olympus/mnote-olympus-entry.c in the EXIF Tag Parsing Library (aka libexif) before 0.6.21 allows remote attackers to cause a denial of service (divide-by-zero error) via an image with crafted EXIF tags that are not properly handled during the formatting of EXIF maker note tags.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4854",
+                "comment": "libexif DPKG is earlier than 0.6.20-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

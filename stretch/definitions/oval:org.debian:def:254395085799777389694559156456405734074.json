@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:254395085799777389694559156456405734074",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4052-1 bzr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "bzr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-14176",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14176"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAdam Collard discovered that Bazaar, an easy to use distributed version control system, did not correctly handle maliciously constructed bzr+ssh URLs, allowing a remote attacker to run an arbitrary shell command.",
+      "dsa": "DSA-4052",
+      "date": "2017-11-29"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1060",
+                "comment": "bzr DPKG is earlier than 2.7.0+bzr6619-7+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:85555312787553760789033792781804583854",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-7762 openafs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openafs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-7762",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-7762"
+      }
+    ],
+    "description": "rx/rx.c in OpenAFS before 1.6.15 and 1.7.x before 1.7.33 does not properly initialize the padding of a data structure when constructing an Rx acknowledgement (ACK) packet, which allows remote attackers to obtain sensitive information by (1) conducting a replay attack or (2) sniffing the network.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7969",
+                "comment": "openafs DPKG is earlier than 1.6.15-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

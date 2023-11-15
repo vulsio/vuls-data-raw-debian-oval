@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:300245406688229995101071938324722236537",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-4341 krb5",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "krb5"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-4341",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4341"
+      }
+    ],
+    "description": "MIT Kerberos 5 (aka krb5) before 1.12.2 allows remote attackers to cause a denial of service (buffer over-read and application crash) by injecting invalid tokens into a GSSAPI application session.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6587",
+                "comment": "krb5 DPKG is earlier than 1.12.1+dfsg-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

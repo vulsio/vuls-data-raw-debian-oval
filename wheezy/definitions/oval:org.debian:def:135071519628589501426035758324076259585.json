@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:135071519628589501426035758324076259585",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2839-1 spice",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "spice"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4130",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4130"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4282",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4282"
+      }
+    ],
+    "description": "denial of service",
+    "debian": {
+      "moreinfo": "\nMultiple vulnerabilities have been found in spice, a SPICE protocol client and server library. The Common Vulnerabilities and Exposures project identifies the following issues:",
+      "dsa": "DSA-2839",
+      "date": "2014-01-08"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:886",
+                "comment": "spice DPKG is earlier than 0.11.0-1+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

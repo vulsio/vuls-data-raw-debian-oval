@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:137161143295026942810647983461095774914",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2526 lvm2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "lvm2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2526",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2526"
+      }
+    ],
+    "description": "The cluster logical volume manager daemon (clvmd) in lvm2-cluster in LVM2 before 2.02.72, as used in Red Hat Global File System (GFS) and other products, does not verify client credentials upon a socket connection, which allows local users to cause a denial of service (daemon exit or logical-volume change) or possibly have unspecified other impact via crafted control commands.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3628",
+                "comment": "lvm2 DPKG is earlier than 2.02.66-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

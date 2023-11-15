@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:103615501036833308738230858699687257871",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-17376 nova",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "nova"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-17376",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-17376"
+      }
+    ],
+    "description": "An issue was discovered in Guest.migrate in virt/libvirt/guest.py in OpenStack Nova before 19.3.1, 20.x before 20.3.1, and 21.0.0. By performing a soft reboot of an instance that has previously undergone live migration, a user may gain access to destination host devices that share the same paths as host devices previously referenced by the virtual machine on the source host. This can include block devices that map to different Cinder volumes at the destination than at the source. Only deployments allowing host-based connections (for instance, root and ephemeral devices) are affected.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18979",
+                "comment": "nova DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

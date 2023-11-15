@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:33398907373521824300522469902751114341",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-9575 freeipa",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "freeipa"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9575",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9575"
+      }
+    ],
+    "description": "Ipa versions 4.2.x, 4.3.x before 4.3.3 and 4.4.x before 4.4.3 did not properly check the user's permissions while modifying certificate profiles in IdM's certprofile-mod command. An authenticated, unprivileged attacker could use this flaw to modify profiles to issue certificates with arbitrary naming or key usage information and subsequently use such certificates for other attacks.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10511",
+                "comment": "freeipa DPKG is earlier than 4.4.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

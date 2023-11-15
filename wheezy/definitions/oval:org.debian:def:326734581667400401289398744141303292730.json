@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:326734581667400401289398744141303292730",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2831-1 puppet",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "puppet"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4969",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4969"
+      }
+    ],
+    "description": "insecure temporary files",
+    "debian": {
+      "moreinfo": "\nAn unsafe use of temporary files was discovered in Puppet, a tool for centralized configuration management. An attacker can exploit this  vulnerability and overwrite an arbitrary file in the system.",
+      "dsa": "DSA-2831",
+      "date": "2013-12-31"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3204",
+                "comment": "puppet DPKG is earlier than 2.7.23-1~deb7u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

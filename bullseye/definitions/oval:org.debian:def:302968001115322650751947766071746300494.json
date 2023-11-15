@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:302968001115322650751947766071746300494",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-1059 samba",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "samba"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-1059",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1059"
+      }
+    ],
+    "description": "The winbindd daemon in Samba 3.0.21 to 3.0.21c writes the machine trust account password in cleartext in log files, which allows local users to obtain the password and spoof the server in the domain.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1224",
+                "comment": "samba DPKG is earlier than 3.0.22-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

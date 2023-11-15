@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:145258952986043426953446227003111651649",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-20187 botan",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "botan"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-20187",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20187"
+      }
+    ],
+    "description": "A side-channel issue was discovered in Botan before 2.9.0. An attacker capable of precisely measuring the time taken for ECC key generation may be able to derive information about the high bits of the secret key, as the function to derive the public point from the secret scalar uses an unblinded Montgomery ladder whose loop iteration count depends on the bitlength of the secret. This issue affects only key generation, not ECDSA signatures or ECDH key agreement.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14924",
+                "comment": "botan DPKG is earlier than 2.9.0-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

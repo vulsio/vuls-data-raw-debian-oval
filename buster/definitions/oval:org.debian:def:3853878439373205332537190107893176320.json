@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:3853878439373205332537190107893176320",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-1172 dbus-glib",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "dbus-glib"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-1172",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1172"
+      }
+    ],
+    "description": "DBus-GLib 0.73 disregards the access flag of exported GObject properties, which allows local users to bypass intended access restrictions and possibly cause a denial of service by modifying properties, as demonstrated by properties of the (1) DeviceKit-Power, (2) NetworkManager, and (3) ModemManager services.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3604",
+                "comment": "dbus-glib DPKG is earlier than 0.88-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

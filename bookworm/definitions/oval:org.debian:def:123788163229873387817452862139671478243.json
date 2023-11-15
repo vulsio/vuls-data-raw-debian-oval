@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:123788163229873387817452862139671478243",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-1844 shadow",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "shadow"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-1844",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1844"
+      }
+    ],
+    "description": "The Debian installer for the (1) shadow 4.0.14 and (2) base-config 2.53.10 packages includes sensitive information in world-readable log files, including preseeded passwords and pppoeconf passwords, which might allow local users to gain privileges.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1257",
+                "comment": "shadow DPKG is earlier than 1:4.0.14-9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:211211755243503053301494426899605855269",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-0233 ruby-devise",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ruby-devise"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-0233",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0233"
+      }
+    ],
+    "description": "Devise gem 2.2.x before 2.2.3, 2.1.x before 2.1.3, 2.0.x before 2.0.5, and 1.5.x before 1.5.4 for Ruby, when using certain databases, does not properly perform type conversion when performing database queries, which might allow remote attackers to cause incorrect results to be returned and bypass security checks via unknown vectors, as demonstrated by resetting passwords of arbitrary accounts.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5107",
+                "comment": "ruby-devise DPKG is earlier than 3.4.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

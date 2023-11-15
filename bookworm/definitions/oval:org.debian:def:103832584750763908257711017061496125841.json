@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:103832584750763908257711017061496125841",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-5378 arb",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "arb"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-5378",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5378"
+      }
+    ],
+    "description": "arb-kill in arb 0.0.20071207.1 allows local users to overwrite arbitrary files via a symlink attack on a /tmp/arb_pids_*_* temporary file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2615",
+                "comment": "arb DPKG is earlier than 0.0.20071207.1-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

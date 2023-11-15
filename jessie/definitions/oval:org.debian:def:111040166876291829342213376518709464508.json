@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:111040166876291829342213376518709464508",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4168-1 squirrelmail",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "squirrelmail"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-8741",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8741"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nFlorian Grunow and Birk Kauer of ERNW discovered a path traversal vulnerability in SquirrelMail, a webmail application, allowing an authenticated remote attacker to retrieve or delete arbitrary files via mail attachment.",
+      "dsa": "DSA-4168",
+      "date": "2018-04-08"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3776",
+                "comment": "squirrelmail DPKG is earlier than 2:1.4.23~svn20120406-2+deb8u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

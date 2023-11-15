@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:420138573080582028941506650520498995",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-11749 firefox-esr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "firefox-esr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-11749",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11749"
+      }
+    ],
+    "description": "A vulnerability exists in WebRTC where malicious web content can use probing techniques on the getUserMedia API using constraints to reveal device properties of cameras on the system without triggering a user prompt or notification. This allows for the potential fingerprinting of users. This vulnerability affects Firefox < 69 and Firefox ESR < 68.1.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15413",
+                "comment": "firefox-esr DPKG is earlier than 68.1.0esr-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

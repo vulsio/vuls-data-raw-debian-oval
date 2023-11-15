@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:85032334360455458741973700470594107844",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-21417 fluidsynth",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "fluidsynth"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-21417",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21417"
+      }
+    ],
+    "description": "fluidsynth is a software synthesizer based on the SoundFont 2 specifications. A use after free violation was discovered in fluidsynth, that can be triggered when loading an invalid SoundFont file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20816",
+                "comment": "fluidsynth DPKG is earlier than 1.1.11-1+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

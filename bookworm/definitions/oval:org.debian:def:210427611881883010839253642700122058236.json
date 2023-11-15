@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:210427611881883010839253642700122058236",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-2180 cups",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "cups"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-2180",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-2180"
+      }
+    ],
+    "description": "In ippSetValueTag of ipp.c in Android 8.0, 8.1 and 9, there is a possible out of bounds read due to improper input validation. This could lead to local information disclosure from the printer service with no additional execution privileges needed. User interaction is not needed for exploitation.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:16657",
+                "comment": "cups DPKG is earlier than 2.2.12-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

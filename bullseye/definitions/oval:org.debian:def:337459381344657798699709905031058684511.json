@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:337459381344657798699709905031058684511",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-1391 pound",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pound"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-1391",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1391"
+      }
+    ],
+    "description": "Buffer overflow in the add_port function in APSIS Pound 1.8.2 and earlier allows remote attackers to execute arbitrary code via a long Host HTTP header.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:842",
+                "comment": "pound DPKG is earlier than 1.8.2-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

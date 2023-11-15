@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:164974216572234967910620269378296691838",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-6437 libplist",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libplist"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-6437",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6437"
+      }
+    ],
+    "description": "The base64encode function in base64.c in libimobiledevice libplist 1.12 allows local users to cause a denial of service (out-of-bounds read) via a crafted plist file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12086",
+                "comment": "libplist DPKG is earlier than 1.12+git+1+e37ca00-0.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

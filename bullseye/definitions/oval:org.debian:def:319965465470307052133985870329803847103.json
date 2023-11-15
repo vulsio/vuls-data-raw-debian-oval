@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:319965465470307052133985870329803847103",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-5197 mono",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mono"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-5197",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5197"
+      }
+    ],
+    "description": "Buffer overflow in the Mono.Math.BigInteger class in Mono 1.2.5.1 and earlier allows context-dependent attackers to execute arbitrary code via unspecified vectors related to Reduce in Montgomery-based Pow methods.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2083",
+                "comment": "mono DPKG is earlier than 1.2.5.1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

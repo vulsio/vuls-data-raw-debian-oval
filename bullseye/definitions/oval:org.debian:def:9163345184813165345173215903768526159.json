@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:9163345184813165345173215903768526159",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-0582 evolution-data-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "evolution-data-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0582",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0582"
+      }
+    ],
+    "description": "The ntlm_challenge function in the NTLM SASL authentication mechanism in camel/camel-sasl-ntlm.c in Camel in Evolution Data Server (aka evolution-data-server) 2.24.5 and earlier, and 2.25.92 and earlier 2.25.x versions, does not validate whether a certain length value is consistent with the amount of data in a challenge packet, which allows remote mail servers to read information from the process memory of a client, or cause a denial of service (client crash), via an NTLM authentication type 2 packet with a length value that exceeds the amount of packet data.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2856",
+                "comment": "evolution-data-server DPKG is earlier than 2.26.1.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

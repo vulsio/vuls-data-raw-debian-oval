@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:15511516621779860215929642191981994799",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2003-0366 lyskom-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "lyskom-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2003-0366",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0366"
+      }
+    ],
+    "description": "lyskom-server 2.0.7 and earlier allows unauthenticated users to cause a denial of service (CPU consumption) via a large query.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:249",
+                "comment": "lyskom-server DPKG is earlier than 2.0.7-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

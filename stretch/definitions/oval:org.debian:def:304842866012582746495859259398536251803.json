@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:304842866012582746495859259398536251803",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3974-1 tomcat8",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "tomcat8"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-7674",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7674"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-7675",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7675"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nTwo issues were discovered in the Tomcat servlet and JSP engine.",
+      "dsa": "DSA-3974",
+      "date": "2017-09-15"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1645",
+                "comment": "tomcat8 DPKG is earlier than 8.5.14-1+deb9u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

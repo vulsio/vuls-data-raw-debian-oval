@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:16672286022042160523953564633354012883",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1435 cacti",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cacti"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1435",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1435"
+      }
+    ],
+    "description": "(1) snmp.php and (2) rrd.php in Cacti before 0.8.8b allows remote attackers to execute arbitrary commands via shell metacharacters in unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5414",
+                "comment": "cacti DPKG is earlier than 0.8.8b+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "id": "oval:org.debian:def:229867941381426682671994682084326693715",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5033-1 fort-validator",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "fort-validator"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3907",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3907"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3909",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3909"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-43173",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-43173"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-43114",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-43114"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple vulnerabilities were discovered in the FORT RPKI validator, which could result in denial of service or path traversal.",
+      "dsa": "DSA-5033",
+      "date": "2021-12-30"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27819",
+                "comment": "fort-validator DPKG is earlier than 1.5.3-1~deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

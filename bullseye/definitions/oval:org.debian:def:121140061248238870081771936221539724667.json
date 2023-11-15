@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:121140061248238870081771936221539724667",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8091 xorg-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xorg-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8091",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8091"
+      }
+    ],
+    "description": "X.Org X Window System (aka X11 and X) X11R5 and X.Org Server (aka xserver and xorg-server) before 1.16.3, when using SUN-DES-1 (Secure RPC) authentication credentials, does not check the return value of a malloc call, which allows remote attackers to cause a denial of service (NULL pointer dereference and server crash) via a crafted connection request.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7075",
+                "comment": "xorg-server DPKG is earlier than 2:1.16.2.901-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

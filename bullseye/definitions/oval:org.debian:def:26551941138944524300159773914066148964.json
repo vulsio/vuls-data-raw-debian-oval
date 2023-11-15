@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:26551941138944524300159773914066148964",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1343 cvs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cvs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1343",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1343"
+      }
+    ],
+    "description": "CVS 1.12 and earlier on Debian GNU/Linux does not properly handle when a mapping for the current repository does not exist in the cvs-repouids file, which allows remote attackers to cause a denial of service (server crash).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:594",
+                "comment": "cvs DPKG is earlier than 1:1.12.9-12"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:293688945615240383565849290741681303269",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-0486 xmltooling",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xmltooling"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-0486",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0486"
+      }
+    ],
+    "description": "Shibboleth XMLTooling-C before 1.6.3, as used in Shibboleth Service Provider before 2.6.0 on Windows and other products, mishandles digital signatures of user attribute data, which allows remote attackers to obtain sensitive information or conduct impersonation attacks via a crafted DTD.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12858",
+                "comment": "xmltooling DPKG is earlier than 1.6.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

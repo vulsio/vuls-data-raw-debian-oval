@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:144130796613410611447264349598581519188",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-4393 systemd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "systemd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4393",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4393"
+      }
+    ],
+    "description": "journald in systemd, when the origin of native messages is set to file, allows local users to cause a denial of service (logging service blocking) via a crafted file descriptor.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5691",
+                "comment": "systemd DPKG is earlier than 204-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

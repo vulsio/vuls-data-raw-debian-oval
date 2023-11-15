@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:256012603349128713154319879775723427634",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-13135 x265",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "x265"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-13135",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13135"
+      }
+    ],
+    "description": "A NULL Pointer Dereference exists in VideoLAN x265, as used in libbpg 0.9.7 and other products, because the CUData::initialize function in common/cudata.cpp mishandles memory-allocation failure.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11183",
+                "comment": "x265 DPKG is earlier than 2.6-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

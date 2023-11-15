@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:300365816310312438385959254589638892855",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-0299 paramiko",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "paramiko"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-0299",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0299"
+      }
+    ],
+    "description": "common.py in Paramiko 1.7.1 and earlier, when using threads or forked processes, does not properly use RandomPool, which allows one session to obtain sensitive information from another session by predicting the state of the pool.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2263",
+                "comment": "paramiko DPKG is earlier than 1.6.4-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

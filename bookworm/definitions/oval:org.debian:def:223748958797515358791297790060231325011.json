@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:223748958797515358791297790060231325011",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-1395 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-1395",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1395"
+      }
+    ],
+    "description": "Incomplete blacklist vulnerability in index.php in phpMyAdmin 2.8.0 through 2.9.2 allows remote attackers to conduct cross-site scripting (XSS) attacks by injecting arbitrary JavaScript or HTML in a (1) db or (2) table parameter value followed by an uppercase </SCRIPT> end tag, which bypasses the protection against lowercase </script>.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1703",
+                "comment": "phpmyadmin DPKG is earlier than 4:2.10.0.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

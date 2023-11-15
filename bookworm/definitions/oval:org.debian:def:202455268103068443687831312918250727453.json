@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:202455268103068443687831312918250727453",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-35477 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-35477",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-35477"
+      }
+    ],
+    "description": "MediaWiki before 1.35.1 blocks legitimate attempts to hide log entries in some situations. If one sets MediaWiki:Mainpage to Special:MyLanguage/Main Page, visits a log entry on Special:Log, and toggles the \"Change visibility of selected log entries\" checkbox (or a tags checkbox) next to it, there is a redirection to the main page's action=historysubmit (instead of the desired behavior in which a revision-deletion form appears).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19060",
+                "comment": "mediawiki DPKG is earlier than 1:1.35.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:168331995748089074396876792300616099488",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-2393 dogtag-pki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dogtag-pki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-2393",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-2393"
+      }
+    ],
+    "description": "A flaw was found in pki-core, which could allow a user to get a certificate for another user identity when directory-based authentication is enabled. This flaw allows an authenticated attacker on the adjacent network to impersonate another user within the scope of the domain, but they would not be able to decrypt message content.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24058",
+                "comment": "dogtag-pki DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:70016072693801111801454342133816104910",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2752-1 phpbb3",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "phpbb3"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-5724",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5724"
+      }
+    ],
+    "description": "permissions too wide",
+    "debian": {
+      "moreinfo": "\nAndreas Beckmann discovered that phpBB, a web forum, as installed in Debian, sets incorrect permissions for cached files, allowing a malicious local user to overwrite them.",
+      "dsa": "DSA-2752",
+      "date": "2013-09-07"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3132",
+                "comment": "phpbb3 DPKG is earlier than 3.0.10-4+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

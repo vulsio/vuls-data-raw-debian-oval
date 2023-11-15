@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:62877939323954992631110825251322639474",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-4410 libcgi-simple-perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "libcgi-simple-perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-4410",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4410"
+      }
+    ],
+    "description": "CRLF injection vulnerability in the header function in (1) CGI.pm before 3.50 and (2) Simple.pm in CGI::Simple 1.112 and earlier allows remote attackers to inject arbitrary HTTP headers and conduct HTTP response splitting attacks via vectors related to non-whitespace characters preceded by newline characters, a different vulnerability than CVE-2010-2761 and CVE-2010-3172.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3948",
+                "comment": "libcgi-simple-perl DPKG is earlier than 1.111-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

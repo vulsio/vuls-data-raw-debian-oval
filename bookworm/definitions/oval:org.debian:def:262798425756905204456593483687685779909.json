@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:262798425756905204456593483687685779909",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-3813 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3813",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3813"
+      }
+    ],
+    "description": "The fragment_add_work function in epan/reassemble.c in the packet-reassembly feature in Wireshark 1.12.x before 1.12.5 does not properly determine the defragmentation state in a case of an insufficient snapshot length, which allows remote attackers to cause a denial of service (memory consumption) via a crafted packet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7625",
+                "comment": "wireshark DPKG is earlier than 1.12.5+g5819e5b-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

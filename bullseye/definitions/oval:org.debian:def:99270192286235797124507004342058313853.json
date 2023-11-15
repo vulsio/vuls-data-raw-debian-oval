@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:99270192286235797124507004342058313853",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-3238 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-3238",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3238"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in functions.php in the default theme in WordPress 2.2 allows remote authenticated administrators to inject arbitrary web script or HTML via the PATH_INFO (REQUEST_URI) to wp-admin/themes.php, a different vulnerability than CVE-2007-1622.  NOTE: this might not cross privilege boundaries in some configurations, since the Administrator role has the unfiltered_html capability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1903",
+                "comment": "wordpress DPKG is earlier than 2.2.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

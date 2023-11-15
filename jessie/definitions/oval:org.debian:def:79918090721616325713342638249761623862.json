@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:79918090721616325713342638249761623862",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2836-1 devscripts",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "devscripts"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6888",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6888"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-7325",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-7325"
+      }
+    ],
+    "description": "arbitrary code execution",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities have been discovered in uscan, a tool to scan upstream sites for new releases of packages, which is part of the devscripts package. An attacker controlling a website from which uscan would attempt to download a source tarball could execute arbitrary code with the privileges of the user running uscan.",
+      "dsa": "DSA-2836",
+      "date": "2014-01-05"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:120",
+                "comment": "devscripts DPKG is earlier than 2.13.9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

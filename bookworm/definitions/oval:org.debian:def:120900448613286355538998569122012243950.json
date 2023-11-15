@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:120900448613286355538998569122012243950",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2812 znc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "znc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2812",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2812"
+      }
+    ],
+    "description": "Client.cpp in ZNC 0.092 allows remote attackers to cause a denial of service (exception and daemon crash) via a PING command that lacks an argument.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3542",
+                "comment": "znc DPKG is earlier than 0.092-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

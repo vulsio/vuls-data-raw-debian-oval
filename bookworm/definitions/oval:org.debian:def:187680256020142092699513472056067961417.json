@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:187680256020142092699513472056067961417",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-22212 ntpsec",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ntpsec"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-22212",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22212"
+      }
+    ],
+    "description": "ntpkeygen can generate keys that ntpd fails to parse. NTPsec 1.2.0 allows ntpkeygen to generate keys with '#' characters. ntpd then either pads, shortens the key, or fails to load these keys entirely, depending on the key type and the placement of the '#'. This results in the administrator not being able to use the keys as expected or the keys are shorter than expected and easier to brute-force, possibly resulting in MITM attacks between ntp clients and ntp servers. For short AES128 keys, ntpd generates a warning that it is padding them.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20153",
+                "comment": "ntpsec DPKG is earlier than 1.2.0+dfsg1-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

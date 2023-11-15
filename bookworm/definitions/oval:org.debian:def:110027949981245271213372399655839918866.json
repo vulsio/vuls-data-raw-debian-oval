@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:110027949981245271213372399655839918866",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-1108 evolution",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "evolution"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-1108",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1108"
+      }
+    ],
+    "description": "Buffer overflow in Evolution 2.22.1, when the ITip Formatter plugin is disabled, allows remote attackers to execute arbitrary code via a long timezone string in an iCalendar attachment.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2239",
+                "comment": "evolution DPKG is earlier than 2.22.2-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

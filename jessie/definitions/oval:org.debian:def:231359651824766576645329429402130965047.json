@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:231359651824766576645329429402130965047",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3102-1 libyaml",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "libyaml"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9130",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9130"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nJonathan Gray and Stanislaw Pitucha found an assertion failure in the way wrapped strings are parsed in LibYAML, a fast YAML 1.1 parser and emitter library. An attacker able to load specially crafted YAML input into an application using libyaml could cause the application to crash.",
+      "dsa": "DSA-3102",
+      "date": "2014-12-13"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3912",
+                "comment": "libyaml DPKG is earlier than 0.1.6-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

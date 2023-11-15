@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:228530047364263153335672740661767663797",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3405-1 smokeping",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "smokeping"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-0859",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-0859"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nTero Marttila discovered that the Debian packaging for smokeping installed it in such a way that the CGI implementation of Apache httpd (mod_cgi) passed additional arguments to the smokeping_cgi program, potentially leading to arbitrary code execution in response to crafted HTTP requests.",
+      "dsa": "DSA-3405",
+      "date": "2015-11-25"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2057",
+                "comment": "smokeping DPKG is earlier than 2.6.8-2+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

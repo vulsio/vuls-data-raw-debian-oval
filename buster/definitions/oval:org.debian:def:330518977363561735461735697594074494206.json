@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:330518977363561735461735697594074494206",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1287 nasm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "nasm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1287",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1287"
+      }
+    ],
+    "description": "Buffer overflow in the error function in preproc.c for NASM 0.98.38 1.2 allows attackers to execute arbitrary code via a crafted asm file, a different vulnerability than CVE-2005-1194.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:585",
+                "comment": "nasm DPKG is earlier than 0.98.38-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

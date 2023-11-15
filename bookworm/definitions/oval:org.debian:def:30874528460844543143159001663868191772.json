@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:30874528460844543143159001663868191772",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-32055 mutt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mutt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-32055",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32055"
+      }
+    ],
+    "description": "Mutt 1.11.0 through 2.0.x before 2.0.7 (and NeoMutt 2019-10-25 through 2021-05-04) has a $imap_qresync issue in which imap/util.c has an out-of-bounds read in situations where an IMAP sequence set ends with a comma. NOTE: the $imap_qresync setting for QRESYNC is not enabled by default.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20879",
+                "comment": "mutt DPKG is earlier than 2.0.5-4.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

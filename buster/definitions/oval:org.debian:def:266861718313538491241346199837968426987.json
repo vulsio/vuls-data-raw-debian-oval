@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:266861718313538491241346199837968426987",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-1376 pidgin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "pidgin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-1376",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1376"
+      }
+    ],
+    "description": "Multiple integer overflows in the msn_slplink_process_msg functions in the MSN protocol handler in (1) libpurple/protocols/msn/slplink.c and (2) libpurple/protocols/msnp9/slplink.c in Pidgin (formerly Gaim) before 2.5.6 on 32-bit platforms allow remote attackers to execute arbitrary code via a malformed SLP message with a crafted offset value, leading to buffer overflows.  NOTE: this issue exists because of an incomplete fix for CVE-2008-2927.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3007",
+                "comment": "pidgin DPKG is earlier than 2.5.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

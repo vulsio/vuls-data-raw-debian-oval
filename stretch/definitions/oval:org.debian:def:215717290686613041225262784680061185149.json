@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:215717290686613041225262784680061185149",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3792-1 libreoffice",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "libreoffice"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-3157",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3157"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nBen Hayak discovered that objects embedded in Writer and Calc documents may result in information disclosure. Please see <a href=\"https://www.libreoffice.org/about-us/security/advisories/cve-2017-3157/\"> https://www.libreoffice.org/about-us/security/advisories/cve-2017-3157/</a> for additional information.",
+      "dsa": "DSA-3792",
+      "date": "2017-02-23"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1401",
+                "comment": "libreoffice DPKG is earlier than 1:5.2.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

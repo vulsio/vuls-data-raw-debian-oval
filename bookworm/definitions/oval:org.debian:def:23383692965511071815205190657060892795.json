@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:23383692965511071815205190657060892795",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-0990 sharutils",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "sharutils"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-0990",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0990"
+      }
+    ],
+    "description": "unshar (unshar.c) in sharutils 4.2.1 allows local users to overwrite arbitrary files via a symlink attack on the unsh.X temporary file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:786",
+                "comment": "sharutils DPKG is earlier than 1:4.2.1-13"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

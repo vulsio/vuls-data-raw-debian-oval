@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:193017171924765016859592185399832719920",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-3577 openttd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "openttd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-3577",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3577"
+      }
+    ],
+    "description": "Buffer overflow in src/openttd.cpp in OpenTTD before 0.6.2 allows local users to execute arbitrary code via a large filename supplied to the \"-g\" parameter in the ttd_main function.  NOTE: it is unlikely that this issue would cross privilege boundaries in typical environments.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2513",
+                "comment": "openttd DPKG is earlier than 0.6.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

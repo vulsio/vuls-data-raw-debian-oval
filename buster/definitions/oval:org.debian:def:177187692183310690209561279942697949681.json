@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:177187692183310690209561279942697949681",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-11185 strongswan",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "strongswan"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-11185",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11185"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "A denial of service vulnerability was identified in strongSwan, an IKE/IPsec suite, using Google's OSS-Fuzz fuzzing project.",
+      "dsa": "DSA-3962"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10875",
+                "comment": "strongswan DPKG is earlier than 5.6.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

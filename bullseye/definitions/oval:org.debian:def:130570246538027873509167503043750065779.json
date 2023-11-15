@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:130570246538027873509167503043750065779",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-5032 vlc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "vlc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-5032",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5032"
+      }
+    ],
+    "description": "Stack-based buffer overflow in VideoLAN VLC media player 0.5.0 through 0.9.5 might allow user-assisted attackers to execute arbitrary code via the header of an invalid CUE image file, related to modules/access/vcd/cdrom.c.  NOTE: this identifier originally included an issue related to RealText, but that issue has been assigned a separate identifier, CVE-2008-5036.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2656",
+                "comment": "vlc DPKG is earlier than 0.8.6.h-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:182498793226661212066010738693577264042",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-3621 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-3621",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3621"
+      }
+    ],
+    "description": "CRLF injection vulnerability in phpMyAdmin before 2.6.4-pl4 allows remote attackers to conduct HTTP response splitting attacks via unspecified scripts.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1047",
+                "comment": "phpmyadmin DPKG is earlier than 4:2.6.4-pl4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

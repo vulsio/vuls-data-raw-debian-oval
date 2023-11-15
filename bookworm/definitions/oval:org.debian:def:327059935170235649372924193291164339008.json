@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:327059935170235649372924193291164339008",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-5077 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-5077",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5077"
+      }
+    ],
+    "description": "The sctp_assoc_update function in net/sctp/associola.c in the Linux kernel through 3.15.8, when SCTP authentication is enabled, allows remote attackers to cause a denial of service (NULL pointer dereference and OOPS) by starting to establish an association between two endpoints immediately after an exchange of INIT and INIT ACK chunks to establish an earlier association between these endpoints in the opposite direction.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6642",
+                "comment": "linux DPKG is earlier than 3.14.15-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

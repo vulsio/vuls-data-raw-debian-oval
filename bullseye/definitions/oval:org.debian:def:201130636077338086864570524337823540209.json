@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:201130636077338086864570524337823540209",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-28862 lemonldap-ng",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "lemonldap-ng"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-28862",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-28862"
+      }
+    ],
+    "description": "An issue was discovered in LemonLDAP::NG before 2.16.1. Weak session ID generation in the AuthBasic handler and incorrect failure handling during a password check allow attackers to bypass 2FA verification. Any plugin that tries to deny session creation after the store step does not deny an AuthBasic session.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26712",
+                "comment": "lemonldap-ng DPKG is earlier than 2.0.11+ds-4+deb11u4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

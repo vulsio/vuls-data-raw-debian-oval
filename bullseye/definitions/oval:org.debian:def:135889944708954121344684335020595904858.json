@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:135889944708954121344684335020595904858",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-27768 imagemagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "imagemagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-27768",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27768"
+      }
+    ],
+    "description": "In ImageMagick, there is an outside the range of representable values of type 'unsigned int' at MagickCore/quantum-private.h. This flaw affects ImageMagick versions prior to 7.0.9-0.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19474",
+                "comment": "imagemagick DPKG is earlier than 8:6.9.11.24+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

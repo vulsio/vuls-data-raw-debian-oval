@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:195970570171309108925426044305226180803",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5531-1 roundcube",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "roundcube"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-5631",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-5631"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that roundcube, a skinnable AJAX based webmail solution for IMAP servers, did not properly sanitize HTML messages. This would allow an attacker to load arbitrary JavaScript code.",
+      "dsa": "DSA-5531",
+      "date": "2023-10-23"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26980",
+                "comment": "roundcube DPKG is earlier than 1.6.4+dfsg-1~deb12u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

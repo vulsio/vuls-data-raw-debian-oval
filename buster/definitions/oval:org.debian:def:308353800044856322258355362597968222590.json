@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:308353800044856322258355362597968222590",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-7151 capstone",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "capstone"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-7151",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7151"
+      }
+    ],
+    "description": "Capstone 3.0.4 has an out-of-bounds vulnerability (SEGV caused by a read memory access) in X86_insn_reg_intel in arch/X86/X86Mapping.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10082",
+                "comment": "capstone DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

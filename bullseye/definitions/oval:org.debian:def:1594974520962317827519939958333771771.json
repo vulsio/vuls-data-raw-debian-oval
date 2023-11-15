@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:1594974520962317827519939958333771771",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-6836 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-6836",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6836"
+      }
+    ],
+    "description": "The vmxnet3_complete_packet function in hw/net/vmxnet3.c in QEMU (aka Quick Emulator) allows local guest OS administrators to obtain sensitive host memory information by leveraging failure to initialize the txcq_descr object.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9874",
+                "comment": "qemu DPKG is earlier than 1:2.6+dfsg-3.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:93274569517241833444619290972540073713",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3487-1 libssh2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "libssh2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-0787",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0787"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAndreas Schneider reported that libssh2, a SSH2 client-side library, passes the number of bytes to a function that expects number of bits during the SSHv2 handshake when libssh2 is to get a suitable value for <q>group order</q> in the Diffie-Hellman negotiation. This weakens significantly the handshake security, potentially allowing an eavesdropper with enough resources to decrypt or intercept SSH sessions.",
+      "dsa": "DSA-3487",
+      "date": "2016-02-23"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3754",
+                "comment": "libssh2 DPKG is earlier than 1.4.2-1.1+deb7u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

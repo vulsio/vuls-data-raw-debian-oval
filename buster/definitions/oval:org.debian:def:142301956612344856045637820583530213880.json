@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:142301956612344856045637820583530213880",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-0793 barnowl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "barnowl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-0793",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0793"
+      }
+    ],
+    "description": "Buffer overflow in BarnOwl before 1.5.1 allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a crafted CC: header.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3581",
+                "comment": "barnowl DPKG is earlier than 1.5.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

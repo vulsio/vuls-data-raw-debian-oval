@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:16961035313588305549665537001340406597",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-23408 wolfssl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wolfssl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23408",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23408"
+      }
+    ],
+    "description": "wolfSSL 5.x before 5.1.1 uses non-random IV values in certain situations. This affects connections (without AEAD) using AES-CBC or DES3 with TLS 1.1 or 1.2 or DTLS 1.1 or 1.2. This occurs because of misplaced memory initialization in BuildMessage in internal.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22993",
+                "comment": "wolfssl DPKG is earlier than 5.1.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

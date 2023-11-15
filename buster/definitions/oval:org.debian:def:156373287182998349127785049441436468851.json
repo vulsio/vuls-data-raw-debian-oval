@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:156373287182998349127785049441436468851",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-3209 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3209",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3209"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the PCNET controller in QEMU allows remote attackers to execute arbitrary code by sending a packet with TXSTATUS_STARTPACKET set and then a crafted packet with TXSTATUS_DEVICEOWNS set.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8016",
+                "comment": "qemu DPKG is earlier than 1:2.3+dfsg-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

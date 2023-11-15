@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:338761274766141350632485471634634230591",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-12209 pam-u2f",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pam-u2f"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-12209",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12209"
+      }
+    ],
+    "description": "Yubico pam-u2f 1.0.7 attempts parsing of the configured authfile (default $HOME/.config/Yubico/u2f_keys) as root (unless openasuser was enabled), and does not properly verify that the path lacks symlinks pointing to other files on the system owned by root. If the debug option is enabled in the PAM configuration, part of the file contents of a symlink target will be logged, possibly revealing sensitive information.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15921",
+                "comment": "pam-u2f DPKG is earlier than 1.0.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

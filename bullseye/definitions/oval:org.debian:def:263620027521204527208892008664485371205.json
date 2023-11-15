@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:263620027521204527208892008664485371205",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-0129 libcrypt-openssl-dsa-perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libcrypt-openssl-dsa-perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0129",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0129"
+      }
+    ],
+    "description": "libcrypt-openssl-dsa-perl does not properly check the return value from the OpenSSL DSA_verify and DSA_do_verify functions, which might allow remote attackers to bypass validation of the certificate chain via a malformed SSL/TLS signature, a similar vulnerability to CVE-2008-5077.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2811",
+                "comment": "libcrypt-openssl-dsa-perl DPKG is earlier than 0.13-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

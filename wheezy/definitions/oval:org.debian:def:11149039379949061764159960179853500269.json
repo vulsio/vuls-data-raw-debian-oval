@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:11149039379949061764159960179853500269",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2635-1 cfingerd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "cfingerd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1049",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1049"
+      }
+    ],
+    "description": "buffer overflow",
+    "debian": {
+      "moreinfo": "\nMalcolm Scott discovered a remote-exploitable buffer overflow in the RFC1413 (ident) client of cfingerd, a configurable finger daemon. This vulnerability was introduced in a previously applied patch to the cfingerd package in 1.4.3-3.",
+      "dsa": "DSA-2635",
+      "date": "2013-03-01"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3027",
+                "comment": "cfingerd DPKG is earlier than 1.4.3-3.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

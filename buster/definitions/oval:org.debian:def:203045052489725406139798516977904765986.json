@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:203045052489725406139798516977904765986",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-3519 tor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "tor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3519",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3519"
+      }
+    ],
+    "description": "routerlist.c in Tor before 0.2.2.38 uses a different amount of time for relay-list iteration depending on which relay is chosen, which might allow remote attackers to obtain sensitive information about relay selection via a timing side-channel attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5096",
+                "comment": "tor DPKG is earlier than 0.2.3.20-rc-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

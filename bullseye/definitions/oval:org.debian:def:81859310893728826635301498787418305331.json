@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:81859310893728826635301498787418305331",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-0044 mumble",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mumble"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0044",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0044"
+      }
+    ],
+    "description": "The opus_packet_get_samples_per_frame function in client in Mumble 1.2.4 and the 1.2.3 pre-release snapshots allows remote attackers to cause a denial of service (crash) via a crafted length prefix value, which triggers a NULL pointer dereference or a heap-based buffer over-read (aka \"out-of-bounds array access\").",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6324",
+                "comment": "mumble DPKG is earlier than 1.2.4-0.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

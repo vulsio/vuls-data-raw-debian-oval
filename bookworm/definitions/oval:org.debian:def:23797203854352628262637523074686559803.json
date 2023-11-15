@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:23797203854352628262637523074686559803",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-5007 balsa",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "balsa"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-5007",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5007"
+      }
+    ],
+    "description": "Stack-based buffer overflow in the ir_fetch_seq function in balsa before 2.3.20 might allow remote IMAP servers to execute arbitrary code via a long response to a FETCH command.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1996",
+                "comment": "balsa DPKG is earlier than 2.3.20-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

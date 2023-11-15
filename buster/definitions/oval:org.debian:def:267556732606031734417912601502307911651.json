@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:267556732606031734417912601502307911651",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-4078 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4078",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4078"
+      }
+    ],
+    "description": "epan/dissectors/packet-rdp.c in the RDP dissector in Wireshark 1.8.x before 1.8.8 does not validate return values during checks for data availability, which allows remote attackers to cause a denial of service (application crash) via a crafted packet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5956",
+                "comment": "wireshark DPKG is earlier than 1.10.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

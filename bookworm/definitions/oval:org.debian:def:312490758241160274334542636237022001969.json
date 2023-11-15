@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:312490758241160274334542636237022001969",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5544-1 zookeeper",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "zookeeper"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-44981",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-44981"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Damien Diederen discovered that SASL quorum peer authentication within Zookeeper, a service for maintaining configuration information, was insufficiently enforced in some configurations.",
+      "dsa": "DSA-5544",
+      "date": "2023-10-31"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26992",
+                "comment": "zookeeper DPKG is earlier than 3.8.0-11+deb12u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

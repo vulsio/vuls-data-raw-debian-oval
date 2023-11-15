@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:47501793979857379264076127297332615815",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-1395 im",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "im"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-1395",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1395"
+      }
+    ],
+    "description": "Internet Message (IM) 141-18 and earlier uses predictable file and directory names, which allows local users to (1) obtain unauthorized directory permissions via a temporary directory used by impwagent, and (2) overwrite and create arbitrary files via immknmz.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:120",
+                "comment": "im DPKG is earlier than 1:141-20"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

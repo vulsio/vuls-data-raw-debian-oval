@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:264158962332482302978553642449310213486",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-0843 mapserver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mapserver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0843",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0843"
+      }
+    ],
+    "description": "The msLoadQuery function in mapserv in MapServer 4.x before 4.10.4 and 5.x before 5.2.2 allows remote attackers to determine the existence of arbitrary files via a full pathname in the queryfile parameter, which triggers different error messages depending on whether this pathname exists.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2899",
+                "comment": "mapserver DPKG is earlier than 5.2.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

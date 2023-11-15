@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:212392207921695606310573779706935473224",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-4288 policykit-1",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "policykit-1"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4288",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4288"
+      }
+    ],
+    "description": "Race condition in PolicyKit (aka polkit) allows local users to bypass intended PolicyKit restrictions and gain privileges by starting a setuid or pkexec process before the authorization check is performed, related to (1) the polkit_unix_process_new API function, (2) the dbus API, or (3) the --process (unix-process) option for authorization to pkcheck.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5634",
+                "comment": "policykit-1 DPKG is earlier than 0.105-3+nmu1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

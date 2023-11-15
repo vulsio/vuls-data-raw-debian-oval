@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:195555974397212061966871830932100865807",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4741-1 json-c",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "json-c"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-12762",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12762"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Tobias Stoeckmann discovered an integer overflow in the json-c JSON library, which could result in denial of service or potentially the execution of arbitrary code if large malformed JSON files are processed.",
+      "dsa": "DSA-4741",
+      "date": "2020-08-05"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27130",
+                "comment": "json-c DPKG is earlier than 0.12.1+ds-2+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

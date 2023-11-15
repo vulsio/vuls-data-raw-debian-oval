@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:186361598731174551009598357122055135568",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-0242 mod-wsgi",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mod-wsgi"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0242",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0242"
+      }
+    ],
+    "description": "mod_wsgi module before 3.4 for Apache, when used in embedded mode, might allow remote attackers to obtain sensitive information via the Content-Type header which is generated from memory that may have been freed and then overwritten by a separate thread.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6165",
+                "comment": "mod-wsgi DPKG is earlier than 3.4-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

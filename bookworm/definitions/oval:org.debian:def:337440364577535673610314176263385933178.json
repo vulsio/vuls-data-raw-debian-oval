@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:337440364577535673610314176263385933178",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-4168 iodine",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "iodine"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-4168",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4168"
+      }
+    ],
+    "description": "(1) iodined.c and (2) user.c in iodine before 0.7.0 allows remote attackers to bypass authentication by continuing execution after an error has been triggering.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6577",
+                "comment": "iodine DPKG is earlier than 0.6.0~rc1-19"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:197854808856227992092620534682268326900",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-8811 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-8811",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8811"
+      }
+    ],
+    "description": "The implementation of raw message parameter expansion in MediaWiki before 1.27.4, 1.28.x before 1.28.3, and 1.29.x before 1.29.2 allows HTML mangling attacks.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12949",
+                "comment": "mediawiki DPKG is earlier than 1:1.27.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

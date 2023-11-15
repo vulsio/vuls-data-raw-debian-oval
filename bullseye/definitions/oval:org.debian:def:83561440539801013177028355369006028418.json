@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:83561440539801013177028355369006028418",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-3232 pam",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pam"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-3232",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3232"
+      }
+    ],
+    "description": "pam-auth-update for PAM, as used in Ubuntu 8.10 and 9.4, and Debian GNU/Linux, does not properly handle an \"empty selection\" for system authentication modules in certain rare configurations, which causes any attempt to be successful and allows remote attackers to bypass authentication.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3127",
+                "comment": "pam DPKG is earlier than 1.0.1-10"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

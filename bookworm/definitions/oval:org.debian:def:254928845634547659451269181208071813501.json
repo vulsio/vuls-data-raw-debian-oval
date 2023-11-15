@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:254928845634547659451269181208071813501",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-5587 phppgadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "phppgadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-5587",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5587"
+      }
+    ],
+    "description": "Directory traversal vulnerability in libraries/lib.inc.php in phpPgAdmin 4.2.1 and earlier, when register_globals is enabled, allows remote attackers to read arbitrary files via a .. (dot dot) in the _language parameter to index.php.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2622",
+                "comment": "phppgadmin DPKG is earlier than 4.2.1-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

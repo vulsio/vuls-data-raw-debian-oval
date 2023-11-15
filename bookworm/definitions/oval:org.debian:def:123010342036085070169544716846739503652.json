@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:123010342036085070169544716846739503652",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-12466 open-build-service",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "open-build-service"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-12466",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12466"
+      }
+    ],
+    "description": "openSUSE openbuildservice before 9.2.4 allowed authenticated users to delete packages on specific projects with project links.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13418",
+                "comment": "open-build-service DPKG is earlier than 2.9.4-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

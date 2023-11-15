@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:282427047702440491697979358311141798277",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-28090 tor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "tor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-28090",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28090"
+      }
+    ],
+    "description": "Tor before 0.4.5.7 allows a remote attacker to cause Tor directory authorities to exit with an assertion failure, aka TROVE-2021-002.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20410",
+                "comment": "tor DPKG is earlier than 0.4.5.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

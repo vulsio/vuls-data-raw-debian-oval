@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:192049164990729773255496054372770993830",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-0770 graphicsmagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "graphicsmagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-0770",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0770"
+      }
+    ],
+    "description": "Buffer overflow in GraphicsMagick and ImageMagick allows user-assisted remote attackers to cause a denial of service and possibly execute arbitrary code via a PALM image that is not properly handled by the ReadPALMImage function in coders/palm.c. NOTE: this issue is due to an incomplete patch for CVE-2006-5456.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1706",
+                "comment": "graphicsmagick DPKG is earlier than 1.1.7-12"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

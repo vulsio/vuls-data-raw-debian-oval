@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:82675271125269849868201370142133569389",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-29323 opensmtpd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "opensmtpd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-29323",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-29323"
+      }
+    ],
+    "description": "ascii_load_sockaddr in smtpd in OpenBSD before 7.1 errata 024 and 7.2 before errata 020, and OpenSMTPD Portable before 7.0.0-portable commit f748277, can abort upon a connection from a local, scoped IPv6 address.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25768",
+                "comment": "opensmtpd DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

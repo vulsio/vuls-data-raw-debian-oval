@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:34910855064579121075405386888834700800",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2380-1 foomatic-filters",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "foomatic-filters"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2697",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2697"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2964",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2964"
+      }
+    ],
+    "description": "shell command injection",
+    "debian": {
+      "moreinfo": "\nIt was discovered that the foomatic-filters, a support package for setting up printers, allowed authenticated users to submit crafted print jobs which would execute shell commands on the print servers.",
+      "dsa": "DSA-2380",
+      "date": "2012-01-04"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:120",
+                "comment": "foomatic-filters DPKG is earlier than 4.0.9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

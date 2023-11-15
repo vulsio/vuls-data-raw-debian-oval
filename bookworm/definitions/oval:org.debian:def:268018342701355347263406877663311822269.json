@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:268018342701355347263406877663311822269",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-40400 gerbv",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "gerbv"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-40400",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-40400"
+      }
+    ],
+    "description": "An out-of-bounds read vulnerability exists in the RS-274X aperture macro outline primitive functionality of Gerbv 2.7.0 and dev (commit b5f1eacd) and the forked version of Gerbv (commit d7f42a9a). A specially-crafted Gerber file can lead to information disclosure. An attacker can provide a malicious file to trigger this vulnerability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:21727",
+                "comment": "gerbv DPKG is earlier than 2.9.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

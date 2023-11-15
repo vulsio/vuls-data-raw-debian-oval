@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:286718974016234650223056106963057880087",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-2660 advi",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "advi"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-2660",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2660"
+      }
+    ],
+    "description": "Multiple integer overflows in CamlImages 2.2 might allow context-dependent attackers to execute arbitrary code via images containing large width and height values that trigger a heap-based buffer overflow, related to (1) crafted GIF files (gifread.c) and (2) crafted JPEG files (jpegread.c), a different vulnerability than CVE-2009-2295.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3077",
+                "comment": "advi DPKG is earlier than 1.6.0-15"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

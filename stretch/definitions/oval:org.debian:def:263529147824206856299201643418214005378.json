@@ -1,0 +1,69 @@
+{
+  "id": "oval:org.debian:def:263529147824206856299201643418214005378",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4339-1 ceph",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "ceph"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-7519",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7519"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-10861",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-10861"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1128",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1128"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1129",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1129"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMultiple vulnerabilities were discovered in Ceph, a distributed storage and file system: The cephx authentication protocol was suspectible to replay attacks and calculated signatures incorrectly, <q>ceph mon</q> did not validate capabilities for pool operations (resulting in potential corruption or deletion of snapshot images) and a format string vulnerability in libradosstriper could result in denial of service.",
+      "dsa": "DSA-4339",
+      "date": "2018-11-13"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1948",
+                "comment": "ceph DPKG is earlier than 10.2.11-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:154205492123314104840887193650848514298",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3299-1 stunnel4",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "stunnel4"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3644",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3644"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nJohan Olofsson discovered an authentication bypass vulnerability in Stunnel, a program designed to work as an universal SSL tunnel for network daemons. When Stunnel in server mode is used with the redirect option and certificate-based authentication is enabled with <q>verify = 2</q> or higher, then only the initial connection is redirected to the hosts specified with <q>redirect</q>. This allows a remote attacker to bypass authentication.",
+      "dsa": "DSA-3299",
+      "date": "2015-07-02"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4024",
+                "comment": "stunnel4 DPKG is earlier than 3:5.06-2+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

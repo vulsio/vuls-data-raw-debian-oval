@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:182080517832560171059194706703236738602",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-12980 dokuwiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "dokuwiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-12980",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12980"
+      }
+    ],
+    "description": "DokuWiki through 2017-02-19c has stored XSS when rendering a malicious RSS or Atom feed, in /inc/parser/xhtml.php. An attacker can create or edit a wiki that uses RSS or Atom data from an attacker-controlled server to trigger JavaScript execution. The JavaScript can be in an author field, as demonstrated by the dc:creator element.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10716",
+                "comment": "dokuwiki DPKG is earlier than 0.0.20180422.a-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

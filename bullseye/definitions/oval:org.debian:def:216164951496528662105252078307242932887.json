@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:216164951496528662105252078307242932887",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5334-1 varnish",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "varnish"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-45060",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-45060"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMartin van Kervel Smedshammer discovered that varnish, a state of the art, high-performance web accelerator, is prone to a HTTP/2 request forgery vulnerability.",
+      "dsa": "DSA-5334",
+      "date": "2023-01-29"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28113",
+                "comment": "varnish DPKG is earlier than 6.5.1-1+deb11u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

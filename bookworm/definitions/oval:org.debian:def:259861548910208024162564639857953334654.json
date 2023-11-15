@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:259861548910208024162564639857953334654",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-12922 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-12922",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12922"
+      }
+    ],
+    "description": "A CSRF issue in phpMyAdmin 4.9.0.1 allows deletion of any server in the Setup page.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15564",
+                "comment": "phpmyadmin DPKG is earlier than 4:4.9.1+dfsg1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:99111726204624014497397110720062324327",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-24825 libelfin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libelfin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-24825",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24825"
+      }
+    ],
+    "description": "A vulnerability in the line_table::line_table function of Libelfin v0.3 allows attackers to cause a denial of service (DOS) through a segmentation fault via a crafted ELF file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18562",
+                "comment": "libelfin DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

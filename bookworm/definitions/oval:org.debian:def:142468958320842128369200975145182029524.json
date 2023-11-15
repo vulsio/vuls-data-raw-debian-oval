@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:142468958320842128369200975145182029524",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-28950 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-28950",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28950"
+      }
+    ],
+    "description": "An issue was discovered in fs/fuse/fuse_i.h in the Linux kernel before 5.11.8. A \"stall on CPU\" can occur because a retry loop continually finds the same bad inode, aka CID-775c5033a0d1.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20482",
+                "comment": "linux DPKG is earlier than 5.10.24-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:228521392271060642008367581303608988976",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-3893 kubernetes",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "kubernetes"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-3893",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-3893"
+      }
+    ],
+    "description": "A security issue was discovered in Kubernetes where a user that can \ncreate pods on Windows nodes running kubernetes-csi-proxy may be able to\n escalate to admin privileges on those nodes. Kubernetes clusters are \nonly affected if they include Windows nodes running \nkubernetes-csi-proxy.\n",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27251",
+                "comment": "kubernetes DPKG is earlier than 1.20.5+really1.20.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

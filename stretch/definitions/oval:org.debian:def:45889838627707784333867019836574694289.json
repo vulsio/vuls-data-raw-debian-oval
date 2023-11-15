@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:45889838627707784333867019836574694289",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4356-1 netatalk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "netatalk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1160",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1160"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nJacob Baines discovered a flaw in the handling of the DSI Opensession command in Netatalk, an implementation of the AppleTalk Protocol Suite, allowing an unauthenticated user to execute arbitrary code with root privileges.",
+      "dsa": "DSA-4356",
+      "date": "2018-12-20"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4260",
+                "comment": "netatalk DPKG is earlier than 2.2.5-2+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

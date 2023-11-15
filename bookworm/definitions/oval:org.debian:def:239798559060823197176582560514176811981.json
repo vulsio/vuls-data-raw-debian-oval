@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:239798559060823197176582560514176811981",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-1558 mplayer",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mplayer"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-1558",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1558"
+      }
+    ],
+    "description": "Uncontrolled array index in the sdpplin_parse function in stream/realrtsp/sdpplin.c in MPlayer 1.0 rc2 allows remote attackers to overwrite memory and execute arbitrary code via a large streamid SDP parameter.  NOTE: this issue has been referred to as an integer overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2278",
+                "comment": "mplayer DPKG is earlier than 1.0~rc2-10"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

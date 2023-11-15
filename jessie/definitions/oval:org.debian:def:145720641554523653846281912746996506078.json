@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:145720641554523653846281912746996506078",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3272-1 ipsec-tools",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "ipsec-tools"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-4047",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4047"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nJavantea discovered a NULL pointer dereference flaw in racoon, the Internet Key Exchange daemon of ipsec-tools. A remote attacker can use this flaw to cause the IKE daemon to crash via specially crafted UDP packets, resulting in a denial of service.",
+      "dsa": "DSA-3272",
+      "date": "2015-05-23"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:748",
+                "comment": "ipsec-tools DPKG is earlier than 1:0.8.2+20140711-2+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

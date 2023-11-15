@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:94983772601214369387526425151276730988",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-0217 prosody",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "prosody"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-0217",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0217"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Matthew Wild discovered that the WebSockets code in Prosody, a lightweight Jabber/XMPP server, was susceptible to denial of service.",
+      "dsa": "DSA-5047"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22861",
+                "comment": "prosody DPKG is earlier than 0.11.2-1+deb10u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

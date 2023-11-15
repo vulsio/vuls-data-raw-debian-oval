@@ -1,0 +1,69 @@
+{
+  "id": "oval:org.debian:def:89703193968761636439403206339406666280",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5214-1 kicad",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "kicad"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23803",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23803"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23804",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23804"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23946",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23946"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23947",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23947"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple buffer overflows were discovered in Kicad, a suite of programs for the creation of printed circuit boards, which could result in the execution of arbitrary code if malformed Gerber/Excellon files.",
+      "dsa": "DSA-5214",
+      "date": "2022-08-21"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27991",
+                "comment": "kicad DPKG is earlier than 5.1.9+dfsg1-1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

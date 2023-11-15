@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:26149405887076396432549662114299751164",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-4406 accountsservice",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "accountsservice"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-4406",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4406"
+      }
+    ],
+    "description": "The Ubuntu AccountsService package before 0.6.14-1git1ubuntu1.1 does not properly drop privileges when changing language settings, which allows local users to modify arbitrary files via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4252",
+                "comment": "accountsservice DPKG is earlier than 0.6.15-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

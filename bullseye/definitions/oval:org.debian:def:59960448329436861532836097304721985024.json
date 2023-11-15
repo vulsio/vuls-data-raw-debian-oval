@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:59960448329436861532836097304721985024",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-9317 libgd2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libgd2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9317",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9317"
+      }
+    ],
+    "description": "The gdImageCreate function in the GD Graphics Library (aka libgd) before 2.2.4 allows remote attackers to cause a denial of service (system hang) via an oversized image.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10281",
+                "comment": "libgd2 DPKG is earlier than 2.2.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

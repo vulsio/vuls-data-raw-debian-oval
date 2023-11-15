@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:337503626483451731174304189810079984968",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4093-1 openocd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "openocd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-5704",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5704"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nJosef Gajdusek discovered that OpenOCD, a JTAG debugger for ARM and MIPS, was vulnerable to Cross Protocol Scripting attacks. An attacker could craft a HTML page that, when visited by a victim running OpenOCD, could execute arbitrary commands on the victims host.",
+      "dsa": "DSA-4093",
+      "date": "2018-01-21"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4017",
+                "comment": "openocd DPKG is earlier than 0.9.0-1+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

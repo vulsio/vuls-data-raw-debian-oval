@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:326083539674945775953665922743034517640",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-28242 asterisk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "asterisk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-28242",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28242"
+      }
+    ],
+    "description": "An issue was discovered in Asterisk Open Source 13.x before 13.37.1, 16.x before 16.14.1, 17.x before 17.8.1, and 18.x before 18.0.1 and Certified Asterisk before 16.8-cert5. If Asterisk is challenged on an outbound INVITE and the nonce is changed in each response, Asterisk will continually send INVITEs in a loop. This causes Asterisk to consume more and more memory since the transaction will never terminate (even if the call is hung up), ultimately leading to a restart or shutdown of Asterisk. Outbound authentication must be configured on the endpoint for this to occur.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19671",
+                "comment": "asterisk DPKG is earlier than 1:16.15.0~dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

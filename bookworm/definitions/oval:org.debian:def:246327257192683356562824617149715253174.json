@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:246327257192683356562824617149715253174",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-25599 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-25599",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25599"
+      }
+    ],
+    "description": "An issue was discovered in Xen through 4.14.x. There are evtchn_reset() race conditions. Uses of EVTCHNOP_reset (potentially by a guest on itself) or XEN_DOMCTL_soft_reset (by itself covered by XSA-77) can lead to the violation of various internal assumptions. This may lead to out of bounds memory accesses or triggering of bug checks. In particular, x86 PV guests may be able to elevate their privilege to that of the host. Host and guest crashes are also possible, leading to a Denial of Service (DoS). Information leaks cannot be ruled out. All Xen versions from 4.5 onwards are vulnerable. Xen versions 4.4 and earlier are not vulnerable.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18600",
+                "comment": "xen DPKG is earlier than 4.14.0+80-gd101b417b7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

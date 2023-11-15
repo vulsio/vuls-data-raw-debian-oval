@@ -1,0 +1,74 @@
+{
+  "id": "oval:org.debian:def:289116696205734039661852461616514737234",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4074-1 imagemagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "imagemagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-12877",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12877"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-16546",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16546"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-17499",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17499"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-17504",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17504"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-17879",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17879"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nThis update fixes several vulnerabilities in imagemagick: Various memory handling problems and cases of missing or incomplete input sanitising may result in denial of service, memory disclosure or the execution of arbitrary code if malformed image files are processed.",
+      "dsa": "DSA-4074",
+      "date": "2017-12-28"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1337",
+                "comment": "imagemagick DPKG is earlier than 8:6.9.7.4+dfsg-11+deb9u4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

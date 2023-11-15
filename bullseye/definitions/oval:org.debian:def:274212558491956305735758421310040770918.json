@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:274212558491956305735758421310040770918",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-19790 symfony",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "symfony"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-19790",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19790"
+      }
+    ],
+    "description": "An open redirect was discovered in Symfony 2.7.x before 2.7.50, 2.8.x before 2.8.49, 3.x before 3.4.20, 4.0.x before 4.0.15, 4.1.x before 4.1.9 and 4.2.x before 4.2.1. By using backslashes in the `_failure_path` input field of login forms, an attacker can work around the redirection target restrictions and effectively redirect the user to any domain after login.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14612",
+                "comment": "symfony DPKG is earlier than 3.4.20+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

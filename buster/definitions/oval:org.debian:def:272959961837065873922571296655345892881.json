@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:272959961837065873922571296655345892881",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-3870 samba",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "samba"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-3870",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3870"
+      }
+    ],
+    "description": "A vulnerability was found in Samba from version (including) 4.9 to versions before 4.9.6 and 4.10.2. During the creation of a new Samba AD DC, files are created in a private subdirectory of the install location. This directory is typically mode 0700, that is owner (root) only access. However in some upgraded installations it will have other permissions, such as 0755, because this was the default before Samba 4.8. Within this directory, files are created with mode 0666, which is world-writable, including a sample krb5.conf, and the list of DNS names and servicePrincipalName values to update.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17485",
+                "comment": "samba DPKG is earlier than 2:4.9.5+dfsg-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

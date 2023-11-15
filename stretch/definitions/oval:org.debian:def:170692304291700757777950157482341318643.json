@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:170692304291700757777950157482341318643",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4601-1 ldm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "ldm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-20373",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-20373"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that a hook script of ldm, the display manager for the Linux Terminal Server Project, incorrectly parsed responses from an SSH server, which could result in local root privilege escalation.",
+      "dsa": "DSA-4601",
+      "date": "2020-01-09"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4458",
+                "comment": "ldm DPKG is earlier than 2:2.2.18-2+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

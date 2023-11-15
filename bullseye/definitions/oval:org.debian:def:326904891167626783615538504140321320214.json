@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:326904891167626783615538504140321320214",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-16094 claws-mail",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "claws-mail"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-16094",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-16094"
+      }
+    ],
+    "description": "In imap_scan_tree_recursive in Claws Mail through 3.17.6, a malicious IMAP server can trigger stack consumption because of unlimited recursion into subdirectories during a rebuild of the folder tree.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18762",
+                "comment": "claws-mail DPKG is earlier than 3.17.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

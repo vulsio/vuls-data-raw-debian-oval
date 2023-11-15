@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:114701789379870633307147276955800358685",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-2399 libquicktime",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libquicktime"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-2399",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2399"
+      }
+    ],
+    "description": "Integer overflow in the quicktime_read_pascal function in libquicktime 1.2.4 and earlier allows remote attackers to cause a denial of service or possibly have other unspecified impact via a crafted hdlr MP4 atom.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9173",
+                "comment": "libquicktime DPKG is earlier than 2:1.2.4-10"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

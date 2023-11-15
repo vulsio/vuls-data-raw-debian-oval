@@ -1,0 +1,74 @@
+{
+  "id": "oval:org.debian:def:58905941355890379314858172225847961387",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4353-1 php7.0",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "php7.0"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-14851",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14851"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-14883",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14883"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-17082",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17082"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-19518",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19518"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-19935",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19935"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMultiple security issues were found in PHP, a widely-used open source general purpose scripting language: The EXIF module was susceptible to denial of service/information disclosure when parsing malformed images, the Apache module allowed cross-site-scripting via the body of a \"Transfer-Encoding: chunked\" request and the IMAP extension performed insufficient input validation which can result in the execution of arbitrary shell commands in the imap_open() function and denial of service in the imap_mail() function.",
+      "dsa": "DSA-4353",
+      "date": "2018-12-10"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2236",
+                "comment": "php7.0 DPKG is earlier than 7.0.33-0+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

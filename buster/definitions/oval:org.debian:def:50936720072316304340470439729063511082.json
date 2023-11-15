@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:50936720072316304340470439729063511082",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8321 aircrack-ng",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "aircrack-ng"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8321",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8321"
+      }
+    ],
+    "description": "Stack-based buffer overflow in the gps_tracker function in airodump-ng.c in Aircrack-ng before 1.2 RC 1 allows local users to execute arbitrary code or gain privileges via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7329",
+                "comment": "aircrack-ng DPKG is earlier than 1:1.2-0~beta3-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

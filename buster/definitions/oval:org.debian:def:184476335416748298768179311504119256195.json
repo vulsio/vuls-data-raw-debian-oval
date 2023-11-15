@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:184476335416748298768179311504119256195",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-12562 cantata",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "cantata"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-12562",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12562"
+      }
+    ],
+    "description": "An issue was discovered in the cantata-mounter D-Bus service in Cantata through 2.3.1. The wrapper script 'mount.cifs.wrapper' uses the shell to forward the arguments to the actual mount.cifs binary. The shell evaluates wildcards (such as in an injected string:/home/../tmp/* string).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14002",
+                "comment": "cantata DPKG is earlier than 2.3.0.ds1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

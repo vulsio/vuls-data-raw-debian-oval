@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:236542975706825829247575373982811634916",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-24361 snmptt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "snmptt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-24361",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24361"
+      }
+    ],
+    "description": "SNMPTT before 1.4.2 allows attackers to execute shell code via EXEC, PREXEC, or unknown_trap_exec.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18516",
+                "comment": "snmptt DPKG is earlier than 1.4.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

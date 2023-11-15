@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:124898617123275639008890851213306343337",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5426-1 owslib",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "owslib"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-27476",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27476"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAn arbitrary file reads from malformed XML payload vulnerbility was discovered in owslib, the Python client library for Open Geospatial (OGC) web services. This issue has been addressed by always using lxml as the XML parser with entity resolution disabled.",
+      "dsa": "DSA-5426",
+      "date": "2023-06-14"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28206",
+                "comment": "owslib DPKG is earlier than 0.23.0-1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

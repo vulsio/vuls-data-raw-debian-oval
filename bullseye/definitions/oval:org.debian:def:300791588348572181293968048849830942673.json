@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:300791588348572181293968048849830942673",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-1156 irssi",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "irssi"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-1156",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1156"
+      }
+    ],
+    "description": "core/nicklist.c in Irssi before 0.8.15 allows remote attackers to cause a denial of service (NULL pointer dereference and application crash) via vectors related to an attempted fuzzy nick match at the instant that a victim leaves a channel.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3488",
+                "comment": "irssi DPKG is earlier than 0.8.15-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

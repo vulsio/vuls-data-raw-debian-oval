@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:216780426681392919164857106962231623770",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1003 clamav",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "clamav"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1003",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1003"
+      }
+    ],
+    "description": "Double free vulnerability in the vba_read_project_strings function in vba_extract.c in libclamav in ClamAV before 0.97 might allow remote attackers to execute arbitrary code via crafted Visual Basic for Applications (VBA) data in a Microsoft Office document.  NOTE: some of these details are obtained from third party information.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4116",
+                "comment": "clamav DPKG is earlier than 0.97+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

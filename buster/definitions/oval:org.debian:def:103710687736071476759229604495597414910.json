@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:103710687736071476759229604495597414910",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-4866 kino",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "kino"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-4866",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4866"
+      }
+    ],
+    "description": "Multiple buffer overflows in libavformat/utils.c in FFmpeg 0.4.9 before r14715, as used by MPlayer, allow context-dependent attackers to have an unknown impact via vectors related to execution of DTS generation code with a delay greater than MAX_REORDER_DELAY.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2640",
+                "comment": "kino DPKG is earlier than 1.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

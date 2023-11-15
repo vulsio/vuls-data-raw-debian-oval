@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:306504138133464854342798468329369618552",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2182-1 logwatch",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "logwatch"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1018",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1018"
+      }
+    ],
+    "description": "shell command injection",
+    "debian": {
+      "moreinfo": "\nDominik George discovered that Logwatch does not guard against shell meta-characters in crafted log file names (such as those produced by Samba).  As a result, an attacker might be able to execute shell commands on the system running Logwatch.",
+      "dsa": "DSA-2182",
+      "date": "2011-03-04"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2864",
+                "comment": "logwatch DPKG is earlier than 7.3.6.cvs20090906-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:167129229907725819970037371986126880783",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-2959 sudo",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "sudo"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-2959",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2959"
+      }
+    ],
+    "description": "Incomplete blacklist vulnerability in sudo 1.6.8 and earlier allows local users to gain privileges via the (1) SHELLOPTS and (2) PS4 environment variables before executing a bash script on behalf of another user, which are not cleared even though other variables are.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:988",
+                "comment": "sudo DPKG is earlier than 1.6.8p9-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

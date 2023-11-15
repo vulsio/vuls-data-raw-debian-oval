@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:177582903802314366445208236317802703643",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4189-1 quassel",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "quassel"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1000178",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000178"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1000179",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000179"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nTwo vulnerabilities were found in the Quassel IRC client, which could result in the execution of arbitrary code or denial of service.",
+      "dsa": "DSA-4189",
+      "date": "2018-05-02"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1895",
+                "comment": "quassel DPKG is earlier than 1:0.12.4-2+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

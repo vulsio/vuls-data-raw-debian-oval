@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:152770041592903939308642486792495195664",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4138-1 mbedtls",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "mbedtls"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-18187",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18187"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-0487",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0487"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-0488",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0488"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities were discovered in mbed TLS, a lightweight crypto and SSL/TLS library, that allowed a remote attacker to either cause a denial-of-service by application crash, or execute arbitrary code.",
+      "dsa": "DSA-4138",
+      "date": "2018-03-15"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1350",
+                "comment": "mbedtls DPKG is earlier than 2.4.2-1+deb9u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

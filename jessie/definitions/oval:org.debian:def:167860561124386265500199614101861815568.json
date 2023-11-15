@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:167860561124386265500199614101861815568",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3913-1 apache2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "apache2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-9788",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9788"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nRobert Swiecki reported that mod_auth_digest does not properly initialize or reset the value placeholder in [Proxy-]Authorization headers of type <q>Digest</q> between successive key=value assignments, leading to information disclosure or denial of service.",
+      "dsa": "DSA-3913",
+      "date": "2017-07-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3572",
+                "comment": "apache2 DPKG is earlier than 2.4.10-10+deb8u10"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:278887362827374840796610647077014827222",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-8310 vlc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "vlc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-8310",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8310"
+      }
+    ],
+    "description": "Heap out-of-bound read in CreateHtmlSubtitle in VideoLAN VLC 2.2.x due to missing check of string termination allows attackers to read data beyond allocated memory and potentially crash the process (causing a denial of service) via a crafted subtitles file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12888",
+                "comment": "vlc DPKG is earlier than 2.2.5.1-1~deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

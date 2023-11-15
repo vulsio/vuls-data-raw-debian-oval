@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:7714774184411671178612417059310176645",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-7524 tpm2-tools",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "tpm2-tools"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-7524",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7524"
+      }
+    ],
+    "description": "tpm2-tools versions before 1.1.1 are vulnerable to a password leak due to transmitting password in plaintext from client to server when generating HMAC.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12312",
+                "comment": "tpm2-tools DPKG is earlier than 2.1.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

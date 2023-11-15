@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:156345382165947144370714973068789482466",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-29571 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-29571",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29571"
+      }
+    ],
+    "description": "An issue was discovered in Xen through 4.14.x. A bounds check common to most operation time functions specific to FIFO event channels depends on the CPU observing consistent state. While the producer side uses appropriately ordered writes, the consumer side isn't protected against re-ordered reads, and may hence end up de-referencing a NULL pointer. Malicious or buggy guest kernels can mount a Denial of Service (DoS) attack affecting the entire system. Only Arm systems may be vulnerable. Whether a system is vulnerable depends on the specific CPU. x86 systems are not vulnerable.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19023",
+                "comment": "xen DPKG is earlier than 4.14.0+88-g1d1d1f5391-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

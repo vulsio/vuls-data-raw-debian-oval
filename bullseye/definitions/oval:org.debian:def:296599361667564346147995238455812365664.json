@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:296599361667564346147995238455812365664",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-35766 opendkim",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "opendkim"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-35766",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-35766"
+      }
+    ],
+    "description": "The test suite in libopendkim in OpenDKIM through 2.10.3 allows local users to gain privileges via a symlink attack against the /tmp/testkeys file (related to t-testdata.h, t-setup.c, and t-cleanup.c). NOTE: this is applicable to persons who choose to engage in the \"A number of self-test programs are included here for unit-testing the library\" situation.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19798",
+                "comment": "opendkim DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

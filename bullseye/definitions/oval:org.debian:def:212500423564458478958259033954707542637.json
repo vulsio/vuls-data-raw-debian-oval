@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:212500423564458478958259033954707542637",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-38060 otrs2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "otrs2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-38060",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38060"
+      }
+    ],
+    "description": "Improper Input Validation vulnerability in the ContentType parameter for attachments on TicketCreate or TicketUpdate operations of the OTRS Generic Interface modules allows  any authenticated attacker to  to perform an host header injection for the ContentType header of the attachment. \n\n\nThis issue affects OTRS: from 7.0.X before 7.0.45, from 8.0.X before 8.0.35; ((OTRS)) Community Edition: from 6.0.1 through 6.0.34.\n\n",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27185",
+                "comment": "otrs2 DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

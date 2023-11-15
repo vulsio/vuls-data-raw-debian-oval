@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:120344776490946354086739592967449688670",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-5087 xcftools",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "xcftools"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-5087",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5087"
+      }
+    ],
+    "description": "An exploitable integer overflow vulnerability exists in the flattenIncrementally function in the xcf2png and xcf2pnm binaries of xcftools 1.0.7. An integer overflow can occur while calculating the row's allocation size, that could be exploited to corrupt memory and eventually execute arbitrary code. In order to trigger this vulnerability, a victim would need to open a specially crafted XCF file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17522",
+                "comment": "xcftools DPKG is earlier than 1.0.7-6+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

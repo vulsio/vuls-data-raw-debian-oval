@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:320117556828595669983067333491636991414",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4572-1 slurm-llnl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "slurm-llnl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-12838",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12838"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "It was discovered that the Simple Linux Utility for Resource Management (SLURM), a cluster resource management and job scheduling system, did not escape strings when importing an archive file into the accounting_storage/mysql backend, resulting in SQL injection.",
+      "dsa": "DSA-4572",
+      "date": "2019-11-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26980",
+                "comment": "slurm-llnl DPKG is earlier than 18.08.5.2-1+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:281662757724561082970742320123734260786",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-3178 chmlib",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "chmlib"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-3178",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3178"
+      }
+    ],
+    "description": "Directory traversal vulnerability in extract_chmLib example program in CHM Lib (chmlib) before 0.38 allows remote attackers to overwrite arbitrary files via a CHM archive containing files with a .. (dot dot) in their filename.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1338",
+                "comment": "chmlib DPKG is earlier than 0.38-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

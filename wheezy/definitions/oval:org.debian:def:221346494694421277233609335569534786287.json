@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:221346494694421277233609335569534786287",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2824-1 curl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "curl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6422",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6422"
+      }
+    ],
+    "description": "unchecked tls/ssl certificate host name",
+    "debian": {
+      "moreinfo": "\nMarc Deslauriers discovered that curl, a file retrieval tool, would mistakenly skip verifying the CN and SAN name fields when digital signature verification was disabled in the libcurl GnuTLS backend.",
+      "dsa": "DSA-2824",
+      "date": "2013-12-19"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1064",
+                "comment": "curl DPKG is earlier than 7.26.0-1+wheezy7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

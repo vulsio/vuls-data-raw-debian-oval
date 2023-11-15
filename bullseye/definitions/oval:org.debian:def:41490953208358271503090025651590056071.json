@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:41490953208358271503090025651590056071",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-22892 iotjs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "iotjs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-22892",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22892"
+      }
+    ],
+    "description": "There is an Assertion 'ecma_is_value_undefined (value) || ecma_is_value_null (value) || ecma_is_value_boolean (value) || ecma_is_value_number (value) || ecma_is_value_string (value) || ecma_is_value_bigint (value) || ecma_is_value_symbol (value) || ecma_is_value_object (value)' failed at jerry-core/ecma/base/ecma-helpers-value.c in Jerryscripts 3.0.0.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23933",
+                "comment": "iotjs DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

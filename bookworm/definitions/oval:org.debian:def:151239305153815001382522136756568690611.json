@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:151239305153815001382522136756568690611",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1584 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1584",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1584"
+      }
+    ],
+    "description": "CRLF injection vulnerability in wp-login.php in WordPress 1.2 allows remote attackers to perform HTTP Response Splitting attacks to modify expected HTML content from the server via the text parameter.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:590",
+                "comment": "wordpress DPKG is earlier than 1.2.1-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:169178017702883585940487602206561001889",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-3529 libapache-poi-java",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libapache-poi-java"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-3529",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3529"
+      }
+    ],
+    "description": "The OPC SAX setup in Apache POI before 3.10.1 allows remote attackers to read arbitrary files via an OpenXML file containing an XML external entity declaration in conjunction with an entity reference, related to an XML External Entity (XXE) issue.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6696",
+                "comment": "libapache-poi-java DPKG is earlier than 3.10.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

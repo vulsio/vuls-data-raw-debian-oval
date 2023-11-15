@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:332194753889226390698849634550679927902",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-4481 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-4481",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4481"
+      }
+    ],
+    "description": "phpMyAdmin before 3.4.0-beta1 allows remote attackers to bypass authentication and obtain sensitive information via a direct request to phpinfo.php, which calls the phpinfo function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3693",
+                "comment": "phpmyadmin DPKG is earlier than 4:3.3.7-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

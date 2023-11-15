@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:44395107118193005257878781435054476621",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-2146 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2146",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2146"
+      }
+    ],
+    "description": "arch/x86/kernel/cpu/perf_event_intel.c in the Linux kernel before 3.8.9, when the Performance Events Subsystem is enabled, specifies an incorrect bitmask, which allows local users to cause a denial of service (general protection fault and system crash) by attempting to set a reserved bit.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5414",
+                "comment": "linux DPKG is earlier than 3.9.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

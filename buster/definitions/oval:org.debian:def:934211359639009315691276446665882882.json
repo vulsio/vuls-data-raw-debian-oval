@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:934211359639009315691276446665882882",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2713 vte",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "vte"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2713",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2713"
+      }
+    ],
+    "description": "The vte_sequence_handler_window_manipulation function in vteseq.c in libvte (aka libvte9) in VTE 0.25.1 and earlier, as used in gnome-terminal, does not properly handle escape sequences, which allows remote attackers to execute arbitrary commands or obtain potentially sensitive information via a (1) window title or (2) icon title sequence.  NOTE: this issue exists because of a CVE-2003-0070 regression.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3773",
+                "comment": "vte DPKG is earlier than 1:0.24.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

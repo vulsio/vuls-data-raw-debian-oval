@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:74197471292749253494904547437918182364",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-6102 xorg-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "xorg-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-6102",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6102"
+      }
+    ],
+    "description": "Integer overflow in the ProcDbeGetVisualInfo function in the DBE extension for X.Org 6.8.2, 6.9.0, 7.0, and 7.1, and XFree86 X server, allows local users to execute arbitrary code via a crafted X protocol request that triggers memory corruption during processing of unspecified data structures.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1601",
+                "comment": "xorg-server DPKG is earlier than 2:1.1.1-15"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

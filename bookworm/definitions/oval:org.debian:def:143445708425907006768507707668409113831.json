@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:143445708425907006768507707668409113831",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-4498 zabbix",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "zabbix"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-4498",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4498"
+      }
+    ],
+    "description": "The node_process_command function in Zabbix Server before 1.8 allows remote attackers to execute arbitrary commands via a crafted request.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3208",
+                "comment": "zabbix DPKG is earlier than 1:1.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

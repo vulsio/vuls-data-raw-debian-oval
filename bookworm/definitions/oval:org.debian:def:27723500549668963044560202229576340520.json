@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:27723500549668963044560202229576340520",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-7335 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-7335",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7335"
+      }
+    ],
+    "description": "In Wireshark 2.4.0 to 2.4.4 and 2.2.0 to 2.2.12, the IEEE 802.11 dissector could crash. This was addressed in epan/crypt/airpdcap.c by rejecting lengths that are too small.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14880",
+                "comment": "wireshark DPKG is earlier than 2.4.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

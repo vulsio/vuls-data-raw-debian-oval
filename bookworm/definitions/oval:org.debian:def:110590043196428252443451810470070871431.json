@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:110590043196428252443451810470070871431",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-3118 mason",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mason"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-3118",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3118"
+      }
+    ],
+    "description": "Mason before 1.0.0 does not install the init script after the user uses Mason to configure a firewall, which causes the system to run without a firewall after a reboot.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:982",
+                "comment": "mason DPKG is earlier than 1.0.0-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

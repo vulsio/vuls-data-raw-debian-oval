@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:337347451078717845674918623106283125121",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-29942 llvm-toolchain-15",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "llvm-toolchain-15"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-29942",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-29942"
+      }
+    ],
+    "description": "llvm-project commit a0138390 was discovered to contain a segmentation fault via the component mlir::Type::isa<mlir::LLVM::LLVMVoidType.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25864",
+                "comment": "llvm-toolchain-15 DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

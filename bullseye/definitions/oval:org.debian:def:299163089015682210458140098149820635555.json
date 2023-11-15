@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:299163089015682210458140098149820635555",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-0294 chrony",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "chrony"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-0294",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0294"
+      }
+    ],
+    "description": "chronyd in Chrony before 1.23.1, and possibly 1.24-pre1, generates a syslog message for each unauthorized cmdmon packet, which allows remote attackers to cause a denial of service (disk consumption) via a large number of invalid packets.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3411",
+                "comment": "chrony DPKG is earlier than 1.23-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

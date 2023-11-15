@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:91625896300762232724482269443174436429",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3951-1 smb4k",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "smb4k"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-8849",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8849"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSebastian Krahmer discovered that a programming error in the mount helper binary of the Smb4k Samba network share browser may result in local privilege escalation.",
+      "dsa": "DSA-3951",
+      "date": "2017-08-22"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3514",
+                "comment": "smb4k DPKG is earlier than 1.2.1-2~deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

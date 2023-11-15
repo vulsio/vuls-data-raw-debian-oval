@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:337641540389044376787121805961039652719",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-4584 perdition",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "perdition"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4584",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4584"
+      }
+    ],
+    "description": "Perdition before 2.2 may have weak security when handling outbound connections, caused by an error in the STARTTLS IMAP and POP server. ssl_outgoing_ciphers not being applied to STARTTLS connections",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6187",
+                "comment": "perdition DPKG is earlier than 2.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

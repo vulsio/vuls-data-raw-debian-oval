@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:4326608324629601215175491742544155637",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-2313 cacti",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "cacti"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-2313",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2313"
+      }
+    ],
+    "description": "auth_login.php in Cacti before 0.8.8g allows remote authenticated users who use web authentication to bypass intended access restrictions by logging in as a user not in the cacti database.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9335",
+                "comment": "cacti DPKG is earlier than 0.8.8g+ds1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

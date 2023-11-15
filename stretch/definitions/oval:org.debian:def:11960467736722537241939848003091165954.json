@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:11960467736722537241939848003091165954",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3905-1 xorg-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "xorg-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-10971",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10971"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-10972",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10972"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nTwo security issues have been discovered in the X.org X server, which may lead to privilege escalation or an information leak.",
+      "dsa": "DSA-3905",
+      "date": "2017-07-09"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3852",
+                "comment": "xorg-server DPKG is earlier than 2:1.19.2-1+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

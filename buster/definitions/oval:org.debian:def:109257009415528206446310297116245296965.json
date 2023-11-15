@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:109257009415528206446310297116245296965",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1652 puppet",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "puppet"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1652",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1652"
+      }
+    ],
+    "description": "Puppet before 2.6.18, 2.7.x before 2.7.21, and 3.1.x before 3.1.1, and Puppet Enterprise before 1.2.7 and 2.7.x before 2.7.2 allows remote authenticated users with a valid certificate and private key to read arbitrary catalogs or poison the master's cache via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5617",
+                "comment": "puppet DPKG is earlier than 2.7.18-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

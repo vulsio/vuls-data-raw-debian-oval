@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:83846360688565129686437561095420076362",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-3406 libmodule-signature-perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libmodule-signature-perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3406",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3406"
+      }
+    ],
+    "description": "The PGP signature parsing in Module::Signature before 0.74 allows remote attackers to cause the unsigned portion of a SIGNATURE file to be treated as the signed portion via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7874",
+                "comment": "libmodule-signature-perl DPKG is earlier than 0.78-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

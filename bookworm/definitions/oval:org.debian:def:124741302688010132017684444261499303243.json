@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:124741302688010132017684444261499303243",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-4199 sleuthkit",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "sleuthkit"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-4199",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4199"
+      }
+    ],
+    "description": "Brian Carrier The Sleuth Kit (TSK) before 2.09 allows user-assisted remote attackers to cause a denial of service (application crash) and prevent examination of certain NTFS files via a malformed NTFS image that triggers (1) dereference of a certain integer value by ntfs_dent.c in fls, or (2) dereference of a certain other integer value by ntfs.c in fsstat.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1925",
+                "comment": "sleuthkit DPKG is earlier than 2.09-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

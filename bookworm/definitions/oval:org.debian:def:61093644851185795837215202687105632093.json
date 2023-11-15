@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:61093644851185795837215202687105632093",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-0301 maildrop",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "maildrop"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-0301",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0301"
+      }
+    ],
+    "description": "main.C in maildrop 2.3.0 and earlier, when run by root with the -d option, uses the gid of root for execution of the .mailfilter file in a user's home directory, which allows local users to gain privileges via a crafted file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3292",
+                "comment": "maildrop DPKG is earlier than 2.2.0-3.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

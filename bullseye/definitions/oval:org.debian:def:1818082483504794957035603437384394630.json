@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:1818082483504794957035603437384394630",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-18191 nova",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "nova"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-18191",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18191"
+      }
+    ],
+    "description": "An issue was discovered in OpenStack Nova 15.x through 15.1.0 and 16.x through 16.1.1. By detaching and reattaching an encrypted volume, an attacker may access the underlying raw volume and corrupt the LUKS header, resulting in a denial of service attack on the compute host. (The same code error also results in data loss, but that is not a vulnerability because the user loses their own data.) All Nova setups supporting encrypted volumes are affected.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11920",
+                "comment": "nova DPKG is earlier than 2:17.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

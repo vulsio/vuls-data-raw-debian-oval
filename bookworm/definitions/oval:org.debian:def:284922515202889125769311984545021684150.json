@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:284922515202889125769311984545021684150",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-0738 mhonarc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mhonarc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-0738",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-0738"
+      }
+    ],
+    "description": "MHonArc 2.5.2 and earlier does not properly filter Javascript from archived e-mail messages, which could allow remote attackers to execute script in web clients by (1) splitting the SCRIPT tag into smaller pieces, (2) including the script in a SRC argument to an IMG tag, or (3) using \"&={script}\" syntax.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:47",
+                "comment": "mhonarc DPKG is earlier than 2.5.11-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:66830313515973790226599403414891114962",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5002-1 containerd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "containerd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-41103",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-41103"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "A flaw was discovered in containerd, an open and reliable container runtime. Insufficiently restricted permissions on container root and plugin directories could result in privilege escalation.",
+      "dsa": "DSA-5002",
+      "date": "2021-11-06"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27794",
+                "comment": "containerd DPKG is earlier than 1.4.5~ds1-2+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

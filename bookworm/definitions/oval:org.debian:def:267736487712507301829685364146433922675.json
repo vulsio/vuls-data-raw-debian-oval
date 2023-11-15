@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:267736487712507301829685364146433922675",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-2319 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2319",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2319"
+      }
+    ],
+    "description": "Multiple buffer overflows in the hfsplus filesystem implementation in the Linux kernel before 3.3.5 allow local users to gain privileges via a crafted HFS plus filesystem, a related issue to CVE-2009-4020.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4580",
+                "comment": "linux DPKG is earlier than 3.2.17-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

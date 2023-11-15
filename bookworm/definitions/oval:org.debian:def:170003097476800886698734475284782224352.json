@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:170003097476800886698734475284782224352",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-14826 freeipa",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "freeipa"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-14826",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14826"
+      }
+    ],
+    "description": "A flaw was found in FreeIPA versions 4.5.0 and later. Session cookies were retained in the cache after logout. An attacker could abuse this flaw if they obtain previously valid session cookies and can use this to gain access to the session.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15908",
+                "comment": "freeipa DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:80480799154108992552991120882937725996",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-1568 openssl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openssl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-1568",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1568"
+      }
+    ],
+    "description": "OpenSSL 0.9.6e uses assertions when detecting buffer overflow attacks instead of less severe mechanisms, which allows remote attackers to cause a denial of service (crash) via certain messages that cause OpenSSL to abort from a failed assertion, as demonstrated using SSLv2 CLIENT_MASTER_KEY messages, which are not properly handled in s2_srvr.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:126",
+                "comment": "openssl DPKG is earlier than 0.9.6g-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

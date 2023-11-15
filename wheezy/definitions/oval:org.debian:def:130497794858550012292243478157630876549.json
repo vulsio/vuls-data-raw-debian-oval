@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:130497794858550012292243478157630876549",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2770-1 torque",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "torque"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4319",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4319"
+      }
+    ],
+    "description": "authentication bypass",
+    "debian": {
+      "moreinfo": "\nJohn Fitzpatrick of MWR InfoSecurity discovered an authentication bypass vulnerability in torque, a PBS-derived batch processing queueing system.",
+      "dsa": "DSA-2770",
+      "date": "2013-10-09"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:920",
+                "comment": "torque DPKG is earlier than 2.4.16+dfsg-1+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

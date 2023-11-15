@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:233264732092859235367831273868199458176",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3801-1 ruby-zip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "ruby-zip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5946",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5946"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that ruby-zip, a Ruby module for reading and writing zip files, is prone to a directory traversal vulnerability. An attacker can take advantage of this flaw to overwrite arbitrary files during archive extraction via a .. (dot dot) in an extracted filename.",
+      "dsa": "DSA-3801",
+      "date": "2017-03-04"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4490",
+                "comment": "ruby-zip DPKG is earlier than 1.1.6-1+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

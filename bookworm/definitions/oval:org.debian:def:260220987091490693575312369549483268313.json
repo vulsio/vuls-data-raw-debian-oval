@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:260220987091490693575312369549483268313",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-39237 golang-github-sylabs-sif",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "golang-github-sylabs-sif"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-39237",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-39237"
+      }
+    ],
+    "description": "syslabs/sif is the Singularity Image Format (SIF) reference implementation. In versions prior to 2.8.1the `github.com/sylabs/sif/v2/pkg/integrity` package did not verify that the hash algorithm(s) used are cryptographically secure when verifying digital signatures. A patch is available in version >= v2.8.1 of the module. Users are encouraged to upgrade. Users unable to upgrade may independently validate that the hash algorithm(s) used for metadata digest(s) and signature hash are cryptographically secure.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24287",
+                "comment": "golang-github-sylabs-sif DPKG is earlier than 2.8.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

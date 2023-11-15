@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:17626288171905726505793854507854076663",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-0658 moin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "moin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-0658",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0658"
+      }
+    ],
+    "description": "Incomplete blacklist vulnerability in connector.php in FCKeditor 2.0 and 2.2, as used in products such as RunCMS, allows remote attackers to upload and execute arbitrary script files by giving the files specific extensions that are not listed in the Config[DeniedExtensions][File], such as .php.txt.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1206",
+                "comment": "moin DPKG is earlier than 1.5.8-4.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

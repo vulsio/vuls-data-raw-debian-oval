@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:210877419367046463811204197768383112158",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-5028 namazu2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "namazu2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-5028",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-5028"
+      }
+    ],
+    "description": "Stack-based buffer overflow in Namazu before 2.0.20 allows remote attackers to cause a denial of service (daemon crash) or possibly execute arbitrary code via a crafted request containing an empty uri field.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3462",
+                "comment": "namazu2 DPKG is earlier than 2.0.20-1.0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:140317751645450377087460888853851133422",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2496 cluster-glue",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cluster-glue"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2496",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2496"
+      }
+    ],
+    "description": "stonith-ng in pacemaker and cluster-glue passed passwords as commandline parameters, making it possible for local attackers to gain access to passwords of the HA stack and potentially influence its operations. This is fixed in cluster-glue 1.0.6 and newer, and pacemaker 1.1.3 and newer.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3620",
+                "comment": "cluster-glue DPKG is earlier than 1.0.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:76407639701056588254283013437460118927",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-1275 html2ps",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "html2ps"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-1275",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1275"
+      }
+    ],
+    "description": "Unknown vulnerability in html2ps HTML/PostScript converter 1.0, when used within LPRng, allows remote attackers to execute arbitrary code via \"unsanitized input.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:84",
+                "comment": "html2ps DPKG is earlier than 1.0b3-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

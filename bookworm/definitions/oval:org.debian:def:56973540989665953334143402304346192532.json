@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:56973540989665953334143402304346192532",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-0252 cherrypy3",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "cherrypy3"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-0252",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0252"
+      }
+    ],
+    "description": "Directory traversal vulnerability in the _get_file_path function in (1) lib/sessions.py in CherryPy 3.0.x up to 3.0.2, (2) filter/sessionfilter.py in CherryPy 2.1, and (3) filter/sessionfilter.py in CherryPy 2.x allows remote attackers to create or delete arbitrary files, and possibly read and write portions of arbitrary files, via a crafted session id in a cookie.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2179",
+                "comment": "cherrypy3 DPKG is earlier than 3.0.2-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:172537415633313901222680232044913745065",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-4909 transmission",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "transmission"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-4909",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4909"
+      }
+    ],
+    "description": "Integer overflow in the tr_bitfieldEnsureNthBitAlloced function in bitfield.c in Transmission before 2.84 allows remote attackers to cause a denial of service and possibly execute arbitrary code via a crafted peer message, which triggers an out-of-bounds write.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6622",
+                "comment": "transmission DPKG is earlier than 2.84-0.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

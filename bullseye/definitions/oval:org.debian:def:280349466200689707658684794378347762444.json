@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:280349466200689707658684794378347762444",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5149-1 cups",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cups"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-26691",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-26691"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Joshua Mason discovered that a logic error in the validation of the secret key used in the <q>local</q> authorisation mode of the CUPS printing system may result in privilege escalation.",
+      "dsa": "DSA-5149",
+      "date": "2022-05-26"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27928",
+                "comment": "cups DPKG is earlier than 2.3.3op2-3+deb11u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

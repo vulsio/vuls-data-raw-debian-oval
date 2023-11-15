@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:155829960166304745269549336571073839388",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3702-1 tar",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "tar"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-6321",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6321"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nHarry Sintonen discovered that GNU tar does not properly handle member names containing '..', thus allowing an attacker to bypass the path names specified on the command line and replace files and directories in the target directory.",
+      "dsa": "DSA-3702",
+      "date": "2016-11-01"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2192",
+                "comment": "tar DPKG is earlier than 1.27.1-2+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

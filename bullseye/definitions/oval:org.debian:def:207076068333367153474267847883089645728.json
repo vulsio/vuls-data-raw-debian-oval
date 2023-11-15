@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:207076068333367153474267847883089645728",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-3419 tor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "tor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-3419",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3419"
+      }
+    ],
+    "description": "Tor before 0.1.1.20 uses OpenSSL pseudo-random bytes (RAND_pseudo_bytes) instead of cryptographically strong RAND_bytes, and seeds the entropy value at start-up with 160-bit chunks without reseeding, which makes it easier for attackers to conduct brute force guessing attacks.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1403",
+                "comment": "tor DPKG is earlier than 0.1.1.20-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

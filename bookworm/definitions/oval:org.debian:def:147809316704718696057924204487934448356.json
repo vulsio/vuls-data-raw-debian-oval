@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:147809316704718696057924204487934448356",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-6830 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-6830",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-6830"
+      }
+    ],
+    "description": "libraries/plugins/auth/AuthenticationCookie.class.php in phpMyAdmin 4.3.x before 4.3.13.2 and 4.4.x before 4.4.14.1 allows remote attackers to bypass a multiple-reCaptcha protection mechanism against brute-force credential guessing by providing a correct response to a single reCaptcha.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7888",
+                "comment": "phpmyadmin DPKG is earlier than 4:4.4.14.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

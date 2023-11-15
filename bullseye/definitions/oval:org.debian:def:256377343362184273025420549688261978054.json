@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:256377343362184273025420549688261978054",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-10055 suricata",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "suricata"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-10055",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-10055"
+      }
+    ],
+    "description": "An issue was discovered in Suricata 4.1.3. The function ftp_pasv_response lacks a check for the length of part1 and part2, leading to a crash within the ftp/mod.rs file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15559",
+                "comment": "suricata DPKG is earlier than 1:4.1.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

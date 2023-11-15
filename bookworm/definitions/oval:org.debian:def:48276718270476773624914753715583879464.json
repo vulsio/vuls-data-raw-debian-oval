@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:48276718270476773624914753715583879464",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-1000622 rustc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "rustc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1000622",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000622"
+      }
+    ],
+    "description": "The Rust Programming Language rustdoc version Between 0.8 and 1.27.0 contains a CWE-427: Uncontrolled Search Path Element vulnerability in rustdoc plugins that can result in local code execution as a different user. This attack appear to be exploitable via using the --plugin flag without the --plugin-path flag. This vulnerability appears to have been fixed in 1.27.1.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12967",
+                "comment": "rustc DPKG is earlier than 1.27.1+dfsg1-1~exp1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:162003686860266196679432455374988692646",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-2106 trac",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "trac"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-2106",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2106"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in Edgewall Software Trac 0.9.4 and earlier allows remote attackers to inject arbitrary web script or HTML via unknown attack vectors related to a \"wiki macro.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1314",
+                "comment": "trac DPKG is earlier than 0.9.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

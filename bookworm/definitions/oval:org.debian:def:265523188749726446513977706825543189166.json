@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:265523188749726446513977706825543189166",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-1181 poppler",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "poppler"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-1181",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1181"
+      }
+    ],
+    "description": "The JBIG2 decoder in Xpdf 3.02pl2 and earlier, CUPS 1.3.9 and earlier, Poppler before 0.10.6, and other products allows remote attackers to cause a denial of service (crash) via a crafted PDF file that triggers a NULL pointer dereference.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2818",
+                "comment": "poppler DPKG is earlier than 0.10.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

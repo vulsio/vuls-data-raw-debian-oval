@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:80523201980118810927327780386756670098",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4089-1 bind9",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "bind9"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-3145",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3145"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nJayachandran Palanisamy of Cygate AB reported that BIND, a DNS server implementation, was improperly sequencing cleanup operations, leading in some cases to a use-after-free error, triggering an assertion failure and crash in named.",
+      "dsa": "DSA-4089",
+      "date": "2018-01-16"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4014",
+                "comment": "bind9 DPKG is earlier than 1:9.10.3.dfsg.P4-12.3+deb9u4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

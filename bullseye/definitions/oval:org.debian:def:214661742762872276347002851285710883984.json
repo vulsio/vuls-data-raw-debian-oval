@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:214661742762872276347002851285710883984",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-5902 xrdp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xrdp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-5902",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5902"
+      }
+    ],
+    "description": "Buffer overflow in the xrdp_bitmap_invalidate function in xrdp/xrdp_bitmap.c in xrdp 0.4.1 and earlier allows remote attackers to execute arbitrary code via a crafted request.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2735",
+                "comment": "xrdp DPKG is earlier than 0.4.0~dfsg-9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:111667079279100872038250862363783537825",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-15007 rbdoom3bfg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "rbdoom3bfg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-15007",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-15007"
+      }
+    ],
+    "description": "A buffer overflow in the M_LoadDefaults function in m_misc.c in id Tech 1 (aka Doom engine) allows arbitrary code execution via an unsafe usage of fscanf, because it does not limit the number of characters to be read in a format argument.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18565",
+                "comment": "rbdoom3bfg DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:42716545098935427157426395056931815445",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-2366 libopenobex",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libopenobex"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-2366",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2366"
+      }
+    ],
+    "description": "ircp_io.c in libopenobex for ircp 1.2, when ircp is run with the -r option, does not prompt the user when overwriting files, which allows user-assisted remote attackers to overwrite dangerous files via an arbitrary destination file name in an OBEX File Transfer session.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1287",
+                "comment": "libopenobex DPKG is earlier than 1.2-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

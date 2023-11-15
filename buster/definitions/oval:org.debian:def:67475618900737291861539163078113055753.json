@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:67475618900737291861539163078113055753",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-1406 trac",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "trac"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-1406",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1406"
+      }
+    ],
+    "description": "Trac before 0.10.3.1 does not send a Content-Disposition HTTP header specifying an attachment in certain \"unsafe\" situations, which has unknown impact and remote attack vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1760",
+                "comment": "trac DPKG is earlier than 0.10.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

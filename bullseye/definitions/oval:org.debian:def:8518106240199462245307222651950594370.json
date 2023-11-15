@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:8518106240199462245307222651950594370",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-1190 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-1190",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1190"
+      }
+    ],
+    "description": "thumb.php in MediaWiki before 1.15.2, when used with access-restriction mechanisms such as img_auth.php, does not check user permissions before providing scaled images, which allows remote attackers to bypass intended access restrictions and read private images via unspecified manipulations.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3497",
+                "comment": "mediawiki DPKG is earlier than 1:1.15.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

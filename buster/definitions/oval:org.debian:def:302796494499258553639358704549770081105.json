@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:302796494499258553639358704549770081105",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-0998 kfreebsd-10",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "kfreebsd-10"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0998",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0998"
+      }
+    ],
+    "description": "Integer signedness error in the vt console driver (formerly Newcons) in FreeBSD 9.3 before p10 and 10.1 before p6 allows local users to cause a denial of service (crash) and possibly gain privileges via a negative value in a VT_WAITACTIVE ioctl call, which triggers an array index error and out-of-bounds kernel memory access.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6619",
+                "comment": "kfreebsd-10 DPKG is earlier than 10.1~svn274115-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:19190807194792073642001958298196178866",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-32773 racket",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "racket"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-32773",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-32773"
+      }
+    ],
+    "description": "Racket is a general-purpose programming language and an ecosystem for language-oriented programming. In versions prior to 8.2, code evaluated using the Racket sandbox could cause system modules to incorrectly use attacker-created modules instead of their intended dependencies. This could allow system functions to be controlled by the attacker, giving access to facilities intended to be restricted. This problem is fixed in Racket version 8.2. A workaround is available, depending on system settings. For systems that provide arbitrary Racket evaluation, external sandboxing such as containers limit the impact of the problem. For multi-user evaluation systems, such as the `handin-server` system, it is not possible to work around this problem and upgrading is required.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20947",
+                "comment": "racket DPKG is earlier than 7.9+dfsg1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

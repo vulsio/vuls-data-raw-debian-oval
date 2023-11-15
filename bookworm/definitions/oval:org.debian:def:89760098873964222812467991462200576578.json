@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:89760098873964222812467991462200576578",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-12164 gdm3",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "gdm3"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-12164",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12164"
+      }
+    ],
+    "description": "A flaw was discovered in gdm 3.24.1 where gdm greeter was no longer setting the ran_once boolean during autologin. If autologin was enabled for a victim, an attacker could simply select 'login as another user' to unlock their screen.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10540",
+                "comment": "gdm3 DPKG is earlier than 3.26.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

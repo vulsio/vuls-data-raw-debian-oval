@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:85819165160759956377984713841708300199",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-0395 gatos",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gatos"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-0395",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0395"
+      }
+    ],
+    "description": "The xatitv program in the gatos package does not properly drop root privileges when the configuration file does not exist, which allows local users to execute arbitrary commands via shell metacharacters in a system call.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:402",
+                "comment": "gatos DPKG is earlier than 0.0.5-12"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:149029449764957522790616635863728127704",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-5660 vinagre",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "vinagre"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-5660",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5660"
+      }
+    ],
+    "description": "Format string vulnerability in the vinagre_utils_show_error function (src/vinagre-utils.c) in Vinagre 0.5.x before 0.5.2 and 2.x before 2.24.2 might allow remote attackers to execute arbitrary code via format string specifiers in a crafted URI or VNC server response.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2726",
+                "comment": "vinagre DPKG is earlier than 0.5.1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

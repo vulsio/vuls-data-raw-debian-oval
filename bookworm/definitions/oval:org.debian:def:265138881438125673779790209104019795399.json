@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:265138881438125673779790209104019795399",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-28361 kamailio",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "kamailio"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-28361",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28361"
+      }
+    ],
+    "description": "Kamailio before 5.4.0, as used in Sip Express Router (SER) in Sippy Softswitch 4.5 through 5.2 and other products, allows a bypass of a header-removal protection mechanism via whitespace characters. This occurs in the remove_hf function in the Kamailio textops module. Particular use of remove_hf in Sippy Softswitch may allow skilled attacker having a valid credential in the system to disrupt internal call start/duration accounting mechanisms leading potentially to a loss of revenue.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18912",
+                "comment": "kamailio DPKG is earlier than 5.4.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

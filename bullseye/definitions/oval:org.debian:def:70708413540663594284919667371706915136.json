@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:70708413540663594284919667371706915136",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-6172 mplayer",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mplayer"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-6172",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6172"
+      }
+    ],
+    "description": "Buffer overflow in the asmrp_eval function in the RealMedia RTSP stream handler (asmrp.c) for Real Media input plugin, as used in (1) xine/xine-lib, (2) MPlayer 1.0rc1 and earlier, and possibly others, allows remote attackers to cause a denial of service and possibly execute arbitrary code via a rulebook with a large number of rulematches.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1598",
+                "comment": "mplayer DPKG is earlier than 1.0~rc1-11"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

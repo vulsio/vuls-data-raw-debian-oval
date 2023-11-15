@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:305229517210714601815530363191062764759",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2715-1 puppet",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "puppet"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-3567",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-3567"
+      }
+    ],
+    "description": "code execution",
+    "debian": {
+      "moreinfo": "\nIt was discovered that puppet, a centralized configuration management system, did not correctly handle YAML payloads. A remote attacker could use a specially-crafted payload to execute arbitrary code on the puppet master.",
+      "dsa": "DSA-2715",
+      "date": "2013-06-26"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:864",
+                "comment": "puppet DPKG is earlier than 2.7.18-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

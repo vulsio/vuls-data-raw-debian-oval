@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:245522669829920764541254656228137287058",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-21710 ghostscript",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ghostscript"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-21710",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-21710"
+      }
+    ],
+    "description": "A divide by zero issue discovered in eps_print_page in gdevepsn.c in Artifex Software GhostScript 9.50 allows remote attackers to cause a denial of service via opening of crafted PDF file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18428",
+                "comment": "ghostscript DPKG is earlier than 9.51~dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:33825857434210846225362195083406499121",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-2850 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2850",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2850"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the iscsi_add_notunderstood_response function in drivers/target/iscsi/iscsi_target_parameters.c in the iSCSI target subsystem in the Linux kernel through 3.9.4 allows remote attackers to cause a denial of service (memory corruption and OOPS) or possibly execute arbitrary code via a long key that is not properly handled during construction of an error-response packet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5500",
+                "comment": "linux DPKG is earlier than 3.9.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

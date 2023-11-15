@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:227448745794271847994409650236304124946",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4181-1 roundcube",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "roundcube"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-9846",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-9846"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAndrea Basile discovered that the <q>archive</q> plugin in roundcube, a skinnable AJAX based webmail solution for IMAP servers, does not properly sanitize a user-controlled parameter, allowing a remote attacker to inject arbitrary IMAP commands and perform malicious actions.",
+      "dsa": "DSA-4181",
+      "date": "2018-04-28"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2825",
+                "comment": "roundcube DPKG is earlier than 1.2.3+dfsg.1-4+deb9u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

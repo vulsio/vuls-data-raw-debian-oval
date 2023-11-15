@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:181633461257317953025658805020491901618",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4891-1 tomcat9",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "tomcat9"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-25122",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-25122"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-25329",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-25329"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Two vulnerabilities were discovered in the Tomcat servlet and JSP engine, which could result in information disclosure or denial of service.",
+      "dsa": "DSA-4891",
+      "date": "2021-04-13"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27279",
+                "comment": "tomcat9 DPKG is earlier than 9.0.31-1~deb10u4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

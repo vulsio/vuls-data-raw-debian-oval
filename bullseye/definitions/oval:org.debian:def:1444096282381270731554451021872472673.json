@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:1444096282381270731554451021872472673",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-0783 cacti",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cacti"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-0783",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0783"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in Cacti 0.8.7 before 0.8.7b and 0.8.6 before 0.8.6k allow remote attackers to inject arbitrary web script or HTML via (1) the view_type parameter to graph.php; (2) the filter parameter to graph_view.php; (3) the action parameter to the draw_navigation_text function in lib/functions.php, reachable through index.php (aka the login page) or data_input.php; or (4) the login_username parameter to index.php.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2288",
+                "comment": "cacti DPKG is earlier than 0.8.7b-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:275657598006320485308746431686069108720",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-13723 xorg-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xorg-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-13723",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13723"
+      }
+    ],
+    "description": "In X.Org Server (aka xserver and xorg-server) before 1.19.4, a local attacker authenticated to the X server could overflow a global buffer, causing crashes of the X server or potentially other problems by injecting large or malformed XKB related atoms and accessing them via xkbcomp.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11226",
+                "comment": "xorg-server DPKG is earlier than 2:1.19.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

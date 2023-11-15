@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:282948327067993075771173747745796362355",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-0850 ffmpeg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ffmpeg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-0850",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0850"
+      }
+    ],
+    "description": "The decode_slice_header function in libavcodec/h264.c in FFmpeg before 1.1 allows remote attackers to have an unspecified impact via crafted H.264 data, which triggers an out-of-bounds array access.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5166",
+                "comment": "ffmpeg DPKG is earlier than 7:2.4.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:192832444796160004479909142948706184743",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-3388 liboggplay",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "liboggplay"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-3388",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3388"
+      }
+    ],
+    "description": "liboggplay in Mozilla Firefox 3.5.x before 3.5.6 and SeaMonkey before 2.0.1 might allow context-dependent attackers to cause a denial of service (application crash) or execute arbitrary code via unspecified vectors, related to \"memory safety issues.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3028",
+                "comment": "liboggplay DPKG is earlier than 0.2.1~git20091227-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

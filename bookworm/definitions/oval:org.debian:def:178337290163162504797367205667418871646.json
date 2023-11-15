@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:178337290163162504797367205667418871646",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-2995 bacula",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "bacula"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-2995",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2995"
+      }
+    ],
+    "description": "bacula 1.36.3 and earlier allows local users to modify or read sensitive files via symlink attacks on (1) the temporary file used by autoconf/randpass when openssl is not available, or (2) the mtx.[PID] temporary file in mtx-changer.in.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:975",
+                "comment": "bacula DPKG is earlier than 1.38.9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

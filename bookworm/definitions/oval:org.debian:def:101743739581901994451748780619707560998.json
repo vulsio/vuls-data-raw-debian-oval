@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:101743739581901994451748780619707560998",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-3949 lighttpd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "lighttpd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-3949",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3949"
+      }
+    ],
+    "description": "mod_access.c in lighttpd 1.4.15 ignores trailing / (slash) characters in the URL, which allows remote attackers to bypass url.access-deny settings.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1894",
+                "comment": "lighttpd DPKG is earlier than 1.4.16-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

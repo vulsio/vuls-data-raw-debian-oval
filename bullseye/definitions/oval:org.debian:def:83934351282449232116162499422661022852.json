@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:83934351282449232116162499422661022852",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-11590 libgxps",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libgxps"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-11590",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11590"
+      }
+    ],
+    "description": "There is a NULL pointer dereference in the caseless_hash function in gxps-archive.c in libgxps 0.2.5. A crafted input will lead to a remote denial of service attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10813",
+                "comment": "libgxps DPKG is earlier than 0.3.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

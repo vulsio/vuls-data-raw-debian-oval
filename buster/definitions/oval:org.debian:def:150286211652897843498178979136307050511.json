@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:150286211652897843498178979136307050511",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-0195 nvidia-graphics-drivers-legacy-340xx",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "nvidia-graphics-drivers-legacy-340xx"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-0195",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0195"
+      }
+    ],
+    "description": "NVIDIA GPU Display Driver for Windows contains a vulnerability in the kernel mode layer driver nvlddmkm.sys, where an can cause CWE-1284,\nwhich may lead to hypothetical Information leak of unimportant data such as local variable data of the driver",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25241",
+                "comment": "nvidia-graphics-drivers-legacy-340xx DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

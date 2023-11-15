@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:97511841374664940068080028173018436601",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-6075 strongswan",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "strongswan"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6075",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6075"
+      }
+    ],
+    "description": "The compare_dn function in utils/identification.c in strongSwan 4.3.3 through 5.1.1 allows (1) remote attackers to cause a denial of service (out-of-bounds read, NULL pointer dereference, and daemon crash) or (2) remote authenticated users to impersonate arbitrary users and bypass access restrictions via a crafted ID_DER_ASN1_DN ID, related to an \"insufficient length check\" during identity comparison.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5861",
+                "comment": "strongswan DPKG is earlier than 5.1.0-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

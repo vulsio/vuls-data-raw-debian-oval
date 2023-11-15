@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:257600210837950294365050279850059239676",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-5379 nvidia-graphics-drivers",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "nvidia-graphics-drivers"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-5379",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5379"
+      }
+    ],
+    "description": "The accelerated rendering functionality of NVIDIA Binary Graphics Driver (binary blob driver) For Linux v8774 and v8762, and probably on other operating systems, allows local and remote attackers to execute arbitrary code via a large width value in a font glyph, which can be used to overwrite arbitrary memory locations.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1501",
+                "comment": "nvidia-graphics-drivers DPKG is earlier than 1.0.8776-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

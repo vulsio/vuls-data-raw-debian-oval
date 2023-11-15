@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:72033912696977294619978642653480085928",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-5159 ntfs-3g",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ntfs-3g"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-5159",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5159"
+      }
+    ],
+    "description": "The ntfs-3g package before 1.913-2.fc7 in Fedora 7, and an ntfs-3g package in Ubuntu 7.10/Gutsy, assign incorrect permissions (setuid root) to mount.ntfs-3g, which allows local users with fuse group membership to read from and write to arbitrary block devices, possibly involving a file descriptor leak.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2081",
+                "comment": "ntfs-3g DPKG is earlier than 1:1.913-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

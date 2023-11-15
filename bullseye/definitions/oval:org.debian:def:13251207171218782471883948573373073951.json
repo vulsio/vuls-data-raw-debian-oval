@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:13251207171218782471883948573373073951",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-36254 dropbear",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dropbear"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-36254",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36254"
+      }
+    ],
+    "description": "scp.c in Dropbear before 2020.79 mishandles the filename of . or an empty filename, a related issue to CVE-2018-20685.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19864",
+                "comment": "dropbear DPKG is earlier than 2020.79-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

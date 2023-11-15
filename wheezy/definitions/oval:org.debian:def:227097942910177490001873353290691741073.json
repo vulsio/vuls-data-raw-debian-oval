@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:227097942910177490001873353290691741073",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3167-1 sudo",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "sudo"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9680",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9680"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nJakub Wilk reported that sudo, a program designed to provide limited super user privileges to specific users, preserves the TZ variable from a user's environment without any sanitization. A user with sudo access may take advantage of this to exploit bugs in the C library functions which parse the TZ environment variable or to open files that the user would not otherwise be able to open. The later could potentially cause changes in system behavior when reading certain device special files or cause the program run via sudo to block.",
+      "dsa": "DSA-3167",
+      "date": "2015-02-22"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1957",
+                "comment": "sudo DPKG is earlier than 1.8.5p2-1+nmu2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

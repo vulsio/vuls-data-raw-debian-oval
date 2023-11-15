@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:16063000454627710148827016296803201163",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-2230 xine-ui",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "xine-ui"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-2230",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2230"
+      }
+    ],
+    "description": "Multiple format string vulnerabilities in xiTK (xitk/main.c) in xine 0.99.4 might allow attackers to cause a denial of service via format string specifiers in an MP3 filename specified on the command line. NOTE: this is a different vulnerability than CVE-2006-1905.  In addition, if the only attack vectors involve a user-assisted, local command line argument of a non-setuid program, this issue might not be a vulnerability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1325",
+                "comment": "xine-ui DPKG is earlier than 0.99.4-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

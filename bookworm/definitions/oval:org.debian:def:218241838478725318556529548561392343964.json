@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:218241838478725318556529548561392343964",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-20549 libcaca",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libcaca"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-20549",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20549"
+      }
+    ],
+    "description": "There is an illegal WRITE memory access at caca/file.c (function caca_file_read) in libcaca 0.99.beta19.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14375",
+                "comment": "libcaca DPKG is earlier than 0.99.beta19-2.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

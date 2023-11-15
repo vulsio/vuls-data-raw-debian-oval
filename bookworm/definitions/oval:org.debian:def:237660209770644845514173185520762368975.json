@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:237660209770644845514173185520762368975",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-29485 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-29485",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29485"
+      }
+    ],
+    "description": "An issue was discovered in Xen 4.6 through 4.14.x. When acting upon a guest XS_RESET_WATCHES request, not all tracking information is freed. A guest can cause unbounded memory usage in oxenstored. This can lead to a system-wide DoS. Only systems using the Ocaml Xenstored implementation are vulnerable. Systems using the C Xenstored implementation are not vulnerable.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19012",
+                "comment": "xen DPKG is earlier than 4.14.0+88-g1d1d1f5391-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

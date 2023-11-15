@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:91417160399959261890944223880796417720",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-11129 vcftools",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "vcftools"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-11129",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11129"
+      }
+    ],
+    "description": "The header::add_INFO_descriptor function in header.cpp in VCFtools 0.1.15 allows remote attackers to cause a denial of service (use-after-free) or possibly have unspecified other impact via a crafted vcf file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13752",
+                "comment": "vcftools DPKG is earlier than 0.1.16-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

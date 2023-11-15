@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:20635508303682438680482936997319905271",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-30786 ntfs-3g",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ntfs-3g"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-30786",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-30786"
+      }
+    ],
+    "description": "A crafted NTFS image can cause a heap-based buffer overflow in ntfs_names_full_collate in NTFS-3G through 2021.8.22.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23619",
+                "comment": "ntfs-3g DPKG is earlier than 1:2022.5.17-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

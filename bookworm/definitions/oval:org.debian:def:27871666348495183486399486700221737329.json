@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:27871666348495183486399486700221737329",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-29788 libmobi",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libmobi"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-29788",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29788"
+      }
+    ],
+    "description": "libmobi before v0.10 contains a NULL pointer dereference via the component mobi_buffer_getpointer. This vulnerability allows attackers to cause a Denial of Service (DoS) via a crafted mobi file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23510",
+                "comment": "libmobi DPKG is earlier than 0.11+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

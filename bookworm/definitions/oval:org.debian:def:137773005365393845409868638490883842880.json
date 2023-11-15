@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:137773005365393845409868638490883842880",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-6426 heat",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "heat"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-6426",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-6426"
+      }
+    ],
+    "description": "The cloudformation-compatible API in OpenStack Orchestration API (Heat) before Havana 2013.2.1 and Icehouse before icehouse-2 does not properly enforce policy rules, which allows local in-instance users to bypass intended access restrictions and (1) create a stack via the CreateStack method or (2) update a stack via the UpdateStack method.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5914",
+                "comment": "heat DPKG is earlier than 2013.2.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

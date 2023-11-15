@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:260146847235027104704512753863565046453",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-11464 librsvg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "librsvg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-11464",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11464"
+      }
+    ],
+    "description": "A SIGFPE is raised in the function box_blur_line of rsvg-filter.c in GNOME librsvg 2.40.17 during an attempted parse of a crafted SVG file, because of incorrect protection against division by zero.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10764",
+                "comment": "librsvg DPKG is earlier than 2.40.18-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

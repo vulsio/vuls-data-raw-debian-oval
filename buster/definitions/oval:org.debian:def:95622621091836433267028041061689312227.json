@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:95622621091836433267028041061689312227",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-12442 minidjvu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "minidjvu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-12442",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12442"
+      }
+    ],
+    "description": "The row_is_empty function in base/4bitmap.c:272 in minidjvu 0.8 can cause a denial of service (invalid memory read and application crash) via a crafted djvu file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11091",
+                "comment": "minidjvu DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:7796509650584568801570878416048425993",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2743-1 kfreebsd-9",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "kfreebsd-9"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-3077",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-3077"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4851",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4851"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-5209",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-5209"
+      }
+    ],
+    "description": "privilege escalation/information leak",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities have been discovered in the FreeBSD kernel that may lead to a privilege escalation or information leak. The Common Vulnerabilities and Exposures project identifies the following problems:",
+      "dsa": "DSA-2743",
+      "date": "2013-08-27"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:992",
+                "comment": "kfreebsd-9 DPKG is earlier than 9.0-10+deb70.3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

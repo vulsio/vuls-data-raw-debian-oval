@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:66415610514709141614853146887431018390",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-0836 haproxy",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "haproxy"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-0836",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0836"
+      }
+    ],
+    "description": "An information leak vulnerability was discovered in HAProxy 2.1, 2.2 before 2.2.27, 2.3, 2.4 before 2.4.21, 2.5 before 2.5.11, 2.6 before 2.6.8, 2.7 before 2.7.1. There are 5 bytes left uninitialized in the connection buffer when encoding the FCGI_BEGIN_REQUEST record. Sensitive data may be disclosed to configured FastCGI backends in an unexpected way.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25116",
+                "comment": "haproxy DPKG is earlier than 2.6.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

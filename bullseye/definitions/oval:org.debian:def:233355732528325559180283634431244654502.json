@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:233355732528325559180283634431244654502",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-0393 cups",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cups"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-0393",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0393"
+      }
+    ],
+    "description": "The _cupsGetlang function, as used by lppasswd.c in lppasswd in CUPS 1.2.2, 1.3.7, 1.3.9, and 1.4.1, relies on an environment variable to determine the file that provides localized message strings, which allows local users to gain privileges via a file that contains crafted localization data with format string specifiers.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3424",
+                "comment": "cups DPKG is earlier than 1.4.2-9.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

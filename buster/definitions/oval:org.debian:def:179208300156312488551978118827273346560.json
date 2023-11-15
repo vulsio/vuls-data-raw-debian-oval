@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:179208300156312488551978118827273346560",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-17785 gimp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "gimp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-17785",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17785"
+      }
+    ],
+    "description": "In GIMP 2.8.22, there is a heap-based buffer overflow in the fli_read_brun function in plug-ins/file-fli/fli.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11987",
+                "comment": "gimp DPKG is earlier than 2.8.20-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

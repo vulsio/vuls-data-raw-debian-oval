@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:303360133408247489403091887918217027338",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-23481 xrdp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xrdp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23481",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23481"
+      }
+    ],
+    "description": "xrdp is an open source project which provides a graphical login to remote machines using Microsoft Remote Desktop Protocol (RDP).\nxrdp < v0.9.21 contain a Out of Bound Read in xrdp_caps_process_confirm_active() function. There are no known workarounds for this issue. Users are advised to upgrade.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23010",
+                "comment": "xrdp DPKG is earlier than 0.9.21.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

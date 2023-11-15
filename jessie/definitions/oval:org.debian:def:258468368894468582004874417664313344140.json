@@ -1,0 +1,47 @@
+{
+  "id": "oval:org.debian:def:258468368894468582004874417664313344140",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4179-1 linux-tools",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "linux-tools"
+    },
+    "description": "security update",
+    "debian": {
+      "moreinfo": "This update doesn't fix a vulnerability in linux-tools, but provides support for building Linux kernel modules with the <q>retpoline</q> mitigation for <a href=\"https://security-tracker.debian.org/tracker/CVE-2017-5715\">\\ CVE-2017-5715</a> (Spectre variant 2).",
+      "dsa": "DSA-4179",
+      "date": "2018-04-24"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4781",
+                "comment": "linux-tools DPKG is earlier than 3.16.56-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

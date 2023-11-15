@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:177917757141285586170583212868750086506",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4174-1 corosync",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "corosync"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1084",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1084"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nThe Citrix Security Response Team discovered that corosync, a cluster engine implementation, allowed an unauthenticated user to cause a denial-of-service by application crash.",
+      "dsa": "DSA-4174",
+      "date": "2018-04-17"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4089",
+                "comment": "corosync DPKG is earlier than 2.4.2-3+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

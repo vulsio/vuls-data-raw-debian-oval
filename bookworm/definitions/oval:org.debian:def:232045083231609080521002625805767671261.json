@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:232045083231609080521002625805767671261",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-26130 cpp-httplib",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "cpp-httplib"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-26130",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-26130"
+      }
+    ],
+    "description": "Versions of the package yhirose/cpp-httplib before 0.12.4 are vulnerable to CRLF Injection when untrusted user input is used to set the content-type header in the HTTP .Patch, .Post, .Put and .Delete requests. This can lead to logical errors and other misbehaviors.\r\r**Note:** This issue is present due to an incomplete fix for [CVE-2020-11709](https://security.snyk.io/vuln/SNYK-UNMANAGED-YHIROSECPPHTTPLIB-2366507).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25581",
+                "comment": "cpp-httplib DPKG is earlier than 0.11.4+ds-1+deb12u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

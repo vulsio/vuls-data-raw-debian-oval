@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:10543828168408643596100068983399095473",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-17497 iwd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "iwd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-17497",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-17497"
+      }
+    ],
+    "description": "eapol.c in iNet wireless daemon (IWD) through 1.8 allows attackers to trigger a PTK reinstallation by retransmitting EAPOL Msg4/4.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18280",
+                "comment": "iwd DPKG is earlier than 1.9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

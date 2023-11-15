@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:295435480196637210713470815831710019979",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-1332 asterisk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "asterisk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-1332",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1332"
+      }
+    ],
+    "description": "Unspecified vulnerability in Asterisk Open Source 1.2.x before 1.2.27, 1.4.x before 1.4.18.1 and 1.4.19-rc3; Business Edition A.x.x, B.x.x before B.2.5.1, and C.x.x before C.1.6.2; AsteriskNOW 1.0.x before 1.0.2; Appliance Developer Kit before 1.4 revision 109393; and s800i 1.0.x before 1.1.0.2; allows remote attackers to access the SIP channel driver via a crafted From header.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2329",
+                "comment": "asterisk DPKG is earlier than 1:1.4.18.1~dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

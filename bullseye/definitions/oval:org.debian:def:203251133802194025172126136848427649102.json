@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:203251133802194025172126136848427649102",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-40114 snort",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "snort"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-40114",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-40114"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Multiple security vulnerabilities were discovered in snort, a flexible Network Intrusion Detection System, which could allow an unauthenticated, remote attacker to cause a denial of service (DoS) condition or bypass filtering technology on an affected device and ex-filtrate data from a compromised host.",
+      "dsa": "DSA-5354"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22573",
+                "comment": "snort DPKG is earlier than 2.9.20-0+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

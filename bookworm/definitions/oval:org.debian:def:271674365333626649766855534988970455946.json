@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:271674365333626649766855534988970455946",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-3934 ffmpeg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ffmpeg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-3934",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3934"
+      }
+    ],
+    "description": "Double free vulnerability in the vp3_update_thread_context function in libavcodec/vp3.c in FFmpeg before 0.10 allows remote attackers to have an unspecified impact via crafted vp3 data.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4178",
+                "comment": "ffmpeg DPKG is earlier than 7:2.4.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

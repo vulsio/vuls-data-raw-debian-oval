@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:287236923661808735408098806982135802514",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-1000665 dojo",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "dojo"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1000665",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000665"
+      }
+    ],
+    "description": "Dojo Dojo Objective Harness (DOH) version prior to version 1.14 contains a Cross Site Scripting (XSS) vulnerability in unit.html and testsDOH/_base/loader/i18n-exhaustive/i18n-test/unit.html and testsDOH/_base/i18nExhaustive.js in the DOH that can result in Victim attacked through their browser - deliver malware, steal HTTP cookies, bypass CORS trust. This attack appear to be exploitable via Victims are typically lured to a web site under the attacker's control; the XSS vulnerability on the target domain is silently exploited without the victim's knowledge. This vulnerability appears to have been fixed in 1.14.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13535",
+                "comment": "dojo DPKG is earlier than 1.14.1+dfsg1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

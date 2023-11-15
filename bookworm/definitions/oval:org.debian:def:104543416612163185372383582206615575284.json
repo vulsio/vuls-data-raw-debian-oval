@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:104543416612163185372383582206615575284",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-4381 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-4381",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4381"
+      }
+    ],
+    "description": "MediaWiki before 1.18.5, and 1.19.x before 1.19.2 saves passwords in the local database, (1) which could make it easier for context-dependent attackers to obtain cleartext passwords via a brute-force attack or, (2) when an authentication plugin returns a false in the strict function, could allow remote attackers to use old passwords for non-existing accounts in an external authentication system via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4813",
+                "comment": "mediawiki DPKG is earlier than 1:1.19.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

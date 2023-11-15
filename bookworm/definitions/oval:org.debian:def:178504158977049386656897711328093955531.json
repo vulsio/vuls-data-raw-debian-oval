@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:178504158977049386656897711328093955531",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-1367 glibc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "glibc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-1367",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1367"
+      }
+    ],
+    "description": "gcc 4.3.x does not generate a cld instruction while compiling functions used for string manipulation such as memcpy and memmove on x86 and i386, which can prevent the direction flag (DF) from being reset in violation of ABI conventions and cause data to be copied in the wrong direction during signal handling in the Linux kernel, which might allow context-dependent attackers to trigger memory corruption. NOTE: this issue was originally reported for CPU consumption in SBCL.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2251",
+                "comment": "glibc DPKG is earlier than 2.7-8"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

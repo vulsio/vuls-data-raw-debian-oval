@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:132142021857703588727909610569775986028",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-0918 squid",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "squid"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-0918",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0918"
+      }
+    ],
+    "description": "The asn_parse_header function (asn1.c) in the SNMP module for Squid Web Proxy Cache before 2.4.STABLE7 allows remote attackers to cause a denial of service (server restart) via certain SNMP packets with negative length fields that trigger a memory allocation error.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:496",
+                "comment": "squid DPKG is earlier than 2.5.7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

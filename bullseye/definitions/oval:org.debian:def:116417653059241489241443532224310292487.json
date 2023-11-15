@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:116417653059241489241443532224310292487",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-12470 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-12470",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12470"
+      }
+    ],
+    "description": "Wikimedia MediaWiki through 1.32.1 has Incorrect Access Control. Suppressed log in RevisionDelete page is exposed. Fixed in 1.32.2, 1.31.2, 1.30.2 and 1.27.6.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15979",
+                "comment": "mediawiki DPKG is earlier than 1:1.31.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

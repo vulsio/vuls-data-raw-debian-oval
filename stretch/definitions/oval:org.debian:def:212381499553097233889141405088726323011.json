@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:212381499553097233889141405088726323011",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4059-1 libxcursor",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "libxcursor"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-16612",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16612"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that libXcursor, a X cursor management library, is prone to several heap overflows when parsing malicious files. An attacker can take advantage of these flaws for arbitrary code execution, if a user is tricked into processing a specially crafted cursor file.",
+      "dsa": "DSA-4059",
+      "date": "2017-12-08"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3986",
+                "comment": "libxcursor DPKG is earlier than 1:1.1.14-1+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

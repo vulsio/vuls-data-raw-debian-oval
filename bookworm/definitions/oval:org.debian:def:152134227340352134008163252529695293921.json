@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:152134227340352134008163252529695293921",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1437 libmodule-metadata-perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libmodule-metadata-perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1437",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1437"
+      }
+    ],
+    "description": "Eval injection vulnerability in the Module-Metadata module before 1.000015 for Perl allows remote attackers to execute arbitrary Perl code via the $Version value.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5206",
+                "comment": "libmodule-metadata-perl DPKG is earlier than 1.000015-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

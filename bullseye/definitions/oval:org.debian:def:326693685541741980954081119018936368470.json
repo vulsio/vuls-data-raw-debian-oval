@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:326693685541741980954081119018936368470",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-5873 l2tpns",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "l2tpns"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-5873",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5873"
+      }
+    ],
+    "description": "Buffer overflow in the cluster_process_heartbeat function in cluster.c in layer 2 tunneling protocol network server (l2tpns) before 2.1.21 allows remote attackers to cause a denial of service via a large heartbeat packet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1575",
+                "comment": "l2tpns DPKG is earlier than 2.1.21-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

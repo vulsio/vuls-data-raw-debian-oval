@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:286339845619258890216597949806668232636",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-41081 libapache-mod-jk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libapache-mod-jk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-41081",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41081"
+      }
+    ],
+    "description": "Important: Authentication Bypass CVE-2023-41081\n\nThe mod_jk component of Apache Tomcat Connectors in some circumstances, such as when a configuration included \"JkOptions +ForwardDirectories\" but the configuration did not       provide explicit mounts for all possible proxied requests, mod_jk would       use an implicit mapping and map the request to the first defined worker. Such an implicit mapping could result in the unintended exposure of the status worker and/or bypass security constraints configured in httpd. As of JK 1.2.49, the implicit mapping functionality has been removed and all mappings must now be via explicit configuration. Only mod_jk is affected by this issue. The ISAPI redirector is not affected.\n\nThis issue affects Apache Tomcat Connectors (mod_jk only): from 1.2.0 through 1.2.48.\n\nUsers are recommended to upgrade to version 1.2.49, which fixes the issue.\n\nHistory\n2023-09-13 Original advisory\n\n2023-09-28 Updated summary\n\n",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26507",
+                "comment": "libapache-mod-jk DPKG is earlier than 1:1.2.48-2+deb12u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

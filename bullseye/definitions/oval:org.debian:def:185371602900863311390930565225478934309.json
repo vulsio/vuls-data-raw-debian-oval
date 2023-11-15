@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:185371602900863311390930565225478934309",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1296 groff",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "groff"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1296",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1296"
+      }
+    ],
+    "description": "The (1) eqn2graph and (2) pic2graph scripts in groff 1.18.1 allow local users to overwrite arbitrary files via a symlink attack on temporary files.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:582",
+                "comment": "groff DPKG is earlier than 1.18.1.1-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

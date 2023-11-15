@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:171259619758814598364867829442254833021",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-15928 ruby-ox",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ruby-ox"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-15928",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15928"
+      }
+    ],
+    "description": "In the Ox gem 2.8.0 for Ruby, the process crashes with a segmentation fault when a crafted input is supplied to parse_obj. NOTE: the vendor has stated \"Ox should handle the error more gracefully\" but has not confirmed a security implication.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11245",
+                "comment": "ruby-ox DPKG is earlier than 2.8.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

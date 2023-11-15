@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:42576102421635069210196815176180437757",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-5030 dibbler",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "dibbler"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-5030",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5030"
+      }
+    ],
+    "description": "Multiple integer overflows in Dibbler 0.6.0 allow remote attackers to cause a denial of service (daemon crash) via packets containing options with large lengths, which trigger attempts at excessive memory allocation, as demonstrated by (1) the TSrvMsg constructor in SrvMessages/SrvMsg.cpp; the (2) TClntMsg, (3) TClntOptIAAddress, (4) TClntOptIAPrefix, (5) TOptVendorSpecInfo, and (6) TOptOptionRequest constructors; and the (7) TRelIfaceMgr::decodeRelayRepl, (8) TRelMsg::decodeOpts, and (9) TSrvIfaceMgr::decodeRelayForw methods.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1999",
+                "comment": "dibbler DPKG is earlier than 0.6.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

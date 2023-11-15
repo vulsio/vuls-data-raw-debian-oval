@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:27232376521119208071964596932064022808",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-3404 glibc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "glibc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3404",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3404"
+      }
+    ],
+    "description": "The vfprintf function in stdio-common/vfprintf.c in libc in GNU C Library (aka glibc) 2.12 and other versions does not properly calculate a buffer length, which allows context-dependent attackers to bypass the FORTIFY_SOURCE format-string protection mechanism and cause a denial of service (stack corruption and crash) via a format string that uses positional parameters and many format specifiers.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4893",
+                "comment": "glibc DPKG is earlier than 2.13-35"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

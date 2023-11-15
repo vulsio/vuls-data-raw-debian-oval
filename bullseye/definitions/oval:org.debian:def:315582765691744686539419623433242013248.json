@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:315582765691744686539419623433242013248",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-35531 libraw",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libraw"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-35531",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-35531"
+      }
+    ],
+    "description": "In LibRaw, an out-of-bounds read vulnerability exists within the get_huffman_diff() function (libraw\\src\\x3f\\x3f_utils_patched.cpp) when reading data from an image file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19765",
+                "comment": "libraw DPKG is earlier than 0.20.0-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

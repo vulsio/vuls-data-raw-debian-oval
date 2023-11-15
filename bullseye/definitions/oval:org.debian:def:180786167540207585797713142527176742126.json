@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:180786167540207585797713142527176742126",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-0167 nova",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "nova"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0167",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0167"
+      }
+    ],
+    "description": "The Nova EC2 API security group implementation in OpenStack Compute (Nova) 2013.1 before 2013.2.4 and icehouse before icehouse-rc2 does not enforce RBAC policies for (1) add_rules, (2) remove_rules, (3) destroy, and other unspecified methods in compute/api.py when using non-default policies, which allows remote authenticated users to gain privileges via these API requests.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6376",
+                "comment": "nova DPKG is earlier than 2013.2.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

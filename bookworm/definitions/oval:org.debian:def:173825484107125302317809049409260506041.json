@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:173825484107125302317809049409260506041",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-9917 bluez",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "bluez"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9917",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9917"
+      }
+    ],
+    "description": "In BlueZ 5.42, a buffer overflow was observed in \"read_n\" function in \"tools/hcidump.c\" source file. This issue can be triggered by processing a corrupted dump file and will result in hcidump crash.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10112",
+                "comment": "bluez DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

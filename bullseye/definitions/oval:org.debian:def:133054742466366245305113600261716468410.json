@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:133054742466366245305113600261716468410",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-15189 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-15189",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15189"
+      }
+    ],
+    "description": "In Wireshark 2.4.0 to 2.4.1, the DOCSIS dissector could go into an infinite loop. This was addressed in plugins/docsis/packet-docsis.c by adding decrements.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11524",
+                "comment": "wireshark DPKG is earlier than 2.4.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

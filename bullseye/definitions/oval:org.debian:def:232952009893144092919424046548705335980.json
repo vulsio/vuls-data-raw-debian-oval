@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:232952009893144092919424046548705335980",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-2404 nss",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "nss"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-2404",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2404"
+      }
+    ],
+    "description": "Heap-based buffer overflow in a regular-expression parser in Mozilla Network Security Services (NSS) before 3.12.3, as used in Firefox, Thunderbird, SeaMonkey, Evolution, Pidgin, and AOL Instant Messenger (AIM), allows remote SSL servers to cause a denial of service (application crash) or possibly execute arbitrary code via a long domain name in the subject's Common Name (CN) field of an X.509 certificate, related to the cert_TestHostName function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3043",
+                "comment": "nss DPKG is earlier than 3.12.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

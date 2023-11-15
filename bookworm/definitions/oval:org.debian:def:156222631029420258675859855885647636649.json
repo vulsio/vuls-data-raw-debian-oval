@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:156222631029420258675859855885647636649",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-34679 nvidia-graphics-drivers-tesla-470",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "nvidia-graphics-drivers-tesla-470"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-34679",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-34679"
+      }
+    ],
+    "description": "NVIDIA GPU Display Driver for Linux contains a vulnerability in the kernel mode layer handler, where an unhandled return value can lead to a null-pointer dereference, which may lead to denial of service.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23930",
+                "comment": "nvidia-graphics-drivers-tesla-470 DPKG is earlier than 470.161.03-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

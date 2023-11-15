@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:243405599226719185107994051071232064786",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2003-0145 tcpdump",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "tcpdump"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2003-0145",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0145"
+      }
+    ],
+    "description": "Unknown vulnerability in tcpdump before 3.7.2 related to an inability to \"Handle unknown RADIUS attributes properly,\" allows remote attackers to cause a denial of service (infinite loop), a different vulnerability than CAN-2003-0093.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:196",
+                "comment": "tcpdump DPKG is earlier than 3.7.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

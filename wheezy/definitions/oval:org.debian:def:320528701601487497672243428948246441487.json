@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:320528701601487497672243428948246441487",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3119-1 libevent",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "libevent"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-6272",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6272"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-6525",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-6525"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nAndrew Bartlett of Catalyst reported a defect affecting certain applications using the Libevent evbuffer API. This defect leaves applications which pass insanely large inputs to evbuffers open to a possible heap overflow or infinite loop. In order to exploit this flaw, an attacker needs to be able to find a way to provoke the program into trying to make a buffer chunk larger than what will fit into a single size_t or off_t.",
+      "dsa": "DSA-3119",
+      "date": "2015-01-06"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3473",
+                "comment": "libevent DPKG is earlier than 2.0.19-stable-3+deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

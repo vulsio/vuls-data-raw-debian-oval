@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:77688318388174049416312407471910982990",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-4337 streamripper",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "streamripper"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-4337",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4337"
+      }
+    ],
+    "description": "Multiple buffer overflows in the httplib_parse_sc_header function in lib/http.c in Streamripper before 1.62.2 allow remote attackers to execute arbitrary code via long (1) Location and (2) Server HTTP headers, a different vulnerability than CVE-2006-3124.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2002",
+                "comment": "streamripper DPKG is earlier than 1.62.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

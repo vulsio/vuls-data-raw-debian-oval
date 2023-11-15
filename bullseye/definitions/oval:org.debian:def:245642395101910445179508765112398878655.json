@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:245642395101910445179508765112398878655",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-4528 pidgin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pidgin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-4528",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4528"
+      }
+    ],
+    "description": "directconn.c in the MSN protocol plugin in libpurple 2.7.6 through 2.7.8 in Pidgin before 2.7.9 allows remote authenticated users to cause a denial of service (NULL pointer dereference and application crash) via a short p2pv2 packet in a DirectConnect (aka direct connection) session.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3836",
+                "comment": "pidgin DPKG is earlier than 2.7.9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

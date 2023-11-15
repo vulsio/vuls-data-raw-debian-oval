@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:28367967633417797360072511781952892756",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-26676 connman",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "connman"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-26676",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-26676"
+      }
+    ],
+    "description": "gdhcp in ConnMan before 1.39 could be used by network-adjacent attackers to leak sensitive stack information, allowing further exploitation of bugs in gdhcp.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20341",
+                "comment": "connman DPKG is earlier than 1.36-2.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:183193741029895484213146243073075357066",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-0100 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0100",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0100"
+      }
+    ],
+    "description": "Race condition in the inet_frag_intern function in net/ipv4/inet_fragment.c in the Linux kernel through 3.13.6 allows remote attackers to cause a denial of service (use-after-free error) or possibly have unspecified other impact via a large series of fragmented ICMP Echo Request packets to a system with a heavy CPU load.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6100",
+                "comment": "linux DPKG is earlier than 3.13.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:299918403842852289157076829760605624772",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1921 subversion",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "subversion"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1921",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1921"
+      }
+    ],
+    "description": "The mod_dav_svn module for the Apache HTTP Server, as distributed in Apache Subversion 1.5.x and 1.6.x before 1.6.17, when the SVNPathAuthz short_circuit option is disabled, does not properly enforce permissions for files that had been publicly readable in the past, which allows remote attackers to obtain sensitive information via a replay REPORT operation.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3953",
+                "comment": "subversion DPKG is earlier than 1.6.17dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

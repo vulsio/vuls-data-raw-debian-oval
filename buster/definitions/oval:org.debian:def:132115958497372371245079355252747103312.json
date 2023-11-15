@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:132115958497372371245079355252747103312",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-12136 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-12136",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12136"
+      }
+    ],
+    "description": "Race condition in the grant table code in Xen 4.6.x through 4.9.x allows local guest OS administrators to cause a denial of service (free list corruption and host crash) or gain privileges on the host via vectors involving maptrack free list handling.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11034",
+                "comment": "xen DPKG is earlier than 4.8.1-1+deb9u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

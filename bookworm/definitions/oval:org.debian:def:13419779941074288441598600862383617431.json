@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:13419779941074288441598600862383617431",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-3736 pinball",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "pinball"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-3736",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3736"
+      }
+    ],
+    "description": "ltdl.c in libltdl in GNU Libtool 1.5.x, and 2.2.6 before 2.2.6b, as used in Ham Radio Control Libraries, Q, and possibly other products, attempts to open a .la file in the current working directory, which allows local users to gain privileges via a Trojan horse file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3140",
+                "comment": "pinball DPKG is earlier than 0.3.1-11"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

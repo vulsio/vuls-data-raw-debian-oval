@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:301981628661643960374138016692742904554",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4175-1 freeplane",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "freeplane"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1000069",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000069"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nWojciech Regula discovered an XML External Entity vulnerability in the XML Parser of the mindmap loader in freeplane, a Java program for working with mind maps, resulting in potential information disclosure if a malicious mind map file is opened.",
+      "dsa": "DSA-4175",
+      "date": "2018-04-18"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4090",
+                "comment": "freeplane DPKG is earlier than 1.5.18-1+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

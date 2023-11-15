@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:128035965415308517559756866134602504617",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-4503 chrony",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "chrony"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-4503",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4503"
+      }
+    ],
+    "description": "cmdmon.c in Chrony before 1.29 allows remote attackers to obtain potentially sensitive information from stack memory via vectors related to (1) an invalid subnet in a RPY_SUBNETS_ACCESSED command to the handle_subnets_accessed function or (2) a RPY_CLIENT_ACCESSES command to the handle_client_accesses function when client logging is disabled, which causes uninitialized data to be included in a reply.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5195",
+                "comment": "chrony DPKG is earlier than 1.29-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

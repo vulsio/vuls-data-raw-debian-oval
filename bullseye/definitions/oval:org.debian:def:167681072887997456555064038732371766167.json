@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:167681072887997456555064038732371766167",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-12953 dropbear",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dropbear"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-12953",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12953"
+      }
+    ],
+    "description": "Dropbear 2011.54 through 2018.76 has an inconsistent failure delay that may lead to revealing valid usernames, a different issue than CVE-2018-15599.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:16038",
+                "comment": "dropbear DPKG is earlier than 2019.78-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

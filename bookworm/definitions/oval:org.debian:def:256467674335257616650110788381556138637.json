@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:256467674335257616650110788381556138637",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-8314 kodi",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "kodi"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-8314",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8314"
+      }
+    ],
+    "description": "Directory Traversal in Zip Extraction built-in function in Kodi 17.1 and earlier allows arbitrary file write on disk via a Zip file as subtitles.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12511",
+                "comment": "kodi DPKG is earlier than 2:17.1+dfsg1-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

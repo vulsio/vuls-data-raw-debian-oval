@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:268566306526152798098407749882956538225",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3012-1 eglibc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "eglibc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-5119",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5119"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nTavis Ormandy discovered a heap-based buffer overflow in the transliteration module loading code in eglibc, Debian's version of the GNU C Library.  As a result, an attacker who can supply a crafted destination character set argument to iconv-related character conversation functions could achieve arbitrary code execution.",
+      "dsa": "DSA-3012",
+      "date": "2014-08-27"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3369",
+                "comment": "eglibc DPKG is earlier than 2.13-38+deb7u4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

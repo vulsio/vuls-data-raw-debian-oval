@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:217445013373466467446025641775295347922",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-1545 ht",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ht"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-1545",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1545"
+      }
+    ],
+    "description": "Integer overflow in the ELF parser in HT Editor before 0.8.0 allows remote attackers to execute arbitrary code via a crafted ELF file, which leads to a heap-based buffer overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:831",
+                "comment": "ht DPKG is earlier than 0.8.0-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

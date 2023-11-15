@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:300676868891524434625305930545773125582",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-5026 cacti",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "cacti"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-5026",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5026"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in Cacti 0.8.8b allow remote authenticated users with console access to inject arbitrary web script or HTML via a (1) Graph Tree Title in a delete or (2) edit action; (3) CDEF Name, (4) Data Input Method Name, or (5) Host Templates Name in a delete action; (6) Data Source Title; (7) Graph Title; or (8) Graph Template Name in a delete or (9) duplicate action.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7080",
+                "comment": "cacti DPKG is earlier than 0.8.8b+dfsg-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:274560932007787662100495769104891338879",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-2779 quassel",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "quassel"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2779",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2779"
+      }
+    ],
+    "description": "Stack consumption vulnerability in the message splitting functionality in Quassel before 0.12-rc1 allows remote attackers to cause a denial of service (uncontrolled recursion) via a crafted massage.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7763",
+                "comment": "quassel DPKG is earlier than 1:0.10.0-2.3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

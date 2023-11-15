@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:105023368065931125543312613501712435583",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-42717 modsecurity-apache",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "modsecurity-apache"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-42717",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42717"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "It was discovered that modsecurity-apache, an Apache module to tighten the Web application security, does not properly handles excessively nested JSON objects, which could result in denial of service. The update introduces a new <q>SecRequestBodyJsonDepthLimit</q> option to limit the maximum request body JSON parsing depth which ModSecurity will accept (defaults to 10000).",
+      "dsa": "DSA-5023"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22847",
+                "comment": "modsecurity-apache DPKG is earlier than 2.9.3-3+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

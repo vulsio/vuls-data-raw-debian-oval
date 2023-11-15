@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:238418019001206945015362816955316788315",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-3563 bluez",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "bluez"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-3563",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-3563"
+      }
+    ],
+    "description": "A vulnerability classified as problematic has been found in Linux Kernel. Affected is the function read_50_controller_cap_complete of the file tools/mgmt-tester.c of the component BlueZ. The manipulation of the argument cap_len leads to null pointer dereference. It is recommended to apply a patch to fix this issue. VDB-211086 is the identifier assigned to this vulnerability.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24082",
+                "comment": "bluez DPKG is earlier than 5.65-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

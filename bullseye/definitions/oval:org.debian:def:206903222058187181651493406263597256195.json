@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:206903222058187181651493406263597256195",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-44507 fis-gtm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "fis-gtm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-44507",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44507"
+      }
+    ],
+    "description": "An issue was discovered in FIS GT.M through V7.0-000 (related to the YottaDB code base). A lack of parameter validation in calls to memcpy in str_tok in sr_unix/ztimeoutroutines.c allows attackers to attempt to read from a NULL pointer.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22989",
+                "comment": "fis-gtm DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

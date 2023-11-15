@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:25592708523054069934200310664640963004",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-6173 nsd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "nsd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-6173",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6173"
+      }
+    ],
+    "description": "NSD before 4.1.11 allows remote DNS master servers to cause a denial of service (/tmp disk consumption and slave server crash) via a zone transfer with unlimited data.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9746",
+                "comment": "nsd DPKG is earlier than 4.1.11-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

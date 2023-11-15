@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:336635665748577110901739416102815254672",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-26232 jupyter-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "jupyter-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-26232",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-26232"
+      }
+    ],
+    "description": "Jupyter Server before version 1.0.6 has an Open redirect vulnerability. A maliciously crafted link to a jupyter server could redirect the browser to a different website. All jupyter servers are technically affected, however, these maliciously crafted links can only be reasonably made for known jupyter server hosts. A link to your jupyter server may appear safe, but ultimately redirect to a spoofed server on the public internet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19344",
+                "comment": "jupyter-server DPKG is earlier than 1.0.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

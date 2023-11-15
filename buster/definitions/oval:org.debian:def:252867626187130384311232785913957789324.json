@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:252867626187130384311232785913957789324",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-17353 lilypond",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "lilypond"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-17353",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-17353"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Faidon Liambotis discovered that Lilypond, a program for typesetting sheet music, did not restrict the inclusion of Postscript and SVG commands when operating in safe mode, which could result in the execution of arbitrary code when rendering a typesheet file with embedded Postscript code.",
+      "dsa": "DSA-4756"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18971",
+                "comment": "lilypond DPKG is earlier than 2.19.81+really-2.18.2-13+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

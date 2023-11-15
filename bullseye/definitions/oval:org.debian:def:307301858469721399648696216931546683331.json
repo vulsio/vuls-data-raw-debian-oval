@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:307301858469721399648696216931546683331",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-44120 spip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "spip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-44120",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44120"
+      }
+    ],
+    "description": "SPIP 4.0.0 is affected by a Cross Site Scripting (XSS) vulnerability in ecrire/public/interfaces.php, adding the function safehtml to the vulnerable fields. An editor is able to modify his personal information. If the editor has an article written and available, when a user goes to the public site and wants to read the author's information, the malicious code will be executed. The \"Who are you\" and \"Website Name\" fields are vulnerable.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22961",
+                "comment": "spip DPKG is earlier than 3.2.11-3+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

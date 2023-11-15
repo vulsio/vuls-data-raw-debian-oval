@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:181585459310799868805285555251908739397",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-3457 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-3457",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3457"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in setup.php in phpMyAdmin before 2.11.8 allows user-assisted remote attackers to inject arbitrary web script or HTML via crafted setup arguments.  NOTE: this issue can only be exploited in limited scenarios in which the attacker must be able to modify config/config.inc.php.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2504",
+                "comment": "phpmyadmin DPKG is earlier than 4:2.11.8~rc1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

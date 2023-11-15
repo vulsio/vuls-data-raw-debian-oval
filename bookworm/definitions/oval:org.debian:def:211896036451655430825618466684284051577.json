@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:211896036451655430825618466684284051577",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-10188 bitlbee",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "bitlbee"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-10188",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10188"
+      }
+    ],
+    "description": "Use-after-free vulnerability in bitlbee-libpurple before 3.5 allows remote servers to cause a denial of service (crash) or possibly execute arbitrary code by causing a file transfer connection to expire.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8506",
+                "comment": "bitlbee DPKG is earlier than 3.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:145552388996707376713533171460515065912",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-4023 php-mail",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "php-mail"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-4023",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4023"
+      }
+    ],
+    "description": "Argument injection vulnerability in the sendmail implementation of the Mail::Send method (Mail/sendmail.php) in the Mail package 1.1.14 for PEAR allows remote attackers to read and write arbitrary files via a crafted $from parameter, a different vector than CVE-2009-4111.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3295",
+                "comment": "php-mail DPKG is earlier than 1.1.14-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

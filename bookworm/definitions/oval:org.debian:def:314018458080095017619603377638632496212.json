@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:314018458080095017619603377638632496212",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-5812 libraw",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libraw"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-5812",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5812"
+      }
+    ],
+    "description": "An error within the \"nikon_coolscan_load_raw()\" function (internal/dcraw_common.cpp) in LibRaw versions prior to 0.18.9 can be exploited to trigger a NULL pointer dereference.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14745",
+                "comment": "libraw DPKG is earlier than 0.18.11-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

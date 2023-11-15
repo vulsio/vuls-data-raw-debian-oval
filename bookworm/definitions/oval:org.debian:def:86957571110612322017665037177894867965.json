@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:86957571110612322017665037177894867965",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-18671 roundcube",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "roundcube"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-18671",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-18671"
+      }
+    ],
+    "description": "Cross Site Scripting (XSS) vulnerability in Roundcube Mail <=1.4.4 via smtp config in /installer/test.php.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18306",
+                "comment": "roundcube DPKG is earlier than 1.4.5+dfsg.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

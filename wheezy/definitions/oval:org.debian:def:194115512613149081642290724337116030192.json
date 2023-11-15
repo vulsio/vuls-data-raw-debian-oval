@@ -1,0 +1,69 @@
+{
+  "id": "oval:org.debian:def:194115512613149081642290724337116030192",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3193-1 tcpdump",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "tcpdump"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-0261",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-0261"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2153",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2153"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2154",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2154"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2155",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2155"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities have been discovered in tcpdump, a command-line network traffic analyzer. These vulnerabilities might result in denial of service (application crash) or, potentially, execution of arbitrary code.",
+      "dsa": "DSA-3193",
+      "date": "2015-03-17"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3544",
+                "comment": "tcpdump DPKG is earlier than 4.3.0-1+deb7u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

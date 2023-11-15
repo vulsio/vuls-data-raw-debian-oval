@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:256710425839267308871786494693379365668",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-15767 gnuchess",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gnuchess"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-15767",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15767"
+      }
+    ],
+    "description": "In GNU Chess 6.2.5, there is a stack-based buffer overflow in the cmd_load function in frontend/cmd.cc via a crafted chess position in an EPD file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:16523",
+                "comment": "gnuchess DPKG is earlier than 6.2.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

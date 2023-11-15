@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:97469284193317332192901211436592967355",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-1061 logwatch",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "logwatch"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-1061",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1061"
+      }
+    ],
+    "description": "The secure script in LogWatch before 2.6-2 allows attackers to prevent LogWatch from detecting malicious activity via certain strings in the secure file that are later used as part of a regular expression, which causes the parser to crash, aka \"logwatch log processing regular expression DoS.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:789",
+                "comment": "logwatch DPKG is earlier than 5.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

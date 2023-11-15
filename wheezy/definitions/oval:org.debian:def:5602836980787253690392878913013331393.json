@@ -1,0 +1,69 @@
+{
+  "id": "oval:org.debian:def:5602836980787253690392878913013331393",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3127-1 iceweasel",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "iceweasel"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8634",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8634"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8638",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8638"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8639",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8639"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8641",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8641"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMultiple security issues have been found in Iceweasel, Debian's version of the Mozilla Firefox web browser: Multiple memory safety errors and implementation errors may lead to the execution of arbitrary code, information leaks or denial of service.",
+      "dsa": "DSA-3127",
+      "date": "2015-01-14"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1848",
+                "comment": "iceweasel DPKG is earlier than 31.4.0esr-1~deb7u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

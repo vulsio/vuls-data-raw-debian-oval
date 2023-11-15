@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:114423959945788909717676367075749335200",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-9713 openldap",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openldap"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9713",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9713"
+      }
+    ],
+    "description": "The default slapd configuration in the Debian openldap package 2.4.23-3 through 2.4.39-1.1 allows remote authenticated users to modify the user's permissions and other user attributes via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7108",
+                "comment": "openldap DPKG is earlier than 2.4.40-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

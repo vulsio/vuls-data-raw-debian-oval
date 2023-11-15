@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:240386604288105402948335867911837666447",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-1711 qt4-x11",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "qt4-x11"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-1711",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1711"
+      }
+    ],
+    "description": "WebKit in Apple Safari before 4.0 does not properly initialize memory for Attr DOM objects, which allows remote attackers to execute arbitrary code or cause a denial of service (application crash) via a crafted HTML document.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3059",
+                "comment": "qt4-x11 DPKG is earlier than 4:4.5.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:7698844746089867721880614318410175937",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-33969 kanboard",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "kanboard"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-33969",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-33969"
+      }
+    ],
+    "description": "Kanboard is open source project management software that focuses on the Kanban methodology. A stored Cross site scripting (XSS) allows an attacker to execute arbitrary Javascript and any user who views the task containing the malicious code will be exposed to the XSS attack. Note: The default CSP header configuration blocks this javascript attack. This issue has been addressed in version 1.2.30. Users are advised to upgrade. Users unable to upgrade should ensure that they have a restrictive CSP header config.\n\n",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26101",
+                "comment": "kanboard DPKG is earlier than 1.2.26+ds-2+deb12u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

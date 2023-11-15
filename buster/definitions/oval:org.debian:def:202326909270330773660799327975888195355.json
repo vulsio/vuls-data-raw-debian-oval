@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:202326909270330773660799327975888195355",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-5215 xdm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "xdm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-5215",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5215"
+      }
+    ],
+    "description": "The Xsession script, as used by X Display Manager (xdm) in NetBSD before 20060212, X.Org before 20060317, and Solaris 8 through 10 before 20061006, allows local users to overwrite arbitrary files, or read another user's Xsession errors file, via a symlink attack on a /tmp/xses-$USER file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1553",
+                "comment": "xdm DPKG is earlier than 1:1.0.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:106855742919509015718573888838973148451",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-26957 rust-xcb",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "rust-xcb"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-26957",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-26957"
+      }
+    ],
+    "description": "An issue was discovered in the xcb crate through 2021-02-04 for Rust. It has a soundness violation because there is an out-of-bounds read in xcb::xproto::change_property(), as demonstrated by a format=32 T=u8 situation where out-of-bounds bytes are sent to an X server.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20362",
+                "comment": "rust-xcb DPKG is earlier than 1.1.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

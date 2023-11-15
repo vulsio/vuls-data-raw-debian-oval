@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:238396469000166234405294406261927079829",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1580 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1580",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1580"
+      }
+    ],
+    "description": "The dissect_cmstatus_tlv function in plugins/docsis/packet-cmstatus.c in the DOCSIS CM-STATUS dissector in Wireshark 1.6.x before 1.6.13 and 1.8.x before 1.8.5 uses an incorrect data type for a position variable, which allows remote attackers to cause a denial of service (infinite loop) via a malformed packet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5599",
+                "comment": "wireshark DPKG is earlier than 1.8.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

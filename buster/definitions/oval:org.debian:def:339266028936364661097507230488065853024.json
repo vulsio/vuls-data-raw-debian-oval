@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:339266028936364661097507230488065853024",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-5081 groff",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "groff"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-5081",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-5081"
+      }
+    ],
+    "description": "The (1) config.guess, (2) contrib/groffer/perl/groffer.pl, and (3) contrib/groffer/perl/roff2.pl scripts in GNU troff (aka groff) 1.21 and earlier use an insufficient number of X characters in the template argument to the tempfile function, which makes it easier for local users to overwrite arbitrary files via a symlink attack on a temporary file, a different vulnerability than CVE-2004-0969.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3479",
+                "comment": "groff DPKG is earlier than 1.20.1-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

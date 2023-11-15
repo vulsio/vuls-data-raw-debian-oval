@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:129652415991691195459385679474077448705",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4647-1 bluez",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "bluez"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-0556",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0556"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was reported that the BlueZ's HID and HOGP profile implementations don't specifically require bonding between the device and the host. Malicious devices can take advantage of this flaw to connect to a target host and impersonate an existing HID device without security or to cause an SDP or GATT service discovery to take place which would allow HID reports to be injected to the input subsystem from a non-bonded source.",
+      "dsa": "DSA-4647",
+      "date": "2020-03-26"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3446",
+                "comment": "bluez DPKG is earlier than 5.43-2+deb9u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

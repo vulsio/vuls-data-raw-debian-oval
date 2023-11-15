@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:102055269542847866571720413635194990386",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-2443 krb5",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "krb5"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-2443",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2443"
+      }
+    ],
+    "description": "Integer signedness error in the gssrpc__svcauth_unix function in svc_auth_unix.c in the RPC library in MIT Kerberos 5 (krb5) 1.6.1 and earlier might allow remote attackers to execute arbitrary code via a negative length value.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1783",
+                "comment": "krb5 DPKG is earlier than 1.6.dfsg.1-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

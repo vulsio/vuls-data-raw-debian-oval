@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:9129106095492762514307527490133509943",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-7074 pdns",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pdns"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-7074",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7074"
+      }
+    ],
+    "description": "An issue has been found in PowerDNS before 3.4.11 and 4.0.2, and PowerDNS recursor before 4.0.4, allowing an attacker in position of man-in-the-middle to alter the content of an AXFR because of insufficient validation of TSIG signatures. A missing check that the TSIG record is the last one, leading to the possibility of parsing records that are not covered by the TSIG signature.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9906",
+                "comment": "pdns DPKG is earlier than 4.0.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:275414201879559639992560092946116467065",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5382-1 cairosvg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cairosvg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-27586",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27586"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was reported that cairosvg, a SVG converter based on Cairo, can send requests to external hosts when processing specially crafted SVG files with external file resource loading. An attacker can take advantage of this flaw to perform a server-side request forgery or denial of service. Fetching of external files is disabled by default with this update.",
+      "dsa": "DSA-5382",
+      "date": "2023-04-05"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28162",
+                "comment": "cairosvg DPKG is earlier than 2.5.0-1.1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

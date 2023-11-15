@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:26467036986876451462048922491750036231",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-7572 backintime",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "backintime"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-7572",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7572"
+      }
+    ],
+    "description": "The _checkPolkitPrivilege function in serviceHelper.py in Back In Time (aka backintime) 1.1.18 and earlier uses a deprecated polkit authorization method (unix-process) that is subject to a race condition (time of check, time of use). With this authorization method, the owner of a process requesting a polkit operation is checked by polkitd via /proc/<pid>/status, by which time the requesting process may have been replaced by a different process with the same PID that has different privileges then the original requester.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12707",
+                "comment": "backintime DPKG is earlier than 1.1.12-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

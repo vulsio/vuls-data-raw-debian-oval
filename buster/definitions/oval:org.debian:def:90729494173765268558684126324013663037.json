@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:90729494173765268558684126324013663037",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5016-1 nss",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "nss"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-43527",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-43527"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Tavis Ormandy discovered that nss, the Mozilla Network Security Service library, is prone to a heap overflow flaw when verifying DSA or RSA-PPS signatures, which could result in denial of service or potentially the execution of arbitrary code.",
+      "dsa": "DSA-5016",
+      "date": "2021-12-01"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27381",
+                "comment": "nss DPKG is earlier than 2:3.42.1-1+deb10u4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

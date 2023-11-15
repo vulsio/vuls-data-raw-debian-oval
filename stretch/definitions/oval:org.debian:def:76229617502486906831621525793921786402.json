@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:76229617502486906831621525793921786402",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4042-1 libxml-libxml-perl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "libxml-libxml-perl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-10672",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10672"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nA use-after-free vulnerability was discovered in XML::LibXML, a Perl interface to the libxml2 library, allowing an attacker to execute arbitrary code by controlling the arguments to a replaceChild() call.",
+      "dsa": "DSA-4042",
+      "date": "2017-11-19"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:735",
+                "comment": "libxml-libxml-perl DPKG is earlier than 2.0128+dfsg-1+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

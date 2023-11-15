@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:140035715337117923316440905105256164381",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-0188 calife",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "calife"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-0188",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0188"
+      }
+    ],
+    "description": "Heap-based buffer overflow in Calife 2.8.5 and earlier may allow local users to execute arbitrary code via a long password.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:386",
+                "comment": "calife DPKG is earlier than 2.8.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

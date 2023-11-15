@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:178123865257811560489271156490658071759",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-23409 golang-github-pires-go-proxyproto",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "golang-github-pires-go-proxyproto"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-23409",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23409"
+      }
+    ],
+    "description": "The package github.com/pires/go-proxyproto before 0.6.0 are vulnerable to Denial of Service (DoS) via creating connections without the proxy protocol header.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20221",
+                "comment": "golang-github-pires-go-proxyproto DPKG is earlier than 0.4.2-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

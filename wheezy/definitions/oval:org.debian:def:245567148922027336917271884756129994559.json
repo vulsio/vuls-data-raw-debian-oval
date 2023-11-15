@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:245567148922027336917271884756129994559",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2899-1 openafs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "openafs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0159",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0159"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-2852",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-2852"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMichael Meffie discovered that in OpenAFS, a distributed filesystem, an attacker with the ability to connect to an OpenAFS fileserver can trigger a buffer overflow, crashing the fileserver, and potentially permitting the execution of arbitrary code.",
+      "dsa": "DSA-2899",
+      "date": "2014-04-09"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3265",
+                "comment": "openafs DPKG is earlier than 1.6.1-3+deb7u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

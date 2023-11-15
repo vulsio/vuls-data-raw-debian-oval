@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:309428877339497981890457051722164088968",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-4435 fwknop",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "fwknop"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-4435",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4435"
+      }
+    ],
+    "description": "fwknop before 2.0.3 does not properly validate IP addresses, which allows remote authenticated users to cause a denial of service (server crash) via a long IP address.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4836",
+                "comment": "fwknop DPKG is earlier than 2.0.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

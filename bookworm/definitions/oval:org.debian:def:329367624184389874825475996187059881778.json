@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:329367624184389874825475996187059881778",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1589 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1589",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1589"
+      }
+    ],
+    "description": "Double free vulnerability in epan/proto.c in the dissection engine in Wireshark 1.6.x before 1.6.13 and 1.8.x before 1.8.5 allows remote attackers to cause a denial of service (application crash) via a malformed packet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5236",
+                "comment": "wireshark DPKG is earlier than 1.8.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

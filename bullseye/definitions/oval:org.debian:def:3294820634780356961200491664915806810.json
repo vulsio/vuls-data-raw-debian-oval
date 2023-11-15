@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:3294820634780356961200491664915806810",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-9809 gst-plugins-bad1.0",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gst-plugins-bad1.0"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9809",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9809"
+      }
+    ],
+    "description": "Off-by-one error in the gst_h264_parse_set_caps function in GStreamer before 1.10.2 allows remote attackers to have unspecified impact via a crafted file, which triggers an out-of-bounds read.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10400",
+                "comment": "gst-plugins-bad1.0 DPKG is earlier than 1.10.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

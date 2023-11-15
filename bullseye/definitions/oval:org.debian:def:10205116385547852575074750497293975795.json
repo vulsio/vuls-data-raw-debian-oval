@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:10205116385547852575074750497293975795",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-9928 lrzip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "lrzip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-9928",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9928"
+      }
+    ],
+    "description": "In lrzip 0.631, a stack buffer overflow was found in the function get_fileinfo in lrzip.c:979, which allows attackers to cause a denial of service via a crafted file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13220",
+                "comment": "lrzip DPKG is earlier than 0.631+git180517-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

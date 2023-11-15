@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:308198637697581893710825720410687021240",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-10351 telegram-desktop",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "telegram-desktop"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-10351",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10351"
+      }
+    ],
+    "description": "Telegram Desktop 0.10.19 uses 0755 permissions for $HOME/.TelegramDesktop, which allows local users to obtain sensitive authentication information via standard filesystem operations.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8560",
+                "comment": "telegram-desktop DPKG is earlier than 1.1.19-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

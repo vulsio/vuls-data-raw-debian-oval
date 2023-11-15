@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:335851813383176426632327361382577122716",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-2683 mutt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mutt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-2683",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2683"
+      }
+    ],
+    "description": "Buffer overflow in Mutt 1.4.2 might allow local users to execute arbitrary code via \"&\" characters in the GECOS field, which triggers the overflow during alias expansion.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1855",
+                "comment": "mutt DPKG is earlier than 1.5.15+20070608-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

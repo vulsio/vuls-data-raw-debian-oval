@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:5279215452510732738738424946062093130",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-14661 glusterfs",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "glusterfs"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-14661",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14661"
+      }
+    ],
+    "description": "It was found that usage of snprintf function in feature/locks translator of glusterfs server 3.8.4, as shipped with Red Hat Gluster Storage, was vulnerable to a format string attack. A remote, authenticated attacker could use this flaw to cause remote denial of service.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14070",
+                "comment": "glusterfs DPKG is earlier than 5.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

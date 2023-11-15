@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:58227059423739413300493486401369070456",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-3185 wget",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wget"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-3185",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3185"
+      }
+    ],
+    "description": "Stack-based buffer overflow in the ntlm_output function in http-ntlm.c for (1) wget 1.10, (2) curl 7.13.2, and (3) libcurl 7.13.2, and other products that use libcurl, when NTLM authentication is enabled, allows remote servers to execute arbitrary code via a long NTLM username.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1025",
+                "comment": "wget DPKG is earlier than 1.10.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

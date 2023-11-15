@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:67579598031359791417212322069774889675",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-5095 openssl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "openssl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-5095",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-5095"
+      }
+    ],
+    "description": "The Diffie-Hellman key-exchange implementation in OpenSSL 0.9.8, when FIPS mode is enabled, does not properly validate a public parameter, which makes it easier for man-in-the-middle attackers to obtain the shared secret key by modifying network traffic, a related issue to CVE-2011-1923.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4325",
+                "comment": "openssl DPKG is earlier than 0.9.8a-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

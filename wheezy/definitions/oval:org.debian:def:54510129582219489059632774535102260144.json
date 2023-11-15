@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:54510129582219489059632774535102260144",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2461-1 spip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "spip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2151",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2151"
+      }
+    ],
+    "description": "several vulnerabilities",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities have been found in SPIP, a website engine for publishing, resulting in cross-site scripting, script code injection and bypass of restrictions.",
+      "dsa": "DSA-2461",
+      "date": "2012-04-26"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:290",
+                "comment": "spip DPKG is earlier than 2.1.13-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

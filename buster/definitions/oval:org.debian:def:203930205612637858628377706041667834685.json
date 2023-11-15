@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:203930205612637858628377706041667834685",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-9446 gst-plugins-bad1.0",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "gst-plugins-bad1.0"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9446",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9446"
+      }
+    ],
+    "description": "The vmnc decoder in the gstreamer does not initialize the render canvas, which allows remote attackers to obtain sensitive information as demonstrated by thumbnailing a simple 1 frame vmnc movie that does not draw to the allocated render canvas.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10490",
+                "comment": "gst-plugins-bad1.0 DPKG is earlier than 1.10.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

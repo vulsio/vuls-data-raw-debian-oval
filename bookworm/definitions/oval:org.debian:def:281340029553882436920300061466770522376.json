@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:281340029553882436920300061466770522376",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-14928 evolution-data-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "evolution-data-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-14928",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14928"
+      }
+    ],
+    "description": "evolution-data-server (eds) through 3.36.3 has a STARTTLS buffering issue that affects SMTP and POP3. When a server sends a \"begin TLS\" response, eds reads additional data and evaluates it in a TLS context, aka \"response injection.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17989",
+                "comment": "evolution-data-server DPKG is earlier than 3.36.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

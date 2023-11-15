@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:185846969286619743080327553603322622003",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-6967 xrdp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xrdp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-6967",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6967"
+      }
+    ],
+    "description": "xrdp 0.9.1 calls the PAM function auth_start_session() in an incorrect location, leading to PAM session modules not being properly initialized, with a potential consequence of incorrect configurations or elevation of privileges, aka a pam_limits.so bypass.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12542",
+                "comment": "xrdp DPKG is earlier than 0.9.1-9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

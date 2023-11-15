@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:250574896029155859991527739484354330372",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-41914 slurm-wlm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "slurm-wlm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-41914",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41914"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Francois Diakhate discovered that several race conditions in file processing of the Simple Linux Utility for Resource Management (SLURM), a cluster resource management and job scheduling system, could result in denial of service by overwriting arbitrary files.",
+      "dsa": "DSA-5529"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26533",
+                "comment": "slurm-wlm DPKG is earlier than 22.05.8-4+deb12u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

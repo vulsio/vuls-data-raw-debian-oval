@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:298741106540391595613127698836688517795",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-4000 jython",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "jython"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-4000",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-4000"
+      }
+    ],
+    "description": "Jython before 2.7.1rc1 allows attackers to execute arbitrary code via a crafted serialized PyFunction object.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9056",
+                "comment": "jython DPKG is earlier than 2.5.3-17"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

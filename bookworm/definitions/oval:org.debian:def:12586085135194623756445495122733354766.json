@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:12586085135194623756445495122733354766",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-0106 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-0106",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0106"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in the CSRF protection scheme in WordPress before 2.0.6 allows remote attackers to inject arbitrary web script or HTML via a CSRF attack with an invalid token and quote characters or HTML tags in URL variable names, which are not properly handled when WordPress generates a new link to verify the request.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1611",
+                "comment": "wordpress DPKG is earlier than 2.0.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

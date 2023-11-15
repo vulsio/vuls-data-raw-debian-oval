@@ -1,0 +1,47 @@
+{
+  "id": "oval:org.debian:def:334636360648307707640276311407268000008",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5257-2 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nThe security update announced as DSA 5257-1 caused regressions on certain systems using the amdgpu driver. Updated packages are now available to correct this issue.",
+      "dsa": "DSA-5257-2",
+      "date": "2022-10-23"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28035",
+                "comment": "linux DPKG is earlier than 5.10.149-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

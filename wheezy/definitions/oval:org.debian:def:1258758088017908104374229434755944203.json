@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:1258758088017908104374229434755944203",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2989-1 apache2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "apache2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0118",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0118"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0226",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0226"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0231",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0231"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral security issues were found in the Apache HTTP server.",
+      "dsa": "DSA-2989",
+      "date": "2014-07-24"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1236",
+                "comment": "apache2 DPKG is earlier than 2.2.22-13+deb7u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

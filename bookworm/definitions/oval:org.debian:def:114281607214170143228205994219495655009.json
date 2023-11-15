@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:114281607214170143228205994219495655009",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-0470 super",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "super"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0470",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0470"
+      }
+    ],
+    "description": "super.c in Super 3.30.0 does not check the return value of the setuid function when the -F flag is set, which allows local users to gain privileges via unspecified vectors, aka an RLIMIT_NPROC attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6177",
+                "comment": "super DPKG is earlier than 3.30.0-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

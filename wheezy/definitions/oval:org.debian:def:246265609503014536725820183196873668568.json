@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:246265609503014536725820183196873668568",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2988-1 transmission",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "transmission"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-4909",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4909"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nBen Hawkes discovered that incorrect handling of peer messages in the Transmission bittorrent client could result in denial of service or the execution of arbitrary code.",
+      "dsa": "DSA-2988",
+      "date": "2014-07-24"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3345",
+                "comment": "transmission DPKG is earlier than 2.52-3+nmu2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

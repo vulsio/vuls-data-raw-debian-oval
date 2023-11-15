@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:59462930643569375153695850869301575332",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5347-1 imagemagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "imagemagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-44267",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44267"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-44268",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-44268"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Bryan Gonzalez discovered that the PNG support in Imagemagick could be tricked into embedding the content of an arbitrary file when converting an image file.",
+      "dsa": "DSA-5347",
+      "date": "2023-02-13"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28126",
+                "comment": "imagemagick DPKG is earlier than 8:6.9.11.60+dfsg-1.3+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

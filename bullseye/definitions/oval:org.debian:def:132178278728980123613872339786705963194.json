@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:132178278728980123613872339786705963194",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-39209 cmark-gfm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "cmark-gfm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-39209",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-39209"
+      }
+    ],
+    "description": "cmark-gfm is GitHub's fork of cmark, a CommonMark parsing and rendering library and program in C. In versions prior to 0.29.0.gfm.6 a polynomial time complexity issue in cmark-gfm's autolink extension may lead to unbounded resource exhaustion and subsequent denial of service. Users may verify the patch by running `python3 -c 'print(\"![l\"* 100000 + \"\\n\")' | ./cmark-gfm -e autolink`, which will resource exhaust on unpatched cmark-gfm but render correctly on patched cmark-gfm. This vulnerability has been patched in 0.29.0.gfm.6. Users are advised to upgrade. Users unable to upgrade should disable the use of the autolink extension.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25259",
+                "comment": "cmark-gfm DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:183779550110017444281969623098506596037",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-11210 tinyxml2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "tinyxml2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-11210",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11210"
+      }
+    ],
+    "description": "TinyXML2 6.2.0 has a heap-based buffer over-read in the XMLDocument::Parse function in libtinyxml2.so. NOTE: The tinyxml2 developers have determined that the reported overflow is due to improper use of the library and not a vulnerability in tinyxml2",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13586",
+                "comment": "tinyxml2 DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

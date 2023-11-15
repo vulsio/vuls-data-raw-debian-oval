@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:62015305063324017505350126329210639673",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1957 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1957",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1957"
+      }
+    ],
+    "description": "The dissect_dcm_main function in epan/dissectors/packet-dcm.c in the DICOM dissector in Wireshark 1.2.x before 1.2.17 and 1.4.x before 1.4.7 allows remote attackers to cause a denial of service (infinite loop) via an invalid PDU length.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4132",
+                "comment": "wireshark DPKG is earlier than 1.6.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

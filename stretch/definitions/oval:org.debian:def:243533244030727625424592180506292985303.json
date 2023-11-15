@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:243533244030727625424592180506292985303",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3294-1 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-4651",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4651"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-4652",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4652"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMultiple vulnerabilities were discovered in the dissectors for WCCP and GSM DTAP, which could result in denial of service.",
+      "dsa": "DSA-3294",
+      "date": "2015-06-23"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3633",
+                "comment": "wireshark DPKG is earlier than 1.12.6+gee1fce6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

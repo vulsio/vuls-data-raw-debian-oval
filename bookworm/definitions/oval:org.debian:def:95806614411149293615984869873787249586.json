@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:95806614411149293615984869873787249586",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8764 dokuwiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "dokuwiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8764",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8764"
+      }
+    ],
+    "description": "DokuWiki 2014-05-05a and earlier, when using Active Directory for LDAP authentication, allows remote attackers to bypass authentication via a user name and password starting with a null (\\0) character, which triggers an anonymous bind.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6942",
+                "comment": "dokuwiki DPKG is earlier than 0.0.20140929.a-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:50145860444983911539462760327365863537",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-3995 libmikmod",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libmikmod"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-3995",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3995"
+      }
+    ],
+    "description": "Multiple heap-based buffer overflows in IN_MOD.DLL (aka the Module Decoder Plug-in) in Winamp before 5.57, and libmikmod 3.1.12, might allow remote attackers to execute arbitrary code via (1) crafted samples or (2) crafted instrument definitions in an Impulse Tracker file.  NOTE: some of these details are obtained from third party information.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3283",
+                "comment": "libmikmod DPKG is earlier than 3.1.11-6.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

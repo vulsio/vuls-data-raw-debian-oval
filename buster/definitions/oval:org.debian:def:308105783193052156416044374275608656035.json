@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:308105783193052156416044374275608656035",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-0056 neutron",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "neutron"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0056",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0056"
+      }
+    ],
+    "description": "The l3-agent in OpenStack Neutron 2012.2 before 2013.2.3 does not check the tenant id when creating ports, which allows remote authenticated users to plug ports into the routers of arbitrary tenants via the device id in a port-create command.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6506",
+                "comment": "neutron DPKG is earlier than 2013.2.2-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

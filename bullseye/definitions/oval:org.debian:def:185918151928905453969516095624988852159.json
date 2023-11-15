@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:185918151928905453969516095624988852159",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-9804 imagemagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "imagemagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9804",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9804"
+      }
+    ],
+    "description": "vision.c in ImageMagick allows remote attackers to cause a denial of service (infinite loop) via vectors related to \"too many object.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7411",
+                "comment": "imagemagick DPKG is earlier than 8:6.8.9.9-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

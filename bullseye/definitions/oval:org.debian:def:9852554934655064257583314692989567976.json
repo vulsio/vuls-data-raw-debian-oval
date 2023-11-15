@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:9852554934655064257583314692989567976",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-2440 imagemagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "imagemagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-2440",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2440"
+      }
+    ],
+    "description": "Heap-based buffer overflow in the libMagick component of ImageMagick 6.0.6.2 might allow attackers to execute arbitrary code via an image index array that triggers the overflow during filename glob expansion by the ExpandFilenames function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1328",
+                "comment": "imagemagick DPKG is earlier than 6:6.2.4.5-0.6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

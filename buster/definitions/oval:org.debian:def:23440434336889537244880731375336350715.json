@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:23440434336889537244880731375336350715",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-12412 libapreq2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "libapreq2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-12412",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12412"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Max Kellermann reported a NULL pointer dereference flaw in libapreq2, a generic Apache request library, allowing a remote attacker to cause a denial of service against an application using the library (application crash) if an invalid nested <q>multipart</q> body is processed.",
+      "dsa": "DSA-4541"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:16183",
+                "comment": "libapreq2 DPKG is earlier than 2.13-7~deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

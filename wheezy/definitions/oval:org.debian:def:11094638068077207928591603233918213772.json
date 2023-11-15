@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:11094638068077207928591603233918213772",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2790-1 nss",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "nss"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1739",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1739"
+      }
+    ],
+    "description": "uninitialized memory read",
+    "debian": {
+      "moreinfo": "\nA flaw was found in the way the Mozilla Network Security Service library (nss) read uninitialized data when there was a decryption failure. A remote attacker could use this flaw to cause a denial of service (application crash) for applications linked with the nss library.",
+      "dsa": "DSA-2790",
+      "date": "2013-11-02"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3165",
+                "comment": "nss DPKG is earlier than 2:3.14.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

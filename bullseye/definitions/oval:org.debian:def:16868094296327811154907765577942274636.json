@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:16868094296327811154907765577942274636",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-2146 libapache2-mod-auth-mellon",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libapache2-mod-auth-mellon"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-2146",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2146"
+      }
+    ],
+    "description": "The am_read_post_data function in mod_auth_mellon before 0.11.1 does not limit the amount of data read, which allows remote attackers to cause a denial of service (worker process crash, web server deadlock, or memory consumption) via a large amount of POST data.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9099",
+                "comment": "libapache2-mod-auth-mellon DPKG is earlier than 0.12.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

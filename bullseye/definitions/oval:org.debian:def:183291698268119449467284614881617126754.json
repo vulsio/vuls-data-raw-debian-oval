@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:183291698268119449467284614881617126754",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-0759 ruby-kubeclient",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ruby-kubeclient"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-0759",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0759"
+      }
+    ],
+    "description": "A flaw was found in all versions of kubeclient up to (but not including) v4.9.3, the Ruby client for Kubernetes REST API, in the way it parsed kubeconfig files. When the kubeconfig file does not configure custom CA to verify certs, kubeclient ends up accepting any certificate (it wrongly returns VERIFY_NONE). Ruby applications that leverage kubeclient to parse kubeconfig files are susceptible to Man-in-the-middle attacks (MITM).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23391",
+                "comment": "ruby-kubeclient DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

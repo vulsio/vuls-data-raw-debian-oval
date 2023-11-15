@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:14716201020082964211856014636613586651",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-1159 canna",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "canna"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-1159",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1159"
+      }
+    ],
+    "description": "Canna 3.6 and earlier does not properly validate requests, which allows remote attackers to cause a denial of service or information leak.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:69",
+                "comment": "canna DPKG is earlier than 3.6p1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

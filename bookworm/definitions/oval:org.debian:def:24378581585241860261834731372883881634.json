@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:24378581585241860261834731372883881634",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-6903 ioquake3",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ioquake3"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-6903",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6903"
+      }
+    ],
+    "description": "In ioquake3 before 2017-03-14, the auto-downloading feature has insufficient content restrictions. This also affects Quake III Arena, OpenArena, OpenJK, iortcw, and other id Tech 3 (aka Quake 3 engine) forks. A malicious auto-downloaded file can trigger loading of crafted auto-downloaded files as native code DLLs. A malicious auto-downloaded file can contain configuration defaults that override the user's. Executable bytecode in a malicious auto-downloaded file can set configuration variables to values that will result in unwanted native code DLLs being loaded, resulting in sandbox escape.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12156",
+                "comment": "ioquake3 DPKG is earlier than 1.36+u20161101+dfsg1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

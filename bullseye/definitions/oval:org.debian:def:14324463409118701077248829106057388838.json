@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:14324463409118701077248829106057388838",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2003-0778 sane-backends",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "sane-backends"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2003-0778",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0778"
+      }
+    ],
+    "description": "saned in sane-backends 1.0.7 and earlier, and possibly later versions, does not properly allocate memory in certain cases, which could allow attackers to cause a denial of service (memory consumption).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:310",
+                "comment": "sane-backends DPKG is earlier than 1.0.11-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

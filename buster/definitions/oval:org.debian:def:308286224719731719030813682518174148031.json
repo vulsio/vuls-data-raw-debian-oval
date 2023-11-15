@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:308286224719731719030813682518174148031",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-1914 dump",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "dump"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-1914",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1914"
+      }
+    ],
+    "description": "dump 0.4 b10 through b29 allows local users to cause a denial of service (execution prevention) by using flock() to lock the /etc/dumpdates file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:151",
+                "comment": "dump DPKG is earlier than 0.4b31-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

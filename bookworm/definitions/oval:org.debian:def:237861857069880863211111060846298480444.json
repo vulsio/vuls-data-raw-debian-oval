@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:237861857069880863211111060846298480444",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-12911 mp3gain",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mp3gain"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-12911",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12911"
+      }
+    ],
+    "description": "The \"apetag.c\" file in MP3Gain 1.5.2.r2 has a vulnerability which results in a stack memory corruption when opening a crafted MP3 file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10691",
+                "comment": "mp3gain DPKG is earlier than 1.6.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

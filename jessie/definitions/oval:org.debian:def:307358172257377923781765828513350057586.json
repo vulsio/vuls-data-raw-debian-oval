@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:307358172257377923781765828513350057586",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4092-1 awstats",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "awstats"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-1000501",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000501"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nThe cPanel Security Team discovered that awstats, a log file analyzer, was vulnerable to path traversal attacks. A remote unauthenticated attacker could leverage that to perform arbitrary code execution.",
+      "dsa": "DSA-4092",
+      "date": "2018-01-19"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4723",
+                "comment": "awstats DPKG is earlier than 7.2+dfsg-1+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

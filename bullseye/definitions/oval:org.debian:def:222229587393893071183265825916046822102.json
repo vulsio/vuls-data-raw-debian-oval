@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:222229587393893071183265825916046822102",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-0985 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-0985",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0985"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in the \"post comment\" functionality of WordPress 2.0.1 and earlier allow remote attackers to inject arbitrary web script or HTML via the (1) name, (2) website, and (3) comment parameters.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1216",
+                "comment": "wordpress DPKG is earlier than 2.0.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

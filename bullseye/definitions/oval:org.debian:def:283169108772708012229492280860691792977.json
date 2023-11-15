@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:283169108772708012229492280860691792977",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-3214 dnsmasq",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dnsmasq"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-3214",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3214"
+      }
+    ],
+    "description": "dnsmasq 2.25 allows remote attackers to cause a denial of service (daemon crash) by (1) renewing a nonexistent lease or (2) sending a DHCPREQUEST for an IP address that is not in the same network, related to the DHCP NAK response from the daemon.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2488",
+                "comment": "dnsmasq DPKG is earlier than 2.26-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

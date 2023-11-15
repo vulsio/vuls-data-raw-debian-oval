@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:77308516595006668604148864108336153938",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-0393 rlpr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "rlpr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-0393",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0393"
+      }
+    ],
+    "description": "Format string vulnerability in the msg function for rlpr daemon (rlprd) 2.0.4 allows remote attackers to execute arbitrary code via format string specifiers in a buffer that can not be resolved, which is provided to the syslog function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:386",
+                "comment": "rlpr DPKG is earlier than 2.02-7.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:200488386140703342362624930290907817926",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-7311 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-7311",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-7311"
+      }
+    ],
+    "description": "libxl in Xen 4.1.x through 4.6.x does not properly handle the readonly flag on disks when using the qemu-xen device model, which allows local guest users to write to a read-only disk image.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7904",
+                "comment": "xen DPKG is earlier than 4.8.0~rc3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

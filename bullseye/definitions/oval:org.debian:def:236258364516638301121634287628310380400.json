@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:236258364516638301121634287628310380400",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-3632 netpbm-free",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "netpbm-free"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-3632",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3632"
+      }
+    ],
+    "description": "Multiple buffer overflows in pnmtopng in netpbm 10.0 and earlier allow attackers to execute arbitrary code via a crafted PNM file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1098",
+                "comment": "netpbm-free DPKG is earlier than 2:10.0-10.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

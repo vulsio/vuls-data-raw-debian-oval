@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:272957975399243392134573673146576305025",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4292-1 kamailio",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "kamailio"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-16657",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16657"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nHenning Westerholt discovered a flaw related to the Via header processing in kamailio, a very fast, dynamic and configurable SIP server. An unauthenticated attacker can take advantage of this flaw to mount a denial of service attack via a specially crafted SIP message with an invalid Via header.",
+      "dsa": "DSA-4292",
+      "date": "2018-09-11"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4197",
+                "comment": "kamailio DPKG is earlier than 4.4.4-2+deb9u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

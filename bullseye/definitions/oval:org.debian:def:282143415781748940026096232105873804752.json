@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:282143415781748940026096232105873804752",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-3191 poppler",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "poppler"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-3191",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3191"
+      }
+    ],
+    "description": "Multiple heap-based buffer overflows in the (1) DCTStream::readProgressiveSOF and (2) DCTStream::readBaselineSOF functions in the DCT stream parsing code (Stream.cc) in xpdf 3.01 and earlier, as used in products such as (a) Poppler, (b) teTeX, (c) KDE kpdf, (d) pdftohtml, (e) KOffice KWord, (f) CUPS, and (g) libextractor allow user-assisted attackers to cause a denial of service (heap corruption) and possibly execute arbitrary code via a crafted PDF file with an out-of-range number of components (numComps), which is used as an array index.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1030",
+                "comment": "poppler DPKG is earlier than 0.4.2-1.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

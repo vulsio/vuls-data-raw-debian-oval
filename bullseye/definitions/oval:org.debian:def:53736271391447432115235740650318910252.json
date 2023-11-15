@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:53736271391447432115235740650318910252",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2003-0381 noweb",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "noweb"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2003-0381",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0381"
+      }
+    ],
+    "description": "Multiple vulnerabilities in noweb 2.9 and earlier creates temporary files insecurely, which allows local users to overwrite arbitrary files via multiple vectors including the noroff script.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:247",
+                "comment": "noweb DPKG is earlier than 2.10c-3.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

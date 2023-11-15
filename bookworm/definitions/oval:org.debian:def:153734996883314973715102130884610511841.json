@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:153734996883314973715102130884610511841",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-11869 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-11869",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11869"
+      }
+    ],
+    "description": "An integer overflow was found in QEMU 4.0.1 through 4.2.0 in the way it implemented ATI VGA emulation. This flaw occurs in the ati_2d_blt() routine in hw/display/ati-2d.c while handling MMIO write operations through the ati_mm_write() callback. A malicious guest could abuse this flaw to crash the QEMU process, resulting in a denial of service.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:17669",
+                "comment": "qemu DPKG is earlier than 1:5.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

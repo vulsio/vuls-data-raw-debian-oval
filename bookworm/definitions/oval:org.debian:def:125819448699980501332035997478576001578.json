@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:125819448699980501332035997478576001578",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-1926 util-linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "util-linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-1926",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1926"
+      }
+    ],
+    "description": "Argument injection vulnerability in login (login-utils/login.c) in util-linux-ng 2.14 and earlier makes it easier for remote attackers to hide activities by modifying portions of log events, as demonstrated by appending an \"addr=\" statement to the login name, aka \"audit log injection.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2318",
+                "comment": "util-linux DPKG is earlier than 2.13.1.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

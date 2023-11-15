@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:263465403965384622161594849750989839051",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-26126 frr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "frr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-26126",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-26126"
+      }
+    ],
+    "description": "Buffer overflow vulnerabilities exist in FRRouting through 8.1.0 due to the use of strdup with a non-zero-terminated binary string in isis_nb_notifications.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:24257",
+                "comment": "frr DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

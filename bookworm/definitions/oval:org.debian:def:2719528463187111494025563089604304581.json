@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:2719528463187111494025563089604304581",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-4348 fetchmail",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "fetchmail"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-4348",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-4348"
+      }
+    ],
+    "description": "fetchmail before 6.3.1 and before 6.2.5.5, when configured for multidrop mode, allows remote attackers to cause a denial of service (application crash) by sending messages without headers from upstream mail servers.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1084",
+                "comment": "fetchmail DPKG is earlier than 6.3.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

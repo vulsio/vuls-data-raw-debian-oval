@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:334542370508798705380256754586128759107",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-2142 poppler",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "poppler"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2142",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2142"
+      }
+    ],
+    "description": "The error function in Error.cc in poppler before 0.21.4 allows remote attackers to execute arbitrary commands via a PDF containing an escape sequence for a terminal emulator.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4565",
+                "comment": "poppler DPKG is earlier than 0.18.4-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

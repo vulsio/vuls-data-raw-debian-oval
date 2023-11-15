@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:81126813022480392150855542360086371175",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3807-1 icoutils",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "icoutils"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-6009",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6009"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-6010",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6010"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-6011",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6011"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMultiple vulnerabilities were discovered in the icotool and wrestool tools of Icoutils, a set of programs that deal with MS Windows icons and cursors, which may result in denial of service or the execution of arbitrary code if a malformed .ico or .exe file is processed.",
+      "dsa": "DSA-3807",
+      "date": "2017-03-12"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3234",
+                "comment": "icoutils DPKG is earlier than 0.31.0-2+deb8u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

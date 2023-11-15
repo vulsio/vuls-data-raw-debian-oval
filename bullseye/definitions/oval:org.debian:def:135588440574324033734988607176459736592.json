@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:135588440574324033734988607176459736592",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5310-1 ruby-image-processing",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ruby-image-processing"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-24720",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24720"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that ruby-image-processing, a ruby package that provides higher-level image processing helpers, is prone to a remote shell execution vulnerability when using the #apply method to apply a series of operations coming from unsanitized user input.",
+      "dsa": "DSA-5310",
+      "date": "2022-12-31"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28089",
+                "comment": "ruby-image-processing DPKG is earlier than 1.10.3-1+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

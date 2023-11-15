@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:288311962928255176124225389022529128218",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2002-1146 glibc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "glibc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2002-1146",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2002-1146"
+      }
+    ],
+    "description": "The BIND 4 and BIND 8.2.x stub resolver libraries, and other libraries such as glibc 2.2.5 and earlier, libc, and libresolv, use the maximum buffer size instead of the actual size when processing a DNS response, which causes the stub resolvers to read past the actual boundary (\"read buffer overflow\"), allowing remote attackers to cause a denial of service (crash).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:73",
+                "comment": "glibc DPKG is earlier than 2.3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

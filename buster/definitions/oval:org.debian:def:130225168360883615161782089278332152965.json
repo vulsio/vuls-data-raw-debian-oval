@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:130225168360883615161782089278332152965",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4730-1 ruby-sanitize",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "ruby-sanitize"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-4054",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-4054"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMichal Bentkowski discovered that ruby-sanitize, a whitelist-based HTML sanitizer, is prone to a HTML sanitization bypass vulnerability when using the <q>relaxed</q> or a custom config allowing certain elements. Content in a &lt;math&gt; or &lt;svg&gt; element may not be sanitized correctly even if math and svg are not in the allowlist.",
+      "dsa": "DSA-4730",
+      "date": "2020-07-19"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27119",
+                "comment": "ruby-sanitize DPKG is earlier than 4.6.6-2.1~deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

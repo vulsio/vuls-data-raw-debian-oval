@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:41360023763833910543451617413257132318",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-2667 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-2667",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2667"
+      }
+    ],
+    "description": "Direct static code injection vulnerability in WordPress 2.0.2 and earlier allows remote attackers to execute arbitrary commands by inserting a carriage return and PHP code when updating a profile, which is appended after a special comment sequence into files in (1) wp-content/cache/userlogins/ (2) wp-content/cache/users/ which are later included by cache.php, as demonstrated using the displayname argument.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1343",
+                "comment": "wordpress DPKG is earlier than 2.0.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

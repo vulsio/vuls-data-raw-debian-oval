@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:188095074479469403488377420838690095850",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-5067 html2ps",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "html2ps"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-5067",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-5067"
+      }
+    ],
+    "description": "Directory traversal vulnerability in html2ps before 1.0b6 allows remote attackers to read arbitrary files via a .. (dot dot) in the \"include file\" SSI directive.  NOTE: this issue only might be a vulnerability in limited scenarios, such as if html2ps is invoked by a web application, or if a user-assisted attacker provides filenames whose contents could cause a denial of service, such as certain devices.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3254",
+                "comment": "html2ps DPKG is earlier than 1.0b7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

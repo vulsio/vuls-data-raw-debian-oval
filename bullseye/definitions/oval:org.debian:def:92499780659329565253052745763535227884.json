@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:92499780659329565253052745763535227884",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-26735 prometheus-blackbox-exporter",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "prometheus-blackbox-exporter"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-26735",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-26735"
+      }
+    ],
+    "description": "blackbox_exporter v0.23.0 was discovered to contain an access control issue in its probe interface. This vulnerability allows attackers to detect intranet ports and services, as well as download resources. NOTE: this is disputed by third parties because authentication can be configured.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26590",
+                "comment": "prometheus-blackbox-exporter DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

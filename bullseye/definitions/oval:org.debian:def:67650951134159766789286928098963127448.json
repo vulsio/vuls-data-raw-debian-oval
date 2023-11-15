@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:67650951134159766789286928098963127448",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-2245 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-2245",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2245"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in phpMyAdmin before 2.10.1.0 allow remote attackers to inject arbitrary web script or HTML via (1) the fieldkey parameter to browse_foreigners.php or (2) certain input to the PMA_sanitize function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1825",
+                "comment": "phpmyadmin DPKG is earlier than 4:2.10.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

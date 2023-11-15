@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:276878865494632772459365053245091395748",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-26243 nanopb",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "nanopb"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-26243",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-26243"
+      }
+    ],
+    "description": "Nanopb is a small code-size Protocol Buffers implementation. In Nanopb before versions 0.4.4 and 0.3.9.7, decoding specifically formed message can leak memory if dynamic allocation is enabled and an oneof field contains a static submessage that contains a dynamic field, and the message being decoded contains the submessage multiple times. This is rare in normal messages, but it is a concern when untrusted data is parsed. This is fixed in versions 0.3.9.7 and 0.4.4. The following workarounds are available: 1) Set the option `no_unions` for the oneof field. This will generate fields as separate instead of C union, and avoids triggering the problematic code. 2) Set the type of the submessage field inside oneof to `FT_POINTER`. This way the whole submessage will be dynamically allocated and the problematic code is not executed. 3) Use an arena allocator for nanopb, to make sure all memory can be released afterwards.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19346",
+                "comment": "nanopb DPKG is earlier than 0.4.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

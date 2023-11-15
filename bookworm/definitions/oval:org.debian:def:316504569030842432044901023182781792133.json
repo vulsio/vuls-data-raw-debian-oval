@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:316504569030842432044901023182781792133",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-4082 phpldapadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "phpldapadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-4082",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4082"
+      }
+    ],
+    "description": "A local file inclusion flaw was found in the way the phpLDAPadmin before 0.9.8 processed certain values of the \"Accept-Language\" HTTP header. A remote attacker could use this flaw to cause a denial of service via specially-crafted request.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4200",
+                "comment": "phpldapadmin DPKG is earlier than 0.9.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

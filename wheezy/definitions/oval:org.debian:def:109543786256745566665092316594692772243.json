@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:109543786256745566665092316594692772243",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2603-1 emacs23",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "emacs23"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3479",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3479"
+      }
+    ],
+    "description": "programming error",
+    "debian": {
+      "moreinfo": "\nPaul Ling discovered that Emacs insufficiently restricted the evaluation of Lisp code if enable-local-variables is set to <q>safe</q>.",
+      "dsa": "DSA-2603",
+      "date": "2013-01-09"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3011",
+                "comment": "emacs23 DPKG is earlier than 23.4+1-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:306648900287676811858222350896282716808",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-16392 spip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "spip"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-16392",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16392"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "It was discovered that SPIP, a website engine for publishing, would allow unauthenticated users to modify published content and write to the database, perform cross-site request forgeries, and enumerate registered users.",
+      "dsa": "DSA-4532"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:16816",
+                "comment": "spip DPKG is earlier than 3.2.4-1+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

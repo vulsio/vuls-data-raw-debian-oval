@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:225545662358509348588280675768177670057",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-4945 php-horde-imp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "php-horde-imp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-4945",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4945"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in Horde Internet Mail Program (IMP) before 6.1.8, as used in Horde Groupware Webmail Edition before 5.1.5, allow remote attackers to inject arbitrary web script or HTML via an unspecified flag in the basic (1) mailbox or (2) message view.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6882",
+                "comment": "php-horde-imp DPKG is earlier than 6.2.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

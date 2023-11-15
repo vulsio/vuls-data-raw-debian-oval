@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:26002541772724868771880880410915391289",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8397 gdcm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "gdcm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8397",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8397"
+      }
+    ],
+    "description": "The JPEGLSCodec::DecodeExtent function in MediaStorageAndFileFormat/gdcmJPEGLSCodec.cxx in Grassroots DICOM (aka GDCM) before 2.6.2 allows remote attackers to obtain sensitive information from process memory or cause a denial of service (application crash) via an embedded JPEG-LS image with dimensions larger than the selected region in a (1) two-dimensional or (2) three-dimensional DICOM image file, which triggers an out-of-bounds read.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8604",
+                "comment": "gdcm DPKG is earlier than 2.6.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

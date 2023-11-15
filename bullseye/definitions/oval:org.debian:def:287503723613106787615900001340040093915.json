@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:287503723613106787615900001340040093915",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1377 a2ps",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "a2ps"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1377",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1377"
+      }
+    ],
+    "description": "The (1) fixps (aka fixps.in) and (2) psmandup (aka psmandup.in) scripts in a2ps before 4.13 allow local users to overwrite arbitrary files via a symlink attack on temporary files.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:595",
+                "comment": "a2ps DPKG is earlier than 1:4.13b-4.3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

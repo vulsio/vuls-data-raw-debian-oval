@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:206643687733499032720592412147066101629",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-4571 python-keyring",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "python-keyring"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-4571",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4571"
+      }
+    ],
+    "description": "Python Keyring 0.9.1 does not securely initialize the cipher when encrypting passwords for CryptedFileKeyring files, which makes it easier for local users to obtain passwords via a brute-force attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5084",
+                "comment": "python-keyring DPKG is earlier than 0.9.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

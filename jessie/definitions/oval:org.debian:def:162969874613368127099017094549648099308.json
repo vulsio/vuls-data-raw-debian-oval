@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:162969874613368127099017094549648099308",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4110-1 exim4",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "exim4"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-6789",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6789"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMeh Chang discovered a buffer overflow flaw in a utility function used in the SMTP listener of Exim, a mail transport agent. A remote attacker can take advantage of this flaw to cause a denial of service, or potentially the execution of arbitrary code via a specially crafted message.",
+      "dsa": "DSA-4110",
+      "date": "2018-02-10"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4735",
+                "comment": "exim4 DPKG is earlier than 4.84.2-2+deb8u5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

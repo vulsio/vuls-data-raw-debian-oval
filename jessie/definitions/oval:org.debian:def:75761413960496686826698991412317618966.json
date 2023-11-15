@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:75761413960496686826698991412317618966",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3190-1 putty",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "putty"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-2157",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2157"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nPatrick Coleman discovered that the Putty SSH client failed to wipe out unused sensitive memory.",
+      "dsa": "DSA-3190",
+      "date": "2015-03-15"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:570",
+                "comment": "putty DPKG is earlier than 0.63-10"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

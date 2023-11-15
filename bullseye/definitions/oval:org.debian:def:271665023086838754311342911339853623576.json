@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:271665023086838754311342911339853623576",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-3870 puppet",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "puppet"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-3870",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3870"
+      }
+    ],
+    "description": "Puppet 2.7.x before 2.7.5, 2.6.x before 2.6.11, and 0.25.x allows local users to modify the permissions of arbitrary files via a symlink attack on the SSH authorized_keys file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4347",
+                "comment": "puppet DPKG is earlier than 2.7.3-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

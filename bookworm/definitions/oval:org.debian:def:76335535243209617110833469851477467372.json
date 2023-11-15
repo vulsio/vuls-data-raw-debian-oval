@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:76335535243209617110833469851477467372",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-24916 yaws",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "yaws"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-24916",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24916"
+      }
+    ],
+    "description": "CGI implementation in Yaws web server versions 1.81 to 2.0.7 is vulnerable to OS command injection.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18569",
+                "comment": "yaws DPKG is earlier than 2.0.8+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

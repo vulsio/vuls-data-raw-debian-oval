@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:315180604585887511802713128481460958695",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-12689 phpldapadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "phpldapadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-12689",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12689"
+      }
+    ],
+    "description": "phpLDAPadmin 1.2.2 allows LDAP injection via a crafted server_id parameter in a cmd.php?cmd=login_form request, or a crafted username and password in the login panel.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13445",
+                "comment": "phpldapadmin DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

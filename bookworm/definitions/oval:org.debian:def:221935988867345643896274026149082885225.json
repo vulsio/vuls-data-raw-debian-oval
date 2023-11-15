@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:221935988867345643896274026149082885225",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-20337 libraw",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libraw"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-20337",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20337"
+      }
+    ],
+    "description": "There is a stack-based buffer overflow in the parse_makernote function of dcraw_common.cpp in LibRaw 0.19.1. Crafted input will lead to a denial of service or possibly unspecified other impact.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14326",
+                "comment": "libraw DPKG is earlier than 0.19.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "oval:org.debian:def:199569506539226426903778678258873056815",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3872-1 nss",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "nss"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5461",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5461"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5462",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5462"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-7502",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7502"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nSeveral vulnerabilities were discovered in NSS, a set of cryptographic libraries, which may result in denial of service or information disclosure.",
+      "dsa": "DSA-3872",
+      "date": "2017-06-01"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4560",
+                "comment": "nss DPKG is earlier than 2:3.26-1+debu8u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

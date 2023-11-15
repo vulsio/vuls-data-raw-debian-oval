@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:247746626995708137283033385409875696121",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-4081 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-4081",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4081"
+      }
+    ],
+    "description": "The http_payload_subdissector function in epan/dissectors/packet-http.c in the HTTP dissector in Wireshark 1.6.x before 1.6.16 and 1.8.x before 1.8.8 does not properly determine when to use a recursive approach, which allows remote attackers to cause a denial of service (stack consumption) via a crafted packet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5792",
+                "comment": "wireshark DPKG is earlier than 1.10.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

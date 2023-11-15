@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:2619408690339212915501840251697545306",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-3950 lighttpd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "lighttpd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-3950",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3950"
+      }
+    ],
+    "description": "lighttpd 1.4.15, when run on 32 bit platforms, allows remote attackers to cause a denial of service (daemon crash) via unspecified vectors involving the use of incompatible format specifiers in certain debugging messages in the (1) mod_scgi, (2) mod_fastcgi, and (3) mod_webdav modules.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1964",
+                "comment": "lighttpd DPKG is earlier than 1.4.16-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

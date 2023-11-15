@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:90181299307635968905927427759640737956",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-5097 thunderbird",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "thunderbird"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-5097",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5097"
+      }
+    ],
+    "description": "A use-after-free vulnerability can occur during XSL transformations when the source document for the transformation is manipulated by script content during the transformation. This results in a potentially exploitable crash. This vulnerability affects Thunderbird < 52.6, Firefox ESR < 52.6, and Firefox < 58.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15039",
+                "comment": "thunderbird DPKG is earlier than 1:52.6.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

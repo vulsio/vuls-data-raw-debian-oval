@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:62167861931604595457744134148988121573",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-1612 squid",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "squid"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-1612",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1612"
+      }
+    ],
+    "description": "The arrayShrink function (lib/Array.c) in Squid 2.6.STABLE17 allows attackers to cause a denial of service (process exit) via unknown vectors that cause an array to shrink to 0 entries, which triggers an assert error.  NOTE: this issue is due to an incorrect fix for CVE-2007-6239.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2367",
+                "comment": "squid DPKG is earlier than 2.6.18-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

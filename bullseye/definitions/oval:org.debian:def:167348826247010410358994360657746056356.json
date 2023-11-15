@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:167348826247010410358994360657746056356",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1553 xpdf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xpdf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1553",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1553"
+      }
+    ],
+    "description": "Use-after-free vulnerability in t1lib 5.1.2 and earlier, as used in Xpdf before 3.02pl6, teTeX, and other products, allows remote attackers to cause a denial of service (application crash) via a PDF document containing a crafted Type 1 font that triggers an invalid memory write, a different vulnerability than CVE-2011-0764.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4063",
+                "comment": "xpdf DPKG is earlier than 3.02-9"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

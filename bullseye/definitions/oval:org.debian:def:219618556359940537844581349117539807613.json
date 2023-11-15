@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:219618556359940537844581349117539807613",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-0452 samba",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "samba"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-0452",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0452"
+      }
+    ],
+    "description": "smbd in Samba 3.0.6 through 3.0.23d allows remote authenticated users to cause a denial of service (memory and CPU exhaustion) by renaming a file in a way that prevents a request from being removed from the deferred open queue, which triggers an infinite loop.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1681",
+                "comment": "samba DPKG is earlier than 3.0.23d-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

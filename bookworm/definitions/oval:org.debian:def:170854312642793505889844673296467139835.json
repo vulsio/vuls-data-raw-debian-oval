@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:170854312642793505889844673296467139835",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-5220 mdadm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mdadm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-5220",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5220"
+      }
+    ],
+    "description": "The mdcheck script of the mdadm package for openSUSE 13.2 prior to version 3.3.1-5.14.1 does not properly sanitize device names, which allows local attackers to execute arbitrary commands as root.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6663",
+                "comment": "mdadm DPKG is earlier than 3.3.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

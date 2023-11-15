@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:118900232367165562945078698739814193506",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-0146 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0146",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0146"
+      }
+    ],
+    "description": "The qcow2_open function in the (block/qcow2.c) in QEMU before 1.7.2 and 2.x before 2.0.0 allows local users to cause a denial of service (NULL pointer dereference) via a crafted image which causes an error, related to the initialization of the snapshot_offset and nb_snapshots fields.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6121",
+                "comment": "qemu DPKG is earlier than 2.0.0+dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

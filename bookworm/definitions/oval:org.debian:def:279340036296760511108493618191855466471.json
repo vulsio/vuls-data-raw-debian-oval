@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:279340036296760511108493618191855466471",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8738 binutils",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "binutils"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8738",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8738"
+      }
+    ],
+    "description": "The _bfd_slurp_extended_name_table function in bfd/archive.c in GNU binutils 2.24 and earlier allows remote attackers to cause a denial of service (invalid write, segmentation fault, and crash) via a crafted extended name table in an archive.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6936",
+                "comment": "binutils DPKG is earlier than 2.24.90.20141124-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

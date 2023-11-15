@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:192469598431394774241968749443801470040",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-4612 icecast2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "icecast2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-4612",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4612"
+      }
+    ],
+    "description": "icecast before 2.3.3 allows remote attackers to inject control characters such as newlines into the error loc (error.log) via a crafted URL.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4453",
+                "comment": "icecast2 DPKG is earlier than 2.3.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

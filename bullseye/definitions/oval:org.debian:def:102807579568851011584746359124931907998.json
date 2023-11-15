@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:102807579568851011584746359124931907998",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-7035 pacemaker",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pacemaker"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-7035",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7035"
+      }
+    ],
+    "description": "An authorization flaw was found in Pacemaker before 1.1.16, where it did not properly guard its IPC interface. An attacker with an unprivileged account on a Pacemaker node could use this flaw to, for example, force the Local Resource Manager daemon to execute a script as root and thereby gain root access on the machine.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9888",
+                "comment": "pacemaker DPKG is earlier than 1.1.15-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

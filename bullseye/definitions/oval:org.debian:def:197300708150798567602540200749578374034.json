@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:197300708150798567602540200749578374034",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-3670 ffmpeg",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ffmpeg"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-3670",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-3670"
+      }
+    ],
+    "description": "The rle_unpack function in vmdav.c in libavcodec in FFmpeg git 20130328 through 20130501 does not properly use the bytestream2 API, which allows remote attackers to cause a denial of service (out-of-bounds array access and application crash) via crafted RLE data.  NOTE: the vendor has listed this as an issue fixed in 1.2.1, but the issue is actually in new code that was not shipped with the 1.2.1 release or any earlier release.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5780",
+                "comment": "ffmpeg DPKG is earlier than 7:2.4.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

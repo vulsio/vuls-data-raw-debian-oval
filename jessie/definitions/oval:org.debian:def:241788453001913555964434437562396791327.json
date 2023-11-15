@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:241788453001913555964434437562396791327",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4087-1 transmission",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "transmission"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-5702",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5702"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nTavis Ormandy discovered a vulnerability in the Transmission BitTorrent client; insecure RPC handling between the Transmission daemon and the client interface(s) may result in the execution of arbitrary code if a user visits a malicious website while Transmission is running.",
+      "dsa": "DSA-4087",
+      "date": "2018-01-14"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4718",
+                "comment": "transmission DPKG is earlier than 2.84-0.2+deb8u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

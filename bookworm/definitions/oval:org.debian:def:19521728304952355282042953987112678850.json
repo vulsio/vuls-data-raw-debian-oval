@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:19521728304952355282042953987112678850",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-3287 fwupd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "fwupd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-3287",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-3287"
+      }
+    ],
+    "description": "When creating an OPERATOR user account on the BMC, the redfish plugin saved the auto-generated password to /etc/fwupd/redfish.conf without proper restriction, allowing any user on the system to read the same configuration file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23789",
+                "comment": "fwupd DPKG is earlier than 1.8.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

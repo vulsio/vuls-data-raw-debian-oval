@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:19671479936576259424978297663148641036",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-5077 openarena",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "openarena"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-5077",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-5077"
+      }
+    ],
+    "description": "server/sv_main.c in Quake3 Arena, as used in ioquake3 before r1762, OpenArena, Tremulous, and other products, allows remote attackers to cause a denial of service (network traffic amplification) via a spoofed (1) getstatus or (2) rcon request.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4014",
+                "comment": "openarena DPKG is earlier than 0.8.5-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:304289590479241356435043331381401414718",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5215-1 open-vm-tools",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "open-vm-tools"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-31676",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-31676"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nA vulnerability was discovered in open-vm-tools, an open source implementation of VMware Tools, allowing an unprivileged local guest user to escalate their privileges as root user in the virtual machine.",
+      "dsa": "DSA-5215",
+      "date": "2022-08-24"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27992",
+                "comment": "open-vm-tools DPKG is earlier than 2:11.2.5-2+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

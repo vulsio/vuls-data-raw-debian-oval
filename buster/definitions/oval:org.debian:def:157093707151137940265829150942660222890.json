@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:157093707151137940265829150942660222890",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-7468 curl",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "curl"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-7468",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-7468"
+      }
+    ],
+    "description": "In curl and libcurl 7.52.0 to and including 7.53.1, libcurl would attempt to resume a TLS session even if the client certificate had changed. That is unacceptable since a server by specification is allowed to skip the client certificate check on resume, and may instead use the old identity which was established by the previous certificate (or no certificate). libcurl supports by default the use of TLS session id/ticket to resume previous TLS sessions to speed up subsequent TLS handshakes. They are used when for any reason an existing TLS connection couldn't be kept alive to make the next handshake faster. This flaw is a regression and identical to CVE-2016-5419 reported on August 3rd 2016, but affecting a different version range.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12837",
+                "comment": "curl DPKG is earlier than 7.52.1-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

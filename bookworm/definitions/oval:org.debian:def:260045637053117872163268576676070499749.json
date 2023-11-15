@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:260045637053117872163268576676070499749",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-1194 nasm",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "nasm"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-1194",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1194"
+      }
+    ],
+    "description": "Stack-based buffer overflow in the ieee_putascii function for nasm 0.98 and earlier allows attackers to execute arbitrary code via a crafted asm file, a different vulnerability than CVE-2004-1287.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:801",
+                "comment": "nasm DPKG is earlier than 0.98.38-1.2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

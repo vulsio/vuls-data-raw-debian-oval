@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:291049327603520491030530311518479142611",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-3770 xfce4-terminal",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xfce4-terminal"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-3770",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3770"
+      }
+    ],
+    "description": "The terminal_helper_execute function in terminal/terminal.c in Xfce Terminal 0.2.6 allows user-assisted remote attackers to execute arbitrary commands via shell metacharacters in a crafted link, as demonstrated using the \"Open Link\" functionality.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1883",
+                "comment": "xfce4-terminal DPKG is earlier than 0.2.6-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

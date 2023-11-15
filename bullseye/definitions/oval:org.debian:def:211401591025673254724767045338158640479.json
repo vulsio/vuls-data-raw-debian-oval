@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:211401591025673254724767045338158640479",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-0288 dokuwiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "dokuwiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-0288",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0288"
+      }
+    ],
+    "description": "A typo in the administrator permission check in the ACL Manager plugin (plugins/acl/ajax.php) in DokuWiki before 2009-12-25b allows remote attackers to gain privileges and access closed wikis by editing current ACL statements, as demonstrated in the wild in January 2010.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3406",
+                "comment": "dokuwiki DPKG is earlier than 0.0.20090214b-3.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

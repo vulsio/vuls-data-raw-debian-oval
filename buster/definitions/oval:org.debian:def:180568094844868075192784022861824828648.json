@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:180568094844868075192784022861824828648",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-1176 mapserver",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "mapserver"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-1176",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1176"
+      }
+    ],
+    "description": "mapserv.c in mapserv in MapServer 4.x before 4.10.4 and 5.x before 5.2.2 does not ensure that the string holding the id parameter ends in a '\\0' character, which allows remote attackers to conduct buffer-overflow attacks or have unspecified other impact via a long id parameter in a query action.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2959",
+                "comment": "mapserver DPKG is earlier than 5.2.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

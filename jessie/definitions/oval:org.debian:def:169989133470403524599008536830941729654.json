@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:169989133470403524599008536830941729654",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3371-1 spice",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "spice"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-5260",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5260"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-5261",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5261"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nFrediano Ziglio of Red Hat discovered several vulnerabilities in spice, a SPICE protocol client and server library. A malicious guest can exploit these flaws to cause a denial of service (QEMU process crash), execute arbitrary code on the host with the privileges of the hosting QEMU process or read and write arbitrary memory locations on the host.",
+      "dsa": "DSA-3371",
+      "date": "2015-10-09"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:874",
+                "comment": "spice DPKG is earlier than 0.12.5-1+deb8u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

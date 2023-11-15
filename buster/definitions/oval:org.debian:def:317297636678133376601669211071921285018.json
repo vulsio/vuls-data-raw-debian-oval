@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:317297636678133376601669211071921285018",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-46234 node-browserify-sign",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "node-browserify-sign"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-46234",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46234"
+      }
+    ],
+    "description": "browserify-sign is a package to duplicate the functionality of node's crypto public key functions, much of this is based on Fedor Indutny's work on indutny/tls.js. An upper bound check issue in `dsaVerify` function allows an attacker to construct signatures that can be successfully verified by any public key, thus leading to a signature forgery attack. All places in this project that involve DSA verification of user-input signatures will be affected by this vulnerability. This issue has been patched in version 4.2.2.\n",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26703",
+                "comment": "node-browserify-sign DPKG is earlier than 4.0.4-2+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

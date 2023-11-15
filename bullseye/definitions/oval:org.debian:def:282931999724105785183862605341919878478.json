@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:282931999724105785183862605341919878478",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-1320 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-1320",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1320"
+      }
+    ],
+    "description": "Multiple heap-based buffer overflows in the cirrus_invalidate_region function in the Cirrus VGA extension in QEMU 0.8.2, as used in Xen and possibly other products, might allow local users to execute arbitrary code via unspecified vectors related to \"attempting to mark non-existent regions as dirty,\" aka the \"bitblt\" heap overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1741",
+                "comment": "qemu DPKG is earlier than 0.9.0-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

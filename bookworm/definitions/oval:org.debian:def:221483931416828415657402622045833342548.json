@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:221483931416828415657402622045833342548",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-3348 phpsysinfo",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "phpsysinfo"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-3348",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3348"
+      }
+    ],
+    "description": "HTTP response splitting vulnerability in index.php in phpSysInfo 2.4 and earlier, as used in phpgroupware 0.9.16 and earlier, and egroupware before 1.0.0.009, allows remote attackers to spoof web content and poison web caches via CRLF sequences in the charset parameter.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1024",
+                "comment": "phpsysinfo DPKG is earlier than 2.3-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:141684278326522740775463777045085499329",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-5957 virglrenderer",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "virglrenderer"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5957",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5957"
+      }
+    ],
+    "description": "Stack-based buffer overflow in the vrend_decode_set_framebuffer_state function in vrend_decode.c in virglrenderer before 926b9b3460a48f6454d8bbe9e44313d86a65447f, as used in Quick Emulator (QEMU), allows a local guest users to cause a denial of service (application crash) via the \"nr_cbufs\" argument.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12537",
+                "comment": "virglrenderer DPKG is earlier than 0.6.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

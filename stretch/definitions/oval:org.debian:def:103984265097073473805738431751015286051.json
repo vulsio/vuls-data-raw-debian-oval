@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:103984265097073473805738431751015286051",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4399-1 ikiwiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "ikiwiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-9187",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9187"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nJoey Hess discovered that the aggregate plugin of the Ikiwiki wiki compiler was susceptible to server-side request forgery, resulting in information disclosure or denial of service.",
+      "dsa": "DSA-4399",
+      "date": "2019-02-28"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3362",
+                "comment": "ikiwiki DPKG is earlier than 3.20170111.1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

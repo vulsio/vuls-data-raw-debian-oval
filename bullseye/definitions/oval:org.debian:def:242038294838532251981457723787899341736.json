@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:242038294838532251981457723787899341736",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-0131 nvidia-graphics-drivers",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "nvidia-graphics-drivers"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-0131",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0131"
+      }
+    ],
+    "description": "Buffer overflow in the NVIDIA GPU driver before 304.88, 310.x before 310.44, and 313.x before 313.30 for the X Window System on UNIX, when NoScanout mode is enabled, allows remote authenticated users to execute arbitrary code via a large ARGB cursor.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5282",
+                "comment": "nvidia-graphics-drivers DPKG is earlier than 304.88-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

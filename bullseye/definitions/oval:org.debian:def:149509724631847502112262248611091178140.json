@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:149509724631847502112262248611091178140",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-3159 xen",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "xen"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-3159",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3159"
+      }
+    ],
+    "description": "The fpu_fxrstor function in arch/x86/i387.c in Xen 4.x does not properly handle writes to the hardware FSW.ES bit when running on AMD64 processors, which allows local guest OS users to obtain sensitive register content information from another guest by leveraging pending exception and mask bits.  NOTE: this vulnerability exists because of an incorrect fix for CVE-2013-2076.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9303",
+                "comment": "xen DPKG is earlier than 4.8.0~rc3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

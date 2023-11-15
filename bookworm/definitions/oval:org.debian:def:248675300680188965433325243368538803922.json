@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:248675300680188965433325243368538803922",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-32096 rhonabwy",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "rhonabwy"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-32096",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-32096"
+      }
+    ],
+    "description": "Rhonabwy before v1.1.5 was discovered to contain a buffer overflow via the component r_jwe_aesgcm_key_unwrap. This vulnerability allows attackers to cause a Denial of Service (DoS) via a crafted JWE token.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23733",
+                "comment": "rhonabwy DPKG is earlier than 1.1.5-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:267831727016294685116102443143123865376",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-0482 python-django",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "python-django"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0482",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0482"
+      }
+    ],
+    "description": "The contrib.auth.middleware.RemoteUserMiddleware middleware in Django before 1.4.14, 1.5.x before 1.5.9, 1.6.x before 1.6.6, and 1.7 before release candidate 3, when using the contrib.auth.backends.RemoteUserBackend backend, allows remote authenticated users to hijack web sessions via vectors related to the REMOTE_USER header.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6189",
+                "comment": "python-django DPKG is earlier than 1.6.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

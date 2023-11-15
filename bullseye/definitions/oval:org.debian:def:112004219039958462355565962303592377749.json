@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:112004219039958462355565962303592377749",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-1352 libxfont",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libxfont"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-1352",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1352"
+      }
+    ],
+    "description": "Integer overflow in the FontFileInitTable function in X.Org libXfont before 20070403 allows remote authenticated users to execute arbitrary code via a long first line in the fonts.dir file, which results in a heap overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1749",
+                "comment": "libxfont DPKG is earlier than 1:1.2.2-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

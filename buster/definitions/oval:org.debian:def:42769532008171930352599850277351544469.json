@@ -1,0 +1,47 @@
+{
+  "id": "oval:org.debian:def:42769532008171930352599850277351544469",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5152-1 spip",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "spip"
+    },
+    "description": "security update",
+    "debian": {
+      "moreinfo": "It was discovered that SPIP, a website engine for publishing, would allow a malicious user to perform cross-site scripting attacks.",
+      "dsa": "DSA-5152",
+      "date": "2022-05-30"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:27471",
+                "comment": "spip DPKG is earlier than 3.2.4-1+deb10u8"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

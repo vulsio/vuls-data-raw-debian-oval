@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:124401229108190616228528848231144898818",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2480 mako",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mako"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2480",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2480"
+      }
+    ],
+    "description": "Mako before 0.3.4 relies on the cgi.escape function in the Python standard library for cross-site scripting (XSS) protection, which makes it easier for remote attackers to conduct XSS attacks via vectors involving single-quote characters and a JavaScript onLoad event handler for a BODY element.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3613",
+                "comment": "mako DPKG is earlier than 0.3.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

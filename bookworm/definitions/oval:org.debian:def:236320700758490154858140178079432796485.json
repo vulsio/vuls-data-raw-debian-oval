@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:236320700758490154858140178079432796485",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-8474 redmine",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "redmine"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8474",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8474"
+      }
+    ],
+    "description": "Open redirect vulnerability in the valid_back_url function in app/controllers/application_controller.rb in Redmine before 2.6.7, 3.0.x before 3.0.5, and 3.1.x before 3.1.1 allows remote attackers to redirect users to arbitrary web sites and conduct phishing attacks via a crafted back_url parameter, as demonstrated by \"@attacker.com,\" a different vulnerability than CVE-2014-1985.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8091",
+                "comment": "redmine DPKG is earlier than 3.2.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

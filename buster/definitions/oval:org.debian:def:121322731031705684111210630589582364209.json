@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:121322731031705684111210630589582364209",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2003-0196 samba",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "samba"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2003-0196",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-0196"
+      }
+    ],
+    "description": "Multiple buffer overflows in Samba before 2.2.8a may allow remote attackers to execute arbitrary code or cause a denial of service, as discovered by the Samba team and a different vulnerability than CVE-2003-0201.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:224",
+                "comment": "samba DPKG is earlier than 3.0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

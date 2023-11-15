@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:16233241796428770637791270816041265120",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-3481 gimp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gimp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3481",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3481"
+      }
+    ],
+    "description": "Integer overflow in the ReadImage function in plug-ins/common/file-gif-load.c in the GIF image format plug-in in GIMP 2.8.x and earlier allows remote attackers to cause a denial of service (application crash) and possibly execute arbitrary code via crafted height and len properties in a GIF image file, which triggers a heap-based buffer overflow.  NOTE: some of these details are obtained from third party information.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4934",
+                "comment": "gimp DPKG is earlier than 2.8.2-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:17304183138084098905593482429594653708",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-2913 libmodplug",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libmodplug"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2913",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2913"
+      }
+    ],
+    "description": "Off-by-one error in the CSoundFile::ReadAMS function in src/load_ams.cpp in libmodplug before 0.8.8.4 allows remote attackers to cause a denial of service (stack memory corruption) and possibly execute arbitrary code via a crafted AMS file with a large number of samples.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4241",
+                "comment": "libmodplug DPKG is earlier than 1:0.8.8.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

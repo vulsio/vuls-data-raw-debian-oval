@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:98272590048133852426972845991679005432",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-33864 renderdoc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "renderdoc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-33864",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-33864"
+      }
+    ],
+    "description": "StreamReader::ReadFromExternal in RenderDoc before 1.27 allows an Integer Overflow with a resultant Buffer Overflow. It uses uint32_t(m_BufferSize-m_InputSize) even though m_InputSize can exceed m_BufferSize.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26090",
+                "comment": "renderdoc DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

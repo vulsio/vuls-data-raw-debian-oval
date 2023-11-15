@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:172566545595172423242115875345856011580",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-5718 phpmyadmin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "phpmyadmin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-5718",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5718"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in error.php in phpMyAdmin 2.6.4 through 2.9.0.2 allows remote attackers to inject arbitrary web script or HTML via UTF-7 or US-ASCII encoded characters, which are injected into an error message, as demonstrated by a request with a utf7 charset parameter accompanied by UTF-7 data.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1562",
+                "comment": "phpmyadmin DPKG is earlier than 4:2.9.0.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

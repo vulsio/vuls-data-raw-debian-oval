@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:122936879287603767509274847356154392471",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-3473 horizon",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "horizon"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-3473",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3473"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in the Orchestration/Stack section in the Horizon Orchestration dashboard in OpenStack Dashboard (Horizon) before 2013.2.4, 2014.1 before 2014.1.2, and Juno before Juno-2, when used with Heat, allows remote Orchestration template owners or catalogs to inject arbitrary web script or HTML via a crafted template.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6664",
+                "comment": "horizon DPKG is earlier than 2014.1.1-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

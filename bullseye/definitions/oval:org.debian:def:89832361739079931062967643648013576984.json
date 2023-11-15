@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:89832361739079931062967643648013576984",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-14983 chocolate-doom",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "chocolate-doom"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-14983",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14983"
+      }
+    ],
+    "description": "The server in Chocolate Doom 3.0.0 and Crispy Doom 5.8.0 doesn't validate the user-controlled num_players value, leading to a buffer overflow. A malicious user can overwrite the server's stack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18562",
+                "comment": "chocolate-doom DPKG is earlier than 3.0.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

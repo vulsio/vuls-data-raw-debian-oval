@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:280401544215547310364212077289874303975",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3340-1 zendframework",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "zendframework"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-5161",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5161"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nDawid Golunski discovered that when running under PHP-FPM in a threaded environment, Zend Framework, a PHP framework, did not properly handle XML data in multibyte encoding. This could be used by remote attackers to perform an XML External Entity attack via crafted XML data.",
+      "dsa": "DSA-3340",
+      "date": "2015-08-19"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2364",
+                "comment": "zendframework DPKG is earlier than 1.11.13-1.1+deb7u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

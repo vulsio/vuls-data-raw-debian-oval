@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:73427063705977502474092762444359883594",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-3900 jruby",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "jruby"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3900",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3900"
+      }
+    ],
+    "description": "RubyGems 2.0.x before 2.0.16, 2.2.x before 2.2.4, and 2.4.x before 2.4.7 does not validate the hostname when fetching gems or making API requests, which allows remote attackers to redirect requests to arbitrary domains via a crafted DNS SRV record, aka a \"DNS hijack attack.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7637",
+                "comment": "jruby DPKG is earlier than 1.7.20.1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:287308799686003391524184282532850353130",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2708-1 fail2ban",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "fail2ban"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-2178",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2178"
+      }
+    ],
+    "description": "denial of service",
+    "debian": {
+      "moreinfo": "\nKrzysztof Katowicz-Kowalewski discovered a vulnerability in Fail2ban, a log monitoring and system which can act on attack by preventing hosts to connect to specified services using the local firewall.",
+      "dsa": "DSA-2708",
+      "date": "2013-06-16"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3091",
+                "comment": "fail2ban DPKG is earlier than 0.8.6-3wheezy2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

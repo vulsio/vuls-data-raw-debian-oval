@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:126156768242054467721932034095772716651",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-15570 redmine",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "redmine"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-15570",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15570"
+      }
+    ],
+    "description": "In Redmine before 3.2.8, 3.3.x before 3.3.5, and 3.4.x before 3.4.3, XSS exists in app/views/timelog/_list.html.erb via crafted column data.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11195",
+                "comment": "redmine DPKG is earlier than 3.4.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

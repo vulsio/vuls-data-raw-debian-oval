@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:168147008689769658242193247176396885424",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-15586 enigmail",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "enigmail"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-15586",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15586"
+      }
+    ],
+    "description": "Enigmail before 2.0.6 is prone to to OpenPGP signatures being spoofed for arbitrary messages using a PGP/INLINE signature wrapped within a specially crafted multipart HTML email.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14113",
+                "comment": "enigmail DPKG is earlier than 2:2.0.6.1-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

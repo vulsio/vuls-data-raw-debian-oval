@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:37039116686806767461883804464188457478",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-0782 gdk-pixbuf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gdk-pixbuf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-0782",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0782"
+      }
+    ],
+    "description": "Integer overflow in pixbuf_create_from_xpm (io-xpm.c) in the XPM image decoder for gtk+ 2.4.4 (gtk2) and earlier, and gdk-pixbuf before 0.22, allows remote attackers to execute arbitrary code via certain n_col and cpp values that enable a heap-based buffer overflow.  NOTE: this identifier is ONLY for gtk+.  It was incorrectly referenced in an advisory for a different issue (CVE-2004-0687).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:460",
+                "comment": "gdk-pixbuf DPKG is earlier than 0.22.0-7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

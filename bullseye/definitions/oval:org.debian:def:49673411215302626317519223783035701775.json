@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:49673411215302626317519223783035701775",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-8159 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-8159",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8159"
+      }
+    ],
+    "description": "The InfiniBand (IB) implementation in the Linux kernel package before 2.6.32-504.12.2 on Red Hat Enterprise Linux (RHEL) 6 does not properly restrict use of User Verbs for registration of memory regions, which allows local users to access arbitrary physical memory locations, and consequently cause a denial of service (system crash) or gain privileges, by leveraging permissions on a uverbs device under /dev/infiniband/.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7119",
+                "comment": "linux DPKG is earlier than 3.16.7-ckt9-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

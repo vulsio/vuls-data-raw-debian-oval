@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:8003808314985191140726859032148585061",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-1595 rdesktop",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "rdesktop"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1595",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1595"
+      }
+    ],
+    "description": "Directory traversal vulnerability in the disk_create function in disk.c in rdesktop before 1.7.0, when disk redirection is enabled, allows remote RDP servers to read or overwrite arbitrary files via a .. (dot dot) in a pathname.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3914",
+                "comment": "rdesktop DPKG is earlier than 1.7.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

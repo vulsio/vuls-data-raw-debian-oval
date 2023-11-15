@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:3507196378881988118357977801922912308",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-6581 nagios-nrpe",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "nagios-nrpe"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-6581",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-6581"
+      }
+    ],
+    "description": "Nagios NRPE 3.2.1 has Insufficient Filtering because, for example, nasty_metachars interprets \\n as the character \\ and the character n (not as the \\n newline sequence). This can cause command injection.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20275",
+                "comment": "nagios-nrpe DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

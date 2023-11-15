@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:155787957530144107267311766002078821941",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5406-1 texlive-bin",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "texlive-bin"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-32700",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32700"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Max Chernoff discovered that improperly secured shell-escape in LuaTeX may result in arbitrary shell command execution, even with shell escape disabled, if specially crafted tex files are processed.",
+      "dsa": "DSA-5406",
+      "date": "2023-05-20"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28187",
+                "comment": "texlive-bin DPKG is earlier than 2020.20200327.54578-7+deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:207566546983143539075540321667810920794",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-3140 wordpress",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wordpress"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-3140",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3140"
+      }
+    ],
+    "description": "SQL injection vulnerability in xmlrpc.php in WordPress 2.2 allows remote authenticated users to execute arbitrary SQL commands via a parameter value in an XML RPC wp.suggestCategories methodCall, a different vector than CVE-2007-1897.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1897",
+                "comment": "wordpress DPKG is earlier than 2.2.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:42748699971471233345600637058103631767",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-1763 libreswan",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "libreswan"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-1763",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1763"
+      }
+    ],
+    "description": "An out-of-bounds buffer read flaw was found in the pluto daemon of libreswan from versions 3.27 till 3.31 where, an unauthenticated attacker could use this flaw to crash libreswan by sending specially-crafted IKEv1 Informational Exchange packets. The daemon respawns after the crash.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18296",
+                "comment": "libreswan DPKG is earlier than 3.32-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:145029027511068493479924419464267164814",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-19870 qtbase-opensource-src",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "qtbase-opensource-src"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-19870",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19870"
+      }
+    ],
+    "description": "An issue was discovered in Qt before 5.11.3. A malformed GIF image causes a NULL pointer dereference in QGifHandler resulting in a segmentation fault.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14217",
+                "comment": "qtbase-opensource-src DPKG is earlier than 5.11.3+dfsg-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

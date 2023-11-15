@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:210111435537895720464981663938032673523",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-9770 systemd",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "systemd"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-9770",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9770"
+      }
+    ],
+    "description": "tmpfiles.d/systemd.conf in systemd before 214 uses weak permissions for journal files under (1) /run/log/journal/%m and (2) /var/log/journal/%m, which allows local users to obtain sensitive information by reading these files.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7408",
+                "comment": "systemd DPKG is earlier than 215-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:136153303706695935545564866796459015516",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2006-3464 tiff",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "tiff"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-3464",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3464"
+      }
+    ],
+    "description": "TIFF library (libtiff) before 3.8.2 allows context-dependent attackers to pass numeric range checks and possibly execute code, and trigger assert errors, via large offset values in a TIFF directory that lead to an integer overflow and other unspecified vectors involving \"unchecked arithmetic operations\".",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1371",
+                "comment": "tiff DPKG is earlier than 3.8.2-6"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:54518225477061662840804210291312554181",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-28896 neomutt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "neomutt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-28896",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28896"
+      }
+    ],
+    "description": "Mutt before 2.0.2 and NeoMutt before 2020-11-20 did not ensure that $ssl_force_tls was processed if an IMAP server's initial server response was invalid. The connection was not properly closed, and the code could continue attempting to authenticate. This could result in authentication credentials being exposed on an unencrypted connection, or to a machine-in-the-middle.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:19736",
+                "comment": "neomutt DPKG is earlier than 20180716+dfsg.1-1+deb10u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

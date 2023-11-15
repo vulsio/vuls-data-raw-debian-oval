@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:322562435345142511572805580820079959957",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-11173 ruby-rack-cors",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "ruby-rack-cors"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-11173",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11173"
+      }
+    ],
+    "description": "Missing anchor in generated regex for rack-cors before 0.4.1 allows a malicious third-party site to perform CORS requests. If the configuration were intended to allow only the trusted example.com domain name and not the malicious example.net domain name, then example.com.example.net (as well as example.com-example.net) would be inadvertently allowed.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10725",
+                "comment": "ruby-rack-cors DPKG is earlier than 0.4.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

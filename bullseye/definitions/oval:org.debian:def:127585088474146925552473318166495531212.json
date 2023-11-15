@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:127585088474146925552473318166495531212",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-0386 mplayer",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "mplayer"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-0386",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0386"
+      }
+    ],
+    "description": "Buffer overflow in the HTTP parser for MPlayer 1.0pre3 and earlier, 0.90, and 0.91 allows remote attackers to execute arbitrary code via a long Location header.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:400",
+                "comment": "mplayer DPKG is earlier than 1.0~pre6a-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:87265386916161750025649565429000016868",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2007-5958 xorg-server",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xorg-server"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2007-5958",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5958"
+      }
+    ],
+    "description": "X.Org Xserver before 1.4.1 allows local users to determine the existence of arbitrary files via a filename argument in the -sp option to the X program, which produces different error messages depending on whether the filename exists.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2062",
+                "comment": "xorg-server DPKG is earlier than 2:1.4.1~git20080105-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

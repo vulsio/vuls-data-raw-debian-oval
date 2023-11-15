@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:330825400987696358034597465249591623121",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-26925 roundcube",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "roundcube"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-26925",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-26925"
+      }
+    ],
+    "description": "Roundcube before 1.4.11 allows XSS via crafted Cascading Style Sheets (CSS) token sequences during HTML email rendering.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20350",
+                "comment": "roundcube DPKG is earlier than 1.4.11+dfsg.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

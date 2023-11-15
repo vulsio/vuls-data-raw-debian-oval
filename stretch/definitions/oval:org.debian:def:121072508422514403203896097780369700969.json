@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:121072508422514403203896097780369700969",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4650-1 qbittorrent",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "qbittorrent"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-13640",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13640"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nMiguel Onoro reported that qbittorrent, a bittorrent client with a Qt5 GUI user interface, allows command injection via shell metacharacters in the torrent name parameter or current tracker parameter, which could result in remote command execution via a crafted name within an RSS feed if qbittorrent is configured to run an external program on torrent completion.",
+      "dsa": "DSA-4650",
+      "date": "2020-04-02"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4492",
+                "comment": "qbittorrent DPKG is earlier than 3.3.7-3+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:305357688537272127001467843738859699020",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-7537 imagemagick",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "imagemagick"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-7537",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7537"
+      }
+    ],
+    "description": "MagickCore/memory.c in ImageMagick allows remote attackers to cause a denial of service (out-of-bounds access) via a crafted PDB file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10007",
+                "comment": "imagemagick DPKG is earlier than 8:6.9.6.2+dfsg-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

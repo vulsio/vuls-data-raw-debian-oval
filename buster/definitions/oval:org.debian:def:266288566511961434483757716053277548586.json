@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:266288566511961434483757716053277548586",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-13673 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-13673",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13673"
+      }
+    ],
+    "description": "The vga display update in mis-calculated the region for the dirty bitmap snapshot in case split screen mode is used causing a denial of service (assertion failure) in the cpu_physical_memory_snapshot_get_dirty function.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11352",
+                "comment": "qemu DPKG is earlier than 1:2.10.0+dfsg-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

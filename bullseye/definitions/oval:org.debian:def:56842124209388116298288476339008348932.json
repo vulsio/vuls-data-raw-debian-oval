@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:56842124209388116298288476339008348932",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2014-0071 neutron",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "neutron"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-0071",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0071"
+      }
+    ],
+    "description": "PackStack in Red Hat OpenStack 4.0 does not enforce the default security groups when deployed to Neutron, which allows remote attackers to bypass intended access restrictions and make unauthorized connections.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6335",
+                "comment": "neutron DPKG is earlier than 2014.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

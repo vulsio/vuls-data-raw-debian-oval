@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:266844217036553546105916386498027896312",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-3559 asterisk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "asterisk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-3559",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3559"
+      }
+    ],
+    "description": "Directory traversal vulnerability in vmail.cgi in Asterisk 1.0.9 through 1.2.0-beta1 allows remote attackers to access WAV files via a .. (dot dot) in the folder parameter.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1074",
+                "comment": "asterisk DPKG is earlier than 1:1.2.7.1.dfsg-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

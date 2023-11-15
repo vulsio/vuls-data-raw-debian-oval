@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:316414284759447040164353727344556852217",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2971 libmikmod",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "libmikmod"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2971",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2971"
+      }
+    ],
+    "description": "loaders/load_it.c in libmikmod, possibly 3.1.12, does not properly account for the larger size of name##env relative to name##tick and name##node, which allows remote attackers to trigger a buffer over-read and possibly have unspecified other impact via a crafted Impulse Tracker file, a related issue to CVE-2010-2546.  NOTE: this issue exists because of an incomplete fix for CVE-2009-3995.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3805",
+                "comment": "libmikmod DPKG is earlier than 3.1.11-6.3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

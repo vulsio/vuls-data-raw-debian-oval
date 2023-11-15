@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:151993154690194828236144626472470945163",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-0961 apt",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "apt"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-0961",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0961"
+      }
+    ],
+    "description": "Apt 0.8.16~exp5ubuntu13.x before 0.8.16~exp5ubuntu13.6, 0.8.16~exp12ubuntu10.x before 0.8.16~exp12ubuntu10.7, and 0.9.7.5ubuntu5.x before 0.9.7.5ubuntu5.2, as used in Ubuntu, uses world-readable permissions for /var/log/apt/term.log, which allows local users to obtain sensitive shell information by reading the log file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4751",
+                "comment": "apt DPKG is earlier than 0.9.7.7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

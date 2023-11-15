@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:60506473254266229793262416584280106995",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-18197 libjgraphx-java",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libjgraphx-java"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-18197",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-18197"
+      }
+    ],
+    "description": "In mxGraphViewImageReader.java in mxGraph before 3.7.6, the SAXParserFactory instance in convert() is missing flags to prevent XML External Entity (XXE) attacks, as demonstrated by /ServerView.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11923",
+                "comment": "libjgraphx-java DPKG is earlier than 2.1.0.7-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

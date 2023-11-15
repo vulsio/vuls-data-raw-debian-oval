@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:303638904066369581544890199399452880110",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2866-1 gnutls26",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "gnutls26"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-1959",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1959"
+      }
+    ],
+    "description": "certificate verification flaw",
+    "debian": {
+      "moreinfo": "\nSuman Jana reported that GnuTLS, deviating from the documented behavior, considers a version 1 intermediate certificate as a CA certificate by default.",
+      "dsa": "DSA-2866",
+      "date": "2014-02-22"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3233",
+                "comment": "gnutls26 DPKG is earlier than 2.12.20-8"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

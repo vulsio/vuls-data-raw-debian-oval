@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:159612843908356418772690281297654042303",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1180 netkit-rwho",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "netkit-rwho"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1180",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1180"
+      }
+    ],
+    "description": "Unknown vulnerability in the rwho daemon (rwhod) before 0.17, on little endian architectures, allows remote attackers to cause a denial of service (application crash).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:568",
+                "comment": "netkit-rwho DPKG is earlier than 0.17-8"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

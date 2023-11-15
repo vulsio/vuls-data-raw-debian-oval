@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:77188629736721507992781352748276095118",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-3420 pcp",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "pcp"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3420",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3420"
+      }
+    ],
+    "description": "Multiple memory leaks in Performance Co-Pilot (PCP) before 3.6.5 allow remote attackers to cause a denial of service (memory consumption or daemon crash) via a large number of PDUs with (1) a crafted context number to the DoFetch function in pmcd/src/dofetch.c or (2) a negative type value to the __pmGetPDU function in libpcp/src/pdu.c.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4905",
+                "comment": "pcp DPKG is earlier than 3.6.5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

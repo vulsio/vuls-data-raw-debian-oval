@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:322558418779320502630367549521033463166",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-45142 heimdal",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "heimdal"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-45142",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-45142"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Helmut Grohne discovered a flaw in Heimdal, an implementation of Kerberos 5 that aims to be compatible with MIT Kerberos. The backports of fixes for <a href=\"https://security-tracker.debian.org/tracker/CVE-2022-3437\">CVE-2022-3437</a> accidentally inverted important memory comparisons in the arcfour-hmac-md5 and rc4-hmac integrity check handlers for gssapi, resulting in incorrect validation of message integrity codes.",
+      "dsa": "DSA-5344"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:25709",
+                "comment": "heimdal DPKG is earlier than 7.7.0+dfsg-2+deb11u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

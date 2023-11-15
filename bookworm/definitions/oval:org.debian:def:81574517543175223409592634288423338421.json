@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:81574517543175223409592634288423338421",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-5421 ruby-devise",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ruby-devise"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-5421",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5421"
+      }
+    ],
+    "description": "Plataformatec Devise version 4.5.0 and earlier, using the lockable module contains a CWE-367 vulnerability in The `Devise::Models::Lockable` class, more specifically at the `#increment_failed_attempts` method. File location: lib/devise/models/lockable.rb that can result in Multiple concurrent requests can prevent an attacker from being blocked on brute force attacks. This attack appear to be exploitable via Network connectivity - brute force attacks. This vulnerability appears to have been fixed in 4.6.0 and later.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:16794",
+                "comment": "ruby-devise DPKG is earlier than 4.5.0-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

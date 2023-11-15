@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:111633078026914523914026341441253680336",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-4037 qemu",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "qemu"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-4037",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4037"
+      }
+    ],
+    "description": "The slirp_smb function in net/slirp.c in QEMU 2.3.0 and earlier creates temporary files with predictable names, which allows local users to cause a denial of service (instantiation failure) by creating /tmp/qemu-smb.*-* files before the program.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:8134",
+                "comment": "qemu DPKG is earlier than 1:2.3+dfsg-5"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

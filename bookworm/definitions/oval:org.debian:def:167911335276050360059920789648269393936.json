@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:167911335276050360059920789648269393936",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-1000051 mupdf",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mupdf"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1000051",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000051"
+      }
+    ],
+    "description": "Artifex Mupdf version 1.12.0 contains a Use After Free vulnerability in fz_keep_key_storable that can result in DOS / Possible code execution. This attack appear to be exploitable via Victim opens a specially crafted PDF.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:12904",
+                "comment": "mupdf DPKG is earlier than 1.12.0+ds1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

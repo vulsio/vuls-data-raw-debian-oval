@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:9819838775719018673306067404594118432",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-2449 gource",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "gource"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2449",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2449"
+      }
+    ],
+    "description": "Gource through 0.26 logs to a predictable file name (/tmp/gource-$UID.tmp), enabling attackers to overwrite an arbitrary file via a symlink attack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3608",
+                "comment": "gource DPKG is earlier than 0.26-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

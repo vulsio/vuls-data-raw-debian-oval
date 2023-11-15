@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:208817455927174619390475110307114363185",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4195-1 wget",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "wget"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-0494",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0494"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nHarry Sintonen discovered that wget, a network utility to retrieve files from the web, does not properly handle '\\r\\n' from continuation lines while parsing the Set-Cookie HTTP header. A malicious web server could use this flaw to inject arbitrary cookies to the cookie jar file, adding new or replacing existing cookie values.",
+      "dsa": "DSA-4195",
+      "date": "2018-05-08"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4106",
+                "comment": "wget DPKG is earlier than 1.18-5+deb9u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

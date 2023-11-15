@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:224047396584619728451729275529489077874",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2005-3148 storebackup",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "storebackup"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2005-3148",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3148"
+      }
+    ],
+    "description": "StoreBackup before 1.19 does not properly set the uid and guid for symbolic links (1) that are backed up by storeBackup.pl, or (2) recovered by storeBackupRecover.pl, which could cause files to be restored with incorrect ownership.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:988",
+                "comment": "storebackup DPKG is earlier than 1.19-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

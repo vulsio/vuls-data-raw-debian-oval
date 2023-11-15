@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:301585160608576660002489037469046837812",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-27351 telegram-desktop",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "telegram-desktop"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-27351",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-27351"
+      }
+    ],
+    "description": "The Terminate Session feature in the Telegram application through 7.2.1 for Android, and through 2.4.7 for Windows and UNIX, fails to invalidate a recently active session.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:21177",
+                "comment": "telegram-desktop DPKG is earlier than 2.6.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

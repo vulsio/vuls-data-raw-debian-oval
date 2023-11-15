@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:101979959491951163320312701062449040867",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-0460 mediawiki",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "mediawiki"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-0460",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0460"
+      }
+    ],
+    "description": "Cross-site scripting (XSS) vulnerability in api.php in (1) MediaWiki 1.11 through 1.11.0rc1, 1.10 through 1.10.2, 1.9 through 1.9.4, and 1.8; and (2) the BotQuery extension for MediaWiki 1.7 and earlier; when Internet Explorer is used, allows remote attackers to inject arbitrary web script or HTML via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2190",
+                "comment": "mediawiki DPKG is earlier than 1:1.11.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

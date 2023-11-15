@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:321496590791205762474569092110899951475",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2016-9375 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-9375",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-9375"
+      }
+    ],
+    "description": "In Wireshark 2.2.0 to 2.2.1 and 2.0.0 to 2.0.7, the DTN dissector could go into an infinite loop, triggered by network traffic or a capture file. This was addressed in epan/dissectors/packet-dtn.c by checking whether SDNV evaluation was successful.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:9932",
+                "comment": "wireshark DPKG is earlier than 2.2.2+g9c5aae3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:193845129564386011723729710874955804926",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-19761 libsixel",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libsixel"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-19761",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19761"
+      }
+    ],
+    "description": "There is an illegal address access at fromsixel.c (function: sixel_decode_raw_impl) in libsixel 1.8.2 that will cause a denial of service.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:14605",
+                "comment": "libsixel DPKG is earlier than 1.8.2-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

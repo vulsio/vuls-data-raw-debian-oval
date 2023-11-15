@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:26751908973855267983618159233740399471",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2011-0702 feh",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "feh"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-0702",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0702"
+      }
+    ],
+    "description": "The feh_unique_filename function in utils.c in feh before 1.11.2 might allow local users to overwrite arbitrary files via a symlink attack on a /tmp/feh_ temporary file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3816",
+                "comment": "feh DPKG is earlier than 1.12-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

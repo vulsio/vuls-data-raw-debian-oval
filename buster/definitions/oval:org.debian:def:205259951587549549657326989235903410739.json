@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:205259951587549549657326989235903410739",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-8053 libpodofo",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "libpodofo"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-8053",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8053"
+      }
+    ],
+    "description": "PoDoFo 0.9.5 allows denial of service (infinite recursion and stack consumption) via a crafted PDF file in PoDoFo::PdfParser::ReadDocumentStructure (PdfParser.cpp).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13033",
+                "comment": "libpodofo DPKG is earlier than 0.9.6+dfsg-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

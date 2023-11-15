@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:281923681794543653121154024104319494043",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-16909 libraw",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libraw"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-16909",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16909"
+      }
+    ],
+    "description": "An error related to the \"LibRaw::panasonic_load_raw()\" function (dcraw_common.cpp) in LibRaw versions prior to 0.18.6 can be exploited to cause a heap-based buffer overflow and subsequently cause a crash via a specially crafted TIFF image.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11704",
+                "comment": "libraw DPKG is earlier than 0.18.6-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

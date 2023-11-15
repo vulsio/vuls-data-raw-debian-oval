@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:129920468446848597814802790176524345089",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2019-10751 httpie",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "httpie"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-10751",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-10751"
+      }
+    ],
+    "description": "All versions of the HTTPie package prior to version 1.0.3 are vulnerable to Open Redirect that allows an attacker to write an arbitrary file with supplied filename and content to the current directory, by redirecting a request from HTTP to a crafted URL pointing to a server in his or hers control.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:15233",
+                "comment": "httpie DPKG is earlier than 1.0.3-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

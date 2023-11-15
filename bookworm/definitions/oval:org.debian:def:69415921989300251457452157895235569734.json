@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:69415921989300251457452157895235569734",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2015-7984 php-horde",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "php-horde"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-7984",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-7984"
+      }
+    ],
+    "description": "Multiple cross-site request forgery (CSRF) vulnerabilities in Horde before 5.2.8, Horde Groupware before 5.2.11, and Horde Groupware Webmail Edition before 5.2.11 allow remote attackers to hijack the authentication of administrators for requests that execute arbitrary (1) commands via the cmd parameter to admin/cmdshell.php, (2) SQL queries via the sql parameter to admin/sqlshell.php, or (3) PHP code via the php parameter to admin/phpshell.php.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:7997",
+                "comment": "php-horde DPKG is earlier than 5.2.8+debian0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

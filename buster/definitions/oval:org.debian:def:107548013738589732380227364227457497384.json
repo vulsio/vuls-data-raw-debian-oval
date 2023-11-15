@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:107548013738589732380227364227457497384",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2023-33466 orthanc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "orthanc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-33466",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-33466"
+      }
+    ],
+    "description": "Orthanc before 1.12.0 allows authenticated users with access to the Orthanc API to overwrite arbitrary files on the file system, and in specific deployment scenarios allows the attacker to overwrite the configuration, which can be exploited to trigger Remote Code Execution (RCE).",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:26163",
+                "comment": "orthanc DPKG is earlier than 1.5.6+dfsg-1+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

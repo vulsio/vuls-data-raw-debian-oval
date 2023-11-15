@@ -1,0 +1,53 @@
+{
+  "id": "oval:org.debian:def:141998434224667003351627512436391139034",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-3850 libphp-adodb",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "libphp-adodb"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3850",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3850"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "Emmet Leahy reported that libphp-adodb, a PHP database abstraction layer library, allows to inject values into a PostgreSQL connection string. Depending on how the library is used this flaw can result in authentication bypass, reveal a server IP address or have other unspecified impact.",
+      "dsa": "DSA-5101"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:22129",
+                "comment": "libphp-adodb DPKG is earlier than 5.20.14-1+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

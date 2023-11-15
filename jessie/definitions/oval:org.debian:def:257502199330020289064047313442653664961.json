@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:257502199330020289064047313442653664961",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3550-1 openssh",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "openssh"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-8325",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8325"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nShayan Sadigh discovered a vulnerability in OpenSSH: If PAM support is enabled and the sshd PAM configuration is configured to read userspecified environment variables and the <q>UseLogin</q> option is enabled, a local user may escalate her privileges to root.",
+      "dsa": "DSA-3550",
+      "date": "2016-04-15"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1156",
+                "comment": "openssh DPKG is earlier than 6.7p1-5+deb8u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

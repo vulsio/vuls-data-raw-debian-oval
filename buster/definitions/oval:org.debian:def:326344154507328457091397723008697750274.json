@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:326344154507328457091397723008697750274",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-17664 asterisk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "asterisk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-17664",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17664"
+      }
+    ],
+    "description": "A Remote Crash issue was discovered in Asterisk Open Source 13.x before 13.18.4, 14.x before 14.7.4, and 15.x before 15.1.4 and Certified Asterisk before 13.13-cert9. Certain compound RTCP packets cause a crash in the RTCP Stack.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:11968",
+                "comment": "asterisk DPKG is earlier than 1:13.18.5~dfsg-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

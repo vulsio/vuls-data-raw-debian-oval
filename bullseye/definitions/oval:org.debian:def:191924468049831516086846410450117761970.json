@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:191924468049831516086846410450117761970",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-3461 libotr",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "libotr"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3461",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3461"
+      }
+    ],
+    "description": "The (1) otrl_base64_otr_decode function in src/b64.c; (2) otrl_proto_data_read_flags and (3) otrl_proto_accept_data functions in src/proto.c; and (4) decode function in toolkit/parse.c in libotr before 3.2.1 allocates a zero-length buffer when decoding a base64 string, which allows remote attackers to cause a denial of service (application crash) via a message with the value \"?OTR:===.\", which triggers a heap-based buffer overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4928",
+                "comment": "libotr DPKG is earlier than 3.2.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

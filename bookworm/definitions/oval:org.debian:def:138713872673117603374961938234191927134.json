@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:138713872673117603374961938234191927134",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-1561 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-1561",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1561"
+      }
+    ],
+    "description": "Multiple unspecified vulnerabilities in Wireshark (formerly Ethereal) 0.99.5 through 0.99.8 allow remote attackers to cause a denial of service (application crash) via a malformed packet to the (1) X.509sat or (2) Roofnet dissectors.  NOTE: Vector 2 might also lead to a hang.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2279",
+                "comment": "wireshark DPKG is earlier than 1.0.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

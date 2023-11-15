@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:131212981553658033254973403688694423555",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2017-1000248 ruby-redis-store",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "ruby-redis-store"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-1000248",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000248"
+      }
+    ],
+    "description": "Redis-store <=v1.3.0 allows unsafe objects to be loaded from redis",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:10227",
+                "comment": "ruby-redis-store DPKG is earlier than 1.1.6-2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

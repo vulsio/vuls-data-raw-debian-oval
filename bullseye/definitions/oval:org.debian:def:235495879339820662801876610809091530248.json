@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:235495879339820662801876610809091530248",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2012-1103 notmuch",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "notmuch"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-1103",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1103"
+      }
+    ],
+    "description": "emacs/notmuch-mua.el in Notmuch before 0.11.1, when using the Emacs interface, allows user-assisted remote attackers to read arbitrary files via crafted MML tags, which are not properly quoted in an email reply cna cause the files to be attached to the message.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4629",
+                "comment": "notmuch DPKG is earlier than 0.11.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

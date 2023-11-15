@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:85012475262161937970607635789001744970",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4263-1 cgit",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "cgit"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-14912",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14912"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nJann Horn discovered a directory traversal vulnerability in cgit, a fast web frontend for git repositories written in C. A remote attacker can take advantage of this flaw to retrieve arbitrary files via a specially crafted request, when 'enable-http-clone=1' (default) is not turned off.",
+      "dsa": "DSA-4263",
+      "date": "2018-08-04"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4169",
+                "comment": "cgit DPKG is earlier than 1.1+git2.10.2-3+deb9u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

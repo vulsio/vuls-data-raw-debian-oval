@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:66148928125686790640934380678448703271",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-23123 netatalk",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "netatalk"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-23123",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23123"
+      }
+    ],
+    "description": "This vulnerability allows remote attackers to disclose sensitive information on affected installations of Netatalk. Authentication is not required to exploit this vulnerability. The specific flaw exists within the getdirparams method. The issue results from the lack of proper validation of user-supplied data, which can result in a read past the end of an allocated buffer. An attacker can leverage this in conjunction with other vulnerabilities to execute arbitrary code in the context of root. Was ZDI-CAN-15830.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23481",
+                "comment": "netatalk DPKG is earlier than 3.1.12~ds-3+deb10u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

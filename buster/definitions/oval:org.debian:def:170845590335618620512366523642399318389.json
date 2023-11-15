@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:170845590335618620512366523642399318389",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-0438 otrs2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 10",
+      "product": "otrs2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-0438",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0438"
+      }
+    ],
+    "description": "Multiple SQL injection vulnerabilities in Kernel/System/Ticket.pm in OTRS-Core in Open Ticket Request System (OTRS) 2.1.x before 2.1.9, 2.2.x before 2.2.9, 2.3.x before 2.3.5, and 2.4.x before 2.4.7 allow remote authenticated users to execute arbitrary SQL commands via unspecified vectors.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3547",
+                "comment": "otrs2 DPKG is earlier than 2.4.7-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 10 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:232506419597736632777092590744402141388",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3051-1 drupal7",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "drupal7"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-3704",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3704"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nStefan Horst discovered a vulnerability in the Drupal database  abstraction API, which may result in SQL injection.",
+      "dsa": "DSA-3051",
+      "date": "2014-10-15"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1620",
+                "comment": "drupal7 DPKG is earlier than 7.14-2+deb7u7"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:20557041256035713281513379926969085374",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3431-1 ganeti",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "ganeti"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-7944",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-7944"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-7945",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-7945"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nPierre Kim discovered two vulnerabilities in the restful API of Ganeti, a virtual server cluster management tool. SSL parameter negotiation could result in denial of service and the DRBD secret could leak.",
+      "dsa": "DSA-3431",
+      "date": "2016-01-01"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:1118",
+                "comment": "ganeti DPKG is earlier than 2.12.4-1+deb8u2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

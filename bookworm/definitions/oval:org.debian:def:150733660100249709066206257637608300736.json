@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:150733660100249709066206257637608300736",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2018-1002102 kubernetes",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "kubernetes"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1002102",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1002102"
+      }
+    ],
+    "description": "Improper validation of URL redirection in the Kubernetes API server in versions prior to v1.14.0 allows an attacker-controlled Kubelet to redirect API server requests from streaming endpoints to arbitrary hosts. Impacted API servers will follow the redirect as a GET request with client-certificate credentials for authenticating to the Kubelet.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:13001",
+                "comment": "kubernetes DPKG is earlier than 1.17.4-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

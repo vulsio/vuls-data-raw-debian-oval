@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:64063560732460246125598237583327470200",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2020-13775 znc",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "znc"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-13775",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-13775"
+      }
+    ],
+    "description": "ZNC 1.8.0 up to 1.8.1-rc1 allows authenticated users to trigger an application crash (with a NULL pointer dereference) if echo-message is not enabled and there is no network.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:18405",
+                "comment": "znc DPKG is earlier than 1.8.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

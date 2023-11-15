@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:215704658868876522408886189397200792863",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-0994 xzgv",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "xzgv"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-0994",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0994"
+      }
+    ],
+    "description": "Multiple integer overflows in xzgv 0.8 and earlier allow remote attackers to execute arbitrary code via images with large width and height values, which trigger a heap-based buffer overflow, as demonstrated in the read_prf_file function in readprf.c.  NOTE: CVE-2004-0994 and CVE-2004-1095 identify sets of bugs that only partially overlap, despite having the same developer.  Therefore, they should be regarded as distinct.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:504",
+                "comment": "xzgv DPKG is earlier than 0.8-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

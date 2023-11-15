@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:176807829323756172332331601269620916104",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-29222 snowflake",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "snowflake"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-29222",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29222"
+      }
+    ],
+    "description": "Pion DTLS is a Go implementation of Datagram Transport Layer Security. Prior to version 2.1.5, a DTLS Client could provide a Certificate that it doesn't posses the private key for and Pion DTLS wouldn't reject it. This issue affects users that are using Client certificates only. The connection itself is still secure. The Certificate provided by clients can't be trusted when using a Pion DTLS server prior to version 2.1.5. Users should upgrade to version 2.1.5 to receive a patch. There are currently no known workarounds.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23480",
+                "comment": "snowflake DPKG is earlier than 2.2.0-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

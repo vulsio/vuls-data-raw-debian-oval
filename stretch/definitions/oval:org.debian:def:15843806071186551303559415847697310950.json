@@ -1,0 +1,59 @@
+{
+  "id": "oval:org.debian:def:15843806071186551303559415847697310950",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-4674-1 roundcube",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 9",
+      "product": "roundcube"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-12625",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12625"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-12626",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12626"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that roundcube, a skinnable AJAX based webmail solution for IMAP servers, did not correctly process and sanitize requests. This would allow a remote attacker to perform either a Cross-Site Request Forgery (CSRF) forcing an authenticated user to be logged out, or a Cross-Side Scripting (XSS) leading to execution of arbitrary code.",
+      "dsa": "DSA-4674",
+      "date": "2020-05-05"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:4506",
+                "comment": "roundcube DPKG is earlier than 1.2.3+dfsg.1-4+deb9u4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 9 is installed"
+      }
+    ]
+  }
+}

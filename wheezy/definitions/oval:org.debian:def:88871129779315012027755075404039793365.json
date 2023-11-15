@@ -1,0 +1,47 @@
+{
+  "id": "oval:org.debian:def:88871129779315012027755075404039793365",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-3126-1 php5",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 7",
+      "product": "php5"
+    },
+    "description": "security update",
+    "debian": {
+      "moreinfo": "It was discovered that libmagic as used by PHP, would trigger an out of bounds memory access when trying to identify a crafted file.",
+      "dsa": "DSA-3126",
+      "date": "2015-01-12"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3480",
+                "comment": "php5 DPKG is earlier than 5.4.36-0+deb7u3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 7 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:331904119201427738128445870175392327189",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-2961-1 php5",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 8",
+      "product": "php5"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-4049",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4049"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nIt was discovered that PHP, a general-purpose scripting language commonly used for web application development, is vulnerable to a heap-based buffer overflow in the DNS TXT record parsing. A malicious server or man-in-the-middle attacker could possibly use this flaw to execute arbitrary code as the PHP interpreter if a PHP application uses dns_get_record() to perform a DNS query.",
+      "dsa": "DSA-2961",
+      "date": "2014-06-16"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:270",
+                "comment": "php5 DPKG is earlier than 5.6.0~beta4+dfsg-3"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 8 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:198514992250053858918973243320763475682",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-1774 linux",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "linux"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-1774",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1774"
+      }
+    ],
+    "description": "The chase_port function in drivers/usb/serial/io_ti.c in the Linux kernel before 3.7.4 allows local users to cause a denial of service (NULL pointer dereference and system crash) via an attempted /dev/ttyUSB read or write operation on a disconnected Edgeport USB serial converter.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:5477",
+                "comment": "linux DPKG is earlier than 3.2.38-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

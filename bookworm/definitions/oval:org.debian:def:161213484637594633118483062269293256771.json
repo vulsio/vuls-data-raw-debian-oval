@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:161213484637594633118483062269293256771",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2022-3033 thunderbird",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "thunderbird"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-3033",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-3033"
+      }
+    ],
+    "description": "If a Thunderbird user replied to a crafted HTML email containing a <code>meta</code> tag, with the <code>meta</code> tag having the <code>http-equiv=\"refresh\"</code> attribute, and the content attribute specifying an URL, then Thunderbird started a network request to that URL, regardless of the configuration to block remote content. In combination with certain other HTML elements and attributes in the email, it was possible to execute JavaScript code included in the message in the context of the message compose document. The JavaScript code was able to perform actions including, but probably not limited to, read and modify the contents of the message compose document, including the quoted original message, which could potentially contain the decrypted plaintext of encrypted data in the crafted email. The contents could then be transmitted to the network, either to the URL specified in the META refresh tag, or to a different URL, as the JavaScript code could modify the URL specified in the document. This bug doesn't affect users who have changed the default Message Body display setting to 'simple html' or 'plain text'. This vulnerability affects Thunderbird < 102.2.1 and Thunderbird < 91.13.1.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:23566",
+                "comment": "thunderbird DPKG is earlier than 1:102.2.1-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

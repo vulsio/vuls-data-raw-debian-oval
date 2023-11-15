@@ -1,0 +1,54 @@
+{
+  "id": "oval:org.debian:def:189002908671156917232430544099554008816",
+  "class": "patch",
+  "metadata": {
+    "title": "DSA-5290-1 commons-configuration2",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "commons-configuration2"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-33980",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-33980"
+      }
+    ],
+    "description": "security update",
+    "debian": {
+      "moreinfo": "\nApache Commons Configuration, a Java library providing a generic configuration interface, performs variable interpolation, allowing properties to be dynamically evaluated and expanded. Starting with version 2.4 and continuing through 2.7, the set of default Lookup instances included interpolators that could result in arbitrary code execution or contact with remote servers. These lookups are:\nApplications using the interpolation defaults in the affected versions may be vulnerable to remote code execution or unintentional contact with remote servers if untrusted configuration values are used.",
+      "dsa": "DSA-5290",
+      "date": "2022-11-28"
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:28069",
+                "comment": "commons-configuration2 DPKG is earlier than 2.8.0-1~deb11u1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

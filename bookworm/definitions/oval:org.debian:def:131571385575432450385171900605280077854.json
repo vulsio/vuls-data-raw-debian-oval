@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:131571385575432450385171900605280077854",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2013-7351 shaarli",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "shaarli"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-7351",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-7351"
+      }
+    ],
+    "description": "Multiple cross-site scripting (XSS) vulnerabilities in index.php in Shaarli allow remote attackers to inject arbitrary web script or HTML via the URL to the (1) showRSS, (2) showATOM, or (3) showDailyRSS function; a (4) file name to the importFile function; or (5) vectors related to bookmarks.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:6032",
+                "comment": "shaarli DPKG is earlier than 0.0.41~beta~dfsg2-4"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

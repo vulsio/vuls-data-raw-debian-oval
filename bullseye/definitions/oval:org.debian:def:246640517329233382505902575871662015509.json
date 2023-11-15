@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:246640517329233382505902575871662015509",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2009-0844 krb5",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "krb5"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0844",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0844"
+      }
+    ],
+    "description": "The get_input_token function in the SPNEGO implementation in MIT Kerberos 5 (aka krb5) 1.5 through 1.6.3 allows remote attackers to cause a denial of service (daemon crash) and possibly obtain sensitive information via a crafted length value that triggers a buffer over-read.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2900",
+                "comment": "krb5 DPKG is earlier than 1.6.dfsg.4~beta1-13"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

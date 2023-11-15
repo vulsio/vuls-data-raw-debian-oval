@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:123659370944256453093836294385641162722",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2021-29136 umoci",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "umoci"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-29136",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29136"
+      }
+    ],
+    "description": "Open Container Initiative umoci before 0.4.7 allows attackers to overwrite arbitrary host paths via a crafted image that causes symlink traversal when \"umoci unpack\" or \"umoci raw unpack\" is used.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:20492",
+                "comment": "umoci DPKG is earlier than 0.4.7+ds-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}

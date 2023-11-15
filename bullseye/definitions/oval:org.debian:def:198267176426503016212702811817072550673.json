@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:198267176426503016212702811817072550673",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2008-4677 vim",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "vim"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-4677",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4677"
+      }
+    ],
+    "description": "autoload/netrw.vim (aka the Netrw Plugin) 109, 131, and other versions before 133k for Vim 7.1.266, other 7.1 versions, and 7.2 stores credentials for an FTP session, and sends those credentials when attempting to establish subsequent FTP sessions to servers on different hosts, which allows remote FTP servers to obtain sensitive information in opportunistic circumstances by logging usernames and passwords.  NOTE: the upstream vendor disputes a vector involving different ports on the same host, stating \"I'm assuming that they're using the same id and password on that unchanged hostname, deliberately.\"",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:2601",
+                "comment": "vim DPKG is earlier than 0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

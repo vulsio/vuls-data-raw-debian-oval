@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:67551095131020074612144960915380128524",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2010-1455 wireshark",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 11",
+      "product": "wireshark"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-1455",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1455"
+      }
+    ],
+    "description": "The DOCSIS dissector in Wireshark 0.9.6 through 1.0.12 and 1.2.0 through 1.2.7 allows user-assisted remote attackers to cause a denial of service (application crash) via a malformed packet trace file.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:3521",
+                "comment": "wireshark DPKG is earlier than 1.2.8-1"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 11 is installed"
+      }
+    ]
+  }
+}

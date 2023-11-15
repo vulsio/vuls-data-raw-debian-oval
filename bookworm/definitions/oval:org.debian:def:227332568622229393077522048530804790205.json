@@ -1,0 +1,50 @@
+{
+  "id": "oval:org.debian:def:227332568622229393077522048530804790205",
+  "class": "vulnerability",
+  "metadata": {
+    "title": "CVE-2004-1307 tiff",
+    "affected": {
+      "family": "unix",
+      "platform": "Debian GNU/Linux 12",
+      "product": "tiff"
+    },
+    "reference": [
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2004-1307",
+        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1307"
+      }
+    ],
+    "description": "Integer overflow in the TIFFFetchStripThing function in tif_dirread.c for libtiff 3.6.1 allows remote attackers to execute arbitrary code via a TIFF file with the STRIPOFFSETS flag and a large number of strips, which causes a zero byte buffer to be allocated and leads to a heap-based buffer overflow.",
+    "debian": {}
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:org.debian.oval:tst:2",
+                "comment": "all architecture"
+              },
+              {
+                "test_ref": "oval:org.debian.oval:tst:565",
+                "comment": "tiff DPKG is earlier than 3.7.0"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:org.debian.oval:tst:1",
+        "comment": "Debian 12 is installed"
+      }
+    ]
+  }
+}
