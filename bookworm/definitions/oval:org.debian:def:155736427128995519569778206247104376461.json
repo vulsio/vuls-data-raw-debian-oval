@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:155736427128995519569778206247104376461",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2023-46121 yt-dlp",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "yt-dlp"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2023-46121",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46121"
-      }
-    ],
-    "description": "yt-dlp is a youtube-dl fork with additional features and fixes. The Generic Extractor in yt-dlp is vulnerable to an attacker setting an arbitrary proxy for a request to an arbitrary url, allowing the attacker to MITM the request made from yt-dlp's HTTP session. This could lead to cookie exfiltration in some cases. Version 2023.11.14 removed the ability to smuggle `http_headers` to the Generic extractor, as well as other extractors that use the same pattern. Users are advised to upgrade. Users unable to upgrade should disable the Ggneric extractor (or only pass trusted sites with trusted content) and ake caution when using `--no-check-certificate`.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:26723",
-                "comment": "yt-dlp DPKG is earlier than 0"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:155736427128995519569778206247104376461",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-46121 yt-dlp",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "yt-dlp"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-46121",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46121"
+			}
+		],
+		"description": "yt-dlp is a youtube-dl fork with additional features and fixes. The Generic Extractor in yt-dlp is vulnerable to an attacker setting an arbitrary proxy for a request to an arbitrary url, allowing the attacker to MITM the request made from yt-dlp's HTTP session. This could lead to cookie exfiltration in some cases. Version 2023.11.14 removed the ability to smuggle `http_headers` to the Generic extractor, as well as other extractors that use the same pattern. Users are advised to upgrade. Users unable to upgrade should disable the Ggneric extractor (or only pass trusted sites with trusted content) and ake caution when using `--no-check-certificate`.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26723",
+								"comment": "yt-dlp DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

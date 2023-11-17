@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:158753651884537759907143569112396900769",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2021-33913 libspf2",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "libspf2"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-33913",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33913"
-      }
-    ],
-    "description": "libspf2 before 1.2.11 has a heap-based buffer overflow that might allow remote attackers to execute arbitrary code (via an unauthenticated e-mail message from anywhere on the Internet) with a crafted SPF DNS record, because of SPF_record_expand_data in spf_expand.c. The amount of overflowed data depends on the relationship between the length of an entire domain name and the length of its leftmost label. The vulnerable code may be part of the supply chain of a site's e-mail infrastructure (e.g., with additional configuration, Exim can use libspf2; the Postfix web site links to unofficial patches for use of libspf2 with Postfix; older versions of spfquery relied on libspf2) but most often is not.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:21927",
-                "comment": "libspf2 DPKG is earlier than 1.2.10-7.1~deb11u1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:158753651884537759907143569112396900769",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2021-33913 libspf2",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "libspf2"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-33913",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33913"
+			}
+		],
+		"description": "libspf2 before 1.2.11 has a heap-based buffer overflow that might allow remote attackers to execute arbitrary code (via an unauthenticated e-mail message from anywhere on the Internet) with a crafted SPF DNS record, because of SPF_record_expand_data in spf_expand.c. The amount of overflowed data depends on the relationship between the length of an entire domain name and the length of its leftmost label. The vulnerable code may be part of the supply chain of a site's e-mail infrastructure (e.g., with additional configuration, Exim can use libspf2; the Postfix web site links to unofficial patches for use of libspf2 with Postfix; older versions of spfquery relied on libspf2) but most often is not.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:21927",
+								"comment": "libspf2 DPKG is earlier than 1.2.10-7.1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

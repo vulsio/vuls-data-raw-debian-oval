@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:204626883575388566253051608688022770045",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2020-1740 ansible",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "ansible"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2020-1740",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1740"
-      }
-    ],
-    "description": "A flaw was found in Ansible Engine when using Ansible Vault for editing encrypted files. When a user executes \"ansible-vault edit\", another user on the same computer can read the old and new secret, as it is created in a temporary file with mkstemp and the returned file descriptor is closed and the method write_data is called to write the existing secret in the file. This method will delete the file before recreating it insecurely. All versions in 2.7.x, 2.8.x and 2.9.x branches are believed to be vulnerable.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:18270",
-                "comment": "ansible DPKG is earlier than 2.9.7+dfsg-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:204626883575388566253051608688022770045",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2020-1740 ansible",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "ansible"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-1740",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1740"
+			}
+		],
+		"description": "A flaw was found in Ansible Engine when using Ansible Vault for editing encrypted files. When a user executes \"ansible-vault edit\", another user on the same computer can read the old and new secret, as it is created in a temporary file with mkstemp and the returned file descriptor is closed and the method write_data is called to write the existing secret in the file. This method will delete the file before recreating it insecurely. All versions in 2.7.x, 2.8.x and 2.9.x branches are believed to be vulnerable.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:18270",
+								"comment": "ansible DPKG is earlier than 2.9.7+dfsg-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

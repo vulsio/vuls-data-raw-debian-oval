@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:42142759394256927272960540150991240050",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2016-8622 curl",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "curl"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-8622",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8622"
-      }
-    ],
-    "description": "The URL percent-encoding decode function in libcurl before 7.51.0 is called `curl_easy_unescape`. Internally, even if this function would be made to allocate a unscape destination buffer larger than 2GB, it would return that new length in a signed 32 bit integer variable, thus the length would get either just truncated or both truncated and turned negative. That could then lead to libcurl writing outside of its heap based buffer.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:10153",
-                "comment": "curl DPKG is earlier than 7.51.0-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:42142759394256927272960540150991240050",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2016-8622 curl",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "curl"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-8622",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-8622"
+			}
+		],
+		"description": "The URL percent-encoding decode function in libcurl before 7.51.0 is called `curl_easy_unescape`. Internally, even if this function would be made to allocate a unscape destination buffer larger than 2GB, it would return that new length in a signed 32 bit integer variable, thus the length would get either just truncated or both truncated and turned negative. That could then lead to libcurl writing outside of its heap based buffer.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:10153",
+								"comment": "curl DPKG is earlier than 7.51.0-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

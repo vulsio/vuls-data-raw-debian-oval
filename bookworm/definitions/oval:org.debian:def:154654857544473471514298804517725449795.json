@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:154654857544473471514298804517725449795",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2023-34095 cpdb-libs",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "cpdb-libs"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2023-34095",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34095"
-      }
-    ],
-    "description": "cpdb-libs provides frontend and backend libraries for the Common Printing Dialog Backends (CPDB) project. In versions 1.0 through 2.0b4, cpdb-libs is vulnerable to buffer overflows via improper use of `scanf(3)`. cpdb-libs uses the `fscanf()` and `scanf()` functions to parse command lines and configuration files, dropping the read string components into fixed-length buffers, but does not limit the length of the strings to be read by `fscanf()` and `scanf()` causing buffer overflows when a string is longer than 1023 characters. A patch for this issue is available at commit f181bd1f14757c2ae0f17cc76dc20421a40f30b7. As all buffers have a length of 1024 characters, the patch limits the maximum string length to be read to 1023 by replacing all occurrences of `%s` with `%1023s` in all calls of the `fscanf()` and `scanf()` functions.\n",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:26108",
-                "comment": "cpdb-libs DPKG is earlier than 1.2.0-2+deb12u1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:154654857544473471514298804517725449795",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-34095 cpdb-libs",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "cpdb-libs"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-34095",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-34095"
+			}
+		],
+		"description": "cpdb-libs provides frontend and backend libraries for the Common Printing Dialog Backends (CPDB) project. In versions 1.0 through 2.0b4, cpdb-libs is vulnerable to buffer overflows via improper use of `scanf(3)`. cpdb-libs uses the `fscanf()` and `scanf()` functions to parse command lines and configuration files, dropping the read string components into fixed-length buffers, but does not limit the length of the strings to be read by `fscanf()` and `scanf()` causing buffer overflows when a string is longer than 1023 characters. A patch for this issue is available at commit f181bd1f14757c2ae0f17cc76dc20421a40f30b7. As all buffers have a length of 1024 characters, the patch limits the maximum string length to be read to 1023 by replacing all occurrences of `%s` with `%1023s` in all calls of the `fscanf()` and `scanf()` functions.\n",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26108",
+								"comment": "cpdb-libs DPKG is earlier than 1.2.0-2+deb12u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

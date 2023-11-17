@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:336080379358745672679345224512990541712",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2019-18792 suricata",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "suricata"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-18792",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18792"
-      }
-    ],
-    "description": "An issue was discovered in Suricata 5.0.0. It is possible to bypass/evade any tcp based signature by overlapping a TCP segment with a fake FIN packet. The fake FIN packet is injected just before the PUSH ACK packet we want to bypass. The PUSH ACK packet (containing the data) will be ignored by Suricata because it overlaps the FIN packet (the sequence and ack number are identical in the two packets). The client will ignore the fake FIN packet because the ACK flag is not set. Both linux and windows clients are ignoring the injected packet.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:16328",
-                "comment": "suricata DPKG is earlier than 1:5.0.2-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:336080379358745672679345224512990541712",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2019-18792 suricata",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "suricata"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-18792",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18792"
+			}
+		],
+		"description": "An issue was discovered in Suricata 5.0.0. It is possible to bypass/evade any tcp based signature by overlapping a TCP segment with a fake FIN packet. The fake FIN packet is injected just before the PUSH ACK packet we want to bypass. The PUSH ACK packet (containing the data) will be ignored by Suricata because it overlaps the FIN packet (the sequence and ack number are identical in the two packets). The client will ignore the fake FIN packet because the ACK flag is not set. Both linux and windows clients are ignoring the injected packet.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:16328",
+								"comment": "suricata DPKG is earlier than 1:5.0.2-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:133071680474954819557888464336266497723",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2023-36823 ruby-sanitize",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "ruby-sanitize"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2023-36823",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-36823"
-      }
-    ],
-    "description": "Sanitize is an allowlist-based HTML and CSS sanitizer. Using carefully crafted input, an attacker may be able to sneak arbitrary HTML and CSS through Sanitize starting with version 3.0.0 and prior to version 6.0.2 when Sanitize is configured to use the built-in \"relaxed\" config or when using a custom config that allows `style` elements and one or more CSS at-rules. This could result in cross-site scripting or other undesired behavior when the malicious HTML and CSS are rendered in a browser. Sanitize 6.0.2 performs additional escaping of CSS in `style` element content, which fixes this issue. Users who are unable to upgrade can prevent this issue by using a Sanitize config that doesn't allow `style` elements, using a Sanitize config that doesn't allow CSS at-rules, or by manually escaping the character sequence `</` as `<\\/` in `style` element content.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:26210",
-                "comment": "ruby-sanitize DPKG is earlier than 0"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:133071680474954819557888464336266497723",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-36823 ruby-sanitize",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "ruby-sanitize"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-36823",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-36823"
+			}
+		],
+		"description": "Sanitize is an allowlist-based HTML and CSS sanitizer. Using carefully crafted input, an attacker may be able to sneak arbitrary HTML and CSS through Sanitize starting with version 3.0.0 and prior to version 6.0.2 when Sanitize is configured to use the built-in \"relaxed\" config or when using a custom config that allows `style` elements and one or more CSS at-rules. This could result in cross-site scripting or other undesired behavior when the malicious HTML and CSS are rendered in a browser. Sanitize 6.0.2 performs additional escaping of CSS in `style` element content, which fixes this issue. Users who are unable to upgrade can prevent this issue by using a Sanitize config that doesn't allow `style` elements, using a Sanitize config that doesn't allow CSS at-rules, or by manually escaping the character sequence `</` as `<\\/` in `style` element content.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26210",
+								"comment": "ruby-sanitize DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

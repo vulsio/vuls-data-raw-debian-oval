@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:39395166519876115900583367861663618065",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2020-25674 imagemagick",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 10",
-      "product": "imagemagick"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2020-25674",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25674"
-      }
-    ],
-    "description": "WriteOnePNGImage() from coders/png.c (the PNG coder) has a for loop with an improper exit condition that can allow an out-of-bounds READ via heap-buffer-overflow. This occurs because it is possible for the colormap to have less than 256 valid values but the loop condition will loop 256 times, attempting to pass invalid colormap data to the event logger. The patch replaces the hardcoded 256 value with a call to MagickMin() to ensure the proper value is used. This could impact application availability when a specially crafted input file is processed by ImageMagick. This flaw affects ImageMagick versions prior to 7.0.8-68.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:19383",
-                "comment": "imagemagick DPKG is earlier than 8:6.9.10.23+dfsg-2.1+deb10u2"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 10 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:39395166519876115900583367861663618065",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2020-25674 imagemagick",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "imagemagick"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-25674",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25674"
+			}
+		],
+		"description": "WriteOnePNGImage() from coders/png.c (the PNG coder) has a for loop with an improper exit condition that can allow an out-of-bounds READ via heap-buffer-overflow. This occurs because it is possible for the colormap to have less than 256 valid values but the loop condition will loop 256 times, attempting to pass invalid colormap data to the event logger. The patch replaces the hardcoded 256 value with a call to MagickMin() to ensure the proper value is used. This could impact application availability when a specially crafted input file is processed by ImageMagick. This flaw affects ImageMagick versions prior to 7.0.8-68.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:19383",
+								"comment": "imagemagick DPKG is earlier than 8:6.9.10.23+dfsg-2.1+deb10u2"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
 }

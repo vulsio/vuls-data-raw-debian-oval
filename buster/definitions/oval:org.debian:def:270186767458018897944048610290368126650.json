@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:270186767458018897944048610290368126650",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2023-38546 curl",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 10",
-      "product": "curl"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2023-38546",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38546"
-      }
-    ],
-    "description": "This flaw allows an attacker to insert cookies at will into a running program\nusing libcurl, if the specific series of conditions are met.\n\nlibcurl performs transfers. In its API, an application creates \"easy handles\"\nthat are the individual handles for single transfers.\n\nlibcurl provides a function call that duplicates en easy handle called\n[curl_easy_duphandle](https://curl.se/libcurl/c/curl_easy_duphandle.html).\n\nIf a transfer has cookies enabled when the handle is duplicated, the\ncookie-enable state is also cloned - but without cloning the actual\ncookies. If the source handle did not read any cookies from a specific file on\ndisk, the cloned version of the handle would instead store the file name as\n`none` (using the four ASCII letters, no quotes).\n\nSubsequent use of the cloned handle that does not explicitly set a source to\nload cookies from would then inadvertently load cookies from a file named\n`none` - if such a file exists and is readable in the current directory of the\nprogram using libcurl. And if using the correct file format of course.\n",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:26366",
-                "comment": "curl DPKG is earlier than 7.64.0-4+deb10u7"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 10 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:270186767458018897944048610290368126650",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-38546 curl",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "curl"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-38546",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38546"
+			}
+		],
+		"description": "This flaw allows an attacker to insert cookies at will into a running program\nusing libcurl, if the specific series of conditions are met.\n\nlibcurl performs transfers. In its API, an application creates \"easy handles\"\nthat are the individual handles for single transfers.\n\nlibcurl provides a function call that duplicates en easy handle called\n[curl_easy_duphandle](https://curl.se/libcurl/c/curl_easy_duphandle.html).\n\nIf a transfer has cookies enabled when the handle is duplicated, the\ncookie-enable state is also cloned - but without cloning the actual\ncookies. If the source handle did not read any cookies from a specific file on\ndisk, the cloned version of the handle would instead store the file name as\n`none` (using the four ASCII letters, no quotes).\n\nSubsequent use of the cloned handle that does not explicitly set a source to\nload cookies from would then inadvertently load cookies from a file named\n`none` - if such a file exists and is readable in the current directory of the\nprogram using libcurl. And if using the correct file format of course.\n",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26366",
+								"comment": "curl DPKG is earlier than 7.64.0-4+deb10u7"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
 }

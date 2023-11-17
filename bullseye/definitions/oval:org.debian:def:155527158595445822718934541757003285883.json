@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:155527158595445822718934541757003285883",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2021-29478 redis",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "redis"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-29478",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29478"
-      }
-    ],
-    "description": "Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache, and message broker. An integer overflow bug in Redis 6.2 before 6.2.3 could be exploited to corrupt the heap and potentially result with remote code execution. Redis 6.0 and earlier are not directly affected by this issue. The problem is fixed in version 6.2.3. An additional workaround to mitigate the problem without patching the `redis-server` executable is to prevent users from modifying the `set-max-intset-entries` configuration parameter. This can be done using ACL to restrict unprivileged users from using the `CONFIG SET` command.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:21329",
-                "comment": "redis DPKG is earlier than 5:6.0.13-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:155527158595445822718934541757003285883",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2021-29478 redis",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "redis"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-29478",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29478"
+			}
+		],
+		"description": "Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache, and message broker. An integer overflow bug in Redis 6.2 before 6.2.3 could be exploited to corrupt the heap and potentially result with remote code execution. Redis 6.0 and earlier are not directly affected by this issue. The problem is fixed in version 6.2.3. An additional workaround to mitigate the problem without patching the `redis-server` executable is to prevent users from modifying the `set-max-intset-entries` configuration parameter. This can be done using ACL to restrict unprivileged users from using the `CONFIG SET` command.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:21329",
+								"comment": "redis DPKG is earlier than 5:6.0.13-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

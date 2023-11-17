@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:196622855219835723314501452815456313168",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2020-5226 simplesamlphp",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "simplesamlphp"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2020-5226",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-5226"
-      }
-    ],
-    "description": "Cross-site scripting in SimpleSAMLphp before version 1.18.4. The www/erroreport.php script allows error reports to be submitted and sent to the system administrator. Starting with SimpleSAMLphp 1.18.0, a new SimpleSAML\\Utils\\EMail class was introduced to handle sending emails, implemented as a wrapper of an external dependency. This new wrapper allows us to use Twig templates in order to create the email sent with an error report. Since Twig provides automatic escaping of variables, manual escaping of the free-text field in www/errorreport.php was removed to avoid double escaping. However, for those not using the new user interface yet, an email template is hardcoded into the class itself in plain PHP. Since no escaping is provided in this template, it is then possible to inject HTML inside the template by manually crafting the contents of the free-text field.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:19302",
-                "comment": "simplesamlphp DPKG is earlier than 1.18.4-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:196622855219835723314501452815456313168",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2020-5226 simplesamlphp",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "simplesamlphp"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-5226",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-5226"
+			}
+		],
+		"description": "Cross-site scripting in SimpleSAMLphp before version 1.18.4. The www/erroreport.php script allows error reports to be submitted and sent to the system administrator. Starting with SimpleSAMLphp 1.18.0, a new SimpleSAML\\Utils\\EMail class was introduced to handle sending emails, implemented as a wrapper of an external dependency. This new wrapper allows us to use Twig templates in order to create the email sent with an error report. Since Twig provides automatic escaping of variables, manual escaping of the free-text field in www/errorreport.php was removed to avoid double escaping. However, for those not using the new user interface yet, an email template is hardcoded into the class itself in plain PHP. Since no escaping is provided in this template, it is then possible to inject HTML inside the template by manually crafting the contents of the free-text field.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:19302",
+								"comment": "simplesamlphp DPKG is earlier than 1.18.4-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

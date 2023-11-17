@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:102994531872632603295390887382351011129",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2017-1000405 linux",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "linux"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2017-1000405",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000405"
-      }
-    ],
-    "description": "The Linux Kernel versions 2.6.38 through 4.14 have a problematic use of pmd_mkdirty() in the touch_pmd() function inside the THP implementation. touch_pmd() can be reached by get_user_pages(). In such case, the pmd will become dirty. This scenario breaks the new can_follow_write_pmd()'s logic - pmd can become dirty without going through a COW cycle. This bug is not as severe as the original \"Dirty cow\" because an ext4 file (or any other regular file) cannot be mapped using THP. Nevertheless, it does allow us to overwrite read-only huge pages. For example, the zero huge page and sealed shmem files can be overwritten (since their mapping can be populated using THP). Note that after the first write page-fault to the zero page, it will be replaced with a new fresh (and zeroed) thp.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:10612",
-                "comment": "linux DPKG is earlier than 4.14.2-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:102994531872632603295390887382351011129",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2017-1000405 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-1000405",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000405"
+			}
+		],
+		"description": "The Linux Kernel versions 2.6.38 through 4.14 have a problematic use of pmd_mkdirty() in the touch_pmd() function inside the THP implementation. touch_pmd() can be reached by get_user_pages(). In such case, the pmd will become dirty. This scenario breaks the new can_follow_write_pmd()'s logic - pmd can become dirty without going through a COW cycle. This bug is not as severe as the original \"Dirty cow\" because an ext4 file (or any other regular file) cannot be mapped using THP. Nevertheless, it does allow us to overwrite read-only huge pages. For example, the zero huge page and sealed shmem files can be overwritten (since their mapping can be populated using THP). Note that after the first write page-fault to the zero page, it will be replaced with a new fresh (and zeroed) thp.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:10612",
+								"comment": "linux DPKG is earlier than 4.14.2-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

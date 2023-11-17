@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:125154538289067088143977298893653280502",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2020-8558 kubernetes",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "kubernetes"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2020-8558",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-8558"
-      }
-    ],
-    "description": "The Kubelet and kube-proxy components in versions 1.1.0-1.16.10, 1.17.0-1.17.6, and 1.18.0-1.18.3 were found to contain a security issue which allows adjacent hosts to reach TCP and UDP services bound to 127.0.0.1 running on the node or in the node's network namespace. Such a service is generally thought to be reachable only by other processes on the same host, but due to this defeect, could be reachable by other hosts on the same LAN as the node, or by containers running on the same node as the service.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:20387",
-                "comment": "kubernetes DPKG is earlier than 1.18.5-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:125154538289067088143977298893653280502",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2020-8558 kubernetes",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "kubernetes"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-8558",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-8558"
+			}
+		],
+		"description": "The Kubelet and kube-proxy components in versions 1.1.0-1.16.10, 1.17.0-1.17.6, and 1.18.0-1.18.3 were found to contain a security issue which allows adjacent hosts to reach TCP and UDP services bound to 127.0.0.1 running on the node or in the node's network namespace. Such a service is generally thought to be reachable only by other processes on the same host, but due to this defeect, could be reachable by other hosts on the same LAN as the node, or by containers running on the same node as the service.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:20387",
+								"comment": "kubernetes DPKG is earlier than 1.18.5-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

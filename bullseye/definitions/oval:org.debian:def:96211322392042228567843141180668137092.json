@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:96211322392042228567843141180668137092",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2017-2292 mcollective",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "mcollective"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2017-2292",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-2292"
-      }
-    ],
-    "description": "Versions of MCollective prior to 2.10.4 deserialized YAML from agents without calling safe_load, allowing the potential for arbitrary code execution on the server. The fix for this is to call YAML.safe_load on input. This has been tested in all Puppet-supplied MCollective plugins, but there is a chance that third-party plugins could rely on this insecure behavior.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:12001",
-                "comment": "mcollective DPKG is earlier than 2.12.0+dfsg-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:96211322392042228567843141180668137092",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2017-2292 mcollective",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "mcollective"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-2292",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-2292"
+			}
+		],
+		"description": "Versions of MCollective prior to 2.10.4 deserialized YAML from agents without calling safe_load, allowing the potential for arbitrary code execution on the server. The fix for this is to call YAML.safe_load on input. This has been tested in all Puppet-supplied MCollective plugins, but there is a chance that third-party plugins could rely on this insecure behavior.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:12001",
+								"comment": "mcollective DPKG is earlier than 2.12.0+dfsg-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

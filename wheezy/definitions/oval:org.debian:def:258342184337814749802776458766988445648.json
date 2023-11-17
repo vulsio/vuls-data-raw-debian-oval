@@ -1,54 +1,54 @@
 {
-  "id": "oval:org.debian:def:258342184337814749802776458766988445648",
-  "class": "patch",
-  "metadata": {
-    "title": "DSA-3251-1 dnsmasq",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 7",
-      "product": "dnsmasq"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2015-3294",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3294"
-      }
-    ],
-    "description": "security update",
-    "debian": {
-      "moreinfo": "\nNick Sampanis discovered that dnsmasq, a small caching DNS proxy and DHCP/TFTP server, did not properly check the return value of the setup_reply() function called during a TCP connection, which is used then as a size argument in a function which writes data on the client's connection. A remote attacker could exploit this issue via a specially crafted DNS request to cause dnsmasq to crash, or potentially to obtain sensitive information from process memory.",
-      "dsa": "DSA-3251",
-      "date": "2015-05-05"
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:2239",
-                "comment": "dnsmasq DPKG is earlier than 2.62-3+deb7u2"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 7 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:258342184337814749802776458766988445648",
+	"class": "patch",
+	"metadata": {
+		"title": "DSA-3251-1 dnsmasq",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 7",
+			"product": "dnsmasq"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2015-3294",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3294"
+			}
+		],
+		"description": "security update",
+		"debian": {
+			"moreinfo": "\nNick Sampanis discovered that dnsmasq, a small caching DNS proxy and DHCP/TFTP server, did not properly check the return value of the setup_reply() function called during a TCP connection, which is used then as a size argument in a function which writes data on the client's connection. A remote attacker could exploit this issue via a specially crafted DNS request to cause dnsmasq to crash, or potentially to obtain sensitive information from process memory.",
+			"dsa": "DSA-3251",
+			"date": "2015-05-05"
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:2239",
+								"comment": "dnsmasq DPKG is earlier than 2.62-3+deb7u2"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 7 is installed"
+			}
+		]
+	}
 }

@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:98803223372258062607022029211481920697",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2022-31214 firejail",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "firejail"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2022-31214",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-31214"
-      }
-    ],
-    "description": "A Privilege Context Switching issue was discovered in join.c in Firejail 0.9.68. By crafting a bogus Firejail container that is accepted by the Firejail setuid-root program as a join target, a local attacker can enter an environment in which the Linux user namespace is still the initial user namespace, the NO_NEW_PRIVS prctl is not activated, and the entered mount namespace is under the attacker's control. In this way, the filesystem layout can be adjusted to gain root privileges through execution of available setuid-root binaries such as su or sudo.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:23675",
-                "comment": "firejail DPKG is earlier than 0.9.68-4"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:98803223372258062607022029211481920697",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-31214 firejail",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "firejail"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-31214",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-31214"
+			}
+		],
+		"description": "A Privilege Context Switching issue was discovered in join.c in Firejail 0.9.68. By crafting a bogus Firejail container that is accepted by the Firejail setuid-root program as a join target, a local attacker can enter an environment in which the Linux user namespace is still the initial user namespace, the NO_NEW_PRIVS prctl is not activated, and the entered mount namespace is under the attacker's control. In this way, the filesystem layout can be adjusted to gain root privileges through execution of available setuid-root binaries such as su or sudo.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:23675",
+								"comment": "firejail DPKG is earlier than 0.9.68-4"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

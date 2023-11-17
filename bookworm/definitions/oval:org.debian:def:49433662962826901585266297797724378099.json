@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:49433662962826901585266297797724378099",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2018-12536 jetty9",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "jetty9"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2018-12536",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12536"
-      }
-    ],
-    "description": "In Eclipse Jetty Server, all 9.x versions, on webapps deployed using default Error Handling, when an intentionally bad query arrives that doesn't match a dynamic url-pattern, and is eventually handled by the DefaultServlet's static file serving, the bad characters can trigger a java.nio.file.InvalidPathException which includes the full path to the base resource directory that the DefaultServlet and/or webapp is using. If this InvalidPathException is then handled by the default Error Handler, the InvalidPathException message is included in the error response, revealing the full server path to the requesting system.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:13424",
-                "comment": "jetty9 DPKG is earlier than 9.2.25-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:49433662962826901585266297797724378099",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2018-12536 jetty9",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "jetty9"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-12536",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12536"
+			}
+		],
+		"description": "In Eclipse Jetty Server, all 9.x versions, on webapps deployed using default Error Handling, when an intentionally bad query arrives that doesn't match a dynamic url-pattern, and is eventually handled by the DefaultServlet's static file serving, the bad characters can trigger a java.nio.file.InvalidPathException which includes the full path to the base resource directory that the DefaultServlet and/or webapp is using. If this InvalidPathException is then handled by the default Error Handler, the InvalidPathException message is included in the error response, revealing the full server path to the requesting system.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:13424",
+								"comment": "jetty9 DPKG is earlier than 9.2.25-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

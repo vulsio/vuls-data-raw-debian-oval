@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:46297011984905054271929554123088921231",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2021-23521 juce",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "juce"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-23521",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23521"
-      }
-    ],
-    "description": "This affects the package juce-framework/JUCE before 6.1.5. This vulnerability is triggered when a malicious archive is crafted with an entry containing a symbolic link. When extracted, the symbolic link is followed outside of the target dir allowing writing arbitrary files on the target host. In some cases, this can allow an attacker to execute arbitrary code. The vulnerable code is in the ZipFile::uncompressEntry function in juce_ZipFile.cpp and is executed when the archive is extracted upon calling uncompressTo() on a ZipFile object.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:21014",
-                "comment": "juce DPKG is earlier than 0"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:46297011984905054271929554123088921231",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2021-23521 juce",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "juce"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-23521",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23521"
+			}
+		],
+		"description": "This affects the package juce-framework/JUCE before 6.1.5. This vulnerability is triggered when a malicious archive is crafted with an entry containing a symbolic link. When extracted, the symbolic link is followed outside of the target dir allowing writing arbitrary files on the target host. In some cases, this can allow an attacker to execute arbitrary code. The vulnerable code is in the ZipFile::uncompressEntry function in juce_ZipFile.cpp and is executed when the archive is extracted upon calling uncompressTo() on a ZipFile object.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:21014",
+								"comment": "juce DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:164628150585861288291120157513819178659",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2018-16948 openafs",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "openafs"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2018-16948",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16948"
-      }
-    ],
-    "description": "An issue was discovered in OpenAFS before 1.6.23 and 1.8.x before 1.8.2. Several RPC server routines did not fully initialize their output variables before returning, leaking memory contents from both the stack and the heap. Because the OpenAFS cache manager functions as an Rx server for the AFSCB service, clients are also susceptible to information leakage. For example, RXAFSCB_TellMeAboutYourself leaks kernel memory and KAM_ListEntry leaks kaserver memory.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:13886",
-                "comment": "openafs DPKG is earlier than 1.8.2-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:164628150585861288291120157513819178659",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2018-16948 openafs",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "openafs"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-16948",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-16948"
+			}
+		],
+		"description": "An issue was discovered in OpenAFS before 1.6.23 and 1.8.x before 1.8.2. Several RPC server routines did not fully initialize their output variables before returning, leaking memory contents from both the stack and the heap. Because the OpenAFS cache manager functions as an Rx server for the AFSCB service, clients are also susceptible to information leakage. For example, RXAFSCB_TellMeAboutYourself leaks kernel memory and KAM_ListEntry leaks kaserver memory.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:13886",
+								"comment": "openafs DPKG is earlier than 1.8.2-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

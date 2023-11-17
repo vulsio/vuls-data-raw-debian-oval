@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:113179407834236890014361360308722475116",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2019-14318 libcrypto++",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "libcrypto++"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-14318",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14318"
-      }
-    ],
-    "description": "Crypto++ 8.3.0 and earlier contains a timing side channel in ECDSA signature generation. This allows a local or remote attacker, able to measure the duration of hundreds to thousands of signing operations, to compute the private key used. The issue occurs because scalar multiplication in ecp.cpp (prime field curves, small leakage) and algebra.cpp (binary field curves, large leakage) is not constant time and leaks the bit length of the scalar among other information.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:15825",
-                "comment": "libcrypto++ DPKG is earlier than 5.6.4-9"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:113179407834236890014361360308722475116",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2019-14318 libcrypto++",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "libcrypto++"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-14318",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14318"
+			}
+		],
+		"description": "Crypto++ 8.3.0 and earlier contains a timing side channel in ECDSA signature generation. This allows a local or remote attacker, able to measure the duration of hundreds to thousands of signing operations, to compute the private key used. The issue occurs because scalar multiplication in ecp.cpp (prime field curves, small leakage) and algebra.cpp (binary field curves, large leakage) is not constant time and leaks the bit length of the scalar among other information.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:15825",
+								"comment": "libcrypto++ DPKG is earlier than 5.6.4-9"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

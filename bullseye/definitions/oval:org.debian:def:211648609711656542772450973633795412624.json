@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:211648609711656542772450973633795412624",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2012-0814 openssh",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "openssh"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2012-0814",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0814"
-      }
-    ],
-    "description": "The auth_parse_options function in auth-options.c in sshd in OpenSSH before 5.7 provides debug messages containing authorized_keys command options, which allows remote authenticated users to obtain potentially sensitive information by reading these messages, as demonstrated by the shared user account required by Gitolite.  NOTE: this can cross privilege boundaries because a user account may intentionally have no shell or filesystem access, and therefore may have no supported way to read an authorized_keys file in its own home directory.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:4575",
-                "comment": "openssh DPKG is earlier than 1:5.6p1-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:211648609711656542772450973633795412624",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2012-0814 openssh",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "openssh"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2012-0814",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0814"
+			}
+		],
+		"description": "The auth_parse_options function in auth-options.c in sshd in OpenSSH before 5.7 provides debug messages containing authorized_keys command options, which allows remote authenticated users to obtain potentially sensitive information by reading these messages, as demonstrated by the shared user account required by Gitolite.  NOTE: this can cross privilege boundaries because a user account may intentionally have no shell or filesystem access, and therefore may have no supported way to read an authorized_keys file in its own home directory.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:4575",
+								"comment": "openssh DPKG is earlier than 1:5.6p1-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

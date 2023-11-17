@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:73112437442977964299074032667155665456",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2019-11365 atftp",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 10",
-      "product": "atftp"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-11365",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11365"
-      }
-    ],
-    "description": "An issue was discovered in atftpd in atftp 0.7.1. A remote attacker may send a crafted packet triggering a stack-based buffer overflow due to an insecurely implemented strncpy call. The vulnerability is triggered by sending an error packet of 3 bytes or fewer. There are multiple instances of this vulnerable strncpy pattern within the code base, specifically within tftpd_file.c, tftp_file.c, tftpd_mtftp.c, and tftp_mtftp.c.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:16001",
-                "comment": "atftp DPKG is earlier than 0.7.git20120829-3.1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 10 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:73112437442977964299074032667155665456",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2019-11365 atftp",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "atftp"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-11365",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11365"
+			}
+		],
+		"description": "An issue was discovered in atftpd in atftp 0.7.1. A remote attacker may send a crafted packet triggering a stack-based buffer overflow due to an insecurely implemented strncpy call. The vulnerability is triggered by sending an error packet of 3 bytes or fewer. There are multiple instances of this vulnerable strncpy pattern within the code base, specifically within tftpd_file.c, tftp_file.c, tftpd_mtftp.c, and tftp_mtftp.c.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:16001",
+								"comment": "atftp DPKG is earlier than 0.7.git20120829-3.1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
 }

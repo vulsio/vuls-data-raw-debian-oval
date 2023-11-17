@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:335380964234293839229877572394057878336",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2017-10686 nasm",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "nasm"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2017-10686",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10686"
-      }
-    ],
-    "description": "In Netwide Assembler (NASM) 2.14rc0, there are multiple heap use after free vulnerabilities in the tool nasm. The related heap is allocated in the token() function and freed in the detoken() function (called by pp_getline()) - it is used again at multiple positions later that could cause multiple damages. For example, it causes a corrupted double-linked list in detoken(), a double free or corruption in delete_Token(), and an out-of-bounds write in detoken(). It has a high possibility to lead to a remote code execution attack.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:10292",
-                "comment": "nasm DPKG is earlier than 2.13.02-0.1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:335380964234293839229877572394057878336",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2017-10686 nasm",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "nasm"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-10686",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10686"
+			}
+		],
+		"description": "In Netwide Assembler (NASM) 2.14rc0, there are multiple heap use after free vulnerabilities in the tool nasm. The related heap is allocated in the token() function and freed in the detoken() function (called by pp_getline()) - it is used again at multiple positions later that could cause multiple damages. For example, it causes a corrupted double-linked list in detoken(), a double free or corruption in delete_Token(), and an out-of-bounds write in detoken(). It has a high possibility to lead to a remote code execution attack.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:10292",
+								"comment": "nasm DPKG is earlier than 2.13.02-0.1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

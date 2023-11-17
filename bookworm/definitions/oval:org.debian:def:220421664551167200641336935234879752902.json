@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:220421664551167200641336935234879752902",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2023-36807 pypdf2",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "pypdf2"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2023-36807",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-36807"
-      }
-    ],
-    "description": "pypdf is a pure-python PDF library capable of splitting, merging, cropping, and transforming the pages of PDF files. In version 2.10.5 an attacker who uses this vulnerability can craft a PDF which leads to an infinite loop. This infinite loop blocks the current process and can utilize a single core of the CPU by 100%. It does not affect memory usage. That is, for example, the case if the user extracted metadata from such a malformed PDF. Versions prior to 2.10.5 throw an error, but do not hang forever. This issue was fixed with https://github.com/py-pdf/pypdf/pull/1331 which has been included in release 2.10.6. Users are advised to upgrade. Users unable to upgrade should modify `PyPDF2/generic/_data_structures.py::read_object` to an an error throwing case. See GHSA-hm9v-vj3r-r55m for details. ",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:26206",
-                "comment": "pypdf2 DPKG is earlier than 2.10.7-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:220421664551167200641336935234879752902",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-36807 pypdf2",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "pypdf2"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-36807",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-36807"
+			}
+		],
+		"description": "pypdf is a pure-python PDF library capable of splitting, merging, cropping, and transforming the pages of PDF files. In version 2.10.5 an attacker who uses this vulnerability can craft a PDF which leads to an infinite loop. This infinite loop blocks the current process and can utilize a single core of the CPU by 100%. It does not affect memory usage. That is, for example, the case if the user extracted metadata from such a malformed PDF. Versions prior to 2.10.5 throw an error, but do not hang forever. This issue was fixed with https://github.com/py-pdf/pypdf/pull/1331 which has been included in release 2.10.6. Users are advised to upgrade. Users unable to upgrade should modify `PyPDF2/generic/_data_structures.py::read_object` to an an error throwing case. See GHSA-hm9v-vj3r-r55m for details. ",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26206",
+								"comment": "pypdf2 DPKG is earlier than 2.10.7-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

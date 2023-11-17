@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:256443132991267103531505640202153093152",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2021-21241 flask-security",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "flask-security"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-21241",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21241"
-      }
-    ],
-    "description": "The Python \"Flask-Security-Too\" package is used for adding security features to your Flask application. It is an is a independently maintained version of Flask-Security based on the 3.0.0 version of Flask-Security. In Flask-Security-Too from version 3.3.0 and before version 3.4.5, the /login and /change endpoints can return the authenticated user's authentication token in response to a GET request. Since GET requests aren't protected with a CSRF token, this could lead to a malicious 3rd party site acquiring the authentication token. Version 3.4.5 and version 4.0.0 are patched. As a workaround, if you aren't using authentication tokens - you can set the SECURITY_TOKEN_MAX_AGE to \"0\" (seconds) which should make the token unusable.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:20820",
-                "comment": "flask-security DPKG is earlier than 4.0.0-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:256443132991267103531505640202153093152",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2021-21241 flask-security",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "flask-security"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-21241",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21241"
+			}
+		],
+		"description": "The Python \"Flask-Security-Too\" package is used for adding security features to your Flask application. It is an is a independently maintained version of Flask-Security based on the 3.0.0 version of Flask-Security. In Flask-Security-Too from version 3.3.0 and before version 3.4.5, the /login and /change endpoints can return the authenticated user's authentication token in response to a GET request. Since GET requests aren't protected with a CSRF token, this could lead to a malicious 3rd party site acquiring the authentication token. Version 3.4.5 and version 4.0.0 are patched. As a workaround, if you aren't using authentication tokens - you can set the SECURITY_TOKEN_MAX_AGE to \"0\" (seconds) which should make the token unusable.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:20820",
+								"comment": "flask-security DPKG is earlier than 4.0.0-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

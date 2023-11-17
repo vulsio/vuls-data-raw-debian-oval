@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:130535155123643577651490545430194499746",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2016-2123 samba",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "samba"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-2123",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2123"
-      }
-    ],
-    "description": "A flaw was found in samba versions 4.0.0 to 4.5.2. The Samba routine ndr_pull_dnsp_name contains an integer wrap problem, leading to an attacker-controlled memory overwrite. ndr_pull_dnsp_name parses data from the Samba Active Directory ldb database. Any user who can write to the dnsRecord attribute over LDAP can trigger this memory corruption. By default, all authenticated LDAP users can write to the dnsRecord attribute on new DNS objects. This makes the defect a remote privilege escalation.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:9091",
-                "comment": "samba DPKG is earlier than 2:4.5.2+dfsg-2"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:130535155123643577651490545430194499746",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2016-2123 samba",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "samba"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-2123",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2123"
+			}
+		],
+		"description": "A flaw was found in samba versions 4.0.0 to 4.5.2. The Samba routine ndr_pull_dnsp_name contains an integer wrap problem, leading to an attacker-controlled memory overwrite. ndr_pull_dnsp_name parses data from the Samba Active Directory ldb database. Any user who can write to the dnsRecord attribute over LDAP can trigger this memory corruption. By default, all authenticated LDAP users can write to the dnsRecord attribute on new DNS objects. This makes the defect a remote privilege escalation.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:9091",
+								"comment": "samba DPKG is earlier than 2:4.5.2+dfsg-2"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

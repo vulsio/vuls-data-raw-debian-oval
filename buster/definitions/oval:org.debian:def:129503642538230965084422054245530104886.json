@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:129503642538230965084422054245530104886",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2022-22941 salt",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 10",
-      "product": "salt"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2022-22941",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22941"
-      }
-    ],
-    "description": "An issue was discovered in SaltStack Salt in versions before 3002.8, 3003.4, 3004.1. When configured as a Master-of-Masters, with a publisher_acl, if a user configured in the publisher_acl targets any minion connected to the Syndic, the Salt Master incorrectly interpreted no valid targets as valid, allowing configured users to target any of the minions connected to the syndic with their configured commands. This requires a syndic master combined with publisher_acl configured on the Master-of-Masters, allowing users specified in the publisher_acl to bypass permissions, publishing authorized commands to any configured minion.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:23452",
-                "comment": "salt DPKG is earlier than 0"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 10 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:129503642538230965084422054245530104886",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-22941 salt",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "salt"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-22941",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-22941"
+			}
+		],
+		"description": "An issue was discovered in SaltStack Salt in versions before 3002.8, 3003.4, 3004.1. When configured as a Master-of-Masters, with a publisher_acl, if a user configured in the publisher_acl targets any minion connected to the Syndic, the Salt Master incorrectly interpreted no valid targets as valid, allowing configured users to target any of the minions connected to the syndic with their configured commands. This requires a syndic master combined with publisher_acl configured on the Master-of-Masters, allowing users specified in the publisher_acl to bypass permissions, publishing authorized commands to any configured minion.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:23452",
+								"comment": "salt DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
 }

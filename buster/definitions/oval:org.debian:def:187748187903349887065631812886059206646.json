@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:187748187903349887065631812886059206646",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2020-28463 python-reportlab",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 10",
-      "product": "python-reportlab"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2020-28463",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28463"
-      }
-    ],
-    "description": "All versions of package reportlab are vulnerable to Server-side Request Forgery (SSRF) via img tags. In order to reduce risk, use trustedSchemes & trustedHosts (see in Reportlab's documentation) Steps to reproduce by Karan Bamal: 1. Download and install the latest package of reportlab 2. Go to demos -> odyssey -> dodyssey 3. In the text file odyssey.txt that needs to be converted to pdf inject <img src=\"http://127.0.0.1:5000\" valign=\"top\"/> 4. Create a nc listener nc -lp 5000 5. Run python3 dodyssey.py 6. You will get a hit on your nc showing we have successfully proceded to send a server side request 7. dodyssey.py will show error since there is no img file on the url, but we are able to do SSRF",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:19681",
-                "comment": "python-reportlab DPKG is earlier than 3.5.13-1+deb10u2"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 10 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:187748187903349887065631812886059206646",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2020-28463 python-reportlab",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "python-reportlab"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-28463",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28463"
+			}
+		],
+		"description": "All versions of package reportlab are vulnerable to Server-side Request Forgery (SSRF) via img tags. In order to reduce risk, use trustedSchemes & trustedHosts (see in Reportlab's documentation) Steps to reproduce by Karan Bamal: 1. Download and install the latest package of reportlab 2. Go to demos -> odyssey -> dodyssey 3. In the text file odyssey.txt that needs to be converted to pdf inject <img src=\"http://127.0.0.1:5000\" valign=\"top\"/> 4. Create a nc listener nc -lp 5000 5. Run python3 dodyssey.py 6. You will get a hit on your nc showing we have successfully proceded to send a server side request 7. dodyssey.py will show error since there is no img file on the url, but we are able to do SSRF",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:19681",
+								"comment": "python-reportlab DPKG is earlier than 3.5.13-1+deb10u2"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
 }

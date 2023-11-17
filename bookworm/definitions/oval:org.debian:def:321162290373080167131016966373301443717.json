@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:321162290373080167131016966373301443717",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2018-17974 tcpreplay",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "tcpreplay"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2018-17974",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17974"
-      }
-    ],
-    "description": "An issue was discovered in Tcpreplay 4.3.0 beta1. A heap-based buffer over-read was triggered in the function dlt_en10mb_encode() of the file plugins/dlt_en10mb/en10mb.c, due to inappropriate values in the function memmove(). The length (pktlen + ctx -> l2len) can be larger than source value (packet + ctx->l2len) because the function fails to ensure the length of a packet is valid. This leads to Denial of Service.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:13960",
-                "comment": "tcpreplay DPKG is earlier than 4.3.1-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:321162290373080167131016966373301443717",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2018-17974 tcpreplay",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "tcpreplay"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-17974",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17974"
+			}
+		],
+		"description": "An issue was discovered in Tcpreplay 4.3.0 beta1. A heap-based buffer over-read was triggered in the function dlt_en10mb_encode() of the file plugins/dlt_en10mb/en10mb.c, due to inappropriate values in the function memmove(). The length (pktlen + ctx -> l2len) can be larger than source value (packet + ctx->l2len) because the function fails to ensure the length of a packet is valid. This leads to Denial of Service.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:13960",
+								"comment": "tcpreplay DPKG is earlier than 4.3.1-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

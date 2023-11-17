@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:71091470014133291647473623657252666137",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2022-0358 qemu",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "qemu"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2022-0358",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0358"
-      }
-    ],
-    "description": "A flaw was found in the QEMU virtio-fs shared file system daemon (virtiofsd) implementation. This flaw is strictly related to CVE-2018-13405. A local guest user can create files in the directories shared by virtio-fs with unintended group ownership in a scenario where a directory is SGID to a certain group and is writable by a user who is not a member of the group. This could allow a malicious unprivileged user inside the guest to gain access to resources accessible to the root group, potentially escalating their privileges within the guest. A malicious local user in the host might also leverage this unexpected executable file created by the guest to escalate their privileges on the host system.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:22314",
-                "comment": "qemu DPKG is earlier than 1:7.0+dfsg-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:71091470014133291647473623657252666137",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-0358 qemu",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "qemu"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-0358",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0358"
+			}
+		],
+		"description": "A flaw was found in the QEMU virtio-fs shared file system daemon (virtiofsd) implementation. This flaw is strictly related to CVE-2018-13405. A local guest user can create files in the directories shared by virtio-fs with unintended group ownership in a scenario where a directory is SGID to a certain group and is writable by a user who is not a member of the group. This could allow a malicious unprivileged user inside the guest to gain access to resources accessible to the root group, potentially escalating their privileges within the guest. A malicious local user in the host might also leverage this unexpected executable file created by the guest to escalate their privileges on the host system.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:22314",
+								"comment": "qemu DPKG is earlier than 1:7.0+dfsg-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

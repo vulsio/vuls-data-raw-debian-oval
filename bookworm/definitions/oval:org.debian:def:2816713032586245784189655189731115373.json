@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:2816713032586245784189655189731115373",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2023-1255 openssl",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "openssl"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2023-1255",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-1255"
-      }
-    ],
-    "description": "Issue summary: The AES-XTS cipher decryption implementation for 64 bit ARM\nplatform contains a bug that could cause it to read past the input buffer,\nleading to a crash.\n\nImpact summary: Applications that use the AES-XTS algorithm on the 64 bit ARM\nplatform can crash in rare circumstances. The AES-XTS algorithm is usually\nused for disk encryption.\n\nThe AES-XTS cipher decryption implementation for 64 bit ARM platform will read\npast the end of the ciphertext buffer if the ciphertext size is 4 mod 5 in 16\nbyte blocks, e.g. 144 bytes or 1024 bytes. If the memory after the ciphertext\nbuffer is unmapped, this will trigger a crash which results in a denial of\nservice.\n\nIf an attacker can control the size and location of the ciphertext buffer\nbeing decrypted by an application using AES-XTS on 64 bit ARM, the\napplication is affected. This is fairly unlikely making this issue\na Low severity one.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:25179",
-                "comment": "openssl DPKG is earlier than 3.0.9-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:2816713032586245784189655189731115373",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-1255 openssl",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "openssl"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-1255",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-1255"
+			}
+		],
+		"description": "Issue summary: The AES-XTS cipher decryption implementation for 64 bit ARM\nplatform contains a bug that could cause it to read past the input buffer,\nleading to a crash.\n\nImpact summary: Applications that use the AES-XTS algorithm on the 64 bit ARM\nplatform can crash in rare circumstances. The AES-XTS algorithm is usually\nused for disk encryption.\n\nThe AES-XTS cipher decryption implementation for 64 bit ARM platform will read\npast the end of the ciphertext buffer if the ciphertext size is 4 mod 5 in 16\nbyte blocks, e.g. 144 bytes or 1024 bytes. If the memory after the ciphertext\nbuffer is unmapped, this will trigger a crash which results in a denial of\nservice.\n\nIf an attacker can control the size and location of the ciphertext buffer\nbeing decrypted by an application using AES-XTS on 64 bit ARM, the\napplication is affected. This is fairly unlikely making this issue\na Low severity one.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:25179",
+								"comment": "openssl DPKG is earlier than 3.0.9-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

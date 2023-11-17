@@ -1,54 +1,54 @@
 {
-  "id": "oval:org.debian:def:251697484600016387852376505981457321706",
-  "class": "patch",
-  "metadata": {
-    "title": "DSA-3182-1 libssh2",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 7",
-      "product": "libssh2"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2015-1782",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1782"
-      }
-    ],
-    "description": "security update",
-    "debian": {
-      "moreinfo": "\nMariusz Ziulek reported that libssh2, a SSH2 client-side library, was reading and using the SSH_MSG_KEXINIT packet without doing sufficient range checks when negotiating a new SSH session with a remote server. A malicious attacker could man in the middle a real server and cause a client using the libssh2 library to crash (denial of service) or otherwise read and use unintended memory areas in this process.",
-      "dsa": "DSA-3182",
-      "date": "2015-03-11"
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:3533",
-                "comment": "libssh2 DPKG is earlier than 1.4.2-1.1+deb7u1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 7 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:251697484600016387852376505981457321706",
+	"class": "patch",
+	"metadata": {
+		"title": "DSA-3182-1 libssh2",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 7",
+			"product": "libssh2"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2015-1782",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1782"
+			}
+		],
+		"description": "security update",
+		"debian": {
+			"moreinfo": "\nMariusz Ziulek reported that libssh2, a SSH2 client-side library, was reading and using the SSH_MSG_KEXINIT packet without doing sufficient range checks when negotiating a new SSH session with a remote server. A malicious attacker could man in the middle a real server and cause a client using the libssh2 library to crash (denial of service) or otherwise read and use unintended memory areas in this process.",
+			"dsa": "DSA-3182",
+			"date": "2015-03-11"
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:3533",
+								"comment": "libssh2 DPKG is earlier than 1.4.2-1.1+deb7u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 7 is installed"
+			}
+		]
+	}
 }

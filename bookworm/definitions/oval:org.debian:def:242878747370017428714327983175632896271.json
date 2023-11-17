@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:242878747370017428714327983175632896271",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2023-45681 libstb",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "libstb"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2023-45681",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45681"
-      }
-    ],
-    "description": "stb_vorbis is a single file MIT licensed library for processing ogg vorbis files. A crafted file may trigger memory write past an allocated heap buffer in `start_decoder`. The root cause is a potential integer overflow in `sizeof(char*) * (f->comment_list_length)` which may make `setup_malloc` allocate less memory than required. Since there is another integer overflow an attacker may overflow it too to force `setup_malloc` to return 0 and make the exploit more reliable. This issue may lead to code execution.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:26697",
-                "comment": "libstb DPKG is earlier than 0"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:242878747370017428714327983175632896271",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-45681 libstb",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "libstb"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-45681",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45681"
+			}
+		],
+		"description": "stb_vorbis is a single file MIT licensed library for processing ogg vorbis files. A crafted file may trigger memory write past an allocated heap buffer in `start_decoder`. The root cause is a potential integer overflow in `sizeof(char*) * (f->comment_list_length)` which may make `setup_malloc` allocate less memory than required. Since there is another integer overflow an attacker may overflow it too to force `setup_malloc` to return 0 and make the exploit more reliable. This issue may lead to code execution.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26697",
+								"comment": "libstb DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

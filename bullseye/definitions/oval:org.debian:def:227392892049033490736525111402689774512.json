@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:227392892049033490736525111402689774512",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2020-26284 hugo",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "hugo"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2020-26284",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-26284"
-      }
-    ],
-    "description": "Hugo is a fast and Flexible Static Site Generator built in Go. Hugo depends on Go's `os/exec` for certain features, e.g. for rendering of Pandoc documents if these binaries are found in the system `%PATH%` on Windows. In Hugo before version 0.79.1, if a malicious file with the same name (`exe` or `bat`) is found in the current working directory at the time of running `hugo`, the malicious command will be invoked instead of the system one. Windows users who run `hugo` inside untrusted Hugo sites are affected. Users should upgrade to Hugo v0.79.1. Other than avoiding untrusted Hugo sites, there is no workaround.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:19352",
-                "comment": "hugo DPKG is earlier than 0.79.1-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:227392892049033490736525111402689774512",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2020-26284 hugo",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "hugo"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-26284",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-26284"
+			}
+		],
+		"description": "Hugo is a fast and Flexible Static Site Generator built in Go. Hugo depends on Go's `os/exec` for certain features, e.g. for rendering of Pandoc documents if these binaries are found in the system `%PATH%` on Windows. In Hugo before version 0.79.1, if a malicious file with the same name (`exe` or `bat`) is found in the current working directory at the time of running `hugo`, the malicious command will be invoked instead of the system one. Windows users who run `hugo` inside untrusted Hugo sites are affected. Users should upgrade to Hugo v0.79.1. Other than avoiding untrusted Hugo sites, there is no workaround.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:19352",
+								"comment": "hugo DPKG is earlier than 0.79.1-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

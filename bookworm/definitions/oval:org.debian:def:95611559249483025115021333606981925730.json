@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:95611559249483025115021333606981925730",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2016-6581 python-hpack",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "python-hpack"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-6581",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6581"
-      }
-    ],
-    "description": "A HTTP/2 implementation built using any version of the Python HPACK library between v1.0.0 and v2.2.0 could be targeted for a denial of service attack, specifically a so-called \"HPACK Bomb\" attack. This attack occurs when an attacker inserts a header field that is exactly the size of the HPACK dynamic header table into the dynamic header table. The attacker can then send a header block that is simply repeated requests to expand that field in the dynamic table. This can lead to a gigantic compression ratio of 4,096 or better, meaning that 16kB of data can decompress to 64MB of data on the target machine.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:9484",
-                "comment": "python-hpack DPKG is earlier than 2.3.0-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:95611559249483025115021333606981925730",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2016-6581 python-hpack",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "python-hpack"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-6581",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6581"
+			}
+		],
+		"description": "A HTTP/2 implementation built using any version of the Python HPACK library between v1.0.0 and v2.2.0 could be targeted for a denial of service attack, specifically a so-called \"HPACK Bomb\" attack. This attack occurs when an attacker inserts a header field that is exactly the size of the HPACK dynamic header table into the dynamic header table. The attacker can then send a header block that is simply repeated requests to expand that field in the dynamic table. This can lead to a gigantic compression ratio of 4,096 or better, meaning that 16kB of data can decompress to 64MB of data on the target machine.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:9484",
+								"comment": "python-hpack DPKG is earlier than 2.3.0-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

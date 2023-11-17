@@ -1,54 +1,54 @@
 {
-  "id": "oval:org.debian:def:60887986300495467726237017483019474361",
-  "class": "patch",
-  "metadata": {
-    "title": "DSA-3623-1 apache2",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 8",
-      "product": "apache2"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-5387",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5387"
-      }
-    ],
-    "description": "security update",
-    "debian": {
-      "moreinfo": "\nScott Geary of VendHQ discovered that the Apache HTTPD server used the value of the Proxy header from HTTP requests to initialize the HTTP_PROXY environment variable for CGI scripts, which in turn was incorrectly used by certain HTTP client implementations to configure the proxy for outgoing HTTP requests. A remote attacker could possibly use this flaw to redirect HTTP requests performed by a CGI script to an attacker-controlled proxy via a malicious HTTP request.",
-      "dsa": "DSA-3623",
-      "date": "2016-07-20"
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:4318",
-                "comment": "apache2 DPKG is earlier than 2.4.10-10+deb8u5"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 8 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:60887986300495467726237017483019474361",
+	"class": "patch",
+	"metadata": {
+		"title": "DSA-3623-1 apache2",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 8",
+			"product": "apache2"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-5387",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5387"
+			}
+		],
+		"description": "security update",
+		"debian": {
+			"moreinfo": "\nScott Geary of VendHQ discovered that the Apache HTTPD server used the value of the Proxy header from HTTP requests to initialize the HTTP_PROXY environment variable for CGI scripts, which in turn was incorrectly used by certain HTTP client implementations to configure the proxy for outgoing HTTP requests. A remote attacker could possibly use this flaw to redirect HTTP requests performed by a CGI script to an attacker-controlled proxy via a malicious HTTP request.",
+			"dsa": "DSA-3623",
+			"date": "2016-07-20"
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:4318",
+								"comment": "apache2 DPKG is earlier than 2.4.10-10+deb8u5"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 8 is installed"
+			}
+		]
+	}
 }

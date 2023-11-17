@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:316877205817066034139245843509624272667",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2017-14225 ffmpeg",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "ffmpeg"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2017-14225",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14225"
-      }
-    ],
-    "description": "The av_color_primaries_name function in libavutil/pixdesc.c in FFmpeg 3.3.3 may return a NULL pointer depending on a value contained in a file, but callers do not anticipate this, as demonstrated by the avcodec_string function in libavcodec/utils.c, leading to a NULL pointer dereference. (It is also conceivable that there is security relevance for a NULL pointer dereference in av_color_primaries_name calls within the ffprobe command-line program.)",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:10970",
-                "comment": "ffmpeg DPKG is earlier than 7:3.3.4-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:316877205817066034139245843509624272667",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2017-14225 ffmpeg",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "ffmpeg"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-14225",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14225"
+			}
+		],
+		"description": "The av_color_primaries_name function in libavutil/pixdesc.c in FFmpeg 3.3.3 may return a NULL pointer depending on a value contained in a file, but callers do not anticipate this, as demonstrated by the avcodec_string function in libavcodec/utils.c, leading to a NULL pointer dereference. (It is also conceivable that there is security relevance for a NULL pointer dereference in av_color_primaries_name calls within the ffprobe command-line program.)",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:10970",
+								"comment": "ffmpeg DPKG is earlier than 7:3.3.4-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

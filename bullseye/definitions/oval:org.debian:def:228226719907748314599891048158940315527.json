@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:228226719907748314599891048158940315527",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2020-29482 xen",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "xen"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2020-29482",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29482"
-      }
-    ],
-    "description": "An issue was discovered in Xen through 4.14.x. A guest may access xenstore paths via absolute paths containing a full pathname, or via a relative path, which implicitly includes /local/domain/$DOMID for their own domain id. Management tools must access paths in guests' namespaces, necessarily using absolute paths. oxenstored imposes a pathname limit that is applied solely to the relative or absolute path specified by the client. Therefore, a guest can create paths in its own namespace which are too long for management tools to access. Depending on the toolstack in use, a malicious guest administrator might cause some management tools and debugging operations to fail. For example, a guest administrator can cause \"xenstore-ls -r\" to fail. However, a guest administrator cannot prevent the host administrator from tearing down the domain. All systems using oxenstored are vulnerable. Building and using oxenstored is the default in the upstream Xen distribution, if the Ocaml compiler is available. Systems using C xenstored are not vulnerable.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:19675",
-                "comment": "xen DPKG is earlier than 4.14.0+88-g1d1d1f5391-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:228226719907748314599891048158940315527",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2020-29482 xen",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "xen"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-29482",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29482"
+			}
+		],
+		"description": "An issue was discovered in Xen through 4.14.x. A guest may access xenstore paths via absolute paths containing a full pathname, or via a relative path, which implicitly includes /local/domain/$DOMID for their own domain id. Management tools must access paths in guests' namespaces, necessarily using absolute paths. oxenstored imposes a pathname limit that is applied solely to the relative or absolute path specified by the client. Therefore, a guest can create paths in its own namespace which are too long for management tools to access. Depending on the toolstack in use, a malicious guest administrator might cause some management tools and debugging operations to fail. For example, a guest administrator can cause \"xenstore-ls -r\" to fail. However, a guest administrator cannot prevent the host administrator from tearing down the domain. All systems using oxenstored are vulnerable. Building and using oxenstored is the default in the upstream Xen distribution, if the Ocaml compiler is available. Systems using C xenstored are not vulnerable.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:19675",
+								"comment": "xen DPKG is earlier than 4.14.0+88-g1d1d1f5391-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

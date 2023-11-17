@@ -1,54 +1,54 @@
 {
-  "id": "oval:org.debian:def:193235765229288657827568044830788885788",
-  "class": "patch",
-  "metadata": {
-    "title": "DSA-2801-1 libhttp-body-perl",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 8",
-      "product": "libhttp-body-perl"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2013-4407",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4407"
-      }
-    ],
-    "description": "design error",
-    "debian": {
-      "moreinfo": "\nJonathan Dolle reported a design error in HTTP::Body, a Perl module for processing data from HTTP POST requests. The HTTP body multipart parser creates temporary files which preserve the suffix of the uploaded file. An attacker able to upload files to a service that uses HTTP::Body::Multipart could potentially execute commands on the server if these temporary filenames are used in subsequent commands without further checks.",
-      "dsa": "DSA-2801",
-      "date": "2013-11-21"
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:3812",
-                "comment": "libhttp-body-perl DPKG is earlier than 1.17-2"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 8 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:193235765229288657827568044830788885788",
+	"class": "patch",
+	"metadata": {
+		"title": "DSA-2801-1 libhttp-body-perl",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 8",
+			"product": "libhttp-body-perl"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2013-4407",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4407"
+			}
+		],
+		"description": "design error",
+		"debian": {
+			"moreinfo": "\nJonathan Dolle reported a design error in HTTP::Body, a Perl module for processing data from HTTP POST requests. The HTTP body multipart parser creates temporary files which preserve the suffix of the uploaded file. An attacker able to upload files to a service that uses HTTP::Body::Multipart could potentially execute commands on the server if these temporary filenames are used in subsequent commands without further checks.",
+			"dsa": "DSA-2801",
+			"date": "2013-11-21"
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:3812",
+								"comment": "libhttp-body-perl DPKG is earlier than 1.17-2"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 8 is installed"
+			}
+		]
+	}
 }

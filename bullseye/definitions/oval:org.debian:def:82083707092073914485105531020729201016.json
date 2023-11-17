@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:82083707092073914485105531020729201016",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2018-1049 systemd",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "systemd"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2018-1049",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1049"
-      }
-    ],
-    "description": "In systemd prior to 234 a race condition exists between .mount and .automount units such that automount requests from kernel may not be serviced by systemd resulting in kernel holding the mountpoint and any processes that try to use said mount will hang. A race condition like this may lead to denial of service, until mount points are unmounted.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:13433",
-                "comment": "systemd DPKG is earlier than 234-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:82083707092073914485105531020729201016",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2018-1049 systemd",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "systemd"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-1049",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1049"
+			}
+		],
+		"description": "In systemd prior to 234 a race condition exists between .mount and .automount units such that automount requests from kernel may not be serviced by systemd resulting in kernel holding the mountpoint and any processes that try to use said mount will hang. A race condition like this may lead to denial of service, until mount points are unmounted.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:13433",
+								"comment": "systemd DPKG is earlier than 234-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

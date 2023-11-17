@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:217046315666557097705644681371018272472",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2020-27761 imagemagick",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "imagemagick"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2020-27761",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27761"
-      }
-    ],
-    "description": "WritePALMImage() in /coders/palm.c used size_t casts in several areas of a calculation which could lead to values outside the range of representable type `unsigned long` undefined behavior when a crafted input file was processed by ImageMagick. The patch casts to `ssize_t` instead to avoid this issue. Red Hat Product Security marked the Severity as Low because although it could potentially lead to an impact to application availability, no specific impact was shown in this case. This flaw affects ImageMagick versions prior to ImageMagick 7.0.9-0.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:19467",
-                "comment": "imagemagick DPKG is earlier than 8:6.9.11.24+dfsg-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:217046315666557097705644681371018272472",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2020-27761 imagemagick",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "imagemagick"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-27761",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27761"
+			}
+		],
+		"description": "WritePALMImage() in /coders/palm.c used size_t casts in several areas of a calculation which could lead to values outside the range of representable type `unsigned long` undefined behavior when a crafted input file was processed by ImageMagick. The patch casts to `ssize_t` instead to avoid this issue. Red Hat Product Security marked the Severity as Low because although it could potentially lead to an impact to application availability, no specific impact was shown in this case. This flaw affects ImageMagick versions prior to ImageMagick 7.0.9-0.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:19467",
+								"comment": "imagemagick DPKG is earlier than 8:6.9.11.24+dfsg-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

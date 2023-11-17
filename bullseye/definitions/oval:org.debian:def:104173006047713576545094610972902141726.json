@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:104173006047713576545094610972902141726",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2020-26275 jupyter-server",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "jupyter-server"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2020-26275",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-26275"
-      }
-    ],
-    "description": "The Jupyter Server provides the backend (i.e. the core services, APIs, and REST endpoints) for Jupyter web applications like Jupyter notebook, JupyterLab, and Voila. In Jupyter Server before version 1.1.1, an open redirect vulnerability could cause the jupyter server to redirect the browser to a different malicious website. All jupyter servers running without a base_url prefix are technically affected, however, these maliciously crafted links can only be reasonably made for known jupyter server hosts. A link to your jupyter server may *appear* safe, but ultimately redirect to a spoofed server on the public internet. This same vulnerability was patched in upstream notebook v5.7.8. This is fixed in jupyter_server 1.1.1. If upgrade is not available, a workaround can be to run your server on a url prefix: \"jupyter server --ServerApp.base_url=/jupyter/\".",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:19351",
-                "comment": "jupyter-server DPKG is earlier than 1.1.1-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:104173006047713576545094610972902141726",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2020-26275 jupyter-server",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "jupyter-server"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-26275",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-26275"
+			}
+		],
+		"description": "The Jupyter Server provides the backend (i.e. the core services, APIs, and REST endpoints) for Jupyter web applications like Jupyter notebook, JupyterLab, and Voila. In Jupyter Server before version 1.1.1, an open redirect vulnerability could cause the jupyter server to redirect the browser to a different malicious website. All jupyter servers running without a base_url prefix are technically affected, however, these maliciously crafted links can only be reasonably made for known jupyter server hosts. A link to your jupyter server may *appear* safe, but ultimately redirect to a spoofed server on the public internet. This same vulnerability was patched in upstream notebook v5.7.8. This is fixed in jupyter_server 1.1.1. If upgrade is not available, a workaround can be to run your server on a url prefix: \"jupyter server --ServerApp.base_url=/jupyter/\".",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:19351",
+								"comment": "jupyter-server DPKG is earlier than 1.1.1-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

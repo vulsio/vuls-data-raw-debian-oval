@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:219536261773101419806665400409763124944",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2018-14780 yubico-piv-tool",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "yubico-piv-tool"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2018-14780",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14780"
-      }
-    ],
-    "description": "An out-of-bounds read issue was discovered in the Yubico-Piv 1.5.0 smartcard driver. The file lib/ykpiv.c contains the following code in the function `_ykpiv_fetch_object()`: {% highlight c %} if(sw == SW_SUCCESS) { size_t outlen; int offs = _ykpiv_get_length(data + 1, &outlen); if(offs == 0) { return YKPIV_SIZE_ERROR; } memmove(data, data + 1 + offs, outlen); *len = outlen; return YKPIV_OK; } else { return YKPIV_GENERIC_ERROR; } {% endhighlight %} -- in the end, a `memmove()` occurs with a length retrieved from APDU data. This length is not checked for whether it is outside of the APDU data retrieved. Therefore the `memmove()` could copy bytes behind the allocated data buffer into this buffer.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:14089",
-                "comment": "yubico-piv-tool DPKG is earlier than 1.6.1-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:219536261773101419806665400409763124944",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2018-14780 yubico-piv-tool",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "yubico-piv-tool"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-14780",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14780"
+			}
+		],
+		"description": "An out-of-bounds read issue was discovered in the Yubico-Piv 1.5.0 smartcard driver. The file lib/ykpiv.c contains the following code in the function `_ykpiv_fetch_object()`: {% highlight c %} if(sw == SW_SUCCESS) { size_t outlen; int offs = _ykpiv_get_length(data + 1, &outlen); if(offs == 0) { return YKPIV_SIZE_ERROR; } memmove(data, data + 1 + offs, outlen); *len = outlen; return YKPIV_OK; } else { return YKPIV_GENERIC_ERROR; } {% endhighlight %} -- in the end, a `memmove()` occurs with a length retrieved from APDU data. This length is not checked for whether it is outside of the APDU data retrieved. Therefore the `memmove()` could copy bytes behind the allocated data buffer into this buffer.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:14089",
+								"comment": "yubico-piv-tool DPKG is earlier than 1.6.1-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

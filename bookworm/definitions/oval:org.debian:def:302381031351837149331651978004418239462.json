@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:302381031351837149331651978004418239462",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2023-0401 openssl",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "openssl"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2023-0401",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0401"
-      }
-    ],
-    "description": "A NULL pointer can be dereferenced when signatures are being\nverified on PKCS7 signed or signedAndEnveloped data. In case the hash\nalgorithm used for the signature is known to the OpenSSL library but\nthe implementation of the hash algorithm is not available the digest\ninitialization will fail. There is a missing check for the return\nvalue from the initialization function which later leads to invalid\nusage of the digest API most likely leading to a crash.\n\nThe unavailability of an algorithm can be caused by using FIPS\nenabled configuration of providers or more commonly by not loading\nthe legacy provider.\n\nPKCS7 data is processed by the SMIME library calls and also by the\ntime stamp (TS) library calls. The TLS implementation in OpenSSL does\nnot call these functions however third party applications would be\naffected if they call these functions to verify signatures on untrusted\ndata.\n\n",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:25051",
-                "comment": "openssl DPKG is earlier than 3.0.8-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:302381031351837149331651978004418239462",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-0401 openssl",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "openssl"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-0401",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0401"
+			}
+		],
+		"description": "A NULL pointer can be dereferenced when signatures are being\nverified on PKCS7 signed or signedAndEnveloped data. In case the hash\nalgorithm used for the signature is known to the OpenSSL library but\nthe implementation of the hash algorithm is not available the digest\ninitialization will fail. There is a missing check for the return\nvalue from the initialization function which later leads to invalid\nusage of the digest API most likely leading to a crash.\n\nThe unavailability of an algorithm can be caused by using FIPS\nenabled configuration of providers or more commonly by not loading\nthe legacy provider.\n\nPKCS7 data is processed by the SMIME library calls and also by the\ntime stamp (TS) library calls. The TLS implementation in OpenSSL does\nnot call these functions however third party applications would be\naffected if they call these functions to verify signatures on untrusted\ndata.\n\n",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:25051",
+								"comment": "openssl DPKG is earlier than 3.0.8-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

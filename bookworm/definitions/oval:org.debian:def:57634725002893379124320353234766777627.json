@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:57634725002893379124320353234766777627",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2019-16411 suricata",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "suricata"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-16411",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16411"
-      }
-    ],
-    "description": "An issue was discovered in Suricata 4.1.4. By sending multiple IPv4 packets that have invalid IPv4Options, the function IPV4OptValidateTimestamp in decode-ipv4.c tries to access a memory region that is not allocated. There is a check for o->len < 5 (corresponding to 2 bytes of header and 3 bytes of data). Then, \"flag = *(o->data + 3)\" places one beyond the 3 bytes, because the code should have been \"flag = *(o->data + 1)\" instead.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:16131",
-                "comment": "suricata DPKG is earlier than 1:4.1.5-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:57634725002893379124320353234766777627",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2019-16411 suricata",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "suricata"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-16411",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16411"
+			}
+		],
+		"description": "An issue was discovered in Suricata 4.1.4. By sending multiple IPv4 packets that have invalid IPv4Options, the function IPV4OptValidateTimestamp in decode-ipv4.c tries to access a memory region that is not allocated. There is a check for o->len < 5 (corresponding to 2 bytes of header and 3 bytes of data). Then, \"flag = *(o->data + 3)\" places one beyond the 3 bytes, because the code should have been \"flag = *(o->data + 1)\" instead.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:16131",
+								"comment": "suricata DPKG is earlier than 1:4.1.5-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:314963673133221247760564930858594979802",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2020-10289 ros-actionlib",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "ros-actionlib"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2020-10289",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10289"
-      }
-    ],
-    "description": "Use of unsafe yaml load. Allows instantiation of arbitrary objects. The flaw itself is caused by an unsafe parsing of YAML values which happens whenever an action message is processed to be sent, and allows for the creation of Python objects. Through this flaw in the ROS core package of actionlib, an attacker with local or remote access can make the ROS Master, execute arbitrary code in Python form. Consider yaml.safe_load() instead. Located first in actionlib/tools/library.py:132. See links for more info on the bug.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:18015",
-                "comment": "ros-actionlib DPKG is earlier than 1.13.1-4"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:314963673133221247760564930858594979802",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2020-10289 ros-actionlib",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "ros-actionlib"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-10289",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10289"
+			}
+		],
+		"description": "Use of unsafe yaml load. Allows instantiation of arbitrary objects. The flaw itself is caused by an unsafe parsing of YAML values which happens whenever an action message is processed to be sent, and allows for the creation of Python objects. Through this flaw in the ROS core package of actionlib, an attacker with local or remote access can make the ROS Master, execute arbitrary code in Python form. Consider yaml.safe_load() instead. Located first in actionlib/tools/library.py:132. See links for more info on the bug.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:18015",
+								"comment": "ros-actionlib DPKG is earlier than 1.13.1-4"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

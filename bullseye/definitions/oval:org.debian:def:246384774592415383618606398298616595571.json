@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:246384774592415383618606398298616595571",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2011-1678 cifs-utils",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 11",
-      "product": "cifs-utils"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2011-1678",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1678"
-      }
-    ],
-    "description": "smbfs in Samba 3.5.8 and earlier attempts to use (1) mount.cifs to append to the /etc/mtab file and (2) umount.cifs to append to the /etc/mtab.tmp file without first checking whether resource limits would interfere, which allows local users to trigger corruption of the /etc/mtab file via a process with a small RLIMIT_FSIZE value, a related issue to CVE-2011-1089.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:4080",
-                "comment": "cifs-utils DPKG is earlier than 2:5.1-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 11 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:246384774592415383618606398298616595571",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2011-1678 cifs-utils",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "cifs-utils"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2011-1678",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-1678"
+			}
+		],
+		"description": "smbfs in Samba 3.5.8 and earlier attempts to use (1) mount.cifs to append to the /etc/mtab file and (2) umount.cifs to append to the /etc/mtab.tmp file without first checking whether resource limits would interfere, which allows local users to trigger corruption of the /etc/mtab file via a process with a small RLIMIT_FSIZE value, a related issue to CVE-2011-1089.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:4080",
+								"comment": "cifs-utils DPKG is earlier than 2:5.1-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
 }

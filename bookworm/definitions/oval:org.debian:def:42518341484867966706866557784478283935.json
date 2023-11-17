@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:42518341484867966706866557784478283935",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2017-16790 symfony",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "symfony"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2017-16790",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16790"
-      }
-    ],
-    "description": "An issue was discovered in Symfony before 2.7.38, 2.8.31, 3.2.14, 3.3.13, 3.4-BETA5, and 4.0-BETA5. When a form is submitted by the user, the request handler classes of the Form component merge POST data and uploaded files data into one array. This big array forms the data that are then bound to the form. At this stage there is no difference anymore between submitted POST data and uploaded files. A user can send a crafted HTTP request where the value of a \"FileType\" is sent as normal POST data that could be interpreted as a local file path on the server-side (for example, \"file:///etc/passwd\"). If the application did not perform any additional checks about the value submitted to the \"FileType\", the contents of the given file on the server could have been exposed to the attacker.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:11318",
-                "comment": "symfony DPKG is earlier than 3.4.0+dfsg-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:42518341484867966706866557784478283935",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2017-16790 symfony",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "symfony"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-16790",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-16790"
+			}
+		],
+		"description": "An issue was discovered in Symfony before 2.7.38, 2.8.31, 3.2.14, 3.3.13, 3.4-BETA5, and 4.0-BETA5. When a form is submitted by the user, the request handler classes of the Form component merge POST data and uploaded files data into one array. This big array forms the data that are then bound to the form. At this stage there is no difference anymore between submitted POST data and uploaded files. A user can send a crafted HTTP request where the value of a \"FileType\" is sent as normal POST data that could be interpreted as a local file path on the server-side (for example, \"file:///etc/passwd\"). If the application did not perform any additional checks about the value submitted to the \"FileType\", the contents of the given file on the server could have been exposed to the attacker.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:11318",
+								"comment": "symfony DPKG is earlier than 3.4.0+dfsg-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

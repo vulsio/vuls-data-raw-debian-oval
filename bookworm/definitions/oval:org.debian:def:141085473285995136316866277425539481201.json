@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:141085473285995136316866277425539481201",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2022-24884 ecdsautils",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "ecdsautils"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2022-24884",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24884"
-      }
-    ],
-    "description": "ecdsautils is a tiny collection of programs used for ECDSA (keygen, sign, verify). `ecdsa_verify_[prepare_]legacy()` does not check whether the signature values `r` and `s` are non-zero. A signature consisting only of zeroes is always considered valid, making it trivial to forge signatures. Requiring multiple signatures from different public keys does not mitigate the issue: `ecdsa_verify_list_legacy()` will accept an arbitrary number of such forged signatures. Both the `ecdsautil verify` CLI command and the libecdsautil library are affected. The issue has been fixed in ecdsautils 0.4.1. All older versions of ecdsautils (including versions before the split into a library and a CLI utility) are vulnerable.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:23143",
-                "comment": "ecdsautils DPKG is earlier than 0.4.1-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:141085473285995136316866277425539481201",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-24884 ecdsautils",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "ecdsautils"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-24884",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24884"
+			}
+		],
+		"description": "ecdsautils is a tiny collection of programs used for ECDSA (keygen, sign, verify). `ecdsa_verify_[prepare_]legacy()` does not check whether the signature values `r` and `s` are non-zero. A signature consisting only of zeroes is always considered valid, making it trivial to forge signatures. Requiring multiple signatures from different public keys does not mitigate the issue: `ecdsa_verify_list_legacy()` will accept an arbitrary number of such forged signatures. Both the `ecdsautil verify` CLI command and the libecdsautil library are affected. The issue has been fixed in ecdsautils 0.4.1. All older versions of ecdsautils (including versions before the split into a library and a CLI utility) are vulnerable.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:23143",
+								"comment": "ecdsautils DPKG is earlier than 0.4.1-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }

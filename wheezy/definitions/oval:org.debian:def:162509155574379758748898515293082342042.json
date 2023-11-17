@@ -1,54 +1,54 @@
 {
-  "id": "oval:org.debian:def:162509155574379758748898515293082342042",
-  "class": "patch",
-  "metadata": {
-    "title": "DSA-2649-1 lighttpd",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 7",
-      "product": "lighttpd"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2013-1427",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1427"
-      }
-    ],
-    "description": "fixed socket name in world-writable directory",
-    "debian": {
-      "moreinfo": "\nStefan BĂźhler discovered that the Debian specific configuration file for lighttpd webserver FastCGI PHP support used a fixed socket name in the world-writable /tmp directory. A symlink attack or a race condition could be exploited by a malicious user on the same machine to take over the PHP control socket and for example force the webserver to use a different PHP version.",
-      "dsa": "DSA-2649",
-      "date": "2013-03-15"
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:3036",
-                "comment": "lighttpd DPKG is earlier than 1.4.31-4"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 7 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:162509155574379758748898515293082342042",
+	"class": "patch",
+	"metadata": {
+		"title": "DSA-2649-1 lighttpd",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 7",
+			"product": "lighttpd"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2013-1427",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-1427"
+			}
+		],
+		"description": "fixed socket name in world-writable directory",
+		"debian": {
+			"moreinfo": "\nStefan BĂźhler discovered that the Debian specific configuration file for lighttpd webserver FastCGI PHP support used a fixed socket name in the world-writable /tmp directory. A symlink attack or a race condition could be exploited by a malicious user on the same machine to take over the PHP control socket and for example force the webserver to use a different PHP version.",
+			"dsa": "DSA-2649",
+			"date": "2013-03-15"
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:3036",
+								"comment": "lighttpd DPKG is earlier than 1.4.31-4"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 7 is installed"
+			}
+		]
+	}
 }

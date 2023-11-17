@@ -1,50 +1,50 @@
 {
-  "id": "oval:org.debian:def:91491223715962569336066962763219717955",
-  "class": "vulnerability",
-  "metadata": {
-    "title": "CVE-2022-47952 lxc",
-    "affected": {
-      "family": "unix",
-      "platform": "Debian GNU/Linux 12",
-      "product": "lxc"
-    },
-    "reference": [
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2022-47952",
-        "ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-47952"
-      }
-    ],
-    "description": "lxc-user-nic in lxc through 5.0.1 is installed setuid root, and may allow local users to infer whether any file exists, even within a protected directory tree, because \"Failed to open\" often indicates that a file does not exist, whereas \"does not refer to a network namespace path\" often indicates that a file exists. NOTE: this is different from CVE-2018-6556 because the CVE-2018-6556 fix design was based on the premise that \"we will report back to the user that the open() failed but the user has no way of knowing why it failed\"; however, in many realistic cases, there are no plausible reasons for failing except that the file does not exist.",
-    "debian": {}
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterions": [
-              {
-                "test_ref": "oval:org.debian.oval:tst:2",
-                "comment": "all architecture"
-              },
-              {
-                "test_ref": "oval:org.debian.oval:tst:24899",
-                "comment": "lxc DPKG is earlier than 1:5.0.2-1"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:org.debian.oval:tst:1",
-        "comment": "Debian 12 is installed"
-      }
-    ]
-  }
+	"id": "oval:org.debian:def:91491223715962569336066962763219717955",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-47952 lxc",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "lxc"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-47952",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-47952"
+			}
+		],
+		"description": "lxc-user-nic in lxc through 5.0.1 is installed setuid root, and may allow local users to infer whether any file exists, even within a protected directory tree, because \"Failed to open\" often indicates that a file does not exist, whereas \"does not refer to a network namespace path\" often indicates that a file exists. NOTE: this is different from CVE-2018-6556 because the CVE-2018-6556 fix design was based on the premise that \"we will report back to the user that the open() failed but the user has no way of knowing why it failed\"; however, in many realistic cases, there are no plausible reasons for failing except that the file does not exist.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:24899",
+								"comment": "lxc DPKG is earlier than 1:5.0.2-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
 }
