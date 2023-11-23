@@ -1,0 +1,47 @@
+{
+	"id": "oval:org.debian:def:198212662541585782878681768516193476174",
+	"class": "patch",
+	"metadata": {
+		"title": "DSA-5562-1 tor",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "tor"
+		},
+		"description": "security update",
+		"debian": {
+			"moreinfo": "\nIt was discovered that Tor was susceptible to a crash during handshake with a remote relay, resulting in denial of service.",
+			"dsa": "DSA-5562",
+			"date": "2023-11-22"
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27060",
+								"comment": "tor DPKG is earlier than 0.4.7.16-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
