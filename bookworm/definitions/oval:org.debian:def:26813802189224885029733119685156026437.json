@@ -1,0 +1,54 @@
+{
+	"id": "oval:org.debian:def:26813802189224885029733119685156026437",
+	"class": "patch",
+	"metadata": {
+		"title": "DSA-5563-1 intel-microcode",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "intel-microcode"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-23583",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23583"
+			}
+		],
+		"description": "security update",
+		"debian": {
+			"moreinfo": "\nBenoit Morgan, Paul Grosen, Thais Moreira Hamasaki, Ke Sun, Alyssa Milburn, Hisham Shafi, Nir Shlomovich, Tavis Ormandy, Daniel Moghimi, Josh Eads, Salman Qazi, Alexandra Sandulescu, Andy Nguyen, Eduardo Vela, Doug Kwan, and Kostik Shtoyk discovered that some Intel processors mishandle repeated sequences of instructions leading to unexpected behavior, which may result in privilege escalation, information disclosure or denial of service.",
+			"dsa": "DSA-5563",
+			"date": "2023-11-23"
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27068",
+								"comment": "intel-microcode DPKG is earlier than 3.20231114.1~deb12u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
