@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:141031783759849768942390135181836365803",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2013-20001 zfs-linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "zfs-linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2013-20001",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-20001"
+			}
+		],
+		"description": "An issue was discovered in OpenZFS through 2.0.3. When an NFS share is exported to IPv6 addresses via the sharenfs feature, there is a silent failure to parse the IPv6 address data, and access is allowed to everyone. IPv6 restrictions from the configuration are not applied.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:5572",
+								"comment": "zfs-linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
