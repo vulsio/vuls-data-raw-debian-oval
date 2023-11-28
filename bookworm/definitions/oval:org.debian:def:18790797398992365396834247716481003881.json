@@ -1,0 +1,64 @@
+{
+	"id": "oval:org.debian:def:18790797398992365396834247716481003881",
+	"class": "patch",
+	"metadata": {
+		"title": "DSA-5567-1 tiff",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "tiff"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-3576",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-3576"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-40745",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-40745"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-41175",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41175"
+			}
+		],
+		"description": "security update",
+		"debian": {
+			"moreinfo": "Multiple buffer overflows and memory leak issues have been found in tiff, the Tag Image File Format (TIFF) library and tools, which may cause denial of service when processing a crafted TIFF image.",
+			"dsa": "DSA-5567",
+			"date": "2023-11-27"
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27080",
+								"comment": "tiff DPKG is earlier than 4.5.0-6+deb12u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
