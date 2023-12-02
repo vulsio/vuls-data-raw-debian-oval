@@ -1,0 +1,54 @@
+{
+	"id": "oval:org.debian:def:1931844708078026214527381944791286369",
+	"class": "patch",
+	"metadata": {
+		"title": "DSA-5570-1 nghttp2",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "nghttp2"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-44487",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-44487"
+			}
+		],
+		"description": "security update",
+		"debian": {
+			"moreinfo": "It was discovered that libnghttp2, a library implementing the HTTP/2 protocol, handled request cancellation incorrectly. This could result in denial of service.",
+			"dsa": "DSA-5570",
+			"date": "2023-12-01"
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27113",
+								"comment": "nghttp2 DPKG is earlier than 1.52.0-1+deb12u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

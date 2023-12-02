@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46118"
 			}
 		],
-		"description": "RabbitMQ is a multi-protocol messaging and streaming broker. HTTP API did not enforce an HTTP request body limit, making it vulnerable for denial of service (DoS) attacks with very large messages. An authenticated user with sufficient credentials can publish a very large messages over the HTTP API and cause target node to be terminated by an \"out-of-memory killer\"-like mechanism. This vulnerability has been patched in versions 3.11.24 and 3.12.7.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "It was discovered that missing input sanitising in the HTTP API endpoint of RabbitMQ, an implementation of the AMQP protocol, could result in denial of service.",
+			"dsa": "DSA-5571"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:26738",
-								"comment": "rabbitmq-server DPKG is earlier than 0"
+								"comment": "rabbitmq-server DPKG is earlier than 3.10.8-1.1+deb12u1"
 							}
 						]
 					}

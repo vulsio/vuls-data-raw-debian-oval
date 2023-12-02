@@ -1,0 +1,54 @@
+{
+	"id": "oval:org.debian:def:207205281045493803155829490569159539259",
+	"class": "patch",
+	"metadata": {
+		"title": "DSA-5571-1 rabbitmq-server",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "rabbitmq-server"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-46118",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46118"
+			}
+		],
+		"description": "security update",
+		"debian": {
+			"moreinfo": "It was discovered that missing input sanitising in the HTTP API endpoint of RabbitMQ, an implementation of the AMQP protocol, could result in denial of service.",
+			"dsa": "DSA-5571",
+			"date": "2023-12-01"
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28422",
+								"comment": "rabbitmq-server DPKG is earlier than 3.8.9-3+deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
