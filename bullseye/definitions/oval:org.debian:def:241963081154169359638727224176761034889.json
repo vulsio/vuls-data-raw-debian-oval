@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-1999"
 			}
 		],
-		"description": "There exists a use after free/double free in libwebp. An attacker can use the ApplyFiltersAndEncode() function and loop through to free best.bw and assign best = trial pointer. The second loop will then return 0 because of an Out of memory error in VP8 encoder, the pointer is still assigned to trial and the AddressSanitizer will attempt a double free. \n",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5392"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,7 +35,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:26242",
+								"test_ref": "oval:org.debian.oval:tst:26241",
 								"comment": "thunderbird DPKG is earlier than 1:102.10.0-1~deb11u1"
 							}
 						]

@@ -1,0 +1,54 @@
+{
+	"id": "oval:org.debian:def:274033904749900363942185002230706207789",
+	"class": "patch",
+	"metadata": {
+		"title": "DSA-2768-1 icedtea-web",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 7",
+			"product": "icedtea-web"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2012-4540",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-4540"
+			}
+		],
+		"description": "heap-based buffer overflow",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-2768",
+			"date": "2013-10-04"
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:23",
+								"comment": "icedtea-web DPKG is earlier than 1.4-3~deb7u2"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 7 is installed"
+			}
+		]
+	}
+}

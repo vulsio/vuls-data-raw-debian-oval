@@ -15,11 +15,8 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0336"
 			}
 		],
-		"description": "security update",
-		"debian": {
-			"moreinfo": "Several vulnerabilities were discovered in Samba, a SMB/CIFS file, print, and login server for Unix.",
-			"dsa": "DSA-5071"
-		}
+		"description": "The Samba AD DC includes checks when adding service principals names (SPNs) to an account to ensure that SPNs do not alias with those already in the database. Some of these checks are able to be bypassed if an account modification re-adds an SPN that was previously present on that account, such as one added when a computer is joined to a domain. An attacker who has the ability to write to an account can exploit this to perform a denial-of-service attack by adding an SPN that matches an existing service. Additionally, an attacker who can intercept traffic can impersonate existing services, resulting in a loss of confidentiality and integrity.",
+		"debian": {}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -35,8 +32,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:22890",
-								"comment": "samba DPKG is earlier than 2:4.9.5+dfsg-5+deb10u3"
+								"test_ref": "oval:org.debian.oval:tst:22871",
+								"comment": "samba DPKG is earlier than 0"
 							}
 						]
 					}
