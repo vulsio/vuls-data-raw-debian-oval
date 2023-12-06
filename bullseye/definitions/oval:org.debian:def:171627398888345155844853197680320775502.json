@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49080"
 			}
 		],
+		"description": "The Jupyter Server provides the backend (i.e. the core services, APIs, and REST endpoints) for Jupyter web applications like Jupyter notebook, JupyterLab, and Voila. Unhandled errors in API requests coming from an authenticated user include traceback information, which can include path information. There is no known mechanism by which to trigger these errors without authentication, so the paths revealed are not considered particularly sensitive, given that the requesting user has arbitrary execution permissions already in the same environment. A fix has been introduced in commit `0056c3aa52` which no longer includes traceback information in JSON error responses. For compatibility, the traceback field is present, but always empty. This commit has been included in version 2.11.2. Users are advised to upgrade. There are no known workarounds for this vulnerability.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:27715",
+								"test_ref": "oval:org.debian.oval:tst:27717",
 								"comment": "jupyter-server DPKG is earlier than 0"
 							}
 						]
