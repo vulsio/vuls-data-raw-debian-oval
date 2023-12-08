@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46218"
 			}
 		],
+		"description": "This flaw allows a malicious HTTP server to set \"super cookies\" in curl that\nare then passed back to more origins than what is otherwise allowed or\npossible. This allows a site to set cookies that then would get sent to\ndifferent and unrelated sites and domains.\n\nIt could do this by exploiting a mixed case flaw in curl's function that\nverifies a given cookie domain against the Public Suffix List (PSL). For\nexample a cookie could be set with `domain=co.UK` when the URL used a lower\ncase hostname `curl.co.uk`, even though `co.uk` is listed as a PSL domain.\n",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:26694",
+								"test_ref": "oval:org.debian.oval:tst:26695",
 								"comment": "curl DPKG is earlier than 0"
 							}
 						]
