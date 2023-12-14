@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:8436589672914381986904955792119110352",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-50251 php-dompdf-svg-lib",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "php-dompdf-svg-lib"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-50251",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-50251"
+			}
+		],
+		"description": "php-svg-lib is an SVG file parsing / rendering library. Prior to version 0.5.1, when parsing the attributes passed to a `use` tag inside an svg document, an attacker can cause the system to go to an infinite recursion. Depending on the system configuration and attack pattern this could exhaust the memory available to the executing process and/or to the server itself. An attacker sending multiple request to a system to render the above payload can potentially cause resource exhaustion to the point that the system is unable to handle incoming request. Version 0.5.1 contains a patch for this issue.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26893",
+								"comment": "php-dompdf-svg-lib DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
