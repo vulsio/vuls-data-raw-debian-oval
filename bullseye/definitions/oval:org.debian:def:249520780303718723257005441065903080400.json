@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:249520780303718723257005441065903080400",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-50980 libcrypto++",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "libcrypto++"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-50980",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-50980"
+			}
+		],
+		"description": "gf2n.cpp in Crypto++ (aka cryptopp) through 8.9.0 allows attackers to cause a denial of service (application crash) via DER public-key data for an F(2^m) curve, if the degree of each term in the polynomial is not strictly decreasing.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27778",
+								"comment": "libcrypto++ DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
