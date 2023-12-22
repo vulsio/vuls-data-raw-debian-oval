@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:96968028374072756979128375310812028294",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-4255 w3m",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "w3m"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-4255",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4255"
+			}
+		],
+		"description": "An out-of-bounds write issue has been discovered in the backspace handling of the checkType() function in etc.c within the W3M application. This vulnerability is triggered by supplying a specially crafted HTML file to the w3m binary. Exploitation of this flaw could lead to application crashes, resulting in a denial of service condition.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26579",
+								"comment": "w3m DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

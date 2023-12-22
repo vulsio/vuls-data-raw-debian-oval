@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:127977871409418236290973752599293983252",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-4256 tcpreplay",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "tcpreplay"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-4256",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4256"
+			}
+		],
+		"description": "Within tcpreplay's tcprewrite, a double free vulnerability has been identified in the tcpedit_dlt_cleanup() function within plugins/dlt_plugins.c. This vulnerability can be exploited by supplying a specifically crafted file to the tcprewrite binary. This flaw enables a local attacker to initiate a Denial of Service (DoS) attack.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26580",
+								"comment": "tcpreplay DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
