@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:198583847556135918030295758792285156918",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-49356 mp3gain",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "mp3gain"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-49356",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49356"
+			}
+		],
+		"description": "A stack buffer overflow vulnerability in MP3Gain v1.6.2 allows an attacker to cause a denial of service via the WriteMP3GainAPETag function at apetag.c:592.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27776",
+								"comment": "mp3gain DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
