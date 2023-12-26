@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:181249624015996720102959184364709600436",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-38314 opennds",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "opennds"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-38314",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38314"
+			}
+		],
+		"description": "An issue was discovered in OpenNDS Captive Portal before version 10.1.2. It has a NULL pointer dereference in preauthenticated() that can be triggered with a crafted GET HTTP request with a missing redirect query string parameter. Triggering this issue results in crashing OpenNDS (a Denial-of-Service condition).",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26307",
+								"comment": "opennds DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

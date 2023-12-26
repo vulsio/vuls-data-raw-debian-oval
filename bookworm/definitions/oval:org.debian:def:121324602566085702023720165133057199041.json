@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:121324602566085702023720165133057199041",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-38322 opennds",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "opennds"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-38322",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38322"
+			}
+		],
+		"description": "An issue was discovered in OpenNDS Captive Portal before version 10.1.2. It has a do_binauth NULL pointer dereference that be triggered with a crafted GET HTTP request with a missing User-Agent HTTP header. Triggering this issue results in crashing OpenNDS (a Denial-of-Service condition). The issue occurs when the client is about to be authenticated, and can be triggered only when the BinAuth option is set.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26315",
+								"comment": "opennds DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
