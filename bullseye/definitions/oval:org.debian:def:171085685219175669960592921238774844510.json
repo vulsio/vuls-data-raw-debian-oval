@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:171085685219175669960592921238774844510",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-22049 ruby-httparty",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "ruby-httparty"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-22049",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22049"
+			}
+		],
+		"description": "httparty before 0.21.0 is vulnerable to an assumed-immutable web parameter vulnerability. A remote and unauthenticated attacker can provide a crafted filename parameter during multipart/form-data uploads which could result in attacker controlled filenames being written.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28043",
+								"comment": "ruby-httparty DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
