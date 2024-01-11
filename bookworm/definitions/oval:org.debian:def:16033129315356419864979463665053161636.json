@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:16033129315356419864979463665053161636",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-36764 edk2",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "edk2"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-36764",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-36764"
+			}
+		],
+		"description": "EDK2 is susceptible to a vulnerability in the Tcg2MeasurePeImage() function, allowing a user to trigger a heap buffer overflow via a local network. Successful exploitation of this vulnerability may result in a compromise of confidentiality, integrity, and/or availability.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:24163",
+								"comment": "edk2 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

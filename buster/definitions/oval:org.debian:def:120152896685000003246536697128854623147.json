@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:120152896685000003246536697128854623147",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-5717 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-5717",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-5717"
+			}
+		],
+		"description": "A heap out-of-bounds write vulnerability in the Linux kernel's Linux Kernel Performance Events (perf) component can be exploited to achieve local privilege escalation.  If perf_read_group() is called while an event's sibling_list is smaller than its child's sibling_list, it can increment or write to memory locations outside of the allocated buffer.  We recommend upgrading past commit 32671e3799ca2e4590773fd0e63aaa4229e50c06.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27086",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.205-2~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

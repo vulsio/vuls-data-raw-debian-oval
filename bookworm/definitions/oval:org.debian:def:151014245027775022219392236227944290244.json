@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:151014245027775022219392236227944290244",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-36765 edk2",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "edk2"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-36765",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-36765"
+			}
+		],
+		"description": "EDK2 is susceptible to a vulnerability in the CreateHob() function, allowing a user to trigger a integer overflow to buffer overflow via a local network. Successful exploitation of this vulnerability may result in a compromise of confidentiality, integrity, and/or availability.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:24164",
+								"comment": "edk2 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
