@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:116346023719402566731900504872555838783",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-49569 golang-github-go-git-go-git",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "golang-github-go-git-go-git"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-49569",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49569"
+			}
+		],
+		"description": "A path traversal vulnerability was discovered in go-git versions prior to v5.11. This vulnerability allows an attacker to create and amend files across the filesystem. In the worse case scenario, remote code execution could be achieved.  Applications are only affected if they are using the  ChrootOS https://pkg.go.dev/github.com/go-git/go-billy/v5/osfs#ChrootOS , which is the default when using \"Plain\" versions of Open and Clone funcs (e.g. PlainClone). Applications using  BoundOS https://pkg.go.dev/github.com/go-git/go-billy/v5/osfs#BoundOS  or in-memory filesystems are not affected by this issue. This is a go-git implementation issue and does not affect the upstream git cli.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27057",
+								"comment": "golang-github-go-git-go-git DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
