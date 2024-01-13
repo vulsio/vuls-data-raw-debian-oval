@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:56244090391365657712280253688983240513",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-48619 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-48619",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48619"
+			}
+		],
+		"description": "An issue was discovered in drivers/input/input.c in the Linux kernel before 5.17.10. An attacker can cause a denial of service (panic) because input_set_capability mishandles the situation in which an event code falls outside of a bitmap.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:25919",
+								"comment": "linux DPKG is earlier than 5.10.120-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
