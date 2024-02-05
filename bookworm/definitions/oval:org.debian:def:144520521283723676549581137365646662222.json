@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:144520521283723676549581137365646662222",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2020-36773 ghostscript",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "ghostscript"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-36773",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36773"
+			}
+		],
+		"description": "Artifex Ghostscript before 9.53.0 has an out-of-bounds write and use-after-free in devices/vector/gdevtxtw.c (for txtwrite) because a single character code in a PDF document can map to more than one Unicode code point (e.g., for a ligature).",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:19252",
+								"comment": "ghostscript DPKG is earlier than 9.53.0~dfsg-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
