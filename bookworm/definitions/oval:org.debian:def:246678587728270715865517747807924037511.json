@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:246678587728270715865517747807924037511",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-24575 libgit2",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "libgit2"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-24575",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24575"
+			}
+		],
+		"description": "libgit2 is a portable C implementation of the Git core methods provided as a linkable library with a solid API, allowing to build Git functionality into your application. Using well-crafted inputs to `git_revparse_single` can cause the function to enter an infinite loop, potentially causing a Denial of Service attack in the calling application. The revparse function in `src/libgit2/revparse.c` uses a loop to parse the user-provided spec string. There is an edge-case during parsing that allows a bad actor to force the loop conditions to access arbitrary memory. Potentially, this could also leak memory if the extracted rev spec is reflected back to the attacker. As such, libgit2 versions before 1.4.0 are not affected. Users should upgrade to version 1.6.5 or 1.7.2.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27513",
+								"comment": "libgit2 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
