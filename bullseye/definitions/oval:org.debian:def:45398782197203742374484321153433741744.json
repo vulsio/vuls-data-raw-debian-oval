@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:45398782197203742374484321153433741744",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-25714 rhonabwy",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "rhonabwy"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-25714",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-25714"
+			}
+		],
+		"description": "In Rhonabwy through 1.1.13, HMAC signature verification uses a strcmp function that is vulnerable to side-channel attacks, because it stops the comparison when the first difference is spotted in the two signatures. (The fix uses gnutls_memcmp, which has constant-time execution.)",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28359",
+								"comment": "rhonabwy DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
