@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:205401914985056415402222323974133314957",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-23833 openrefine",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "openrefine"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-23833",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23833"
+			}
+		],
+		"description": "OpenRefine is a free, open source power tool for working with messy data and improving it. A jdbc attack vulnerability exists in OpenRefine(version<=3.7.7) where an attacker may construct a JDBC query which may read files on the host filesystem. Due to the newer MySQL driver library in the latest version of OpenRefine (8.0.30), there is no associated deserialization utilization point, so original code execution cannot be achieved, but attackers can use this vulnerability to read sensitive files on the target server. This issue has been addressed in version 3.7.8. Users are advised to upgrade. There are no known workarounds for this vulnerability.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27552",
+								"comment": "openrefine DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
