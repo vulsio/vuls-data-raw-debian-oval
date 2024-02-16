@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:167110404371959575455616354027260890543",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-27517 ipmctl",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "ipmctl"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-27517",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-27517"
+			}
+		],
+		"description": "Improper access control in some Intel(R) Optane(TM) PMem software before versions 01.00.00.3547, 02.00.00.3915, 03.00.00.0483 may allow an athenticated user to potentially enable escalation of privilege via local access.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26641",
+								"comment": "ipmctl DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
