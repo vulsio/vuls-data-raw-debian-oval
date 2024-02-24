@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:116194583840550194619389989746661760411",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52457 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52457",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52457"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  serial: 8250: omap: Don't skip resource freeing if pm_runtime_resume_and_get() failed  Returning an error code from .remove() makes the driver core emit the little helpful error message:  \tremove callback returned a non-zero value. This will be ignored.  and then remove the device anyhow. So all resources that were not freed are leaked in this case. Skipping serial8250_unregister_port() has the potential to keep enough of the UART around to trigger a use-after-free.  So replace the error return (and with it the little helpful error message) by a more useful error message and continue to cleanup.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27255",
+								"comment": "linux DPKG is earlier than 6.1.76-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
