@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:328449935025796404362055281563549115442",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52513 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52513",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52513"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  RDMA/siw: Fix connection failure handling  In case immediate MPA request processing fails, the newly created endpoint unlinks the listening endpoint and is ready to be dropped. This special case was not handled correctly by the code handling the later TCP socket close, causing a NULL dereference crash in siw_cm_work_handler() when dereferencing a NULL listener. We now also cancel the useless MPA timeout, if immediate MPA request processing fails.  This patch furthermore simplifies MPA processing in general: Scheduling a useless TCP socket read in sk_data_ready() upcall is now surpressed, if the socket is already moved out of TCP_ESTABLISHED state.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27470",
+								"comment": "linux DPKG is earlier than 6.1.64-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

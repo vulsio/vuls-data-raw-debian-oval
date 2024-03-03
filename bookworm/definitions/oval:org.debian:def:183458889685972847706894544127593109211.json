@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:183458889685972847706894544127593109211",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52579 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52579",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52579"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ipv4: fix null-deref in ipv4_link_failure  Currently, we assume the skb is associated with a device before calling __ip_options_compile, which is not always the case if it is re-routed by ipvs. When skb->dev is NULL, dev_net(skb->dev) will become null-dereference. This patch adds a check for the edge case and switch to use the net_device from the rtable when skb->dev is NULL.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27510",
+								"comment": "linux DPKG is earlier than 6.1.64-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

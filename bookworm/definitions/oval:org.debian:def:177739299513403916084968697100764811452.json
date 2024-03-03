@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:177739299513403916084968697100764811452",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52508 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52508",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52508"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  nvme-fc: Prevent null pointer dereference in nvme_fc_io_getuuid()  The nvme_fc_fcp_op structure describing an AEN operation is initialized with a null request structure pointer. An FC LLDD may make a call to nvme_fc_io_getuuid passing a pointer to an nvmefc_fcp_req for an AEN operation.  Add validation of the request structure pointer before dereference.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27465",
+								"comment": "linux DPKG is earlier than 6.1.64-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

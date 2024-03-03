@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:42863643929537551307576312416839742133",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52507 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52507",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52507"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  nfc: nci: assert requested protocol is valid  The protocol is used in a bit mask to determine if the protocol is supported. Assert the provided protocol is less than the maximum defined so it doesn't potentially perform a shift-out-of-bounds and provide a clearer error for undefined protocols vs unsupported ones.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27464",
+								"comment": "linux DPKG is earlier than 6.1.64-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

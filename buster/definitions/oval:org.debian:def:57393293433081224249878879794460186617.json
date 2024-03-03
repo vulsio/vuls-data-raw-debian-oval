@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:57393293433081224249878879794460186617",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52527 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52527",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52527"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ipv4, ipv6: Fix handling of transhdrlen in __ip{,6}_append_data()  Including the transhdrlen in length is a problem when the packet is partially filled (e.g. something like send(MSG_MORE) happened previously) when appending to an IPv4 or IPv6 packet as we don't want to repeat the transport header or account for it twice.  This can happen under some circumstances, such as splicing into an L2TP socket.  The symptom observed is a warning in __ip6_append_data():      WARNING: CPU: 1 PID: 5042 at net/ipv6/ip6_output.c:1800 __ip6_append_data.isra.0+0x1be8/0x47f0 net/ipv6/ip6_output.c:1800  that occurs when MSG_SPLICE_PAGES is used to append more data to an already partially occupied skbuff.  The warning occurs when 'copy' is larger than the amount of data in the message iterator.  This is because the requested length includes the transport header length when it shouldn't.  This can be triggered by, for example:          sfd = socket(AF_INET6, SOCK_DGRAM, IPPROTO_L2TP);         bind(sfd, ...); // ::1         connect(sfd, ...); // ::1 port 7         send(sfd, buffer, 4100, MSG_MORE);         sendfile(sfd, dfd, NULL, 1024);  Fix this by only adding transhdrlen into the length if the write queue is empty in l2tp_ip6_sendmsg(), analogously to how UDP does things.  l2tp_ip_sendmsg() looks like it won't suffer from this problem as it builds the UDP packet itself.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27242",
+								"comment": "linux DPKG is earlier than 4.19.304-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

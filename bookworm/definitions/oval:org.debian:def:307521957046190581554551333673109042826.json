@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:307521957046190581554551333673109042826",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52529 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52529",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52529"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  HID: sony: Fix a potential memory leak in sony_probe()  If an error occurs after a successful usb_alloc_urb() call, usb_free_urb() should be called.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27486",
+								"comment": "linux DPKG is earlier than 6.1.64-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

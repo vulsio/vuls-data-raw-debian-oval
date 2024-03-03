@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:28775613834880909247721983264091925051",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52520 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52520",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52520"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  platform/x86: think-lmi: Fix reference leak  If a duplicate attribute is found using kset_find_obj(), a reference to that attribute is returned which needs to be disposed accordingly using kobject_put(). Move the setting name validation into a separate function to allow for this change without having to duplicate the cleanup code for this setting. As a side note, a very similar bug was fixed in commit 7295a996fdab (\"platform/x86: dell-sysman: Fix reference leak\"), so it seems that the bug was copied from that driver.  Compile-tested only.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27477",
+								"comment": "linux DPKG is earlier than 6.1.64-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

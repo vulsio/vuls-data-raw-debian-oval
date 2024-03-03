@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:127336318652112542624202812304053849226",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52573 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52573",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52573"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net: rds: Fix possible NULL-pointer dereference  In rds_rdma_cm_event_handler_cmn() check, if conn pointer exists before dereferencing it as rdma_set_service_type() argument  Found by Linux Verification Center (linuxtesting.org) with SVACE.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27504",
+								"comment": "linux DPKG is earlier than 6.1.64-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
