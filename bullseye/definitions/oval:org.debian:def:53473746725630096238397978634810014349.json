@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:53473746725630096238397978634810014349",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-28102 python-jwcrypto",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "python-jwcrypto"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-28102",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28102"
+			}
+		],
+		"description": "JWCrypto implements JWK, JWS, and JWE specifications using python-cryptography. Prior to version 1.5.6, an attacker can cause a denial of service attack by passing in a malicious JWE Token with a high compression ratio. When the server processes this token, it will consume a lot of memory and processing time. Version 1.5.6 fixes this vulnerability by limiting the maximum token length.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28824",
+								"comment": "python-jwcrypto DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
