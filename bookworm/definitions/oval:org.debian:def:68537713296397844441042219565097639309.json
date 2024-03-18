@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:68537713296397844441042219565097639309",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-6725 designate",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "designate"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-6725",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-6725"
+			}
+		],
+		"description": "An access-control flaw was found in the OpenStack Designate component where private configuration information including access keys to BIND were improperly made world readable. A malicious attacker with access to any container could exploit this flaw to access sensitive information.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27740",
+								"comment": "designate DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
