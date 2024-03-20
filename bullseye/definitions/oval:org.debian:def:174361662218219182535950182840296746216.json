@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:174361662218219182535950182840296746216",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-23333 ldap-account-manager",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "ldap-account-manager"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-23333",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23333"
+			}
+		],
+		"description": "LDAP Account Manager (LAM) is a webfrontend for managing entries stored in an LDAP directory. LAM's log configuration allows to specify arbitrary paths for log files. Prior to version 8.7, an attacker could exploit this by creating a PHP file and cause LAM to log some PHP code to this file. When the file is then accessed via web the code would be executed. The issue is mitigated by the following: An attacker needs to know LAM's master configuration password to be able to change the main settings; and the webserver needs write access to a directory that is accessible via web. LAM itself does not provide any such directories. The issue has been fixed in 8.7. As a workaround, limit access to LAM configuration pages to authorized users.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28752",
+								"comment": "ldap-account-manager DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

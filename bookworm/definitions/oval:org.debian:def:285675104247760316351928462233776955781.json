@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:285675104247760316351928462233776955781",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-41334 astropy",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "astropy"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-41334",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-41334"
+			}
+		],
+		"description": "Astropy is a project for astronomy in Python that fosters interoperability between Python astronomy packages. Version 5.3.2 of the Astropy core package is vulnerable to remote code execution due to improper input validation in the `TranformGraph().to_dot_graph` function. A malicious user can provide a command or a script file as a value to the `savelayout` argument, which will be placed as the first value in a list of arguments passed to `subprocess.Popen`.  Although an error will be raised, the command or script will be executed successfully. Version 5.3.3 fixes this issue.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26896",
+								"comment": "astropy DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

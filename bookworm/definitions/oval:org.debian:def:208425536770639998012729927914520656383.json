@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:208425536770639998012729927914520656383",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-22412 clickhouse",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "clickhouse"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-22412",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22412"
+			}
+		],
+		"description": "ClickHouse is an open-source column-oriented database management system. A bug exists in the cloud ClickHouse offering prior to version 24.0.2.54535 and in github.com/clickhouse/clickhouse version 23.1. Query caching bypasses the role based access controls and the policies being enforced on roles. In affected versions, the query cache only respects separate users, however this is not documented and not expected behavior. People relying on ClickHouse roles can have their access control lists bypassed if they are using query caching. Attackers who have control of a role could guess queries and see data they shouldn't have access to. Version 24.1 of ClickHouse and version 24.0.2.54535 of ClickHouse Cloud contain a patch for this issue. Based on the documentation, role based access control should be enforced regardless if query caching is enabled or not.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27972",
+								"comment": "clickhouse DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
