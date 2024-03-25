@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:44531610651630663488571689201859667536",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-30161 qt6-base",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "qt6-base"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-30161",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30161"
+			}
+		],
+		"description": "In Qt before 6.5.6 and 6.6.x before 6.6.3, the wasm component may access QNetworkReply header data via a dangling pointer.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28234",
+								"comment": "qt6-base DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

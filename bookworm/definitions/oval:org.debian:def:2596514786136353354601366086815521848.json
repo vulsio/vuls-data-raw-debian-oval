@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:2596514786136353354601366086815521848",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-30156 varnish",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "varnish"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-30156",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-30156"
+			}
+		],
+		"description": "Varnish Cache before 7.3.2 and 7.4.x before 7.4.3 (and before 6.0.13 LTS), and Varnish Enterprise 6 before 6.0.12r6, allows credits exhaustion for an HTTP/2 connection control flow window, aka a Broke Window Attack.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28233",
+								"comment": "varnish DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
