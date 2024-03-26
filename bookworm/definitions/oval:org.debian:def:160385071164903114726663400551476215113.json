@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:160385071164903114726663400551476215113",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-49090 ruby-carrierwave",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "ruby-carrierwave"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-49090",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49090"
+			}
+		],
+		"description": "CarrierWave is a solution for file uploads for Rails, Sinatra and other Ruby web frameworks. CarrierWave has a Content-Type allowlist bypass vulnerability, possibly leading to XSS. The validation in `allowlisted_content_type?` determines Content-Type permissions by performing a partial match. If the `content_type` argument of `allowlisted_content_type?` is passed a value crafted by the attacker, Content-Types not included in the `content_type_allowlist` will be allowed. This issue has been patched in versions 2.2.5 and 3.0.5.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27346",
+								"comment": "ruby-carrierwave DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
