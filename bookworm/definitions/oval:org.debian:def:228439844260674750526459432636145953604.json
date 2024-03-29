@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:228439844260674750526459432636145953604",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-46052 sane-backends",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "sane-backends"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-46052",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-46052"
+			}
+		],
+		"description": "Sane 1.2.1 heap bounds overwrite in init_options() from backend/test.c via a long init_mode string in a configuration file. NOTE: this is disputed because there is no expectation that test.c code should be executed with an attacker-controlled configuration file.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27203",
+								"comment": "sane-backends DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

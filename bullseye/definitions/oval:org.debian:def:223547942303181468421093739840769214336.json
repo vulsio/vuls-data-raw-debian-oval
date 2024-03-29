@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:223547942303181468421093739840769214336",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-45924 libglvnd",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "libglvnd"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-45924",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45924"
+			}
+		],
+		"description": "libglxproto.c in OpenGL libglvnd bb06db5a was discovered to contain a segmentation violation via the function glXGetDrawableScreen(). NOTE: this is disputed because there are no common situations in which users require uninterrupted operation with an attacker-controller server.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27991",
+								"comment": "libglvnd DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
