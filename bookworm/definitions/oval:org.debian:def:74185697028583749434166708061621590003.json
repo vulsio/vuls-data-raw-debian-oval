@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:74185697028583749434166708061621590003",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-28233 jupyterhub",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "jupyterhub"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-28233",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-28233"
+			}
+		],
+		"description": "JupyterHub is an open source multi-user server for Jupyter notebooks. By tricking a user into visiting a malicious subdomain, the attacker can achieve an XSS directly affecting the former's session. More precisely, in the context of JupyterHub, this XSS could achieve full access to JupyterHub API and user's single-user server. The affected configurations are single-origin JupyterHub deployments and JupyterHub deployments with user-controlled applications running on subdomains or peer subdomains of either the Hub or a single-user server. This vulnerability is fixed in 4.1.0.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28278",
+								"comment": "jupyterhub DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
