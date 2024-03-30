@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:253470934278190557707144550038038430480",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-45913 mesa",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "mesa"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-45913",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45913"
+			}
+		],
+		"description": "Mesa v23.0.4 was discovered to contain a NULL pointer dereference via the function dri2GetGlxDrawableFromXDrawableId(). This vulnerability is triggered when the X11 server sends an DRI2_BufferSwapComplete event unexpectedly when the application is using DRI3. NOTE: this is disputed because there is no scenario in which the vulnerability was demonstrated.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27989",
+								"comment": "mesa DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
