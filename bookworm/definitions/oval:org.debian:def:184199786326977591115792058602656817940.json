@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26779"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  wifi: mac80211: fix race condition on enabling fast-xmit  fast-xmit must only be enabled after the sta has been uploaded to the driver, otherwise it could end up passing the not-yet-uploaded sta via drv_tx calls to the driver, leading to potential crashes because of uninitialized drv_priv data. Add a missing sta->uploaded check and re-check fast xmit after inserting a sta.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:28376",
+								"test_ref": "oval:org.debian.oval:tst:28377",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

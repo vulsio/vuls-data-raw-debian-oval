@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26691"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  KVM: arm64: Fix circular locking dependency  The rule inside kvm enforces that the vcpu->mutex is taken *inside* kvm->lock. The rule is violated by the pkvm_create_hyp_vm() which acquires the kvm->lock while already holding the vcpu->mutex lock from kvm_vcpu_ioctl(). Avoid the circular locking dependency altogether by protecting the hyp vm handle with the config_lock, much like we already do for other forms of VM-scoped data.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:29025",
+								"test_ref": "oval:org.debian.oval:tst:29026",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

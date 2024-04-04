@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26753"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  crypto: virtio/akcipher - Fix stack overflow on memcpy  sizeof(struct virtio_crypto_akcipher_session_para) is less than sizeof(struct virtio_crypto_op_ctrl_req::u), copying more bytes from stack variable leads stack overflow. Clang reports this issue by commands: make -j CC=clang-14 mrproper >/dev/null 2>&1 make -j O=/tmp/crypto-build CC=clang-14 allmodconfig >/dev/null 2>&1 make -j O=/tmp/crypto-build W=1 CC=clang-14 drivers/crypto/virtio/   virtio_crypto_akcipher_algs.o",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:29056",
+								"test_ref": "oval:org.debian.oval:tst:29057",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

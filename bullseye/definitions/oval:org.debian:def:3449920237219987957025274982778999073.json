@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26686"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  fs/proc: do_task_stat: use sig->stats_lock to gather the threads/children stats  lock_task_sighand() can trigger a hard lockup.  If NR_CPUS threads call do_task_stat() at the same time and the process has NR_THREADS, it will spin with irqs disabled O(NR_CPUS * NR_THREADS) time.  Change do_task_stat() to use sig->stats_lock to gather the statistics outside of ->siglock protected section, in the likely case this code will run lockless.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:29021",
+								"test_ref": "oval:org.debian.oval:tst:29022",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]
