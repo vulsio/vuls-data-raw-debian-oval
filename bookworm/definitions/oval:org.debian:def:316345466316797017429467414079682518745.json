@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:316345466316797017429467414079682518745",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-31948 frr",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "frr"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-31948",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-31948"
+			}
+		],
+		"description": "In FRRouting (FRR) through 9.1, an attacker using a malformed Prefix SID attribute in a BGP UPDATE packet can cause the bgpd daemon to crash.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28531",
+								"comment": "frr DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
