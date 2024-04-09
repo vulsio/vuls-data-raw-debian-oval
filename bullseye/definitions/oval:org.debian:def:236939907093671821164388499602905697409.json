@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:236939907093671821164388499602905697409",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-23086 libapfloat-java",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "libapfloat-java"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-23086",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23086"
+			}
+		],
+		"description": "Apfloat v1.10.1 was discovered to contain a stack overflow via the component org.apfloat.internal.DoubleModMath::modPow(double.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28835",
+								"comment": "libapfloat-java DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
