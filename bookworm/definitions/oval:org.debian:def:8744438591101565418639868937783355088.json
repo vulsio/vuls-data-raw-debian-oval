@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26816"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  x86, relocs: Ignore relocations in .notes section  When building with CONFIG_XEN_PV=y, .text symbols are emitted into the .notes section so that Xen can find the \"startup_xen\" entry point. This information is used prior to booting the kernel, so relocations are not useful. In fact, performing relocations against the .notes section means that the KASLR base is exposed since /sys/kernel/notes is world-readable.  To avoid leaking the KASLR base without breaking unprivileged tools that are expecting to read /sys/kernel/notes, skip performing relocations in the .notes section. The values readable in .notes are then identical to those found in System.map.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5658"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:28474",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 6.1.85-1"
 							}
 						]
 					}

@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26643"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  netfilter: nf_tables: mark set as dead when unbinding anonymous set with timeout  While the rhashtable set gc runs asynchronously, a race allows it to collect elements from anonymous sets with timeouts while it is being released from the commit path.  Mingi Cho originally reported this issue in a different path in 6.1.x with a pipapo set with low timeouts which is not possible upstream since 7395dfacfff6 (\"netfilter: nf_tables: use timestamp to check for set element timeout\").  Fix this by setting on the dead flag for anonymous sets to skip async gc in this case.  According to 08e4c8c5919f (\"netfilter: nf_tables: mark newset as dead on transaction abort\"), Florian plans to accelerate abort path by releasing objects via workqueue, therefore, this sets on the dead flag for abort path too.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5658"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:28342",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 6.1.85-1"
 							}
 						]
 					}

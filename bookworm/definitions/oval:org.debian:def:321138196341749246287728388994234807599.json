@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26585"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  tls: fix race between tx work scheduling and socket close  Similarly to previous commit, the submitting thread (recvmsg/sendmsg) may exit as soon as the async crypto handler calls complete(). Reorder scheduling the work before calling complete(). This seems more logical in the first place, as it's the inverse order of what the submitting thread will do.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5658"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:28297",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 6.1.85-1"
 							}
 						]
 					}
