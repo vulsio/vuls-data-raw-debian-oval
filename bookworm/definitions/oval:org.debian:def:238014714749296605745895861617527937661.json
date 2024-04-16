@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:238014714749296605745895861617527937661",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-3574 python-scrapy",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "python-scrapy"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-3574",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3574"
+			}
+		],
+		"description": "In scrapy version 2.10.1, an issue was identified where the Authorization header, containing credentials for server authentication, is leaked to a third-party site during a cross-domain redirect. This vulnerability arises from the failure to remove the Authorization header when redirecting across domains. The exposure of the Authorization header to unauthorized actors could potentially allow for account hijacking.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28605",
+								"comment": "python-scrapy DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
