@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:139494459657675642360416950428755073530",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-4233 ofono",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "ofono"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-4233",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4233"
+			}
+		],
+		"description": "A flaw was found in ofono, an Open Source Telephony on Linux. A stack overflow bug is triggered within the sms_decode_address_field() function during the SMS PDU decoding. It is assumed that the attack scenario is accessible from a compromised modem, a malicious base station, or just SMS.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27019",
+								"comment": "ofono DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
