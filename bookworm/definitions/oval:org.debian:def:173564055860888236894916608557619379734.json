@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:173564055860888236894916608557619379734",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-26926 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-26926",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26926"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  binder: check offset alignment in binder_get_object()  Commit 6d98eb95b450 (\"binder: avoid potential data leakage when copying txn\") introduced changes to how binder objects are copied. In doing so, it unintentionally removed an offset alignment check done through calls to binder_alloc_copy_from_buffer() -> check_buffer().  These calls were replaced in binder_get_object() with copy_from_user(), so now an explicit offset alignment check is needed here. This avoids later complications when unwinding the objects gets harder.  It is worth noting this check existed prior to commit 7a67a39320df (\"binder: add function to copy binder object from buffer\"), likely removed due to redundancy at the time.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28585",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

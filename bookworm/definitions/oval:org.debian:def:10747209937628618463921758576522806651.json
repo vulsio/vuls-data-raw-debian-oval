@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:10747209937628618463921758576522806651",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-32662 freerdp2",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "freerdp2"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-32662",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32662"
+			}
+		],
+		"description": "FreeRDP is a free implementation of the Remote Desktop Protocol. FreeRDP based clients prior to version 3.5.1 are vulnerable to out-of-bounds read. This occurs when `WCHAR` string is read with twice the size it has and converted to `UTF-8`, `base64` decoded. The string is only used to compare against the redirection server certificate. Version 3.5.1 contains a patch for the issue. No known workarounds are available.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28747",
+								"comment": "freerdp2 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:265111894601678204043576538461810905770",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-26925 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-26925",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26925"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  netfilter: nf_tables: release mutex after nft_gc_seq_end from abort path  The commit mutex should not be released during the critical section between nft_gc_seq_begin() and nft_gc_seq_end(), otherwise, async GC worker could collect expired objects and get the released commit lock within the same GC sequence.  nf_tables_module_autoload() temporarily releases the mutex to load module dependencies, then it goes back to replay the transaction again. Move it at the end of the abort phase after nft_gc_seq_end() is called.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28584",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
