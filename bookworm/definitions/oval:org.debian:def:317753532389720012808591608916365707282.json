@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:317753532389720012808591608916365707282",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-32879 social-auth-app-django",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "social-auth-app-django"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-32879",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32879"
+			}
+		],
+		"description": "Python Social Auth is a social authentication/registration mechanism. Prior to version 5.4.1, due to default case-insensitive collation in MySQL or MariaDB databases, third-party authentication user IDs are not case-sensitive and could cause different IDs to match. This issue has been addressed by a fix released in version 5.4.1. An immediate workaround would be to change collation of the affected field.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28746",
+								"comment": "social-auth-app-django DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
