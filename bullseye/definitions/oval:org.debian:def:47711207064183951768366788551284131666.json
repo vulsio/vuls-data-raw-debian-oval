@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:47711207064183951768366788551284131666",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52723 libkf5ksieve",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "libkf5ksieve"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52723",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52723"
+			}
+		],
+		"description": "In KDE libksieve before 23.03.80, kmanagesieve/session.cpp places a cleartext password in server logs because a username variable is accidentally given a password value.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28549",
+								"comment": "libkf5ksieve DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
