@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26964"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  usb: xhci: Add error handling in xhci_map_urb_for_dma  Currently xhci_map_urb_for_dma() creates a temporary buffer and copies the SG list to the new linear buffer. But if the kzalloc_node() fails, then the following sg_pcopy_to_buffer() can lead to crash since it tries to memcpy to NULL pointer.  So return -ENOMEM if kzalloc returns null pointer.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:28691",
+								"test_ref": "oval:org.debian.oval:tst:28695",
 								"comment": "linux DPKG is earlier than 6.1.85-1"
 							}
 						]

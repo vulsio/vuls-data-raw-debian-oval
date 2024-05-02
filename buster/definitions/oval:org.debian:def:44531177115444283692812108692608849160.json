@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26980"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ksmbd: fix slab-out-of-bounds in smb2_allocate_rsp_buf  If ->ProtocolId is SMB2_TRANSFORM_PROTO_NUM, smb2 request size validation could be skipped. if request size is smaller than sizeof(struct smb2_query_info_req), slab-out-of-bounds read can happen in smb2_allocate_rsp_buf(). This patch allocate response buffer after decrypting transform request. smb3_decrypt_req() will validate transform request size and avoid slab-out-of-bound in smb2_allocate_rsp_buf().",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:28095",
+								"test_ref": "oval:org.debian.oval:tst:28098",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

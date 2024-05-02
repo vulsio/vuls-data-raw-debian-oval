@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:131801332467276847714147720068007680634",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-47212 libstb",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "libstb"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-47212",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-47212"
+			}
+		],
+		"description": "A heap-based buffer overflow vulnerability exists in the comment functionality of stb _vorbis.c v1.22. A specially crafted .ogg file can lead to an out-of-bounds write. An attacker can provide a malicious file to trigger this vulnerability.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27384",
+								"comment": "libstb DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27019"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  netfilter: nf_tables: Fix potential data-race in __nft_obj_type_get()  nft_unregister_obj() can concurrent with __nft_obj_type_get(), and there is not any protection when iterate over nf_tables_objects list in __nft_obj_type_get(). Therefore, there is potential data-race of nf_tables_objects list entry.  Use list_for_each_entry_rcu() to iterate over nf_tables_objects list in __nft_obj_type_get(), and use rcu_read_lock() in the caller nft_obj_type_get() to protect the entire type query process.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:29363",
+								"test_ref": "oval:org.debian.oval:tst:29366",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

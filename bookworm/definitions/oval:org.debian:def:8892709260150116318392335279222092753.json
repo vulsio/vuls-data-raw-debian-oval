@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26993"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  fs: sysfs: Fix reference leak in sysfs_break_active_protection()  The sysfs_break_active_protection() routine has an obvious reference leak in its error path.  If the call to kernfs_find_and_get() fails then kn will be NULL, so the companion sysfs_unbreak_active_protection() routine won't get called (and would only cause an access violation by trying to dereference kn->parent if it was called).  As a result, the reference to kobj acquired at the start of the function will never be released.  Fix the leak by adding an explicit kobject_put() call when kn is NULL.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:28712",
+								"test_ref": "oval:org.debian.oval:tst:28716",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:208214025614290956457246062800339191006",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-40533 tinyproxy",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "tinyproxy"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-40533",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-40533"
+			}
+		],
+		"description": "An uninitialized memory use vulnerability exists in Tinyproxy 1.11.1 while parsing HTTP requests. In certain configurations, a specially crafted HTTP request can result in disclosure of data allocated on the heap, which could contain sensitive information. An attacker can make an unauthenticated HTTP request to trigger this vulnerability.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26749",
+								"comment": "tinyproxy DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

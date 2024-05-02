@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27034"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  f2fs: compress: fix to cover normal cluster write with cp_rwsem  When we overwrite compressed cluster w/ normal cluster, we should not unlock cp_rwsem during f2fs_write_raw_pages(), otherwise data will be corrupted if partial blocks were persisted before CP & SPOR, due to cluster metadata wasn't updated atomically.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:29370",
+								"test_ref": "oval:org.debian.oval:tst:29373",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

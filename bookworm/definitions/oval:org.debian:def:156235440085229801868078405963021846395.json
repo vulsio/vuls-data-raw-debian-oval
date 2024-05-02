@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27075"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  media: dvb-frontends: avoid stack overflow warnings with clang  A previous patch worked around a KASAN issue in stv0367, now a similar problem showed up with clang:  drivers/media/dvb-frontends/stv0367.c:1222:12: error: stack frame size (3624) exceeds limit (2048) in 'stv0367ter_set_frontend' [-Werror,-Wframe-larger-than]  1214 | static int stv0367ter_set_frontend(struct dvb_frontend *fe)  Rework the stv0367_writereg() function to be simpler and mark both register access functions as noinline_for_stack so the temporary i2c_msg structures do not get duplicated on the stack when KASAN_STACK is enabled.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:28767",
+								"test_ref": "oval:org.debian.oval:tst:28771",
 								"comment": "linux DPKG is earlier than 6.1.85-1"
 							}
 						]

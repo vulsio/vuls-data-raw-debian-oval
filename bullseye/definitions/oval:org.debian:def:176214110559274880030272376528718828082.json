@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52653"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  SUNRPC: fix a memleak in gss_import_v2_context  The ctx->mech_used.data allocated by kmemdup is not freed in neither gss_import_v2_context nor it only caller gss_krb5_import_sec_context, which frees ctx on error.  Thus, this patch reform the last call of gss_import_v2_context to the gss_krb5_import_ctx_v2, preventing the memleak while keepping the return formation.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:28569",
+								"test_ref": "oval:org.debian.oval:tst:28572",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]
