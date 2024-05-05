@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:7544791519601146067089539488259235879",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-34490 maxima",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "maxima"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-34490",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34490"
+			}
+		],
+		"description": "In Maxima through 5.47.0 before 51704c, the plotting facilities make use of predictable names under /tmp. Thus, the contents may be controlled by a local attacker who can create files in advance with these names. This affects, for example, plot2d.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29588",
+								"comment": "maxima DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
