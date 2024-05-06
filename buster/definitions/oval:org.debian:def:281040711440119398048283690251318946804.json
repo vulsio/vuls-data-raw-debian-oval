@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:281040711440119398048283690251318946804",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-34506 mediawiki",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "mediawiki"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-34506",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34506"
+			}
+		],
+		"description": "An issue was discovered in includes/specials/SpecialMovePage.php in MediaWiki before 1.39.7, 1.40.x before 1.40.3, and 1.41.x before 1.41.1. If a user with the necessary rights to move the page opens Special:MovePage for a page with tens of thousands of subpages, then the page will exceed the maximum request time, leading to a denial of service.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28302",
+								"comment": "mediawiki DPKG is earlier than 1:1.31.16-1+deb10u8"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

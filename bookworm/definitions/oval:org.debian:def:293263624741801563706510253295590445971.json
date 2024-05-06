@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:293263624741801563706510253295590445971",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-34507 mediawiki",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "mediawiki"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-34507",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34507"
+			}
+		],
+		"description": "An issue was discovered in includes/CommentFormatter/CommentParser.php in MediaWiki before 1.39.7, 1.40.x before 1.40.3, and 1.41.x before 1.41.1. XSS can occur because of mishandling of the 0x1b character, as demonstrated by Special:RecentChanges#%1b0000000.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28995",
+								"comment": "mediawiki DPKG is earlier than 1:1.39.7-1~deb12u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
