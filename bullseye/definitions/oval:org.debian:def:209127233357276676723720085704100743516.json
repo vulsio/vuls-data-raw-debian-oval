@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27008"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm: nv04: Fix out of bounds access  When Output Resource (dcb->or) value is assigned in fabricate_dcb_output(), there may be out of bounds access to dac_users array in case dcb->or is zero because ffs(dcb->or) is used as index there. The 'or' argument of fabricate_dcb_output() must be interpreted as a number of bit to set, not value.  Utilize macros from 'enum nouveau_or' in calls instead of hardcoding.  Found by Linux Verification Center (linuxtesting.org) with SVACE.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5681"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:29378",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 5.10.216-1"
 							}
 						]
 					}

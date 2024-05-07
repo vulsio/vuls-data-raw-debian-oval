@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27038"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  clk: Fix clk_core_get NULL dereference  It is possible for clk_core_get to dereference a NULL in the following sequence:  clk_core_get()     of_clk_get_hw_from_clkspec()         __of_clk_get_hw_from_provider()             __clk_get_hw()  __clk_get_hw() can return NULL which is dereferenced by clk_core_get() at hw->core.  Prior to commit dde4eff47c82 (\"clk: Look for parents with clkdev based clk_lookups\") the check IS_ERR_OR_NULL() was performed which would have caught the NULL.  Reading the description of this function it talks about returning NULL but that cannot be so at the moment.  Update the function to check for hw before dereferencing it and return NULL if hw is NULL.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5681"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:29395",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 5.10.216-1"
 							}
 						]
 					}

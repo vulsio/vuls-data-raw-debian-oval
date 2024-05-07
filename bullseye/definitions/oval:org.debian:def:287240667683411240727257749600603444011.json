@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26606"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  binder: signal epoll threads of self-work  In (e)poll mode, threads often depend on I/O events to determine when data is ready for consumption. Within binder, a thread may initiate a command via BINDER_WRITE_READ without a read buffer and then make use of epoll_wait() or similar to consume any responses afterwards.  It is then crucial that epoll threads are signaled via wakeup when they queue their own work. Otherwise, they risk waiting indefinitely for an event leaving their work unhandled. What is worse, subsequent commands won't trigger a wakeup either as the thread has pending work.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5681"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:29138",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 5.10.216-1"
 							}
 						]
 					}

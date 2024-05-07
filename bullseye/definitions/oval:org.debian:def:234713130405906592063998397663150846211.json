@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26950"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  wireguard: netlink: access device through ctx instead of peer  The previous commit fixed a bug that led to a NULL peer->device being dereferenced. It's actually easier and faster performance-wise to instead get the device from ctx->wg. This semantically makes more sense too, since ctx->wg->peer_allowedips.seq is compared with ctx->allowedips_seq, basing them both in ctx. This also acts as a defence in depth provision against freed peers.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5681"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:29343",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 5.10.216-1"
 							}
 						]
 					}

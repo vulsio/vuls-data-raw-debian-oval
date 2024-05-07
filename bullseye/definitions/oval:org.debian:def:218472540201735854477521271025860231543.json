@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26810"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  vfio/pci: Lock external INTx masking ops  Mask operations through config space changes to DisINTx may race INTx configuration changes via ioctl.  Create wrappers that add locking for paths outside of the core interrupt code.  In particular, irq_type is updated holding igate, therefore testing is_intx() requires holding igate.  For example clearing DisINTx from config space can otherwise race changes of the interrupt configuration.  This aligns interfaces which may trigger the INTx eventfd into two camps, one side serialized by igate and the other only enabled while INTx is configured.  A subsequent patch introduces synchronization for the latter flows.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5681"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:29254",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 5.10.216-1"
 							}
 						]
 					}

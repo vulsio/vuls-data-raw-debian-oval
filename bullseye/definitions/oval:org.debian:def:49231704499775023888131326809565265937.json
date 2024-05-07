@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26791"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  btrfs: dev-replace: properly validate device names  There's a syzbot report that device name buffers passed to device replace are not properly checked for string termination which could lead to a read out of bounds in getname_kernel().  Add a helper that validates both source and target device name buffers. For devid as the source initialize the buffer to empty string in case something tries to read it later.  This was originally analyzed and fixed in a different way by Edward Adam Davis (see links).",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5681"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:29244",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 5.10.216-1"
 							}
 						]
 					}

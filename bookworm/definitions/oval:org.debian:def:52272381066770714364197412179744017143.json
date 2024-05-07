@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27003"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  clk: Get runtime PM before walking tree for clk_summary  Similar to the previous commit, we should make sure that all devices are runtime resumed before printing the clk_summary through debugfs. Failure to do so would result in a deadlock if the thread is resuming a device to print clk state and that device is also runtime resuming in another thread, e.g the screen is turning on and the display driver is starting up. We remove the calls to clk_pm_runtime_{get,put}() in this path because they're superfluous now that we know the devices are runtime resumed. This also squashes a bug where the return value of clk_pm_runtime_get() wasn't checked, leading to an RPM count underflow on error paths.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5680"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:28749",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 6.1.90-1"
 							}
 						]
 					}

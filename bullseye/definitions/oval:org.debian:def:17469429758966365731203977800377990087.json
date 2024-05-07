@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26763"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  dm-crypt: don't modify the data when using authenticated encryption  It was said that authenticated encryption could produce invalid tag when the data that is being encrypted is modified [1]. So, fix this problem by copying the data into the clone bio first and then encrypt them inside the clone bio.  This may reduce performance, but it is needed to prevent the user from corrupting the device by writing data with O_DIRECT and modifying them at the same time.  [1] https://lore.kernel.org/all/20240207004723.GA35324@sol.localdomain/T/",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5681"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:29222",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 5.10.216-1"
 							}
 						]
 					}
