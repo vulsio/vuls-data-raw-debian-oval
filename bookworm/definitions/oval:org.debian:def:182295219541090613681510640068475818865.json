@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:182295219541090613681510640068475818865",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-32663 suricata",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "suricata"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-32663",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32663"
+			}
+		],
+		"description": "Suricata is a network Intrusion Detection System, Intrusion Prevention System and Network Security Monitoring engine. Prior to 7.0.5 and 6.0.19, a small amount of HTTP/2 traffic can lead to Suricata using a large amount of memory. The issue has been addressed in Suricata 7.0.5 and 6.0.19. Workarounds include disabling the HTTP/2 parser and reducing `app-layer.protocols.http2.max-table-size` value (default is 65536).",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28990",
+								"comment": "suricata DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

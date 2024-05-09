@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:128731763288252656097446195369289474147",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-32664 suricata",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "suricata"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-32664",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32664"
+			}
+		],
+		"description": "Suricata is a network Intrusion Detection System, Intrusion Prevention System and Network Security Monitoring engine. Prior to 7.0.5 and 6.0.19, specially crafted traffic or datasets can cause a limited buffer overflow. This vulnerability is fixed in 7.0.5 and 6.0.19. Workarounds include not use rules with `base64_decode` keyword with `bytes` option with value 1, 2 or 5 and for 7.0.x, setting `app-layer.protocols.smtp.mime.body-md5` to false.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28991",
+								"comment": "suricata DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
