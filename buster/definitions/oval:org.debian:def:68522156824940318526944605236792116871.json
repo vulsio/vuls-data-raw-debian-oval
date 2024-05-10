@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:68522156824940318526944605236792116871",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-29166 hdf5",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "hdf5"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-29166",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29166"
+			}
+		],
+		"description": "HDF5 through 1.14.3 contains a buffer overflow in H5O__linfo_decode, resulting in the corruption of the instruction pointer and causing denial of service or potential code execution.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28241",
+								"comment": "hdf5 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

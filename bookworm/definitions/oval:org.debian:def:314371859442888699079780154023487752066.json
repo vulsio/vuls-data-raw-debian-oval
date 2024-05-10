@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:314371859442888699079780154023487752066",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-29160 hdf5",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "hdf5"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-29160",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29160"
+			}
+		],
+		"description": "HDF5 through 1.14.3 contains a heap buffer overflow in H5HG__cache_heap_deserialize, resulting in the corruption of the instruction pointer and causing denial of service or potential code execution.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28906",
+								"comment": "hdf5 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

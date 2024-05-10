@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:270821202716294307459388855897241219776",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-29165 hdf5",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "hdf5"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-29165",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29165"
+			}
+		],
+		"description": "HDF5 through 1.14.3 contains a buffer overflow in H5Z__filter_fletcher32, resulting in the corruption of the instruction pointer and causing denial of service or potential code execution.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29522",
+								"comment": "hdf5 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

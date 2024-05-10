@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:215030889068134206696579180099652282745",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-32612 hdf5",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "hdf5"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-32612",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32612"
+			}
+		],
+		"description": "HDF5 Library through 1.14.3 contains a heap-based buffer over-read in H5HL__fl_deserialize in H5HLcache.c, resulting in the corruption of the instruction pointer, a different vulnerability than CVE-2024-32613.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29595",
+								"comment": "hdf5 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

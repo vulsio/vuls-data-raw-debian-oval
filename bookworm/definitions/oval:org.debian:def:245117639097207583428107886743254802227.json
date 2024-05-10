@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:245117639097207583428107886743254802227",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-32617 hdf5",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "hdf5"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-32617",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32617"
+			}
+		],
+		"description": "HDF5 Library through 1.14.3 contains a heap-based buffer over-read caused by the unsafe use of strdup in H5MM_xstrdup in H5MM.c (called from H5G__ent_to_link in H5Glink.c).",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29004",
+								"comment": "hdf5 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
