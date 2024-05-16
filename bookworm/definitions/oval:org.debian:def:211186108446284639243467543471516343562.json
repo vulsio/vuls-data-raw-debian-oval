@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:211186108446284639243467543471516343562",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-26257 dlt-daemon",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "dlt-daemon"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-26257",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-26257"
+			}
+		],
+		"description": "An issue was discovered in the Connected Vehicle Systems Alliance (COVESA; formerly GENIVI) dlt-daemon through 2.18.8. Dynamic memory is not released after it is allocated in dlt-control-common.c.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26001",
+								"comment": "dlt-daemon DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
