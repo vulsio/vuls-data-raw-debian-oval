@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35808"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  md/dm-raid: don't call md_reap_sync_thread() directly  Currently md_reap_sync_thread() is called from raid_message() directly without holding 'reconfig_mutex', this is definitely unsafe because md_reap_sync_thread() can change many fields that is protected by 'reconfig_mutex'.  However, hold 'reconfig_mutex' here is still problematic because this will cause deadlock, for example, commit 130443d60b1b (\"md: refactor idle/frozen_sync_thread() to fix deadlock\").  Fix this problem by using stop_sync_thread() to unregister sync_thread, like md/raid did.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:29178",
+								"test_ref": "oval:org.debian.oval:tst:29179",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

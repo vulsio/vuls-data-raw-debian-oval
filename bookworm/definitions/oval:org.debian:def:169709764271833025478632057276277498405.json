@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35857"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  icmp: prevent possible NULL dereferences from icmp_build_probe()  First problem is a double call to __in_dev_get_rcu(), because the second one could return NULL.  if (__in_dev_get_rcu(dev) && __in_dev_get_rcu(dev)->ifa_list)  Second problem is a read from dev->ip6_ptr with no NULL check:  if (!list_empty(&rcu_dereference(dev->ip6_ptr)->addr_list))  Use the correct RCU API to fix these.  v2: add missing include <net/addrconf.h>",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:29216",
+								"test_ref": "oval:org.debian.oval:tst:29217",
 								"comment": "linux DPKG is earlier than 6.1.90-1"
 							}
 						]
