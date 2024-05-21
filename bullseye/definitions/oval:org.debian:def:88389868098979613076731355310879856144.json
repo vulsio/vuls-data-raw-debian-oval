@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:88389868098979613076731355310879856144",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-1968 python-scrapy",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "python-scrapy"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-1968",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1968"
+			}
+		],
+		"description": "In scrapy/scrapy, an issue was identified where the Authorization header is not removed during redirects that only change the scheme (e.g., HTTPS to HTTP) but remain within the same domain. This behavior contravenes the Fetch standard, which mandates the removal of Authorization headers in cross-origin requests when the scheme, host, or port changes. Consequently, when a redirect downgrades from HTTPS to HTTP, the Authorization header may be inadvertently exposed in plaintext, leading to potential sensitive information disclosure to unauthorized actors. The flaw is located in the _build_redirect_request function of the redirect middleware.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28951",
+								"comment": "python-scrapy DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
