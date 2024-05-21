@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:332087880124494686628454375742335293671",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-7258 golang-gvisor-gvisor",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "golang-gvisor-gvisor"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-7258",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-7258"
+			}
+		],
+		"description": "A denial of service exists in Gvisor Sandbox where a bug in reference counting code in mount point tracking could lead to a panic, making it possible for an attacker running as root and with permission to mount volumes to kill the sandbox. We recommend upgrading past commit 6a112c60a257dadac59962e0bc9e9b5aee70b5b6",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28102",
+								"comment": "golang-gvisor-gvisor DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
