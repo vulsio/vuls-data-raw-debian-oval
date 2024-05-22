@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52746"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  xfrm/compat: prevent potential spectre v1 gadget in xfrm_xlate32_attr()    int type = nla_type(nla);    if (type > XFRMA_MAX) {             return -EOPNOTSUPP;   }  @type is then used as an array index and can be used as a Spectre v1 gadget.    if (nla_len(nla) < compat_policy[type].len) {  array_index_nospec() can be used to prevent leaking content of kernel memory to malicious users.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:28140",
+								"test_ref": "oval:org.debian.oval:tst:28206",
 								"comment": "linux DPKG is earlier than 6.1.12-1"
 							}
 						]

@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52731"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  fbdev: Fix invalid page access after closing deferred I/O devices  When a fbdev with deferred I/O is once opened and closed, the dirty pages still remain queued in the pageref list, and eventually later those may be processed in the delayed work.  This may lead to a corruption of pages, hitting an Oops.  This patch makes sure to cancel the delayed work and clean up the pageref list at closing the device for addressing the bug.  A part of the cleanup code is factored out as a new helper function that is called from the common fb_release().",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:28125",
+								"test_ref": "oval:org.debian.oval:tst:28191",
 								"comment": "linux DPKG is earlier than 6.1.15-1"
 							}
 						]

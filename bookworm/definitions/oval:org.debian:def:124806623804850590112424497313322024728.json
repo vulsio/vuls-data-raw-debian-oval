@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52762"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  virtio-blk: fix implicit overflow on virtio_max_dma_size  The following codes have an implicit conversion from size_t to u32: (u32)max_size = (size_t)virtio_max_dma_size(vdev);  This may lead overflow, Ex (size_t)4G -> (u32)0. Once virtio_max_dma_size() has a larger size than U32_MAX, use U32_MAX instead.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:28156",
+								"test_ref": "oval:org.debian.oval:tst:28222",
 								"comment": "linux DPKG is earlier than 6.1.64-1"
 							}
 						]

@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52859"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  perf: hisi: Fix use-after-free when register pmu fails  When we fail to register the uncore pmu, the pmu context may not been allocated. The error handing will call cpuhp_state_remove_instance() to call uncore pmu offline callback, which migrate the pmu context. Since that's liable to lead to some kind of use-after-free.  Use cpuhp_state_remove_instance_nocalls() instead of cpuhp_state_remove_instance() so that the notifiers don't execute after the PMU device has been failed to register.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:28240",
+								"test_ref": "oval:org.debian.oval:tst:28306",
 								"comment": "linux DPKG is earlier than 6.1.64-1"
 							}
 						]

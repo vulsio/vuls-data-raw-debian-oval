@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52804"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  fs/jfs: Add validity check for db_maxag and db_agpref  Both db_maxag and db_agpref are used as the index of the db_agfree array, but there is currently no validity check for db_maxag and db_agpref, which can lead to errors.  The following is related bug reported by Syzbot:  UBSAN: array-index-out-of-bounds in fs/jfs/jfs_dmap.c:639:20 index 7936 is out of range for type 'atomic_t[128]'  Add checking that the values of db_maxag and db_agpref are valid indexes for the db_agfree array.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:28187",
+								"test_ref": "oval:org.debian.oval:tst:28253",
 								"comment": "linux DPKG is earlier than 6.1.64-1"
 							}
 						]
