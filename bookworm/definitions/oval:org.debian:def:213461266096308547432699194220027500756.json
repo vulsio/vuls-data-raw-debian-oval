@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:213461266096308547432699194220027500756",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-3708 lighttpd",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "lighttpd"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-3708",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-3708"
+			}
+		],
+		"description": "A condition exists in lighttpd version prior to 1.4.51 whereby a remote attacker can craft an http request which could result in multiple outcomes: 1.) cause lighttpd to access freed memory in which case the process lighttpd is running in could be terminated or other non-deterministic behavior could result 2.) a memory information disclosure event could result which could be used to determine the state of memory which could then be used to theoretically bypass ALSR protections  This CVE will be updated with more details on July 9th, 2024 after affected parties have had time to remediate.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29758",
+								"comment": "lighttpd DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
