@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:157078567083338147059715963791714855180",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-36048 qtnetworkauth-everywhere-src",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "qtnetworkauth-everywhere-src"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-36048",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36048"
+			}
+		],
+		"description": "QAbstractOAuth in Qt Network Authorization in Qt before 5.15.17, 6.x before 6.2.13, 6.3.x through 6.5.x before 6.5.6, and 6.6.x through 6.7.x before 6.7.1 uses only the time to seed the PRNG, which may result in guessable values.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28838",
+								"comment": "qtnetworkauth-everywhere-src DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}
