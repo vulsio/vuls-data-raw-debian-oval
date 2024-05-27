@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:118564025464261446389164102696281146650",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-4967 strongswan",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "strongswan"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-4967",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-4967"
+			}
+		],
+		"description": "strongSwan versions 5.9.2 through 5.9.5 are affected by authorization bypass through improper validation of certificate with host mismatch (CWE-297). When certificates are used to authenticate clients in TLS-based EAP methods, the IKE or EAP identity supplied by a client is not enforced to be contained in the client's certificate. So clients can authenticate with any trusted certificate and claim an arbitrary IKE/EAP identity as their own. This is problematic if the identity is used to make policy decisions. A fix was released in strongSwan version 5.9.6 in August 2022 (e4b4aabc4996fc61c37deab7858d07bc4d220136).",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:25706",
+								"comment": "strongswan DPKG is earlier than 5.9.4-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
