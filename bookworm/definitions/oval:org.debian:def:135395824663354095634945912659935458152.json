@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:135395824663354095634945912659935458152",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-24856 acpica-unix",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "acpica-unix"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-24856",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24856"
+			}
+		],
+		"description": "The memory allocation function ACPI_ALLOCATE_ZEROED does not guarantee a successful allocation, but the subsequent code directly dereferences the pointer that receives it, which may lead to null pointer dereference.  To fix this issue, a null pointer check should be added. If it is null,  return exception code AE_NO_MEMORY.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28879",
+								"comment": "acpica-unix DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
