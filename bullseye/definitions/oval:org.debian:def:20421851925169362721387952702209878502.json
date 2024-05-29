@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:20421851925169362721387952702209878502",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-2199 389-ds-base",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "389-ds-base"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-2199",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2199"
+			}
+		],
+		"description": "A denial of service vulnerability was found in 389-ds-base ldap server. This issue may allow an authenticated user to cause a server crash while modifying `userPassword` using malformed input.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29395",
+								"comment": "389-ds-base DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
