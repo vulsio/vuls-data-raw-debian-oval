@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:231426061084422020993736648598391820788",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2004-2386 sredird",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "sredird"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2004-2386",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-2386"
+			}
+		],
+		"description": "Format string vulnerability in the LogMsg function in sercd before 2.3.1 and sredird 2.2.1 and earlier allows remote attackers to execute arbitrary code via format string specifiers passed from the HandleCPCCommand function.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:651",
+								"comment": "sredird DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
