@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36017"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  rtnetlink: Correct nested IFLA_VF_VLAN_LIST attribute validation  Each attribute inside a nested IFLA_VF_VLAN_LIST is assumed to be a struct ifla_vf_vlan_info so the size of such attribute needs to be at least of sizeof(struct ifla_vf_vlan_info) which is 14 bytes. The current size validation in do_setvfinfo is against NLA_HDRLEN (4 bytes) which is less than sizeof(struct ifla_vf_vlan_info) so this validation is not enough and a too small attribute might be cast to a struct ifla_vf_vlan_info, this might result in an out of bands read access when accessing the saved (casted) entry in ivvl.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5703"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30285",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:30302",
+								"comment": "linux DPKG is earlier than 5.10.218-1"
 							}
 						]
 					}

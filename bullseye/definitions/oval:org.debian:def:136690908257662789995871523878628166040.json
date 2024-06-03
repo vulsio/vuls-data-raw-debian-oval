@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:136690908257662789995871523878628166040",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-23949 slic3r-prusa",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "slic3r-prusa"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-23949",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23949"
+			}
+		],
+		"description": "Multiple improper array index validation vulnerabilities exist in the readMSH functionality of libigl v2.5.0. A specially crafted .msh file can lead to an out-of-bounds write. An attacker can provide a malicious file to trigger this vulnerability.This vulnerability concerns the `igl::MshLoader::parse_node_field` function while handling an `ascii`.msh` file.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29482",
+								"comment": "slic3r-prusa DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

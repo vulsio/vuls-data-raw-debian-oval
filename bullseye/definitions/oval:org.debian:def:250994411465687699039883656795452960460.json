@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36946"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  phonet: fix rtm_phonet_notify() skb allocation  fill_route() stores three components in the skb:  - struct rtmsg - RTA_DST (u8) - RTA_OIF (u32)  Therefore, rtm_phonet_notify() should use  NLMSG_ALIGN(sizeof(struct rtmsg)) + nla_total_size(1) + nla_total_size(4)",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5703"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30347",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:30364",
+								"comment": "linux DPKG is earlier than 5.10.218-1"
 							}
 						]
 					}

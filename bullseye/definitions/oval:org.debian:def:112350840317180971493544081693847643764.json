@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36940"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  pinctrl: core: delete incorrect free in pinctrl_enable()  The \"pctldev\" struct is allocated in devm_pinctrl_register_and_init(). It's a devm_ managed pointer that is freed by devm_pinctrl_dev_release(), so freeing it in pinctrl_enable() will lead to a double free.  The devm_pinctrl_dev_release() function frees the pindescs and destroys the mutex as well.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5703"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30343",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:30360",
+								"comment": "linux DPKG is earlier than 5.10.218-1"
 							}
 						]
 					}

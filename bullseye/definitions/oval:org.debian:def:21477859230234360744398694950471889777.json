@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36957"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  octeontx2-af: avoid off-by-one read from userspace  We try to access count + 1 byte from userspace with memdup_user(buffer, count + 1). However, the userspace only provides buffer of count bytes and only these count bytes are verified to be okay to access. To ensure the copied buffer is NUL terminated, we use memdup_user_nul instead.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5703"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30355",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:30372",
+								"comment": "linux DPKG is earlier than 5.10.218-1"
 							}
 						]
 					}
