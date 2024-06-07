@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:322863535280232018499408684711049887216",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-5480 pytorch",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "pytorch"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-5480",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5480"
+			}
+		],
+		"description": "A vulnerability in the PyTorch's torch.distributed.rpc framework, specifically in versions prior to 2.2.2, allows for remote code execution (RCE). The framework, which is used in distributed training scenarios, does not properly verify the functions being called during RPC (Remote Procedure Call) operations. This oversight permits attackers to execute arbitrary commands by leveraging built-in Python functions such as eval during multi-cpu RPC communication. The vulnerability arises from the lack of restriction on function calls when a worker node serializes and sends a PythonUDF (User Defined Function) to the master node, which then deserializes and executes the function without validation. This flaw can be exploited to compromise master nodes initiating distributed training, potentially leading to the theft of sensitive AI-related data.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30018",
+								"comment": "pytorch DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

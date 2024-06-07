@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:298492954178792462092934902606666476439",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-49441 dnsmasq",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "dnsmasq"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-49441",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49441"
+			}
+		],
+		"description": "dnsmasq 2.9 is vulnerable to Integer Overflow via forward_query.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27893",
+								"comment": "dnsmasq DPKG is earlier than 2.89-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
