@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:220732264067829898198810239270798623644",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-5187 onnx",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "onnx"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-5187",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5187"
+			}
+		],
+		"description": "A vulnerability in the `download_model_with_test_data` function of the onnx/onnx framework, version 1.16.0, allows for arbitrary file overwrite due to inadequate prevention of path traversal attacks in malicious tar files. This vulnerability enables attackers to overwrite any file on the system, potentially leading to remote code execution, deletion of system, personal, or application files, thus impacting the integrity and availability of the system. The issue arises from the function's handling of tar file extraction without performing security checks on the paths within the tar file, as demonstrated by the ability to overwrite the `/home/kali/.ssh/authorized_keys` file by specifying an absolute path in the malicious tar file.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30458",
+								"comment": "onnx DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
