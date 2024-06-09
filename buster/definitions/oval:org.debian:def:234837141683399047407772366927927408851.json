@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:234837141683399047407772366927927408851",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-37407 libarchive",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "libarchive"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-37407",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37407"
+			}
+		],
+		"description": "Libarchive before 3.7.4 allows name out-of-bounds access when a ZIP archive has an empty-name file and mac-ext is enabled. This occurs in slurp_central_directory in archive_read_support_format_zip.c.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28923",
+								"comment": "libarchive DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}
