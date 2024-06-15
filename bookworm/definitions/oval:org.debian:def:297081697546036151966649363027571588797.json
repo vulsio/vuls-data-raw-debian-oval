@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:297081697546036151966649363027571588797",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52890 ntfs-3g",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "ntfs-3g"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52890",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52890"
+			}
+		],
+		"description": "NTFS-3G before 75dcdc2 has a use-after-free in ntfs_uppercase_mbs in libntfs-3g/unistr.c. NOTE: discussion suggests that exploitation would be challenging.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28398",
+								"comment": "ntfs-3g DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
