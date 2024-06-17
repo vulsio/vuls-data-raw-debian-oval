@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:307373762712818150712620260161486400819",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-38394 gnome-settings-daemon",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "gnome-settings-daemon"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-38394",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-38394"
+			}
+		],
+		"description": "Mismatches in interpreting USB authorization policy between GNOME Settings Daemon (GSD) through 46.0 and the Linux kernel's underlying device matching logic allow a physically proximate attacker to access some unintended Linux kernel USB functionality, such as USB device-specific kernel modules and filesystem implementations. NOTE: the GSD supplier indicates that consideration of a mitigation for this within GSD would be in the context of \"a new feature, not a CVE.\"",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29975",
+								"comment": "gnome-settings-daemon DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
