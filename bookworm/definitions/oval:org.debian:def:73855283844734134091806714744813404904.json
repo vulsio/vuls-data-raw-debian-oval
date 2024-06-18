@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:73855283844734134091806714744813404904",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-37795 cvc5",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "cvc5"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-37795",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37795"
+			}
+		],
+		"description": "A segmentation fault in CVC5 Solver v1.1.3 allows attackers to cause a Denial of Service (DoS) via a crafted SMT-LIB input file containing the `set-logic` command with specific formatting errors.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29967",
+								"comment": "cvc5 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
