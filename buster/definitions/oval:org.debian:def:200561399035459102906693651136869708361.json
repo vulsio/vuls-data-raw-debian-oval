@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-38580"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  epoll: be better about file lifetimes  epoll can call out to vfs_poll() with a file pointer that may race with the last 'fput()'. That would make f_count go down to zero, and while the ep->mtx locking means that the resulting file pointer tear-down will be blocked until the poll returns, it means that f_count is already dead, and any use of it won't actually get a reference to the file any more: it's dead regardless.  Make sure we have a valid ref on the file pointer before we call down to vfs_poll() from the epoll routines.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:29000",
+								"test_ref": "oval:org.debian.oval:tst:28996",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

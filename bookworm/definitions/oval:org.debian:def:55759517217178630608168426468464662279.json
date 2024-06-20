@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-38544"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  RDMA/rxe: Fix seg fault in rxe_comp_queue_pkt  In rxe_comp_queue_pkt() an incoming response packet skb is enqueued to the resp_pkts queue and then a decision is made whether to run the completer task inline or schedule it. Finally the skb is dereferenced to bump a 'hw' performance counter. This is wrong because if the completer task is already running in a separate thread it may have already processed the skb and freed it which can cause a seg fault.  This has been observed infrequently in testing at high scale.  This patch fixes this by changing the order of enqueuing the packet until after the counter is accessed.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30043",
+								"test_ref": "oval:org.debian.oval:tst:30038",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

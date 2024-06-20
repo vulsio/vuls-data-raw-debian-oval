@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-38560"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  scsi: bfa: Ensure the copied buf is NUL terminated  Currently, we allocate a nbytes-sized kernel buffer and copy nbytes from userspace to that buffer. Later, we use sscanf on this buffer but we don't ensure that the string is terminated inside the buffer, this can lead to OOB read when using sscanf. Fix this issue by using memdup_user_nul instead of memdup_user.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30058",
+								"test_ref": "oval:org.debian.oval:tst:30053",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

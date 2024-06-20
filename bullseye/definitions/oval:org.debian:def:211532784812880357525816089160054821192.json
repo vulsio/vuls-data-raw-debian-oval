@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-47583"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  media: mxl111sf: change mutex_init() location  Syzbot reported, that mxl111sf_ctrl_msg() uses uninitialized mutex. The problem was in wrong mutex_init() location.  Previous mutex_init(&state->msg_lock) call was in ->init() function, but dvb_usbv2_init() has this order of calls:  \tdvb_usbv2_init() \t  dvb_usbv2_adapter_init() \t    dvb_usbv2_adapter_frontend_init() \t      props->frontend_attach()  \t  props->init()  Since mxl111sf_* devices call mxl111sf_ctrl_msg() in ->frontend_attach() internally we need to initialize state->msg_lock before frontend_attach(). To achieve it, ->probe() call added to all mxl111sf_* devices, which will simply initiaize mutex.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:23812",
+								"test_ref": "oval:org.debian.oval:tst:23808",
 								"comment": "linux DPKG is earlier than 5.10.92-1"
 							}
 						]

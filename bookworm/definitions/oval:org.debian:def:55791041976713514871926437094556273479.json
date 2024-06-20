@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-38575"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  wifi: brcmfmac: pcie: handle randbuf allocation failure  The kzalloc() in brcmf_pcie_download_fw_nvram() will return null if the physical memory has run out. As a result, if we use get_random_bytes() to generate random bytes in the randbuf, the null pointer dereference bug will happen.  In order to prevent allocation failure, this patch adds a separate function using buffer on kernel stack to generate random bytes in the randbuf, which could prevent the kernel stack from overflow.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30070",
+								"test_ref": "oval:org.debian.oval:tst:30065",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

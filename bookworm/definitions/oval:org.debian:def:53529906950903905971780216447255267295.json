@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-47602"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  mac80211: track only QoS data frames for admission control  For admission control, obviously all of that only works for QoS data frames, otherwise we cannot even access the QoS field in the header.  Syzbot reported (see below) an uninitialized value here due to a status of a non-QoS nullfunc packet, which isn't even long enough to contain the QoS header.  Fix this to only do anything for QoS data packets.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:22915",
+								"test_ref": "oval:org.debian.oval:tst:22911",
 								"comment": "linux DPKG is earlier than 5.15.15-1"
 							}
 						]

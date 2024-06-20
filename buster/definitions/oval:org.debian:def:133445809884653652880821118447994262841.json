@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-47579"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ovl: fix warning in ovl_create_real()  Syzbot triggered the following warning in ovl_workdir_create() -> ovl_create_real():  \tif (!err && WARN_ON(!newdentry->d_inode)) {  The reason is that the cgroup2 filesystem returns from mkdir without instantiating the new dentry.  Weird filesystems such as this will be rejected by overlayfs at a later stage during setup, but to prevent such a warning, call ovl_mkdir_real() directly from ovl_workdir_create() and reject this case early.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:23164",
+								"test_ref": "oval:org.debian.oval:tst:23161",
 								"comment": "linux DPKG is earlier than 4.19.232-1"
 							}
 						]
