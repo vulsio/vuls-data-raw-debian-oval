@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:28722252472072417760141772580934429950",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-48655 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-48655",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48655"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  firmware: arm_scmi: Harden accesses to the reset domains  Accessing reset domains descriptors by the index upon the SCMI drivers requests through the SCMI reset operations interface can potentially lead to out-of-bound violations if the SCMI driver misbehave.  Add an internal consistency check before any such domains descriptors accesses.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:25550",
+								"comment": "linux-5.10 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

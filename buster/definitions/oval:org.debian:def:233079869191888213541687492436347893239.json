@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:233079869191888213541687492436347893239",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-35958 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-35958",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35958"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net: ena: Fix incorrect descriptor free behavior  ENA has two types of TX queues: - queues which only process TX packets arriving from the network stack - queues which only process TX packets forwarded to it by XDP_REDIRECT   or XDP_TX instructions  The ena_free_tx_bufs() cycles through all descriptors in a TX queue and unmaps + frees every descriptor that hasn't been acknowledged yet by the device (uncompleted TX transactions). The function assumes that the processed TX queue is necessarily from the first category listed above and ends up using napi_consume_skb() for descriptors belonging to an XDP specific queue.  This patch solves a bug in which, in case of a VF reset, the descriptors aren't freed correctly, leading to crashes.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29263",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:29588919888333028925669954221271606477",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-27417 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-27417",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27417"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ipv6: fix potential \"struct net\" leak in inet6_rtm_getaddr()  It seems that if userspace provides a correct IFA_TARGET_NETNSID value but no IFA_ADDRESS and IFA_LOCAL attributes, inet6_rtm_getaddr() returns -EINVAL with an elevated \"struct net\" refcount.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28894",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:201913032475322692058779380416789449417",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-35822 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-35822",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35822"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  usb: udc: remove warning when queue disabled ep  It is possible trigger below warning message from mass storage function,  WARNING: CPU: 6 PID: 3839 at drivers/usb/gadget/udc/core.c:294 usb_ep_queue+0x7c/0x104 pc : usb_ep_queue+0x7c/0x104 lr : fsg_main_thread+0x494/0x1b3c  Root cause is mass storage function try to queue request from main thread, but other thread may already disable ep when function disable.  As there is no function failure in the driver, in order to avoid effort to fix warning, change WARN_ON_ONCE() in usb_ep_queue() to pr_debug().",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29153",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

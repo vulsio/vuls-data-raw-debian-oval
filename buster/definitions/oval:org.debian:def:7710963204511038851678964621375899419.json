@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:7710963204511038851678964621375899419",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-24857 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-24857",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24857"
+			}
+		],
+		"description": "A race condition was found in the Linux kernel's net/bluetooth device driver in conn_info_{min,max}_age_set() function. This can result in integrity overflow issue, possibly leading to bluetooth connection abnormality or denial of service.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28379",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

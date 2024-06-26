@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:295116756914449540935850538170417768190",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-35997 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-35997",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35997"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  HID: i2c-hid: remove I2C_HID_READ_PENDING flag to prevent lock-up  The flag I2C_HID_READ_PENDING is used to serialize I2C operations. However, this is not necessary, because I2C core already has its own locking for that.  More importantly, this flag can cause a lock-up: if the flag is set in i2c_hid_xfer() and an interrupt happens, the interrupt handler (i2c_hid_irq) will check this flag and return immediately without doing anything, then the interrupt handler will be invoked again in an infinite loop.  Since interrupt handler is an RT task, it takes over the CPU and the flag-clearing task never gets scheduled, thus we have a lock-up.  Delete this unnecessary flag.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29289",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

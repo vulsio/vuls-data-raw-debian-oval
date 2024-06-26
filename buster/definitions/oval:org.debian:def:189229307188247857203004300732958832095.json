@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:189229307188247857203004300732958832095",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-35955 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-35955",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35955"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  kprobes: Fix possible use-after-free issue on kprobe registration  When unloading a module, its state is changing MODULE_STATE_LIVE ->  MODULE_STATE_GOING -> MODULE_STATE_UNFORMED. Each change will take a time. `is_module_text_address()` and `__module_text_address()` works with MODULE_STATE_LIVE and MODULE_STATE_GOING. If we use `is_module_text_address()` and `__module_text_address()` separately, there is a chance that the first one is succeeded but the next one is failed because module->state becomes MODULE_STATE_UNFORMED between those operations.  In `check_kprobe_address_safe()`, if the second `__module_text_address()` is failed, that is ignored because it expected a kernel_text address. But it may have failed simply because module->state has been changed to MODULE_STATE_UNFORMED. In this case, arm_kprobe() will try to modify non-exist module text address (use-after-free).  To fix this problem, we should not use separated `is_module_text_address()` and `__module_text_address()`, but use only `__module_text_address()` once and do `try_module_get(module)` which is only available with MODULE_STATE_LIVE.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29262",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

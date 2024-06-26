@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:50161534401867675753142333388553380612",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52498 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52498",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52498"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  PM: sleep: Fix possible deadlocks in core system-wide PM code  It is reported that in low-memory situations the system-wide resume core code deadlocks, because async_schedule_dev() executes its argument function synchronously if it cannot allocate memory (and not only in that case) and that function attempts to acquire a mutex that is already held.  Executing the argument function synchronously from within dpm_async_fn() may also be problematic for ordering reasons (it may cause a consumer device's resume callback to be invoked before a requisite supplier device's one, for example).  Address this by changing the code in question to use async_schedule_dev_nocall() for scheduling the asynchronous execution of device suspend and resume functions and to directly run them synchronously if async_schedule_dev_nocall() returns false.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27713",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

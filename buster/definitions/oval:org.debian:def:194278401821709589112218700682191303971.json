@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:194278401821709589112218700682191303971",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-36953 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-36953",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36953"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  KVM: arm64: vgic-v2: Check for non-NULL vCPU in vgic_v2_parse_attr()  vgic_v2_parse_attr() is responsible for finding the vCPU that matches the user-provided CPUID, which (of course) may not be valid. If the ID is invalid, kvm_get_vcpu_by_id() returns NULL, which isn't handled gracefully.  Similar to the GICv3 uaccess flow, check that kvm_get_vcpu_by_id() actually returns something and fail the ioctl if not.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29387",
+								"comment": "linux-5.10 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

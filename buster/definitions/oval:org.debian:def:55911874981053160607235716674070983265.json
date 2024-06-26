@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:55911874981053160607235716674070983265",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-26642 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-26642",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26642"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  netfilter: nf_tables: disallow anonymous set with timeout flag  Anonymous sets are never used with timeout from userspace, reject this. Exception to this rule is NFT_SET_EVAL to ensure legacy meters still work.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28489",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

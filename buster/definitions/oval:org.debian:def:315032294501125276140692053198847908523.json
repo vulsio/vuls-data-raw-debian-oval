@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:315032294501125276140692053198847908523",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52615 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52615",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52615"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  hwrng: core - Fix page fault dead lock on mmap-ed hwrng  There is a dead-lock in the hwrng device read path.  This triggers when the user reads from /dev/hwrng into memory also mmap-ed from /dev/hwrng.  The resulting page fault triggers a recursive read which then dead-locks.  Fix this by using a stack buffer when calling copy_to_user.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27785",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

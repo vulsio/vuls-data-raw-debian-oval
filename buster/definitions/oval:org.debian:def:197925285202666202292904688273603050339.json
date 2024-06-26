@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:197925285202666202292904688273603050339",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-26910 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-26910",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26910"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  netfilter: ipset: fix performance regression in swap operation  The patch \"netfilter: ipset: fix race condition between swap/destroy and kernel side add/del/test\", commit 28628fa9 fixes a race condition. But the synchronize_rcu() added to the swap function unnecessarily slows it down: it can safely be moved to destroy and use call_rcu() instead.  Eric Dumazet pointed out that simply calling the destroy functions as rcu callback does not work: sets with timeout use garbage collectors which need cancelling at destroy which can wait. Therefore the destroy functions are split into two: cancelling garbage collectors safely at executing the command received by netlink and moving the remaining part only into the rcu callback.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28717",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

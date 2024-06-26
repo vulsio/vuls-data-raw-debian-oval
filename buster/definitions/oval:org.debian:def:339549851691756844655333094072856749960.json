@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:339549851691756844655333094072856749960",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-35835 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-35835",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35835"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net/mlx5e: fix a double-free in arfs_create_groups  When `in` allocated by kvzalloc fails, arfs_create_groups will free ft->g and return an error. However, arfs_create_table, the only caller of arfs_create_groups, will hold this error and call to mlx5e_destroy_flow_table, in which the ft->g will be freed again.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29167",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

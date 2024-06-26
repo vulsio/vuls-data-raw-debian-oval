@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:73176014484125973320447194433760890411",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-27395 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-27395",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27395"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net: openvswitch: Fix Use-After-Free in ovs_ct_exit  Since kfree_rcu, which is called in the hlist_for_each_entry_rcu traversal of ovs_ct_limit_exit, is not part of the RCU read critical section, it is possible that the RCU grace period will pass during the traversal and the key will be free.  To prevent this, it should be changed to hlist_for_each_entry_safe.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28869",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

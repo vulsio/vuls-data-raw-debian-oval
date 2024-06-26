@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:62101223181827091953784302252368649739",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52699 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52699",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52699"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  sysv: don't call sb_bread() with pointers_lock held  syzbot is reporting sleep in atomic context in SysV filesystem [1], for sb_bread() is called with rw_spinlock held.  A \"write_lock(&pointers_lock) => read_lock(&pointers_lock) deadlock\" bug and a \"sb_bread() with write_lock(&pointers_lock)\" bug were introduced by \"Replace BKL for chain locking with sysvfs-private rwlock\" in Linux 2.5.12.  Then, \"[PATCH] err1-40: sysvfs locking fix\" in Linux 2.6.8 fixed the former bug by moving pointers_lock lock to the callers, but instead introduced a \"sb_bread() with read_lock(&pointers_lock)\" bug (which made this problem easier to hit).  Al Viro suggested that why not to do like get_branch()/get_block()/ find_shared() in Minix filesystem does. And doing like that is almost a revert of \"[PATCH] err1-40: sysvfs locking fix\" except that get_branch()  from with find_shared() is called without write_lock(&pointers_lock).",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27855",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

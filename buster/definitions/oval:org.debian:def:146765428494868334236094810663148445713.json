@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:146765428494868334236094810663148445713",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52444 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52444",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52444"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  f2fs: fix to avoid dirent corruption  As Al reported in link[1]:  f2fs_rename() ... \tif (old_dir != new_dir && !whiteout) \t\tf2fs_set_link(old_inode, old_dir_entry, \t\t\t\t\told_dir_page, new_dir); \telse \t\tf2fs_put_page(old_dir_page, 0);  You want correct inumber in the \"..\" link.  And cross-directory rename does move the source to new parent, even if you'd been asked to leave a whiteout in the old place.  [1] https://lore.kernel.org/all/20231017055040.GN800259@ZenIV/  With below testcase, it may cause dirent corruption, due to it missed to call f2fs_set_link() to update \"..\" link to new directory. - mkdir -p dir/foo - renameat2 -w dir/foo bar  [ASSERT] (__chk_dots_dentries:1421)  --> Bad inode number[0x4] for '..', parent parent ino is [0x3] [FSCK] other corrupted bugs                           [Fail]",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27667",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.209-2~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

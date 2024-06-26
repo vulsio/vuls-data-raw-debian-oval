@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:248531735515793714706506767386647723176",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-35925 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-35925",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35925"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  block: prevent division by zero in blk_rq_stat_sum()  The expression dst->nr_samples + src->nr_samples may have zero value on overflow. It is necessary to add a check to avoid division by zero.  Found by Linux Verification Center (linuxtesting.org) with Svace.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29227",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

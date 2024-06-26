@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:215701439899329957440769158260716781405",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-27020 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-27020",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-27020"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  netfilter: nf_tables: Fix potential data-race in __nft_expr_type_get()  nft_unregister_expr() can concurrent with __nft_expr_type_get(), and there is not any protection when iterate over nf_tables_expressions list in __nft_expr_type_get(). Therefore, there is potential data-race of nf_tables_expressions list entry.  Use list_for_each_entry_rcu() to iterate over nf_tables_expressions list in __nft_expr_type_get(), and use rcu_read_lock() in the caller nft_expr_type_get() to protect the entire type query process.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28810",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

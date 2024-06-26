@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:301064453716786880554651182745055629007",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-26795 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-26795",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26795"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  riscv: Sparse-Memory/vmemmap out-of-bounds fix  Offset vmemmap so that the first page of vmemmap will be mapped to the first page of physical memory in order to ensure that vmemmap’s bounds will be respected during pfn_to_page()/page_to_pfn() operations. The conversion macros will produce correct SV39/48/57 addresses for every possible/valid DRAM_BASE inside the physical memory limits.  v2:Address Alex's comments",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28616",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

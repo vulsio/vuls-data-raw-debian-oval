@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:5997291485765447884271760344777997106",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-26598 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-26598",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26598"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  KVM: arm64: vgic-its: Avoid potential UAF in LPI translation cache  There is a potential UAF scenario in the case of an LPI translation cache hit racing with an operation that invalidates the cache, such as a DISCARD ITS command. The root of the problem is that vgic_its_check_cache() does not elevate the refcount on the vgic_irq before dropping the lock that serializes refcount changes.  Have vgic_its_check_cache() raise the refcount on the returned vgic_irq and add the corresponding decrement after queueing the interrupt.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28459",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.209-2~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

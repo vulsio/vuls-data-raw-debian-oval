@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:1225985093927024009400171874017584506",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-26654 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-26654",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26654"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ALSA: sh: aica: reorder cleanup operations to avoid UAF bugs  The dreamcastcard->timer could schedule the spu_dma_work and the spu_dma_work could also arm the dreamcastcard->timer.  When the snd_pcm_substream is closing, the aica_channel will be deallocated. But it could still be dereferenced in the worker thread. The reason is that del_timer() will return directly regardless of whether the timer handler is running or not and the worker could be rescheduled in the timer handler. As a result, the UAF bug will happen. The racy situation is shown below:        (Thread 1)                 |      (Thread 2) snd_aicapcm_pcm_close()          |  ...                             |  run_spu_dma() //worker                                  |    mod_timer()   flush_work()                   |   del_timer()                    |  aica_period_elapsed() //timer   kfree(dreamcastcard->channel)  |    schedule_work()                                  |  run_spu_dma() //worker   ...                            |    dreamcastcard->channel-> //USE  In order to mitigate this bug and other possible corner cases, call mod_timer() conditionally in run_spu_dma(), then implement PCM sync_stop op to cancel both the timer and worker. The sync_stop op will be called from PCM core appropriately when needed.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28501",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

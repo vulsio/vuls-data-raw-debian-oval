@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:27446508108787034672255761990733786498",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-26814 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-26814",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26814"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  vfio/fsl-mc: Block calling interrupt handler without trigger  The eventfd_ctx trigger pointer of the vfio_fsl_mc_irq object is initially NULL and may become NULL if the user sets the trigger eventfd to -1.  The interrupt handler itself is guaranteed that trigger is always valid between request_irq() and free_irq(), but the loopback testing mechanisms to invoke the handler function need to test the trigger.  The triggering and setting ioctl paths both make use of igate and are therefore mutually exclusive.  The vfio-fsl-mc driver does not make use of irqfds, nor does it support any sort of masking operations, therefore unlike vfio-pci and vfio-platform, the flow can remain essentially unchanged.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28633",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

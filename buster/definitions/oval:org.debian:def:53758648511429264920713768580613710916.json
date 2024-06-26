@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:53758648511429264920713768580613710916",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52439 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52439",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52439"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  uio: Fix use-after-free in uio_open  core-1\t\t\t\tcore-2 ------------------------------------------------------- uio_unregister_device\t\tuio_open \t\t\t\tidev = idr_find() device_unregister(&idev->dev) put_device(&idev->dev) uio_device_release \t\t\t\tget_device(&idev->dev) kfree(idev) uio_free_minor(minor) \t\t\t\tuio_release \t\t\t\tput_device(&idev->dev) \t\t\t\tkfree(idev) -------------------------------------------------------  In the core-1 uio_unregister_device(), the device_unregister will kfree idev when the idev->dev kobject ref is 1. But after core-1 device_unregister, put_device and before doing kfree, the core-2 may get_device. Then: 1. After core-1 kfree idev, the core-2 will do use-after-free for idev. 2. When core-2 do uio_release and put_device, the idev will be double    freed.  To address this issue, we can get idev atomic & inc idev reference with minor_lock.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27663",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.209-2~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

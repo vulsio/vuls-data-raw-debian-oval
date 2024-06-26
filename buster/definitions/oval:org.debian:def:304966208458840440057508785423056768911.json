@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:304966208458840440057508785423056768911",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-35922 linux-5.10",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "linux-5.10"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-35922",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35922"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  fbmon: prevent division by zero in fb_videomode_from_videomode()  The expression htotal * vtotal can have a zero value on overflow. It is necessary to prevent division by zero like in fb_var_to_videomode().  Found by Linux Verification Center (linuxtesting.org) with Svace.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29224",
+								"comment": "linux-5.10 DPKG is earlier than 5.10.216-1~deb10u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}
