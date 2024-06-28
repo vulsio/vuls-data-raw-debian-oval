@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:122879045053144517653919220849506158178",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-45195 adminer",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 10",
+			"product": "adminer"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-45195",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45195"
+			}
+		],
+		"description": "Adminer and AdminerEvo are vulnerable to SSRF via database connection fields. This could allow an unauthenticated remote attacker to enumerate or access systems the attacker would not otherwise have access to. Adminer is no longer supported, but this issue was fixed in AdminerEvo version 4.8.4.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27244",
+								"comment": "adminer DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 10 is installed"
+			}
+		]
+	}
+}

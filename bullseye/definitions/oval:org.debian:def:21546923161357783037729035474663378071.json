@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:21546923161357783037729035474663378071",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-34580 xml-security-c",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "xml-security-c"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-34580",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34580"
+			}
+		],
+		"description": "Apache XML Security for C++ through 2.0.4 implements the XML Signature Syntax and Processing (XMLDsig) specification without protection against an SSRF payload in a KeyInfo element. NOTE: the supplier disputes this CVE Record on the grounds that they are implementing the specification \"correctly\" and are not \"at fault.\"",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30251",
+								"comment": "xml-security-c DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

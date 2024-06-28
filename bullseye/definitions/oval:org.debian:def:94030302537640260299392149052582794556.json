@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:94030302537640260299392149052582794556",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52892 php-phpseclib",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "php-phpseclib"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52892",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52892"
+			}
+		],
+		"description": "In phpseclib before 1.0.22, 2.x before 2.0.46, and 3.x before 3.0.33, some characters in Subject Alternative Name fields in TLS certificates are incorrectly allowed to have a special meaning in regular expressions (such as a + wildcard), leading to name confusion in X.509 certificate host verification.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29124",
+								"comment": "php-phpseclib DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
