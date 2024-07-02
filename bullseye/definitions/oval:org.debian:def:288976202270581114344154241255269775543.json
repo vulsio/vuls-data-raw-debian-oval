@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:288976202270581114344154241255269775543",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-34703 botan",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "botan"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-34703",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34703"
+			}
+		],
+		"description": "Botan is a C++ cryptography library. X.509 certificates can identify elliptic curves using either an object identifier or using explicit encoding of the parameters. Prior to versions 3.3.0 and 2.19.4, an attacker could present an ECDSA X.509 certificate using explicit encoding where the parameters are very large. The proof of concept used a 16Kbit prime for this purpose. When parsing, the parameter is checked to be prime, causing excessive computation. This was patched in 2.19.4 and 3.3.0 to allow the prime parameter of the elliptic curve to be at most 521 bits. No known workarounds are available. Note that support for explicit encoding of elliptic curve parameters is deprecated in Botan.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30236",
+								"comment": "botan DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
