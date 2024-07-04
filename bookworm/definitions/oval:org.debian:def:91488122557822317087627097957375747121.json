@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:91488122557822317087627097957375747121",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-24531 golang-1.19",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "golang-1.19"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-24531",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-24531"
+			}
+		],
+		"description": "Command go env is documented as outputting a shell script containing the Go environment. However, go env doesn't sanitize values, so executing its output as a shell script can cause various bad bahaviors, including executing arbitrary commands or inserting new environment variables. This issue is relatively minor because, in general, if an attacker can set arbitrary environment variables on a system, they have better attack vectors than making \"go env\" print them out.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26245",
+								"comment": "golang-1.19 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

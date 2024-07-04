@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:241417881812897661826969541636654652371",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-29511 ghostscript",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "ghostscript"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-29511",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-29511"
+			}
+		],
+		"description": "Artifex Ghostscript before 10.03.1, when Tesseract is used for OCR, has a directory traversal issue that allows arbitrary file reading (and writing of error messages to arbitrary files) via OCRLanguage. For example, exploitation can use debug_file /tmp/out and user_patterns_file /etc/passwd.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30091",
+								"comment": "ghostscript DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
