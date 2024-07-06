@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:200841892637934019921676941939644604482",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2019-25211 golang-github-gin-contrib-cors",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "golang-github-gin-contrib-cors"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-25211",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-25211"
+			}
+		],
+		"description": "parseWildcardRules in Gin-Gonic CORS middleware before 1.6.0 mishandles a wildcard at the end of an origin string, e.g., https://example.community/* is allowed when the intention is that only https://example.com/* should be allowed, and http://localhost.example.com/* is allowed when the intention is that only http://localhost/* should be allowed.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:16661",
+								"comment": "golang-github-gin-contrib-cors DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

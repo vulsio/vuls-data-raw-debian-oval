@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-39472"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  xfs: fix log recovery buffer allocation for the legacy h_size fixup  Commit a70f9fe52daa (\"xfs: detect and handle invalid iclog size set by mkfs\") added a fixup for incorrect h_size values used for the initial umount record in old xfsprogs versions.  Later commit 0c771b99d6c9 (\"xfs: clean up calculation of LR header blocks\") cleaned up the log reover buffer calculation, but stoped using the fixed up h_size value to size the log recovery buffer, which can lead to an out of bounds access when the incorrect h_size does not come from the old mkfs tool, but a fuzzer.  Fix this by open coding xlog_logrec_hblks and taking the fixed h_size into account for this calculation.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30198",
+								"test_ref": "oval:org.debian.oval:tst:30202",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]
