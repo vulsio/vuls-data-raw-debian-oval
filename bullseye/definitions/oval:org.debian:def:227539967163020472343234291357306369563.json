@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:227539967163020472343234291357306369563",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-39684 rapidjson",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "rapidjson"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-39684",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-39684"
+			}
+		],
+		"description": "Tencent RapidJSON is vulnerable to privilege escalation due to an integer overflow in the `GenericReader::ParseNumber()` function of `include/rapidjson/reader.h` when parsing JSON text from a stream. An attacker needs to send the victim a crafted file which needs to be opened; this triggers the integer overflow vulnerability (when the file is parsed), leading to elevation of privilege.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30657",
+								"comment": "rapidjson DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
