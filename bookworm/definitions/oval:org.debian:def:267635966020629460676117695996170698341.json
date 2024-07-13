@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:267635966020629460676117695996170698341",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-39917 xrdp",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "xrdp"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-39917",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-39917"
+			}
+		],
+		"description": "xrdp is an open source RDP server. xrdp versions prior to 0.10.0 have a vulnerability that allows attackers to make an infinite number of login attempts. The number of max login attempts is supposed to be  limited by a configuration parameter `MaxLoginRetry` in `/etc/xrdp/sesman.ini`. However, this mechanism was not effectively working. As a result, xrdp allows an infinite number of login attempts.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30256",
+								"comment": "xrdp DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

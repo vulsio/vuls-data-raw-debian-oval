@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40937"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  gve: Clear napi->skb before dev_kfree_skb_any()  gve_rx_free_skb incorrectly leaves napi->skb referencing an skb after it is freed with dev_kfree_skb_any(). This can result in a subsequent call to napi_get_frags returning a dangling pointer.  Fix this by clearing napi->skb before the skb is freed.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30291",
+								"test_ref": "oval:org.debian.oval:tst:30294",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-39499"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  vmci: prevent speculation leaks by sanitizing event in event_deliver()  Coverity spotted that event_msg is controlled by user-space, event_msg->event_data.event is passed to event_deliver() and used as an index without sanitization.  This change ensures that the event index is sanitized to mitigate any possibility of speculative information leaks.  This bug was discovered and resolved using Coverity Static Analysis Security Testing (SAST) by Synopsys, Inc.  Only compile tested, no access to HW.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30237",
+								"test_ref": "oval:org.debian.oval:tst:30239",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

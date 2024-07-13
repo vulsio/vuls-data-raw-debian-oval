@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40963"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  mips: bmips: BCM6358: make sure CBR is correctly set  It was discovered that some device have CBR address set to 0 causing kernel panic when arch_sync_dma_for_cpu_all is called.  This was notice in situation where the system is booted from TP1 and BMIPS_GET_CBR() returns 0 instead of a valid address and !!(read_c0_brcm_cmt_local() & (1 << 31)); not failing.  The current check whether RAC flush should be disabled or not are not enough hence lets check if CBR is a valid address or not.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30310",
+								"test_ref": "oval:org.debian.oval:tst:30313",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

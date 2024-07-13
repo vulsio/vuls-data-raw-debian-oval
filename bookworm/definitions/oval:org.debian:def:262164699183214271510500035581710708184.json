@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40919"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  bnxt_en: Adjust logging of firmware messages in case of released token in __hwrm_send()  In case of token is released due to token->state == BNXT_HWRM_DEFERRED, released token (set to NULL) is used in log messages. This issue is expected to be prevented by HWRM_ERR_CODE_PF_UNAVAILABLE error code. But this error code is returned by recent firmware. So some firmware may not return it. This may lead to NULL pointer dereference. Adjust this issue by adding token pointer check.  Found by Linux Verification Center (linuxtesting.org) with SVACE.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30281",
+								"test_ref": "oval:org.debian.oval:tst:30284",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

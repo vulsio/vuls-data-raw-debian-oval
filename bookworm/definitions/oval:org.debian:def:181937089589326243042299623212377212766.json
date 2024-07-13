@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40969"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  f2fs: don't set RO when shutting down f2fs  Shutdown does not check the error of thaw_super due to readonly, which causes a deadlock like below.  f2fs_ioc_shutdown(F2FS_GOING_DOWN_FULLSYNC)        issue_discard_thread  - bdev_freeze   - freeze_super  - f2fs_stop_checkpoint()   - f2fs_handle_critical_error                     - sb_start_write     - set RO                                         - waiting  - bdev_thaw   - thaw_super_locked     - return -EINVAL, if sb_rdonly()  - f2fs_stop_discard_thread   -> wait for kthread_stop(discard_thread);",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30315",
+								"test_ref": "oval:org.debian.oval:tst:30318",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

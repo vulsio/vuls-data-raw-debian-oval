@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:228496767528163878355524170944064963007",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-29946 nats-server",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "nats-server"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-29946",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29946"
+			}
+		],
+		"description": "NATS.io NATS Server before 2.8.2 and Streaming Server before 0.24.6 could allow a remote attacker to bypass security restrictions, caused by the failure to enforce negative user permissions in one scenario. By using a queue subscription on the wildcard, an attacker could exploit this vulnerability to allow denied subjects.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:24180",
+								"comment": "nats-server DPKG is earlier than 2.9.8-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
