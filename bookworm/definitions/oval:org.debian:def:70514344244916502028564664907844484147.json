@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:70514344244916502028564664907844484147",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-38534 suricata",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "suricata"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-38534",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-38534"
+			}
+		],
+		"description": "Suricata is a network Intrusion Detection System, Intrusion Prevention System and Network Security Monitoring engine. Crafted modbus traffic can lead to unlimited resource accumulation within a flow. Upgrade to 7.0.6. Set a limited stream.reassembly.depth to reduce the issue.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30094",
+								"comment": "suricata DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

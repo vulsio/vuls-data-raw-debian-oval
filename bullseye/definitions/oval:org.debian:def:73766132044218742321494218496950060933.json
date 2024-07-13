@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:73766132044218742321494218496950060933",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-38535 suricata",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "suricata"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-38535",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-38535"
+			}
+		],
+		"description": "Suricata is a network Intrusion Detection System, Intrusion Prevention System and Network Security Monitoring engine. Suricata can run out of memory when parsing crafted HTTP/2 traffic. Upgrade to 6.0.20 or 7.0.6.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30548",
+								"comment": "suricata DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

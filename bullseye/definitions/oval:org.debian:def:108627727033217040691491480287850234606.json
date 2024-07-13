@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:108627727033217040691491480287850234606",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-37151 suricata",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "suricata"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-37151",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37151"
+			}
+		],
+		"description": "Suricata is a network Intrusion Detection System, Intrusion Prevention System and Network Security Monitoring engine.  Mishandling of multiple fragmented packets using the same IP ID value can lead to packet reassembly failure, which can lead to policy bypass. Upgrade to 7.0.6 or 6.0.20. When using af-packet, enable `defrag` to reduce the scope of the problem.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30498",
+								"comment": "suricata DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
