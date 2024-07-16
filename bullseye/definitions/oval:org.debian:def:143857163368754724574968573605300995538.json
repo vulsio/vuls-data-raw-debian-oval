@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:143857163368754724574968573605300995538",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-40630 openimageio",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "openimageio"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-40630",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40630"
+			}
+		],
+		"description": "OpenImageIO is a toolset for reading, writing, and manipulating image files of any image file format relevant to VFX / animation via a format-agnostic API with a feature set, scalability, and robustness needed for feature film production. In affected versions there is a bug in the heif input functionality of OpenImageIO. Specifically, in `HeifInput::seek_subimage()`.  In the worst case, this can lead to an information disclosure vulnerability, particularly for programs that directly use the `ImageInput` APIs. This bug has been addressed in commit `0a2dcb4c` which is included in the 2.5.13.1 release. Users are advised to upgrade. There are no known workarounds for this issue.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30689",
+								"comment": "openimageio DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
