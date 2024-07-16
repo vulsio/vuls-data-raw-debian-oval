@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36974"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  net/sched: taprio: always validate TCA_TAPRIO_ATTR_PRIOMAP  If one TCA_TAPRIO_ATTR_PRIOMAP attribute has been provided, taprio_parse_mqprio_opt() must validate it, or userspace can inject arbitrary data to the kernel, the second time taprio_change() is called.  First call (with valid attributes) sets dev->num_tc to a non zero value.  Second call (with arbitrary mqprio attributes) returns early from taprio_parse_mqprio_opt() and bad things can happen.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5730"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:30494",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 5.10.221-1"
 							}
 						]
 					}

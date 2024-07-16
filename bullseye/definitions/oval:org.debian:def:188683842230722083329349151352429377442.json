@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-38618"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  ALSA: timer: Set lower bound of start tick time  Currently ALSA timer doesn't have the lower limit of the start tick time, and it allows a very small size, e.g. 1 tick with 1ns resolution for hrtimer.  Such a situation may lead to an unexpected RCU stall, where  the callback repeatedly queuing the expire update, as reported by fuzzer.  This patch introduces a sanity check of the timer start tick time, so that the system returns an error when a too small start size is set. As of this patch, the lower limit is hard-coded to 100us, which is small enough but can still work somehow.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5730"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:30609",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 5.10.221-1"
 							}
 						]
 					}

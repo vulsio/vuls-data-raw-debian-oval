@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-39493"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  crypto: qat - Fix ADF_DEV_RESET_SYNC memory leak  Using completion_done to determine whether the caller has gone away only works after a complete call.  Furthermore it's still possible that the caller has not yet called wait_for_completion, resulting in another potential UAF.  Fix this by making the caller use cancel_work_sync and then freeing the memory safely.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5730"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:30660",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 5.10.221-1"
 							}
 						]
 					}

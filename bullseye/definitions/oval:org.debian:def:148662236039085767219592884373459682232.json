@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-38559"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  scsi: qedf: Ensure the copied buf is NUL terminated  Currently, we allocate a count-sized kernel buffer and copy count from userspace to that buffer. Later, we use kstrtouint on this buffer but we don't ensure that the string is terminated inside the buffer, this can lead to OOB read when using kstrtouint. Fix this issue by using memdup_user_nul instead of memdup_user.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5730"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:30569",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 5.10.221-1"
 							}
 						]
 					}
