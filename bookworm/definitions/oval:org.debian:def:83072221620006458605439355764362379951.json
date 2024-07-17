@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40977"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  wifi: mt76: mt7921s: fix potential hung tasks during chip recovery  During chip recovery (e.g. chip reset), there is a possible situation that kernel worker reset_work is holding the lock and waiting for kernel thread stat_worker to be parked, while stat_worker is waiting for the release of the same lock. It causes a deadlock resulting in the dumping of hung tasks messages and possible rebooting of the device.  This patch prevents the execution of stat_worker during the chip recovery.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5731"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30327",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:30426",
+								"comment": "linux DPKG is earlier than 6.1.99-1"
 							}
 						]
 					}

@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40993"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  netfilter: ipset: Fix suspicious rcu_dereference_protected()  When destroying all sets, we are either in pernet exit phase or are executing a \"destroy all sets command\" from userspace. The latter was taken into account in ip_set_dereference() (nfnetlink mutex is held), but the former was not. The patch adds the required check to rcu_dereference_protected() in ip_set_dereference().",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5731"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30339",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:30438",
+								"comment": "linux DPKG is earlier than 6.1.99-1"
 							}
 						]
 					}

@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52760"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  gfs2: Fix slab-use-after-free in gfs2_qd_dealloc  In gfs2_put_super(), whether withdrawn or not, the quota should be cleaned up by gfs2_quota_cleanup().  Otherwise, struct gfs2_sbd will be freed before gfs2_qd_dealloc (rcu callback) has run for all gfs2_quota_data objects, resulting in use-after-free.  Also, gfs2_destroy_threads() and gfs2_quota_cleanup() is already called by gfs2_make_fs_ro(), so in gfs2_put_super(), after calling gfs2_make_fs_ro(), there is no need to call them again.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5731"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:28337",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:28434",
+								"comment": "linux DPKG is earlier than 6.1.99-1"
 							}
 						]
 					}

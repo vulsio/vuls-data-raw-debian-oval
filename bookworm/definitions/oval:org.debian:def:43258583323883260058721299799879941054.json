@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40931"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  mptcp: ensure snd_una is properly initialized on connect  This is strictly related to commit fb7a0d334894 (\"mptcp: ensure snd_nxt is properly initialized on connect\"). It turns out that syzkaller can trigger the retransmit after fallback and before processing any other incoming packet - so that snd_una is still left uninitialized.  Address the issue explicitly initializing snd_una together with snd_nxt and write_seq.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5731"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30292",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:30391",
+								"comment": "linux DPKG is earlier than 6.1.99-1"
 							}
 						]
 					}

@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40938"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  landlock: Fix d_parent walk  The WARN_ON_ONCE() in collect_domain_accesses() can be triggered when trying to link a root mount point.  This cannot work in practice because this directory is mounted, but the VFS check is done after the call to security_path_link().  Do not use source directory's d_parent when the source directory is the mount point.  [mic: Fix commit message]",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5731"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30297",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:30396",
+								"comment": "linux DPKG is earlier than 6.1.99-1"
 							}
 						]
 					}
