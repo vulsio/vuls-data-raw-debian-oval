@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:305418485829594467301273388728844771156",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-32484 anki",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "anki"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-32484",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32484"
+			}
+		],
+		"description": "An reflected XSS vulnerability exists in the handling of invalid paths in the Flask server in Ankitects Anki 24.04. A specially crafted flashcard can lead to JavaScript code execution and result in an arbitrary file read. An attacker can share a malicious flashcard to trigger this vulnerability.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30276",
+								"comment": "anki DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
