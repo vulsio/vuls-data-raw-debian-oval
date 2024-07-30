@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42080"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  RDMA/restrack: Fix potential invalid address access  struct rdma_restrack_entry's kern_name was set to KBUILD_MODNAME in ib_create_cq(), while if the module exited but forgot del this rdma_restrack_entry, it would cause a invalid address access in rdma_restrack_clean() when print the owner of this rdma_restrack_entry.  These code is used to help find one forgotten PD release in one of the ULPs. But it is not needed anymore, so delete them.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30945",
+								"test_ref": "oval:org.debian.oval:tst:30947",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

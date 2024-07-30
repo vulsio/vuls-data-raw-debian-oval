@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41049"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  filelock: fix potential use-after-free in posix_lock_inode  Light Hsieh reported a KASAN UAF warning in trace_posix_lock_inode(). The request pointer had been changed earlier to point to a lock entry that was added to the inode's list. However, before the tracepoint could fire, another task raced in and freed that lock.  Fix this by moving the tracepoint inside the spinlock, which should ensure that this doesn't happen.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30520",
+								"test_ref": "oval:org.debian.oval:tst:30521",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

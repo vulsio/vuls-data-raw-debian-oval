@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42079"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  gfs2: Fix NULL pointer dereference in gfs2_log_flush  In gfs2_jindex_free(), set sdp->sd_jdesc to NULL under the log flush lock to provide exclusion against gfs2_log_flush().  In gfs2_log_flush(), check if sdp->sd_jdesc is non-NULL before dereferencing it.  Otherwise, we could run into a NULL pointer dereference when outstanding glock work races with an unmount (glock_work_func -> run_queue -> do_xmote -> inode_go_sync -> gfs2_log_flush).",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:30578",
+								"test_ref": "oval:org.debian.oval:tst:30579",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]
