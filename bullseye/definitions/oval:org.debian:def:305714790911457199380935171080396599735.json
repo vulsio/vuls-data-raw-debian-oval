@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:305714790911457199380935171080396599735",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-7541 ofono",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "ofono"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-7541",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-7541"
+			}
+		],
+		"description": "oFono AT CMT Command Uninitialized Variable Information Disclosure Vulnerability. This vulnerability allows local attackers to disclose sensitive information on affected installations of oFono. An attacker must first obtain the ability to execute code on the target modem in order to exploit this vulnerability.  The specific flaw exists within the parsing of responses from AT+CMT commands. The issue results from the lack of proper initialization of memory prior to accessing it. An attacker can leverage this in conjunction with other vulnerabilities to execute arbitrary code in the context of root. Was ZDI-CAN-23308.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31209",
+								"comment": "ofono DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

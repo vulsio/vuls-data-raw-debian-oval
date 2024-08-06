@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:309492316394502475309198273505420791901",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-7537 ofono",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "ofono"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-7537",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-7537"
+			}
+		],
+		"description": "oFono QMI SMS Handling Out-Of-Bounds Read Information Disclosure Vulnerability. This vulnerability allows local attackers to disclose sensitive information on affected installations of oFono. Authentication is not required to exploit this vulnerability.  The specific flaw exists within the processing of SMS message lists. The issue results from the lack of proper validation of user-supplied data, which can result in a read past the end of an allocated buffer. An attacker can leverage this in conjunction with other vulnerabilities to execute arbitrary code in the context of root. Was ZDI-CAN-23157.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30839",
+								"comment": "ofono DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
