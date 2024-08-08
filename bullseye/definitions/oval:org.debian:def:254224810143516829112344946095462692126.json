@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42247"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  wireguard: allowedips: avoid unaligned 64-bit memory accesses  On the parisc platform, the kernel issues kernel warnings because swap_endian() tries to load a 128-bit IPv6 address from an unaligned memory location:   Kernel: unaligned access to 0x55f4688c in wg_allowedips_insert_v6+0x2c/0x80 [wireguard] (iir 0xf3010df)  Kernel: unaligned access to 0x55f46884 in wg_allowedips_insert_v6+0x38/0x80 [wireguard] (iir 0xf2010dc)  Avoid such unaligned memory accesses by instead using the get_unaligned_be64() helper macro.  [Jason: replace src[8] in original patch with src+8]",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31034",
+								"test_ref": "oval:org.debian.oval:tst:30972",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]
