@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:3639656656056355371138067112824503688",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41811 icinga-php-library",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "icinga-php-library"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41811",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41811"
+			}
+		],
+		"description": "ipl/web is a set of common web components for php projects. Some of the recent development by Icinga is, under certain circumstances, susceptible to cross site request forgery. (CSRF). All affected products, in any version, will be unaffected by this once `icinga-php-library` is upgraded. Version 0.10.1 includes a fix for this. It will be published as part of the `icinga-php-library` v0.14.1 release.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30570",
+								"comment": "icinga-php-library DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

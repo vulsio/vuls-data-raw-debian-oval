@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:225708717774556765854371888842759135284",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42365 asterisk",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "asterisk"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42365",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42365"
+			}
+		],
+		"description": "Asterisk is an open source private branch exchange (PBX) and telephony toolkit. Prior to asterisk versions 18.24.2, 20.9.2, and 21.4.2 and certified-asterisk versions 18.9-cert11 and 20.7-cert2, an AMI user with `write=originate` may change all configuration files in the `/etc/asterisk/` directory. This occurs because they are able to curl remote files and write them to disk, but are also able to append to existing files using the `FILE` function inside the `SET` application. This issue may result in privilege escalation, remote code execution and/or blind server-side request forgery with arbitrary protocol. Asterisk versions 18.24.2, 20.9.2, and 21.4.2 and certified-asterisk versions 18.9-cert11 and 20.7-cert2 contain a fix for this issue.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30981",
+								"comment": "asterisk DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
