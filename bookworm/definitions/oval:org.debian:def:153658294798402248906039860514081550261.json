@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:153658294798402248906039860514081550261",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43370 gettext.js",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "gettext.js"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43370",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43370"
+			}
+		],
+		"description": "gettext.js is a GNU gettext port for node and the browser. There is a cross-site scripting (XSS) injection if `.po` dictionary definition files are corrupted. This vulnerability has been patched in version 2.0.3. As a workaround, control the origin of the definition catalog to prevent the use of this flaw in the definition of plural forms.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30772",
+								"comment": "gettext.js DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
