@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:250425179801956050937927371671318619858",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-44070 frr",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "frr"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-44070",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-44070"
+			}
+		],
+		"description": "An issue was discovered in FRRouting (FRR) through 10.1. bgp_attr_encap in bgpd/bgp_attr.c does not check the actual remaining stream length before taking the TLV value.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30821",
+								"comment": "frr DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
