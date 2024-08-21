@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:229271044859004689061492104131858577389",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43870 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43870",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43870"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  perf: Fix event leak upon exit  When a task is scheduled out, pending sigtrap deliveries are deferred to the target task upon resume to userspace via task_work.  However failures while adding an event's callback to the task_work engine are ignored. And since the last call for events exit happen after task work is eventually closed, there is a small window during which pending sigtrap can be queued though ignored, leaking the event refcount addition such as in the following scenario:      TASK A     -----      do_exit()        exit_task_work(tsk);         <IRQ>        perf_event_overflow()           event->pending_sigtrap = pending_id;           irq_work_queue(&event->pending_irq);        </IRQ>     =========> PREEMPTION: TASK A -> TASK B        event_sched_out()           event->pending_sigtrap = 0;           atomic_long_inc_not_zero(&event->refcount)           // FAILS: task work has exited           task_work_add(&event->pending_task)        [...]        <IRQ WORK>        perf_pending_irq()           // early return: event->oncpu = -1        </IRQ WORK>        [...]     =========> TASK B -> TASK A        perf_event_exit_task(tsk)           perf_event_exit_event()              free_event()                 WARN(atomic_long_cmpxchg(&event->refcount, 1, 0) != 1)                 // leak event due to unexpected refcount == 2  As a result the event is never released while the task exits.  Fix this with appropriate task_work_add()'s error handling.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30887",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

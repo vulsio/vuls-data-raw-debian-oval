@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-32498"
 			}
 		],
-		"description": "An issue was discovered in OpenStack Cinder through 24.0.0, Glance before 28.0.2, and Nova before 29.0.3. Arbitrary file access can occur via custom QCOW2 external data. By supplying a crafted QCOW2 image that references a specific data file path, an authenticated user may convince systems to return a copy of that file's contents from the server, resulting in unauthorized access to potentially sensitive data. All Cinder and Nova deployments are affected; only Glance deployments with image conversion enabled are affected.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5754"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:29802",
-								"comment": "cinder DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:29860",
+								"comment": "cinder DPKG is earlier than 2:21.3.1-1~deb12u1"
 							}
 						]
 					}

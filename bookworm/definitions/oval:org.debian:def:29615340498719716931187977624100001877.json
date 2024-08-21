@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:29615340498719716931187977624100001877",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43877 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43877",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43877"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  media: pci: ivtv: Add check for DMA map result  In case DMA fails, 'dma->SG_length' is 0. This value is later used to access 'dma->SGarray[dma->SG_length - 1]', which will cause out of bounds access.  Add check to return early on invalid value. Adjust warnings accordingly.  Found by Linux Verification Center (linuxtesting.org) with SVACE.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30893",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

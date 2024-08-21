@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:293388775855651639594369862736166449014",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43867 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43867",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43867"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/nouveau: prime: fix refcount underflow  Calling nouveau_bo_ref() on a nouveau_bo without initializing it (and hence the backing ttm_bo) leads to a refcount underflow.  Instead of calling nouveau_bo_ref() in the unwind path of drm_gem_object_init(), clean things up manually.  (cherry picked from commit 1b93f3e89d03cfc576636e195466a0d728ad8de5)",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31119",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

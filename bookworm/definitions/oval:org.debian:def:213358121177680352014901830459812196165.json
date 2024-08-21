@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:213358121177680352014901830459812196165",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43380 ruby-fugit",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "ruby-fugit"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43380",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43380"
+			}
+		],
+		"description": "fugit contains time tools for flor and the floraison group. The fugit \"natural\" parser, that turns \"every wednesday at 5pm\" into \"0 17 * * 3\", accepted any length of input and went on attempting to parse it, not returning promptly, as expected. The parse call could hold the thread with no end in sight. Fugit dependents that do not check (user) input length for plausibility are impacted. A fix was released in fugit 1.11.1.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30847",
+								"comment": "ruby-fugit DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:247622431207151386434866303950110475783",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-20584 amd64-microcode",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "amd64-microcode"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-20584",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20584"
+			}
+		],
+		"description": "IOMMU improperly handles certain special address ranges with invalid device table entries (DTEs), which may allow an attacker with privileges and a compromised Hypervisor to induce DTE faults to bypass RMP checks in SEV-SNP, potentially leading to a loss of guest integrity.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26201",
+								"comment": "amd64-microcode DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

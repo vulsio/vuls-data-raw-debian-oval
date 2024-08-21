@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:192247385552866647190724995850726334410",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43863 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43863",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43863"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/vmwgfx: Fix a deadlock in dma buf fence polling  Introduce a version of the fence ops that on release doesn't remove the fence from the pending list, and thus doesn't require a lock to fix poll->fence wait->fence unref deadlocks.  vmwgfx overwrites the wait callback to iterate over the list of all fences and update their status, to do that it holds a lock to prevent the list modifcations from other threads. The fence destroy callback both deletes the fence and removes it from the list of pending fences, for which it holds a lock.  dma buf polling cb unrefs a fence after it's been signaled: so the poll calls the wait, which signals the fences, which are being destroyed. The destruction tries to acquire the lock on the pending fences list which it can never get because it's held by the wait from which it was called.  Old bug, but not a lot of userspace apps were using dma-buf polling interfaces. Fix those, in particular this fixes KDE stalls/deadlock.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31117",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
