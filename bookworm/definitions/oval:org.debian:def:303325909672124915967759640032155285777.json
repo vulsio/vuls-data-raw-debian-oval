@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:303325909672124915967759640032155285777",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-48917 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-48917",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48917"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ASoC: ops: Shift tested values in snd_soc_put_volsw() by +min  While the $val/$val2 values passed in from userspace are always >= 0 integers, the limits of the control can be signed integers and the $min can be non-zero and less than zero. To correctly validate $val/$val2 against platform_max, add the $min offset to val first.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:25881",
+								"comment": "linux DPKG is earlier than 5.16.14-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

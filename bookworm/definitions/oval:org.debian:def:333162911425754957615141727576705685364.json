@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48883"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net/mlx5e: IPoIB, Block PKEY interfaces with less rx queues than parent  A user is able to configure an arbitrary number of rx queues when creating an interface via netlink. This doesn't work for child PKEY interfaces because the child interface uses the parent receive channels.  Although the child shares the parent's receive channels, the number of rx queues is important for the channel_stats array: the parent's rx channel index is used to access the child's channel_stats. So the array has to be at least as large as the parent's rx queue size for the counting to work correctly and to prevent out of bound accesses.  This patch checks for the mentioned scenario and returns an error when trying to create the interface. The error is propagated to the user.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:25847",
+								"test_ref": "oval:org.debian.oval:tst:25848",
 								"comment": "linux DPKG is earlier than 6.1.7-1"
 							}
 						]

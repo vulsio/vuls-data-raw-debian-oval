@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:172728598005510860213680050837517485491",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-48909 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-48909",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48909"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net/smc: fix connection leak  There's a potential leak issue under following execution sequence :  smc_release  \t\t\t\tsmc_connect_work if (sk->sk_state == SMC_INIT) \t\t\t\t\tsend_clc_confirim \ttcp_abort(); \t\t\t\t\t... \t\t\t\t\tsk.sk_state = SMC_ACTIVE smc_close_active switch(sk->sk_state) { ... case SMC_ACTIVE: \tsmc_close_final() \t// then wait peer closed  Unfortunately, tcp_abort() may discard CLC CONFIRM messages that are still in the tcp send buffer, in which case our connection token cannot be delivered to the server side, which means that we cannot get a passive close message at all. Therefore, it is impossible for the to be disconnected at all.  This patch tries a very simple way to avoid this issue, once the state has changed to SMC_ACTIVE after tcp_abort(), we can actively abort the smc connection, considering that the state is SMC_INIT before tcp_abort(), abandoning the complete disconnection process should not cause too much problem.  In fact, this problem may exist as long as the CLC CONFIRM message is not received by the server. Whether a timer should be added after smc_close_final() needs to be discussed in the future. But even so, this patch provides a faster release for connection in above case, it should also be valuable.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26673",
+								"comment": "linux DPKG is earlier than 5.10.106-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

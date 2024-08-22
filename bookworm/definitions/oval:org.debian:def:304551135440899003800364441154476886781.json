@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:304551135440899003800364441154476886781",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-48911 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-48911",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48911"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  netfilter: nf_queue: fix possible use-after-free  Eric Dumazet says:   The sock_hold() side seems suspect, because there is no guarantee   that sk_refcnt is not already 0.  On failure, we cannot queue the packet and need to indicate an error.  The packet will be dropped by the caller.  v2: split skb prefetch hunk into separate change",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:25875",
+								"comment": "linux DPKG is earlier than 5.16.14-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

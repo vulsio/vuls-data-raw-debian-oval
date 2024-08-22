@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:85327178131802030744317915940358450352",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-48915 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-48915",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48915"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  thermal: core: Fix TZ_GET_TRIP NULL pointer dereference  Do not call get_trip_hyst() from thermal_genl_cmd_tz_get_trip() if the thermal zone does not define one.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:26678",
+								"comment": "linux DPKG is earlier than 5.10.106-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
