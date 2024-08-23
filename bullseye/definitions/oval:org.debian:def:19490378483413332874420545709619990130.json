@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:19490378483413332874420545709619990130",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43790 vim",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "vim"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43790",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43790"
+			}
+		],
+		"description": "Vim is an open source command line text editor. When performing a search and displaying the search-count message is disabled (:set shm+=S), the search pattern is displayed at the bottom of the screen in a buffer (msgbuf). When right-left mode (:set rl) is enabled, the search pattern is reversed. This happens by allocating a new buffer. If the search pattern contains some ASCII NUL characters, the buffer allocated will be smaller than the original allocated buffer (because for allocating the reversed buffer, the strlen() function is called, which only counts until it notices an ASCII NUL byte ) and thus the original length indicator is wrong. This causes an overflow when accessing characters inside the msgbuf by the previously (now wrong) length of the msgbuf. The issue has been fixed as of Vim patch v9.1.0689.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31128",
+								"comment": "vim DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

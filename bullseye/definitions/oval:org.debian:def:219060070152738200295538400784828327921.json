@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:219060070152738200295538400784828327921",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-8088 python2.7",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "python2.7"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-8088",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-8088"
+			}
+		],
+		"description": "There is a HIGH severity vulnerability affecting the CPython \"zipfile\" module.      When iterating over names of entries in a zip archive (for example, methods of \"zipfile.ZipFile\" like \"namelist()\", \"iterdir()\", \"extractall()\", etc) the process can be put into an infinite loop with a maliciously crafted zip archive. This defect applies when reading only metadata or extracting the contents of the zip archive. Programs that are not handling user-controlled zip archives are not affected.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31391",
+								"comment": "python2.7 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
