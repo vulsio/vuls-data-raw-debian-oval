@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:294391399700035643971213466544846681300",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-38807 libspring-java",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "libspring-java"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-38807",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-38807"
+			}
+		],
+		"description": "Applications that use spring-boot-loader or spring-boot-loader-classic and contain custom code that performs signature verification of nested jar files may be vulnerable to signature forgery where content that appears to have been signed by one signer has, in fact, been signed by another.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30766",
+								"comment": "libspring-java DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
