@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:241930773340673292234038598924186865585",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-5991 wolfssl",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "wolfssl"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-5991",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-5991"
+			}
+		],
+		"description": "In function MatchDomainName(), input param str is treated as a NULL terminated string despite being user provided and unchecked. Specifically, the function X509_check_host() takes in a pointer and length to check against, with no requirements that it be NULL terminated. If a caller was attempting to do a name check on a non-NULL terminated buffer, the code would read beyond the bounds of the input array until it found a NULL terminator.This issue affects wolfSSL: through 5.7.0.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31090",
+								"comment": "wolfssl DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

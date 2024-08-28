@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:224089189071512943170494200414132360664",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-1544 wolfssl",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "wolfssl"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-1544",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1544"
+			}
+		],
+		"description": "Generating the ECDSA nonce k samples a random number r and then  truncates this randomness with a modular reduction mod n where n is the  order of the elliptic curve. Meaning k = r mod n. The division used  during the reduction estimates a factor q_e by dividing the upper two  digits (a digit having e.g. a size of 8 byte) of r by the upper digit of  n and then decrements q_e in a loop until it has the correct size.  Observing the number of times q_e is decremented through a control-flow  revealing side-channel reveals a bias in the most significant bits of  k. Depending on the curve this is either a negligible bias or a  significant bias large enough to reconstruct k with lattice reduction  methods. For SECP160R1, e.g., we find a bias of 15 bits.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29504",
+								"comment": "wolfssl DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
