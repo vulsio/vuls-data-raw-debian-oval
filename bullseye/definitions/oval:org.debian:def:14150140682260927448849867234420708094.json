@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:14150140682260927448849867234420708094",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-1543 wolfssl",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "wolfssl"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-1543",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1543"
+			}
+		],
+		"description": "The side-channel protected T-Table implementation in wolfSSL up to version 5.6.5 protects against a side-channel attacker with cache-line resolution. In a controlled environment such as Intel SGX, an attacker can gain a per instruction sub-cache-line resolution allowing them to break the cache-line-level protection. For details on the attack refer to:  https://doi.org/10.46586/tches.v2024.i1.457-500",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29505",
+								"comment": "wolfssl DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

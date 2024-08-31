@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:323675727603980899789201296217649525504",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-1545 wolfssl",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "wolfssl"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-1545",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-1545"
+			}
+		],
+		"description": "Fault Injection vulnerability in RsaPrivateDecryption function in wolfssl/wolfcrypt/src/rsa.c in WolfSSL wolfssl5.6.6 on Linux/Windows allows remote attacker co-resides in the same system with a victim process to disclose information and escalate privileges via Rowhammer fault injection to the RsaKey structure.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28977",
+								"comment": "wolfssl DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

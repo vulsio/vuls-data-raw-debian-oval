@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:288895661981334475499914619890487320042",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-2881 wolfssl",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "wolfssl"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-2881",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2881"
+			}
+		],
+		"description": "Fault Injection vulnerability in wc_ed25519_sign_msg function in wolfssl/wolfcrypt/src/ed25519.c in WolfSSL wolfssl5.6.6 on Linux/Windows allows remote attacker co-resides in the same system with a victim process to disclose information and escalate privileges via Rowhammer fault injection to the ed25519_key structure.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30179",
+								"comment": "wolfssl DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
