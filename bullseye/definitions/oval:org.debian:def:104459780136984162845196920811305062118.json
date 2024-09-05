@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-44957"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  xen: privcmd: Switch from mutex to spinlock for irqfds  irqfd_wakeup() gets EPOLLHUP, when it is called by eventfd_release() by way of wake_up_poll(&ctx->wqh, EPOLLHUP), which gets called under spin_lock_irqsave(). We can't use a mutex here as it will lead to a deadlock.  Fix it by switching over to a spin lock.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31156",
+								"test_ref": "oval:org.debian.oval:tst:31155",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

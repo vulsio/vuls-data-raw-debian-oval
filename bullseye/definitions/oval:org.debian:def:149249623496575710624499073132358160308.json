@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-44955"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Don't refer to dc_sink in is_dsc_need_re_compute  [Why] When unplug one of monitors connected after mst hub, encounter null pointer dereference.  It's due to dc_sink get released immediately in early_unregister() or detect_ctx(). When commit new state which directly referring to info stored in dc_sink will cause null pointer dereference.  [how] Remove redundant checking condition. Relevant condition should already be covered by checking if dsc_aux is null or not. Also reset dsc_aux to NULL when the connector is disconnected.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31154",
+								"test_ref": "oval:org.debian.oval:tst:31153",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]
