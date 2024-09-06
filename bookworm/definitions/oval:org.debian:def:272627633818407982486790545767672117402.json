@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:272627633818407982486790545767672117402",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-8418 aardvark-dns",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "aardvark-dns"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-8418",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-8418"
+			}
+		],
+		"description": "A flaw was found in Aardvark-dns versions 1.12.0 and 1.12.1. They contain a denial of service vulnerability due to serial processing of TCP DNS queries. This flaw allows a malicious client to keep a TCP connection open indefinitely, causing other DNS queries to time out and resulting in a denial of service for all other containers using aardvark-dns.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31317",
+								"comment": "aardvark-dns DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
