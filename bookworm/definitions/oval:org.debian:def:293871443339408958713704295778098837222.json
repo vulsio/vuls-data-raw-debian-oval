@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:293871443339408958713704295778098837222",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-8907 chromium",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "chromium"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-8907",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-8907"
+			}
+		],
+		"description": "Insufficient data validation in Omnibox in Google Chrome on Android prior to 129.0.6668.58 allowed a remote attacker who convinced a user to engage in specific UI gestures to inject arbitrary scripts or HTML (XSS) via a crafted set of UI gestures. (Chromium security severity: Medium)",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31451",
+								"comment": "chromium DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
