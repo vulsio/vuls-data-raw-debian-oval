@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46761"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  pci/hotplug/pnv_php: Fix hotplug driver crash on Powernv  The hotplug driver for powerpc (pci/hotplug/pnv_php.c) causes a kernel crash when we try to hot-unplug/disable the PCIe switch/bridge from the PHB.  The crash occurs because although the MSI data structure has been released during disable/hot-unplug path and it has been assigned with NULL, still during unregistration the code was again trying to explicitly disable the MSI which causes the NULL pointer dereference and kernel crash.  The patch fixes the check during unregistration path to prevent invoking pci_disable_msi/msix() since its data structure is already freed.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31171",
+								"test_ref": "oval:org.debian.oval:tst:31172",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]
