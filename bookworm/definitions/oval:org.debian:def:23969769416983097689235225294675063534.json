@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:23969769416983097689235225294675063534",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-35883 intel-mediasdk",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "intel-mediasdk"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-35883",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-35883"
+			}
+		],
+		"description": "NULL pointer dereference in the Intel(R) Media SDK software before version 22.2.2 may allow an authenticated user to potentially enable denial of service via local access.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:24744",
+								"comment": "intel-mediasdk DPKG is earlier than 22.3.0-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

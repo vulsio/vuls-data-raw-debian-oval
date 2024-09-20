@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:195580186310275970887378454000811639556",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2022-27170 intel-mediasdk",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "intel-mediasdk"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-27170",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27170"
+			}
+		],
+		"description": "Protection mechanism failure in the Intel(R) Media SDK software before version 22.2.2 may allow an authenticated user to potentially enable escalation of privilege via local access.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:24859",
+								"comment": "intel-mediasdk DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
