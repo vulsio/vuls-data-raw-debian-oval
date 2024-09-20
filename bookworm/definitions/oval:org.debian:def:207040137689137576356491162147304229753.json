@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:207040137689137576356491162147304229753",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-45770 pcp",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "pcp"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-45770",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-45770"
+			}
+		],
+		"description": "A vulnerability was found in Performance Co-Pilot (PCP). This flaw can only be exploited if an attacker has access to a compromised PCP system account. The issue is related to the pmpost tool, which is used to log messages in the system. Under certain conditions, it runs with high-level privileges.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31126",
+								"comment": "pcp DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

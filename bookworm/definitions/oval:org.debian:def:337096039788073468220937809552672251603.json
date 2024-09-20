@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:337096039788073468220937809552672251603",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-45752 logiops",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "logiops"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-45752",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-45752"
+			}
+		],
+		"description": "logiops through 0.3.4, in its default configuration, allows any unprivileged user to configure its logid daemon via an unrestricted D-Bus service, including setting malicious keyboard macros. This allows for privilege escalation with minimal user interaction.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31124",
+								"comment": "logiops DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
