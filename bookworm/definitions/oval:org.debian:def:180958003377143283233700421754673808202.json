@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:180958003377143283233700421754673808202",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47220 ruby-webrick",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "ruby-webrick"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47220",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47220"
+			}
+		],
+		"description": "An issue was discovered in the WEBrick toolkit through 1.8.1 for Ruby. It allows HTTP request smuggling by providing both a Content-Length header and a Transfer-Encoding header, e.g., \"GET /admin HTTP/1.1\\r\\n\" inside of a \"POST /user HTTP/1.1\\r\\n\" request. NOTE: the supplier's position is \"Webrick should not be used in production.\"",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31221",
+								"comment": "ruby-webrick DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
