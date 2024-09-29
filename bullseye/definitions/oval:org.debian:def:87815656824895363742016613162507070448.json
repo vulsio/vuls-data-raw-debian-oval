@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:87815656824895363742016613162507070448",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-38796 edk2",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "edk2"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-38796",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-38796"
+			}
+		],
+		"description": "EDK2 contains a vulnerability in the PeCoffLoaderRelocateImage(). An Attacker may cause memory corruption due to an overflow via an adjacent network. A successful exploit of this vulnerability may lead to a loss of Confidentiality, Integrity, and/or Availability.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30732",
+								"comment": "edk2 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
