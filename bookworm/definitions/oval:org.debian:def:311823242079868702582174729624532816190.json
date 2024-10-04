@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46780"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  nilfs2: protect references to superblock parameters exposed in sysfs  The superblock buffers of nilfs2 can not only be overwritten at runtime for modifications/repairs, but they are also regularly swapped, replaced during resizing, and even abandoned when degrading to one side due to backing device issues.  So, accessing them requires mutual exclusion using the reader/writer semaphore \"nilfs->ns_sem\".  Some sysfs attribute show methods read this superblock buffer without the necessary mutual exclusion, which can cause problems with pointer dereferencing and memory access, so fix it.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5782"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31242",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:31245",
+								"comment": "linux DPKG is earlier than 6.1.112-1"
 							}
 						]
 					}

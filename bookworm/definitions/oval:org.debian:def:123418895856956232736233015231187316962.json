@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46711"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  mptcp: pm: fix ID 0 endp usage after multiple re-creations  'local_addr_used' and 'add_addr_accepted' are decremented for addresses not related to the initial subflow (ID0), because the source and destination addresses of the initial subflows are known from the beginning: they don't count as \"additional local address being used\" or \"ADD_ADDR being accepted\".  It is then required not to increment them when the entrypoint used by the initial subflow is removed and re-added during a connection. Without this modification, this entrypoint cannot be removed and re-added more than once.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5782"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31182",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:31185",
+								"comment": "linux DPKG is earlier than 6.1.112-1"
 							}
 						]
 					}

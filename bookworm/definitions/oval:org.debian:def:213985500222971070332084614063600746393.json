@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-45026"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  s390/dasd: fix error recovery leading to data corruption on ESE devices  Extent Space Efficient (ESE) or thin provisioned volumes need to be formatted on demand during usual IO processing.  The dasd_ese_needs_format function checks for error codes that signal the non existence of a proper track format.  The check for incorrect length is to imprecise since other error cases leading to transport of insufficient data also have this flag set. This might lead to data corruption in certain error cases for example during a storage server warmstart.  Fix by removing the check for incorrect length and replacing by explicitly checking for invalid track format in transport mode.  Also remove the check for file protected since this is not a valid ESE handling case.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5782"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31115",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:31118",
+								"comment": "linux DPKG is earlier than 6.1.112-1"
 							}
 						]
 					}

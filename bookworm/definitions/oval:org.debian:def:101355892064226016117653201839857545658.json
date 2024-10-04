@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-44995"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  net: hns3: fix a deadlock problem when config TC during resetting  When config TC during the reset process, may cause a deadlock, the flow is as below:                              pf reset start                                  │                                  ▼                               ...... setup tc                         │     │                            ▼     ▼                      DOWN: napi_disable() napi_disable()(skip)             │     │                            │     ▼                            ▼   ......                      ......     │                            │     ▼                            │ napi_enable()                    │                                  ▼                            UINIT: netif_napi_del()                                  │                                  ▼                               ......                                  │                                  ▼                            INIT: netif_napi_add()                                  │                                  ▼                               ......                 global reset start                                  │                      │                                  ▼                      ▼                            UP: napi_enable()(skip)    ......                                  │                      │                                  ▼                      ▼                               ......                 napi_disable()  In reset process, the driver will DOWN the port and then UINIT, in this case, the setup tc process will UP the port before UINIT, so cause the problem. Adds a DOWN process in UINIT to fix it.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5782"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31096",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:31099",
+								"comment": "linux DPKG is earlier than 6.1.112-1"
 							}
 						]
 					}

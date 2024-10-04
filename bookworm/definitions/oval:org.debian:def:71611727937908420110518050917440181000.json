@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46674"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  usb: dwc3: st: fix probed platform device ref count on probe error path  The probe function never performs any paltform device allocation, thus error path \"undo_platform_dev_alloc\" is entirely bogus.  It drops the reference count from the platform device being probed.  If error path is triggered, this will lead to unbalanced device reference counts and premature release of device resources, thus possible use-after-free when releasing remaining devm-managed resources.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5782"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31164",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:31167",
+								"comment": "linux DPKG is earlier than 6.1.112-1"
 							}
 						]
 					}
