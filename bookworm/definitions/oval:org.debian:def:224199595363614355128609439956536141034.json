@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:224199595363614355128609439956536141034",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47764 node-cookie",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "node-cookie"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47764",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47764"
+			}
+		],
+		"description": "cookie is a basic HTTP cookie parser and serializer for HTTP servers. The cookie name could be used to set other fields of the cookie, resulting in an unexpected cookie value. A similar escape can be used for path and domain, which could be abused to alter other fields of the cookie. Upgrade to 0.7.0, which updates the validation for name, path, and domain.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31330",
+								"comment": "node-cookie DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

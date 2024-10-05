@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:233049497291938783188258419669960420330",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47850 cups-filters",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "cups-filters"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47850",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47850"
+			}
+		],
+		"description": "CUPS cups-browsed before 2.5b1 will send an HTTP POST request to an arbitrary destination and port in response to a single IPP UDP packet requesting a printer to be added, a different vulnerability than CVE-2024-47176. (The request is meant to probe the new printer but can be used to create DDoS amplification attacks.)",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31428",
+								"comment": "cups-filters DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

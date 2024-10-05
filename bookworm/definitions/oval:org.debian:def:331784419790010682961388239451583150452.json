@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:331784419790010682961388239451583150452",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-9407 golang-github-containers-buildah",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "golang-github-containers-buildah"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-9407",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-9407"
+			}
+		],
+		"description": "A vulnerability exists in the bind-propagation option of the Dockerfile RUN --mount instruction. The system does not properly validate the input passed to this option, allowing users to pass arbitrary parameters to the mount instruction. This issue can be exploited to mount sensitive directories from the host into a container during the build process and, in some cases, modify the contents of those mounted files. Even if SELinux is used, this vulnerability can bypass its protection by allowing the source directory to be relabeled to give the container access to host files.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31622",
+								"comment": "golang-github-containers-buildah DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
