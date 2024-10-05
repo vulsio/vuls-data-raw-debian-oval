@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:173766342604864017405113620313966131411",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47554 commons-io",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "commons-io"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47554",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47554"
+			}
+		],
+		"description": "Uncontrolled Resource Consumption vulnerability in Apache Commons IO.  The org.apache.commons.io.input.XmlStreamReader class may excessively consume CPU resources when processing maliciously crafted input.   This issue affects Apache Commons IO: from 2.0 before 2.14.0.  Users are recommended to upgrade to version 2.14.0 or later, which fixes the issue.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31415",
+								"comment": "commons-io DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
