@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:75622475700269978846637902106585463030",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43365 cacti",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "cacti"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43365",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43365"
+			}
+		],
+		"description": "Cacti is an open source performance and fault management framework. The`consolenewsection` parameter is not properly sanitized when saving external links in links.php . Morever, the said consolenewsection parameter is stored in the database and reflected back to user in `index.php`, finally leading to stored XSS. Users with the privilege to create external links can manipulate the “consolenewsection” parameter in the http post request while creating external links to perform stored XSS attacks. The vulnerability known as XSS (Cross-Site Scripting) occurs when an application allows untrusted user input to be displayed on a web page without proper validation or escaping. This issue has been addressed in release version 1.2.28. All users are advised to upgrade. There are no known workarounds for this vulnerability.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31111",
+								"comment": "cacti DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
