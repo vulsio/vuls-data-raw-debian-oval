@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:108069732788992618162520990289958577687",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46304 libcoap2",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "libcoap2"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46304",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46304"
+			}
+		],
+		"description": "A Buffer Overflow vulnerability in libcoap v4.3.5-rc2 and below allows a remote attacker to cause a denial of service via the coap_handle_request_put_block function in src/coap_block.c.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31283",
+								"comment": "libcoap2 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:20859685992765346868343882322447711312",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-9675 golang-github-containers-buildah",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "golang-github-containers-buildah"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-9675",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-9675"
+			}
+		],
+		"description": "A vulnerability was found in Buildah. Cache mounts do not properly validate that user-specified paths for the cache are within our cache directory, allowing a `RUN` instruction in a Container file to mount an arbitrary directory from the host (read/write) into the container as long as those files can be accessed by the user running Buildah.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31736",
+								"comment": "golang-github-containers-buildah DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
