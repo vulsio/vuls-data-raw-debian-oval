@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:332790440017259080086216591358344826344",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47667 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47667",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47667"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  PCI: keystone: Add workaround for Errata #i2037 (AM65x SR 1.0)  Errata #i2037 in AM65x/DRA80xM Processors Silicon Revision 1.0 (SPRZ452D_July 2018_Revised December 2019 [1]) mentions when an inbound PCIe TLP spans more than two internal AXI 128-byte bursts, the bus may corrupt the packet payload and the corrupt data may cause associated applications or the processor to hang.  The workaround for Errata #i2037 is to limit the maximum read request size and maximum payload size to 128 bytes. Add workaround for Errata #i2037 here.  The errata and workaround is applicable only to AM65x SR 1.0 and later versions of the silicon will have this fixed.  [1] -> https://www.ti.com/lit/er/sprz452i/sprz452i.pdf",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31438",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

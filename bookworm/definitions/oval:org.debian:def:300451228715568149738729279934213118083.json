@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:300451228715568149738729279934213118083",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46871 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46871",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46871"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Correct the defined value for AMDGPU_DMUB_NOTIFICATION_MAX  [Why & How] It actually exposes '6' types in enum dmub_notification_type. Not 5. Using smaller number to create array dmub_callback & dmub_thread_offload has potential to access item out of array bound. Fix it.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31320",
+								"comment": "linux DPKG is earlier than 6.1.112-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

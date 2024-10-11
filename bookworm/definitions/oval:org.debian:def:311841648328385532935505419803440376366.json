@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:311841648328385532935505419803440376366",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47661 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47661",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47661"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Avoid overflow from uint32_t to uint8_t  [WHAT & HOW] dmub_rb_cmd's ramping_boundary has size of uint8_t and it is assigned 0xFFFF. Fix it by changing it to uint8_t with value of 0xFF.  This fixes 2 INTEGER_OVERFLOW issues reported by Coverity.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31337",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

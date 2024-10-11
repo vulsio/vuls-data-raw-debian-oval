@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:83051352626816126017431926515161080097",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47668 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47668",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47668"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  lib/generic-radix-tree.c: Fix rare race in __genradix_ptr_alloc()  If we need to increase the tree depth, allocate a new node, and then race with another thread that increased the tree depth before us, we'll still have a preallocated node that might be used later.  If we then use that node for a new non-root node, it'll still have a pointer to the old root instead of being zeroed - fix this by zeroing it in the cmpxchg failure path.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31439",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

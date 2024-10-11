@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:106752179466284139253117846276150400261",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47666 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47666",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47666"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  scsi: pm80xx: Set phy->enable_completion only when we wait for it  pm8001_phy_control() populates the enable_completion pointer with a stack address, sends a PHY_LINK_RESET / PHY_HARD_RESET, waits 300 ms, and returns. The problem arises when a phy control response comes late.  After 300 ms the pm8001_phy_control() function returns and the passed enable_completion stack address is no longer valid. Late phy control response invokes complete() on a dangling enable_completion pointer which leads to a kernel crash.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31437",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

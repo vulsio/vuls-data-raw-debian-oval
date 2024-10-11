@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:140128191848374514361574576699035170188",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47664 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47664",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47664"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  spi: hisi-kunpeng: Add verification for the max_frequency provided by the firmware  If the value of max_speed_hz is 0, it may cause a division by zero error in hisi_calc_effective_speed(). The value of max_speed_hz is provided by firmware. Firmware is generally considered as a trusted domain. However, as division by zero errors can cause system failure, for defense measure, the value of max_speed is validated here. So 0 is regarded as invalid and an error code is returned.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31340",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:334844388834196749706885478253031419006",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47658 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47658",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47658"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  crypto: stm32/cryp - call finalize with bh disabled  The finalize operation in interrupt mode produce a produces a spinlock recursion warning. The reason is the fact that BH must be disabled during this process.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31334",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

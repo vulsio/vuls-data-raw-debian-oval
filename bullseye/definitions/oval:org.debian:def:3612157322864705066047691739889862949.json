@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:3612157322864705066047691739889862949",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47662 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47662",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47662"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Remove register from DCN35 DMCUB diagnostic collection  [Why] These registers should not be read from driver and triggering the security violation when DMCUB work times out and diagnostics are collected blocks Z8 entry.  [How] Remove the register read from DCN35.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31433",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
