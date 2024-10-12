@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:122087825353897323003734982284495066144",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-48938 znuny",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "znuny"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-48938",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-48938"
+			}
+		],
+		"description": "Znuny before LTS 6.5.1 through 6.5.10 and 7.0.1 through 7.0.16 allows DoS/ReDos via email. Parsing the content of emails where HTML code is copied from Microsoft Word could lead to high CPU usage and block the parsing process.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31375",
+								"comment": "znuny DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
