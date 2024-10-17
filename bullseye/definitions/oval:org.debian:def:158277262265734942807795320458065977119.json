@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:158277262265734942807795320458065977119",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-39884 apache2",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "apache2"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-39884",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-39884"
+			}
+		],
+		"description": "A regression in the core of Apache HTTP Server 2.4.60 ignores some use of the legacy content-type based configuration of handlers.   \"AddType\" and similar configuration, under some circumstances where files are requested indirectly, result in source code disclosure of local content. For example, PHP scripts may be served instead of interpreted.  Users are recommended to upgrade to version 2.4.61, which fixes this issue.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30800",
+								"comment": "apache2 DPKG is earlier than 2.4.61-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
