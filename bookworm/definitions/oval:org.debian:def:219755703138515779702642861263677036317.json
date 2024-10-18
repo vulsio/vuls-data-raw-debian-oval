@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:219755703138515779702642861263677036317",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47522 suricata",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "suricata"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47522",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47522"
+			}
+		],
+		"description": "Suricata is a network Intrusion Detection System, Intrusion Prevention System and Network Security Monitoring engine. Prior to version 7.0.7, invalid ALPN in TLS/QUIC traffic when JA4 matching/logging is enabled can lead to Suricata aborting with a panic. This issue has been addressed in 7.0.7. One may disable ja4 as a workaround.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31339",
+								"comment": "suricata DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
