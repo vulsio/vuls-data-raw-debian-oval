@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:166509692223600438783991168741189953325",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-32190 mlocate",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "mlocate"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-32190",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32190"
+			}
+		],
+		"description": "mlocate's %post script allows RUN_UPDATEDB_AS user to make arbitrary files world readable by abusing insecure file operations that run with root privileges.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27685",
+								"comment": "mlocate DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
