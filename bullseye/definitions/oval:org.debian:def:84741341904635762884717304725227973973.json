@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:84741341904635762884717304725227973973",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-45797 libhtp",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "libhtp"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-45797",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-45797"
+			}
+		],
+		"description": "LibHTP is a security-aware parser for the HTTP protocol and the related bits and pieces. Prior to version 0.5.49, unbounded processing of HTTP request and response headers can lead to excessive CPU time and memory utilization, possibly leading to extreme slowdowns. This issue is addressed in 0.5.49.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31294",
+								"comment": "libhtp DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
