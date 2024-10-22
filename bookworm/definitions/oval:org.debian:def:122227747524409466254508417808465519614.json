@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49851"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  tpm: Clean up TPM space after command failure  tpm_dev_transmit prepares the TPM space before attempting command transmission. However if the command fails no rollback of this preparation is done. This can result in transient handles being leaked if the device is subsequently closed with no further commands performed.  Fix this by flushing the space in the event of command transmission failure.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31546",
+								"test_ref": "oval:org.debian.oval:tst:31545",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

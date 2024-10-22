@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49855"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  nbd: fix race between timeout and normal completion  If request timetout is handled by nbd_requeue_cmd(), normal completion has to be stopped for avoiding to complete this requeued request, other use-after-free can be triggered.  Fix the race by clearing NBD_CMD_INFLIGHT in nbd_requeue_cmd(), meantime make sure that cmd->lock is grabbed for clearing the flag and the requeue.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31550",
+								"test_ref": "oval:org.debian.oval:tst:31549",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

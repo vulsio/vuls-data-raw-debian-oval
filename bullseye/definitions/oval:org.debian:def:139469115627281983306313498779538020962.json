@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49966"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ocfs2: cancel dqi_sync_work before freeing oinfo  ocfs2_global_read_info() will initialize and schedule dqi_sync_work at the end, if error occurs after successfully reading global quota, it will trigger the following warning with CONFIG_DEBUG_OBJECTS_* enabled:  ODEBUG: free active (active state 0) object: 00000000d8b0ce28 object type: timer_list hint: qsync_work_fn+0x0/0x16c  This reports that there is an active delayed work when freeing oinfo in error handling, so cancel dqi_sync_work first.  BTW, return status instead of -1 when .read_file_info fails.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31686",
+								"test_ref": "oval:org.debian.oval:tst:31685",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

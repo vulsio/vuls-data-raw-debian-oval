@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49951"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  Bluetooth: MGMT: Fix possible crash on mgmt_index_removed  If mgmt_index_removed is called while there are commands queued on cmd_sync it could lead to crashes like the bellow trace:  0x0000053D: __list_del_entry_valid_or_report+0x98/0xdc 0x0000053D: mgmt_pending_remove+0x18/0x58 [bluetooth] 0x0000053E: mgmt_remove_adv_monitor_complete+0x80/0x108 [bluetooth] 0x0000053E: hci_cmd_sync_work+0xbc/0x164 [bluetooth]  So while handling mgmt_index_removed this attempts to dequeue commands passed as user_data to cmd_sync.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31630",
+								"test_ref": "oval:org.debian.oval:tst:31629",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

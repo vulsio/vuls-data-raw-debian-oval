@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49852"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  scsi: elx: libefc: Fix potential use after free in efc_nport_vport_del()  The kref_put() function will call nport->release if the refcount drops to zero.  The nport->release release function is _efc_nport_free() which frees \"nport\".  But then we dereference \"nport\" on the next line which is a use after free.  Re-order these lines to avoid the use after free.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31547",
+								"test_ref": "oval:org.debian.oval:tst:31546",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

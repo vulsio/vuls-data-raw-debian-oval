@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50036"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net: do not delay dst_entries_add() in dst_release()  dst_entries_add() uses per-cpu data that might be freed at netns dismantle from ip6_route_net_exit() calling dst_entries_destroy()  Before ip6_route_net_exit() can be called, we release all the dsts associated with this netns, via calls to dst_release(), which waits an rcu grace period before calling dst_destroy()  dst_entries_add() use in dst_destroy() is racy, because dst_entries_destroy() could have been called already.  Decrementing the number of dsts must happen sooner.  Notes:  1) in CONFIG_XFRM case, dst_destroy() can call    dst_release_immediate(child), this might also cause UAF    if the child does not have DST_NOCOUNT set.    IPSEC maintainers might take a look and see how to address this.  2) There is also discussion about removing this count of dst,    which might happen in future kernels.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31733",
+								"test_ref": "oval:org.debian.oval:tst:31732",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

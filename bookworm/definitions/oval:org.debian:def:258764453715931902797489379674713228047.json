@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49905"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Add null check for 'afb' in amdgpu_dm_plane_handle_cursor_update (v2)  This commit adds a null check for the 'afb' variable in the amdgpu_dm_plane_handle_cursor_update function. Previously, 'afb' was assumed to be null, but was used later in the code without a null check. This could potentially lead to a null pointer dereference.  Changes since v1: - Moved the null check for 'afb' to the line where 'afb' is used. (Alex)  Fixes the below: drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_plane.c:1298 amdgpu_dm_plane_handle_cursor_update() error: we previously assumed 'afb' could be null (see line 1252)",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31588",
+								"test_ref": "oval:org.debian.oval:tst:31587",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]
