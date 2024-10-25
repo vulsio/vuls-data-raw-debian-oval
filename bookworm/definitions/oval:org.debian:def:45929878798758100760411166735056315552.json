@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:45929878798758100760411166735056315552",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47883 openrefine-butterfly",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "openrefine-butterfly"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47883",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47883"
+			}
+		],
+		"description": "The OpenRefine fork of the MIT Simile Butterfly server is a modular web application framework. The Butterfly framework uses the `java.net.URL` class to refer to (what are expected to be) local resource files, like images or templates. This works: \"opening a connection\" to these URLs opens the local file. However, prior to version 1.2.6, if a `file:/` URL is directly given where a relative path (resource name) is expected, this is also accepted in some code paths; the app then fetches the file, from a remote machine if indicated, and uses it as if it was a trusted part of the app's codebase. This leads to multiple weaknesses and potential weaknesses. An attacker that has network access to the application could use it to gain access to files, either on the the server's filesystem (path traversal) or shared by nearby machines (server-side request forgery with e.g. SMB). An attacker that can lead or redirect a user to a crafted URL belonging to the app could cause arbitrary attacker-controlled JavaScript to be loaded in the victim's browser (cross-site scripting). If an app is written in such a way that an attacker can influence the resource name used for a template, that attacker could cause the app to fetch and execute an attacker-controlled template (remote code execution). Version 1.2.6 contains a patch.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31538",
+								"comment": "openrefine-butterfly DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

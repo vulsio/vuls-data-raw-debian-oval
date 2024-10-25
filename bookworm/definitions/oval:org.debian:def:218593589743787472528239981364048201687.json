@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:218593589743787472528239981364048201687",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47882 openrefine",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "openrefine"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47882",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47882"
+			}
+		],
+		"description": "OpenRefine is a free, open source tool for working with messy data. Prior to version 3.8.3, the built-in \"Something went wrong!\" error page includes the exception message and exception traceback without escaping HTML tags, enabling injection into the page if an attacker can reliably produce an error with an attacker-influenced message. It appears that the only way to reach this code in OpenRefine itself is for an attacker to somehow convince a victim to import a malicious file, which may be difficult.  However, out-of-tree extensions may add their own calls to `respondWithErrorPage`. Version 3.8.3 has a fix for this issue.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31537",
+								"comment": "openrefine DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

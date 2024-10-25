@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:68072942237003965303828929866805657158",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47881 openrefine",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "openrefine"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47881",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47881"
+			}
+		],
+		"description": "OpenRefine is a free, open source tool for working with messy data. Starting in version 3.4-beta and prior to version 3.8.3, in the `database` extension, the \"enable_load_extension\" property can be set for the SQLite integration, enabling an attacker to load (local or remote) extension DLLs and so run arbitrary code on the server. The attacker needs to have network access to the OpenRefine instance. Version 3.8.3 fixes this issue.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31536",
+								"comment": "openrefine DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
