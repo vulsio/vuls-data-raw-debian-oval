@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:159629361589431813728197816029353709215",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50624 kmail-account-wizard",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "kmail-account-wizard"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50624",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50624"
+			}
+		],
+		"description": "ispdbservice.cpp in KDE Kmail before 6.2.0 allows man-in-the-middle attackers to trigger use of an attacker-controlled mail server because cleartext HTTP is used for a URL such as http://autoconfig.example.com or http://example.com/.well-known/autoconfig for retrieving the configuration. This is related to kmail-account-wizard.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31752",
+								"comment": "kmail-account-wizard DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
