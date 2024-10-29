@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:183390912158246366484660883355257717815",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50086 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50086",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50086"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ksmbd: fix user-after-free from session log off  There is racy issue between smb2 session log off and smb2 session setup. It will cause user-after-free from session log off. This add session_lock when setting SMB2_SESSION_EXPIRED and referece count to session struct not to free session while it is being used.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31778",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:21025999975108951957615458762880692283",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50074 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50074",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50074"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  parport: Proper fix for array out-of-bounds access  The recent fix for array out-of-bounds accesses replaced sprintf() calls blindly with snprintf().  However, since snprintf() returns the would-be-printed size, not the actually output size, the length calculation can still go over the given limit.  Use scnprintf() instead of snprintf(), which returns the actually output letters, for addressing the potential out-of-bounds access properly.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31775",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:244289216892207543095130969429803853760",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50087 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50087",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50087"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  btrfs: fix uninitialized pointer free on read_alloc_one_name() error  The function read_alloc_one_name() does not initialize the name field of the passed fscrypt_str struct if kmalloc fails to allocate the corresponding buffer.  Thus, it is not guaranteed that fscrypt_str.name is initialized when freeing it.  This is a follow-up to the linked patch that fixes the remaining instances of the bug introduced by commit e43eec81c516 (\"btrfs: use struct qstr instead of name and namelen pairs\").",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31751",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
