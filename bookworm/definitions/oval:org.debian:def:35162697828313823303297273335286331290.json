@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:35162697828313823303297273335286331290",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49769 waitress",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "waitress"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49769",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49769"
+			}
+		],
+		"description": "Waitress is a Web Server Gateway Interface server for Python 2 and 3. When a remote client closes the connection before waitress has had the opportunity to call getpeername() waitress won't correctly clean up the connection leading to the main thread attempting to write to a socket that no longer exists, but not removing it from the list of sockets to attempt to process. This leads to a busy-loop calling the write function. A remote attacker could run waitress out of available sockets with very little resources required. Waitress 3.0.1 contains fixes that remove the race condition.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31595",
+								"comment": "waitress DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
