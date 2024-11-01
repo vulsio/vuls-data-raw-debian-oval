@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:146897344952469181653760067360882788011",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-7883 llvm-toolchain-14",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "llvm-toolchain-14"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-7883",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-7883"
+			}
+		],
+		"description": "When using Arm Cortex-M Security Extensions (CMSE), Secure stack  contents can be leaked to Non-secure state via floating-point registers  when a Secure to Non-secure function call is made that returns a  floating-point value and when this is the first use of floating-point  since entering Secure state. This allows an attacker to read a limited  quantity of Secure stack contents with an impact on confidentiality.  This issue is specific to code generated using LLVM-based compilers.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31999",
+								"comment": "llvm-toolchain-14 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
