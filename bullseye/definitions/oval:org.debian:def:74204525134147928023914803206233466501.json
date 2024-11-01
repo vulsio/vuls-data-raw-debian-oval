@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:74204525134147928023914803206233466501",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-10006 consul",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "consul"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-10006",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-10006"
+			}
+		],
+		"description": "A vulnerability was identified in Consul and Consul Enterprise (“Consul”) such that using Headers in L7 traffic intentions could bypass HTTP header based access rules.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29515",
+								"comment": "consul DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
