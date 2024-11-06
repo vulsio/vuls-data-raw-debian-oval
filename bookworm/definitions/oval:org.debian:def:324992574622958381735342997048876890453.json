@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50127"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net: sched: fix use-after-free in taprio_change()  In 'taprio_change()', 'admin' pointer may become dangling due to sched switch / removal caused by 'advance_sched()', and critical section protected by 'q->current_entry_lock' is too small to prevent from such a scenario (which causes use-after-free detected by KASAN). Fix this by prefer 'rcu_replace_pointer()' over 'rcu_assign_pointer()' to update 'admin' immediately before an attempt to schedule freeing.",
 		"debian": {}
 	},
 	"criteria": {
