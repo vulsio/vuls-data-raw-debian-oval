@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:17636176618711669542908254540240520056",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50343 symfony",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "symfony"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50343",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50343"
+			}
+		],
+		"description": "symfony/validator is a module for the Symphony PHP framework which provides tools to validate values. It is possible to trick a `Validator` configured with a regular expression using the `$` metacharacters, with an input ending with `\\n`. Symfony as of versions 5.4.43, 6.4.11, and 7.1.4 now uses the `D` regex modifier to match the entire input. Users are advised to upgrade. There are no known workarounds for this vulnerability.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31841",
+								"comment": "symfony DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

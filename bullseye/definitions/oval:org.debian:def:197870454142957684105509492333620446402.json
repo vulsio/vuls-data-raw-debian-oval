@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:197870454142957684105509492333620446402",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50342 symfony",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "symfony"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50342",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50342"
+			}
+		],
+		"description": "symfony/http-client is a module for the Symphony PHP framework which provides powerful methods to fetch HTTP resources synchronously or asynchronously. When using the `NoPrivateNetworkHttpClient`, some internal information is still leaking during host resolution, which leads to possible IP/port enumeration. As of versions 5.4.46, 6.4.14, and 7.1.7 the `NoPrivateNetworkHttpClient` now filters blocked IPs earlier to prevent such leaks. All users are advised to upgrade. There are no known workarounds for this vulnerability.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31840",
+								"comment": "symfony DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

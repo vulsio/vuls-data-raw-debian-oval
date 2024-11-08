@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:261142597557209329748990319309590949955",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50345 symfony",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "symfony"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50345",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50345"
+			}
+		],
+		"description": "symfony/http-foundation is a module for the Symphony PHP framework which defines an object-oriented layer for the HTTP specification. The `Request` class, does not parse URI with special characters the same way browsers do. As a result, an attacker can trick a validator relying on the `Request` class to redirect users to another domain. The `Request::create` methods now assert the URI does not contain invalid characters as defined by https://url.spec.whatwg.org/. This issue has been patched in versions 5.4.46, 6.4.14, and 7.1.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31834",
+								"comment": "symfony DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
