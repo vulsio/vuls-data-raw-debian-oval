@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50187"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/vc4: Stop the active perfmon before being destroyed  Upon closing the file descriptor, the active performance monitor is not stopped. Although all perfmons are destroyed in `vc4_perfmon_close_file()`, the active performance monitor's pointer (`vc4->active_perfmon`) is still retained.  If we open a new file descriptor and submit a few jobs with performance monitors, the driver will attempt to stop the active performance monitor using the stale pointer in `vc4->active_perfmon`. However, this pointer is no longer valid because the previous process has already terminated, and all performance monitors associated with it have been destroyed and freed.  To fix this, when the active performance monitor belongs to a given process, explicitly stop it before destroying and freeing it.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:31841",
+								"test_ref": "oval:org.debian.oval:tst:31842",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]
