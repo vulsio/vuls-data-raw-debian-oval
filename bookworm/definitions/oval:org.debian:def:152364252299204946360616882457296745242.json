@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:152364252299204946360616882457296745242",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-24820 icingaweb2-module-director",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "icingaweb2-module-director"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-24820",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-24820"
+			}
+		],
+		"description": "Icinga Director is a tool designed to make Icinga 2 configuration handling easy. Not any of Icinga Director's configuration forms used to manipulate the monitoring environment are protected against cross site request forgery (CSRF). It enables attackers to perform changes in the monitoring environment managed by Icinga Director without the awareness of the victim. Users of the map module in version 1.x, should immediately upgrade to v2.0. The mentioned XSS vulnerabilities in Icinga Web are already fixed as well and upgrades to the most recent release of the 2.9, 2.10 or 2.11 branch must be performed if not done yet. Any later major release is also suitable. Icinga Director will receive minor updates to the 1.8, 1.9, 1.10 and 1.11 branches to remedy this issue. Upgrade immediately to a patched release. If that is not feasible, disable the director module for the time being.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29354",
+								"comment": "icingaweb2-module-director DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
