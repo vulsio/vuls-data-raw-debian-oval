@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:301676599754223262338454087729966900253",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-52867 guix",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "guix"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-52867",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-52867"
+			}
+		],
+		"description": "guix-daemon in GNU Guix before 5ab3c4c allows privilege escalation because build outputs are accessible by local users before file metadata concerns (e.g., for setuid and setgid programs) are properly addressed. The vulnerability can be remediated within the product via certain pull, reconfigure, and restart actions. Both 5ab3c4c and 5582241 are needed to resolve the vulnerability.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31950",
+								"comment": "guix DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
