@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:104179706994904649876685098912655161655",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-4679 gpac",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "gpac"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-4679",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-4679"
+			}
+		],
+		"description": "A use after free vulnerability exists in GPAC version 2.3-DEV-revrelease, specifically in the gf_filterpacket_del function in filter_core/filter.c at line 38. This vulnerability can lead to a double-free condition, which may cause the application to crash.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:28607",
+								"comment": "gpac DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
