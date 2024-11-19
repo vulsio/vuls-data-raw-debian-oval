@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:290886174599438287319370444412976418208",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50277 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50277",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50277"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  dm: fix a crash if blk_alloc_disk fails  If blk_alloc_disk fails, the variable md->disk is set to an error value. cleanup_mapped_device will see that md->disk is non-NULL and it will attempt to access it, causing a crash on this statement \"md->disk->private_data = NULL;\".",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31923",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

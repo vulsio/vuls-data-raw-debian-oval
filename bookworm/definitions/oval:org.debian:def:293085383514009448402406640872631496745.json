@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:293085383514009448402406640872631496745",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50287 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50287",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50287"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  media: v4l2-tpg: prevent the risk of a division by zero  As reported by Coverity, the logic at tpg_precalculate_line() blindly rescales the buffer even when scaled_witdh is equal to zero. If this ever happens, this will cause a division by zero.  Instead, add a WARN_ON_ONCE() to trigger such cases and return without doing any precalculation.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31960",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

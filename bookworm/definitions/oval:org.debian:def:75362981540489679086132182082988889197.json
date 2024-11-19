@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:75362981540489679086132182082988889197",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50286 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50286",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50286"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ksmbd: fix slab-use-after-free in ksmbd_smb2_session_create  There is a race condition between ksmbd_smb2_session_create and ksmbd_expire_session. This patch add missing sessions_table_lock while adding/deleting session from global session table.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31959",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

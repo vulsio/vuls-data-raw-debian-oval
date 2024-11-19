@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:253568913385925096665389512994499805580",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50272 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50272",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50272"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  filemap: Fix bounds checking in filemap_read()  If the caller supplies an iocb->ki_pos value that is close to the filesystem upper limit, and an iterator with a count that causes us to overflow that limit, then filemap_read() enters an infinite loop.  This behaviour was discovered when testing xfstests generic/525 with the \"localio\" optimisation for loopback NFS mounts.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31947",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

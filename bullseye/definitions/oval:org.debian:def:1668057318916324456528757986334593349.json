@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:1668057318916324456528757986334593349",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50269 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50269",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50269"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  usb: musb: sunxi: Fix accessing an released usb phy  Commit 6ed05c68cbca (\"usb: musb: sunxi: Explicitly release USB PHY on exit\") will cause that usb phy @glue->xceiv is accessed after released.  1) register platform driver @sunxi_musb_driver // get the usb phy @glue->xceiv sunxi_musb_probe() -> devm_usb_get_phy().  2) register and unregister platform driver @musb_driver musb_probe() -> sunxi_musb_init() use the phy here //the phy is released here musb_remove() -> sunxi_musb_exit() -> devm_usb_put_phy()  3) register @musb_driver again musb_probe() -> sunxi_musb_init() use the phy here but the phy has been released at 2). ...  Fixed by reverting the commit, namely, removing devm_usb_put_phy() from sunxi_musb_exit().",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31920",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

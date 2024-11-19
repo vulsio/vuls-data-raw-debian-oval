@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:121774900532406431512060660407656113913",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50268 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50268",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50268"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  usb: typec: fix potential out of bounds in ucsi_ccg_update_set_new_cam_cmd()  The \"*cmd\" variable can be controlled by the user via debugfs.  That means \"new_cam\" can be as high as 255 while the size of the uc->updated[] array is UCSI_MAX_ALTMODES (30).  The call tree is: ucsi_cmd() // val comes from simple_attr_write_xsigned() -> ucsi_send_command()    -> ucsi_send_command_common()       -> ucsi_run_command() // calls ucsi->ops->sync_control()          -> ucsi_ccg_sync_control()",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31944",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

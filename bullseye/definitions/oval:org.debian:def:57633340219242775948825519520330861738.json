@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:57633340219242775948825519520330861738",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52921 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52921",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52921"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/amdgpu: fix possible UAF in amdgpu_cs_pass1()  Since the gang_size check is outside of chunk parsing loop, we need to reset i before we free the chunk data.  Suggested by Ye Zhang (@VAR10CK) of Baidu Security.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29209",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:281993936258210639590635836314261734346",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50285 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50285",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50285"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ksmbd: check outstanding simultaneous SMB operations  If Client send simultaneous SMB operations to ksmbd, It exhausts too much memory through the \"ksmbd_work_cache”. It will cause OOM issue. ksmbd has a credit mechanism but it can't handle this problem. This patch add the check if it exceeds max credits to prevent this problem by assuming that one smb request consumes at least one credit.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31958",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
