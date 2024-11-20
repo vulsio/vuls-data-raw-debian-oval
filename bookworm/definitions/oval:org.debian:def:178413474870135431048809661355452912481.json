@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53085"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  tpm: Lock TPM chip in tpm_pm_suspend() first  Setting TPM_CHIP_FLAG_SUSPENDED in the end of tpm_pm_suspend() can be racy according, as this leaves window for tpm_hwrng_read() to be called while the operation is in progress. The recent bug report gives also evidence of this behaviour.  Aadress this by locking the TPM chip before checking any chip->flags both in tpm_pm_suspend() and tpm_hwrng_read(). Move TPM_CHIP_FLAG_SUSPENDED check inside tpm_get_random() so that it will be always checked only when the lock is reserved.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:32050",
+								"test_ref": "oval:org.debian.oval:tst:32053",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

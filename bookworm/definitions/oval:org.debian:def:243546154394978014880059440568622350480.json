@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53056"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/mediatek: Fix potential NULL dereference in mtk_crtc_destroy()  In mtk_crtc_create(), if the call to mbox_request_channel() fails then we set the \"mtk_crtc->cmdq_client.chan\" pointer to NULL.  In that situation, we do not call cmdq_pkt_create().  During the cleanup, we need to check if the \"mtk_crtc->cmdq_client.chan\" is NULL first before calling cmdq_pkt_destroy().  Calling cmdq_pkt_destroy() is unnecessary if we didn't call cmdq_pkt_create() and it will result in a NULL pointer dereference.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:32035",
+								"test_ref": "oval:org.debian.oval:tst:32038",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]
