@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:8616797228712115808097783278031163949",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-52762 ganglia-web",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "ganglia-web"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-52762",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-52762"
+			}
+		],
+		"description": "A cross-site scripting (XSS) vulnerability in the component /master/header.php of Ganglia-web v3.73 to v3.76 allows attackers to execute arbitrary web scripts or HTML via a crafted payload injected into the \"tz\" parameter.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31991",
+								"comment": "ganglia-web DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
