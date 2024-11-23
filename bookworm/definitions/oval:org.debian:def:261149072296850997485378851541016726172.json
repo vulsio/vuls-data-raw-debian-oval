@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:261149072296850997485378851541016726172",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-53425 assimp",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "assimp"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-53425",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53425"
+			}
+		],
+		"description": "A heap-buffer-overflow vulnerability was discovered in the SkipSpacesAndLineEnd function in Assimp v5.4.3. This issue occurs when processing certain malformed MD5 model files, leading to an out-of-bounds read and potential application crash.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32067",
+								"comment": "assimp DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
