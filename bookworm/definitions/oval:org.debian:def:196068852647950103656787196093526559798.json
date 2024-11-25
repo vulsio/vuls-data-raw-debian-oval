@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50262"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  bpf: Fix out-of-bounds write in trie_get_next_key()  trie_get_next_key() allocates a node stack with size trie->max_prefixlen, while it writes (trie->max_prefixlen + 1) nodes to the stack when it has full paths from the root to leaves. For example, consider a trie with max_prefixlen is 8, and the nodes with key 0x00/0, 0x00/1, 0x00/2, ... 0x00/8 inserted. Subsequent calls to trie_get_next_key with _key with .prefixlen = 8 make 9 nodes be written on the node stack with size 8.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5818"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:31952",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 6.1.119-1"
 							}
 						]
 					}

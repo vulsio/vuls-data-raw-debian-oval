@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53055"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  wifi: iwlwifi: mvm: fix 6 GHz scan construction  If more than 255 colocated APs exist for the set of all APs found during 2.4/5 GHz scanning, then the 6 GHz scan construction will loop forever since the loop variable has type u8, which can never reach the number found when that's bigger than 255, and is stored in a u32 variable. Also move it into the loops to have a smaller scope.  Using a u32 there is fine, we limit the number of APs in the scan list and each has a limit on the number of RNR entries due to the frame size. With a limit of 1000 scan results, a frame size upper bound of 4096 (really it's more like ~2300) and a TBTT entry size of at least 11, we get an upper bound for the number of ~372k, well in the bounds of a u32.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5818"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:32045",
-								"comment": "linux DPKG is earlier than 0"
+								"comment": "linux DPKG is earlier than 6.1.119-1"
 							}
 						]
 					}
