@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:32712159514503015158355103038260161724",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-53099 linux",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-53099",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53099"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  bpf: Check validity of link->type in bpf_link_show_fdinfo()  If a newly-added link type doesn't invoke BPF_LINK_TYPE(), accessing bpf_link_type_strs[link->type] may result in an out-of-bounds access.  To spot such missed invocations early in the future, checking the validity of link->type in bpf_link_show_fdinfo() and emitting a warning when such invocations are missed.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32024",
+								"comment": "linux DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
