@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:177425811962142997503291406845429634524",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-53849 editorconfig-core",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "editorconfig-core"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-53849",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53849"
+			}
+		],
+		"description": "editorconfig-core-c  is  theEditorConfig core library written in C (for use by plugins supporting EditorConfig parsing). In affected versions several overflows may occur in switch case '[' when the input pattern contains many escaped characters. The added backslashes leave too little space in the output pattern when processing nested brackets such that the remaining input length exceeds the output capacity. This issue has been addressed in release version 0.12.7. Users are advised to upgrade. There are no known workarounds for this vulnerability.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32046",
+								"comment": "editorconfig-core DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
