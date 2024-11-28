@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:137707365920622373736038090503156738794",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-11407 grpc",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "grpc"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-11407",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-11407"
+			}
+		],
+		"description": "There exists a denial of service through Data corruption in gRPC-C++ - gRPC-C++ servers with transmit zero copy enabled through the channel arg GRPC_ARG_TCP_TX_ZEROCOPY_ENABLED can experience data corruption issues. The data sent by the application may be corrupted before transmission over the network thus leading the receiver to receive an incorrect set of bytes causing RPC requests to fail. We recommend upgrading past commit e9046b2bbebc0cb7f5dc42008f807f6c7e98e791",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29143",
+								"comment": "grpc DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
