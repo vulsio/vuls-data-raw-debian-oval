@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:83351231507132641001255894857727908932",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-53984 nanopb",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "nanopb"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-53984",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53984"
+			}
+		],
+		"description": "Nanopb is a small code-size Protocol Buffers implementation.  When the compile time option PB_ENABLE_MALLOC is enabled, the message contains at least one field with FT_POINTER field type, custom stream callback is used with unknown stream length. and the pb_decode_ex() function is used with flag PB_DECODE_DELIMITED, then the pb_decode_ex() function does not automatically call pb_release(), like is done for other failure cases. This could lead to memory leak and potential denial-of-service. This vulnerability is fixed in 0.4.9.1.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32148",
+								"comment": "nanopb DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
