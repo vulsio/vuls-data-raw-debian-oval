@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:45836636122283399863370936930436060133",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47597 gst-plugins-good1.0",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "gst-plugins-good1.0"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47597",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47597"
+			}
+		],
+		"description": "GStreamer is a library for constructing graphs of media-handling components. An OOB-read has been detected in the function qtdemux_parse_samples within qtdemux.c. This issue arises when the function qtdemux_parse_samples reads data beyond the boundaries of the stream->stco buffer. The following code snippet shows the call to qt_atom_parser_get_offset_unchecked, which leads to the OOB-read when parsing the provided GHSL-2024-245_crash1.mp4 file. This issue may lead to read up to 8 bytes out-of-bounds. This vulnerability is fixed in 1.24.10.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31577",
+								"comment": "gst-plugins-good1.0 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

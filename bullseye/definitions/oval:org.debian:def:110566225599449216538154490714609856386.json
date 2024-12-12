@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:110566225599449216538154490714609856386",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47776 gst-plugins-good1.0",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "gst-plugins-good1.0"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47776",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47776"
+			}
+		],
+		"description": "GStreamer is a library for constructing graphs of media-handling components. An OOB-read has been discovered in gst_wavparse_cue_chunk within gstwavparse.c. The vulnerability happens due to a discrepancy between the size of the data buffer and the size value provided to the function. This mismatch causes the comparison  if (size < 4 + ncues * 24) to fail in some cases, allowing the subsequent loop to access beyond the bounds of the data buffer. The root cause of this discrepancy stems from a miscalculation when clipping the chunk size based on upstream data size. This vulnerability allows reading beyond the bounds of the data buffer, potentially leading to a crash (denial of service) or the leak of sensitive data. This vulnerability is fixed in 1.24.10.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31705",
+								"comment": "gst-plugins-good1.0 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

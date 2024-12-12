@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:243145102288336348863515262867614988577",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47537 gst-plugins-good1.0",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "gst-plugins-good1.0"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47537",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47537"
+			}
+		],
+		"description": "GStreamer is a library for constructing graphs of media-handling components. The program attempts to reallocate the memory pointed to by stream->samples to accommodate stream->n_samples + samples_count elements of type QtDemuxSample. The problem is that samples_count is read from the input file. And if this value is big enough, this can lead to an integer overflow during the addition. As a consequence, g_try_renew might allocate memory for a significantly smaller number of elements than intended. Following this, the program iterates through samples_count elements and attempts to write samples_count number of elements, potentially exceeding the actual allocated memory size and causing an OOB-write. This vulnerability is fixed in 1.24.10.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31608",
+								"comment": "gst-plugins-good1.0 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

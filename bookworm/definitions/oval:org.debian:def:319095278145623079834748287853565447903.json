@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:319095278145623079834748287853565447903",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47615 gst-plugins-base1.0",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "gst-plugins-base1.0"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47615",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47615"
+			}
+		],
+		"description": "GStreamer is a library for constructing graphs of media-handling components. An OOB-Write has been detected in the function gst_parse_vorbis_setup_packet within vorbis_parse.c. The integer size is read from the input file without proper validation. As a result, size can exceed the fixed size of the pad->vorbis_mode_sizes array (which size is 256). When this happens, the for loop overwrites the entire pad structure with 0s and 1s, affecting adjacent memory as well. This OOB-write can overwrite up to 380 bytes of memory beyond the boundaries of the pad->vorbis_mode_sizes array. This vulnerability is fixed in 1.24.10.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31589",
+								"comment": "gst-plugins-base1.0 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:261034562109950328583078654222798447696",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47596 gst-plugins-good1.0",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "gst-plugins-good1.0"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47596",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47596"
+			}
+		],
+		"description": "GStreamer is a library for constructing graphs of media-handling components. An OOB-read has been discovered in the qtdemux_parse_svq3_stsd_data function within qtdemux.c. In the FOURCC_SMI_ case, seqh_size is read from the input file without proper validation. If seqh_size is greater than the remaining size of the data buffer, it can lead to an OOB-read in the following call to gst_buffer_fill, which internally uses memcpy. This vulnerability can result in reading up to 4GB of process memory or potentially causing a segmentation fault (SEGV) when accessing invalid memory. This vulnerability is fixed in 1.24.10.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31619",
+								"comment": "gst-plugins-good1.0 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

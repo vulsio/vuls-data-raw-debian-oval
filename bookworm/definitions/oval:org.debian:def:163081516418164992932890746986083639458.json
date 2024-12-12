@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:163081516418164992932890746986083639458",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-54133 rails",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "rails"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-54133",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-54133"
+			}
+		],
+		"description": "Action Pack is a framework for handling and responding to web requests. There is a possible Cross Site Scripting (XSS) vulnerability  in the `content_security_policy` helper starting in version 5.2.0 of Action Pack and prior to versions 7.0.8.7, 7.1.5.1, 7.2.2.1, and 8.0.0.1. Applications which set Content-Security-Policy (CSP) headers dynamically from untrusted user input may be vulnerable to carefully crafted inputs being able to inject new directives into the CSP. This could lead to a bypass of the CSP and its protection against XSS and other attacks. Versions 7.0.8.7, 7.1.5.1, 7.2.2.1, and 8.0.0.1 contain a fix. As a workaround, applications can avoid setting CSP headers dynamically from untrusted input, or can validate/sanitize that input.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32196",
+								"comment": "rails DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
