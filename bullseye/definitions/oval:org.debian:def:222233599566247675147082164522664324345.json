@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:222233599566247675147082164522664324345",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-29529 node-matrix-js-sdk",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "node-matrix-js-sdk"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-29529",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-29529"
+			}
+		],
+		"description": "matrix-js-sdk is the Matrix Client-Server SDK for JavaScript and TypeScript. An attacker present in a room where an MSC3401 group call is taking place can eavesdrop on the video and audio of participants using matrix-js-sdk, without their knowledge. To affected matrix-js-sdk users, the attacker will not appear to be participating in the call. This attack is possible because matrix-js-sdk's group call implementation accepts incoming direct calls from other users, even if they have not yet declared intent to participate in the group call, as a means of resolving a race condition in call setup. Affected versions do not restrict access to the user's outbound media in this case. Legacy 1:1 calls are unaffected. This is fixed in matrix-js-sdk 24.1.0. As a workaround, users may hold group calls in private rooms where only the exact users who are expected to participate in the call are present.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:27589",
+								"comment": "node-matrix-js-sdk DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
