@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:215814549340362685256809150096054055484",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-52792 ldap-account-manager",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "ldap-account-manager"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-52792",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-52792"
+			}
+		],
+		"description": "LDAP Account Manager (LAM) is a php webfrontend for managing entries (e.g. users, groups, DHCP settings) stored in an LDAP directory. In affected versions LAM does not properly sanitize configuration values, that are set via `mainmanage.php` and `confmain.php`. This allows setting arbitrary config values and thus effectively bypassing `mitigation` of CVE-2024-23333/GHSA-fm9w-7m7v-wxqv. Configuration values for the main config or server profiles are set via `mainmanage.php` and `confmain.php`. The values are written to `config.cfg` or `serverprofile.conf` in the format of `settingsName: settingsValue` line-by-line. An attacker can smuggle arbitrary config values in a config file, by inserting a newline into certain config fields, followed by the value. This vulnerability has been addressed in version 9.0. All users are advised to upgrade. There are no known workarounds for this vulnerability.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32033",
+								"comment": "ldap-account-manager DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
