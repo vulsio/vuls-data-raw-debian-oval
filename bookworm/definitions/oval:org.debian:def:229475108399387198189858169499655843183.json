@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:229475108399387198189858169499655843183",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2020-6923 hplip",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "hplip"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-6923",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-6923"
+			}
+		],
+		"description": "The HP Linux Imaging and Printing (HPLIP) software may potentially be affected by memory buffer overflow.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:19593",
+								"comment": "hplip DPKG is earlier than 3.20.9+dfsg0-3"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
