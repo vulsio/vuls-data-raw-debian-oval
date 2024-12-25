@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53161"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  EDAC/bluefield: Fix potential integer overflow  The 64-bit argument for the \"get DIMM info\" SMC call consists of mem_ctrl_idx left-shifted 16 bits and OR-ed with DIMM index.  With mem_ctrl_idx defined as 32-bits wide the left-shift operation truncates the upper 16 bits of information during the calculation of the SMC argument.  The mem_ctrl_idx stack variable must be defined as 64-bits wide to prevent any potential integer overflow, i.e. loss of data from upper 16 bits.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:32187",
+								"test_ref": "oval:org.debian.oval:tst:32188",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53147"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  exfat: fix out-of-bounds access of directory entries  In the case of the directory size is greater than or equal to the cluster size, if start_clu becomes an EOF cluster(an invalid cluster) due to file system corruption, then the directory entry where ei->hint_femp.eidx hint is outside the directory, resulting in an out-of-bounds access, which may cause further file system corruption.  This commit adds a check for start_clu, if it is an invalid cluster, the file or directory will be treated as empty.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:32177",
+								"test_ref": "oval:org.debian.oval:tst:32178",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

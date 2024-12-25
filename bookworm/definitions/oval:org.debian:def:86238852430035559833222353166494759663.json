@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:86238852430035559833222353166494759663",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47515 pagure",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "pagure"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47515",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47515"
+			}
+		],
+		"description": "A vulnerability was found in Pagure. Support of symbolic links during repository archiving of repositories allows the disclosure of local files. This flaw allows a malicious user to take advantage of the Pagure instance.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31555",
+								"comment": "pagure DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
