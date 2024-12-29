@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47602"
 			}
 		],
-		"description": "GStreamer is a library for constructing graphs of media-handling components. A null pointer dereference vulnerability has been discovered in the gst_matroska_demux_add_wvpk_header function within matroska-demux.c. This function does not properly check the validity of the stream->codec_priv pointer in the following code. If stream->codec_priv is NULL, the call to GST_READ_UINT16_LE will attempt to dereference a null pointer, leading to a crash of the application. This vulnerability is fixed in 1.24.10.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5838"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:31581",
-								"comment": "gst-plugins-good1.0 DPKG is earlier than 0"
+								"comment": "gst-plugins-good1.0 DPKG is earlier than 1.22.0-5+deb12u2"
 							}
 						]
 					}

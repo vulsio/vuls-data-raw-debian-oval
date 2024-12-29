@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47774"
 			}
 		],
-		"description": "GStreamer is a library for constructing graphs of media-handling components. An OOB-read vulnerability has been identified in the gst_avi_subtitle_parse_gab2_chunk function within gstavisubtitle.c. The function reads the name_length value directly from the input file without checking it properly. Then, the a condition, does not properly handle cases where name_length is greater than 0xFFFFFFFF - 17, causing an integer overflow. In such scenario, the function attempts to access memory beyond the buffer leading to an OOB-read. This vulnerability is fixed in 1.24.10.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5838"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:31671",
-								"comment": "gst-plugins-good1.0 DPKG is earlier than 0"
+								"comment": "gst-plugins-good1.0 DPKG is earlier than 1.22.0-5+deb12u2"
 							}
 						]
 					}

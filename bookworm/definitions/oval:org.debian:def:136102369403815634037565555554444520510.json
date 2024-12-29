@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47598"
 			}
 		],
-		"description": "GStreamer is a library for constructing graphs of media-handling components. An OOB-read vulnerability has been discovered in the qtdemux_merge_sample_table function within qtdemux.c. The problem is that the size of the stts buffer isn’t properly checked before reading stts_duration, allowing the program to read 4 bytes beyond the boundaries of stts->data. This vulnerability reads up to 4 bytes past the allocated bounds of the stts array. This vulnerability is fixed in 1.24.10.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5838"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:31577",
-								"comment": "gst-plugins-good1.0 DPKG is earlier than 0"
+								"comment": "gst-plugins-good1.0 DPKG is earlier than 1.22.0-5+deb12u2"
 							}
 						]
 					}

@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47613"
 			}
 		],
-		"description": "GStreamer is a library for constructing graphs of media-handling components. A null pointer dereference vulnerability has been identified in `gst_gdk_pixbuf_dec_flush` within `gstgdkpixbufdec.c`. This function invokes `memcpy`, using `out_pix` as the destination address. `out_pix` is expected to point to the frame 0 from the frame structure, which is read from the input file. However, in certain situations, it can points to a NULL frame, causing the subsequent call to `memcpy` to attempt writing to the null address (0x00), leading to a null pointer dereference. This vulnerability can result in a Denial of Service (DoS) by triggering a segmentation fault (SEGV). This vulnerability is fixed in 1.24.10.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5838"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -33,7 +36,7 @@
 							},
 							{
 								"test_ref": "oval:org.debian.oval:tst:31587",
-								"comment": "gst-plugins-good1.0 DPKG is earlier than 0"
+								"comment": "gst-plugins-good1.0 DPKG is earlier than 1.22.0-5+deb12u2"
 							}
 						]
 					}
