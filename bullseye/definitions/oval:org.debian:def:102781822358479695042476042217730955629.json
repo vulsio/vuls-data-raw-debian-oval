@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-56690"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  crypto: pcrypt - Call crypto layer directly when padata_do_parallel() return -EBUSY  Since commit 8f4f68e788c3 (\"crypto: pcrypt - Fix hungtask for PADATA_RESET\"), the pcrypt encryption and decryption operations return -EAGAIN when the CPU goes online or offline. In alg_test(), a WARN is generated when pcrypt_aead_decrypt() or pcrypt_aead_encrypt() returns -EAGAIN, the unnecessary panic will occur when panic_on_warn set 1. Fix this issue by calling crypto layer directly without parallelization in that case.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:32284",
+								"test_ref": "oval:org.debian.oval:tst:32285",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]

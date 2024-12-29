@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-56708"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  EDAC/igen6: Avoid segmentation fault on module unload  The segmentation fault happens because:  During modprobe: 1. In igen6_probe(), igen6_pvt will be allocated with kzalloc() 2. In igen6_register_mci(), mci->pvt_info will point to    &igen6_pvt->imc[mc]  During rmmod: 1. In mci_release() in edac_mc.c, it will kfree(mci->pvt_info) 2. In igen6_remove(), it will kfree(igen6_pvt);  Fix this issue by setting mci->pvt_info to NULL to avoid the double kfree.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:32433",
+								"test_ref": "oval:org.debian.oval:tst:32434",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]
