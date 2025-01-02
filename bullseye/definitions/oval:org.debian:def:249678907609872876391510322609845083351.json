@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:249678907609872876391510322609845083351",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-35943 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-35943",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35943"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  pmdomain: ti: Add a null pointer check to the omap_prm_domain_init  devm_kasprintf() returns a pointer to dynamically allocated memory which can be NULL upon failure. Ensure the allocation was successful by checking the pointer validity.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30641",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

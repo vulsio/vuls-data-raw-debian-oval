@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:252154832927123300314926528162248638845",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-45002 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-45002",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-45002"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  rtla/osnoise: Prevent NULL dereference in error handling  If the \"tool->data\" allocation fails then there is no need to call osnoise_free_top() and, in fact, doing so will lead to a NULL dereference.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31793",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

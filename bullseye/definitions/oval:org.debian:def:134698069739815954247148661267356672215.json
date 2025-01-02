@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:134698069739815954247148661267356672215",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46674 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46674",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46674"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  usb: dwc3: st: fix probed platform device ref count on probe error path  The probe function never performs any paltform device allocation, thus error path \"undo_platform_dev_alloc\" is entirely bogus.  It drops the reference count from the platform device being probed.  If error path is triggered, this will lead to unbalanced device reference counts and premature release of device resources, thus possible use-after-free when releasing remaining devm-managed resources.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31880",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

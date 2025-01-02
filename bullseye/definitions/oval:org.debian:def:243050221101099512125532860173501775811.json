@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:243050221101099512125532860173501775811",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46714 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46714",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46714"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Skip wbscl_set_scaler_filter if filter is null  Callers can pass null in filter (i.e. from returned from the function wbscl_get_filter_coeffs_16p) and a null check is added to ensure that is not the case.  This fixes 4 NULL_RETURNS issues reported by Coverity.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31909",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

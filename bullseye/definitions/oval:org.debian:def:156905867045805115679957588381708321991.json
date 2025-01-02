@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:156905867045805115679957588381708321991",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47751 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47751",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47751"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  PCI: kirin: Fix buffer overflow in kirin_pcie_parse_port()  Within kirin_pcie_parse_port(), the pcie->num_slots is compared to pcie->gpio_id_reset size (MAX_PCI_SLOTS) which is correct and would lead to an overflow.  Thus, fix condition to pcie->num_slots + 1 >= MAX_PCI_SLOTS and move pcie->num_slots increment below the if-statement to avoid out-of-bounds array access.  Found by Linux Verification Center (linuxtesting.org) with SVACE.  [kwilczynski: commit log]",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32266",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:116070918200209387115802015974459322413",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50191 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50191",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50191"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ext4: don't set SB_RDONLY after filesystem errors  When the filesystem is mounted with errors=remount-ro, we were setting SB_RDONLY flag to stop all filesystem modifications. We knew this misses proper locking (sb->s_umount) and does not go through proper filesystem remount procedure but it has been the way this worked since early ext2 days and it was good enough for catastrophic situation damage mitigation. Recently, syzbot has found a way (see link) to trigger warnings in filesystem freezing because the code got confused by SB_RDONLY changing under its hands. Since these days we set EXT4_FLAGS_SHUTDOWN on the superblock which is enough to stop all filesystem modifications, modifying SB_RDONLY shouldn't be needed. So stop doing that.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32686",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

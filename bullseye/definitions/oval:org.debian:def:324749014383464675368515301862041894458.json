@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:324749014383464675368515301862041894458",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43893 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43893",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43893"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  serial: core: check uartclk for zero to avoid divide by zero  Calling ioctl TIOCSSERIAL with an invalid baud_base can result in uartclk being zero, which will result in a divide by zero error in uart_get_divisor(). The check for uartclk being zero in uart_set_info() needs to be done before other settings are made as subsequent calls to ioctl TIOCSSERIAL for the same port would be impacted if the uartclk check was done where uartclk gets set.  Oops: divide error: 0000  PREEMPT SMP KASAN PTI RIP: 0010:uart_get_divisor (drivers/tty/serial/serial_core.c:580) Call Trace:  <TASK> serial8250_get_divisor (drivers/tty/serial/8250/8250_port.c:2576     drivers/tty/serial/8250/8250_port.c:2589) serial8250_do_set_termios (drivers/tty/serial/8250/8250_port.c:502     drivers/tty/serial/8250/8250_port.c:2741) serial8250_set_termios (drivers/tty/serial/8250/8250_port.c:2862) uart_change_line_settings (./include/linux/spinlock.h:376     ./include/linux/serial_core.h:608 drivers/tty/serial/serial_core.c:222) uart_port_startup (drivers/tty/serial/serial_core.c:342) uart_startup (drivers/tty/serial/serial_core.c:368) uart_set_info (drivers/tty/serial/serial_core.c:1034) uart_set_info_user (drivers/tty/serial/serial_core.c:1059) tty_set_serial (drivers/tty/tty_io.c:2637) tty_ioctl (drivers/tty/tty_io.c:2647 drivers/tty/tty_io.c:2791) __x64_sys_ioctl (fs/ioctl.c:52 fs/ioctl.c:907     fs/ioctl.c:893 fs/ioctl.c:893) do_syscall_64 (arch/x86/entry/common.c:52     (discriminator 1) arch/x86/entry/common.c:83 (discriminator 1)) entry_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:130)  Rule: add",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31672",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

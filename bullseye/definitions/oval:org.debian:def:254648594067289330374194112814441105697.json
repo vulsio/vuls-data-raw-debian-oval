@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:254648594067289330374194112814441105697",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-40935 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-40935",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40935"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  cachefiles: flush all requests after setting CACHEFILES_DEAD  In ondemand mode, when the daemon is processing an open request, if the kernel flags the cache as CACHEFILES_DEAD, the cachefiles_daemon_write() will always return -EIO, so the daemon can't pass the copen to the kernel. Then the kernel process that is waiting for the copen triggers a hung_task.  Since the DEAD state is irreversible, it can only be exited by closing /dev/cachefiles. Therefore, after calling cachefiles_io_error() to mark the cache as CACHEFILES_DEAD, if in ondemand mode, flush all requests to avoid the above hungtask. We may still be able to read some of the cached data before closing the fd of /dev/cachefiles.  Note that this relies on the patch that adds reference counting to the req, otherwise it may UAF.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31084",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

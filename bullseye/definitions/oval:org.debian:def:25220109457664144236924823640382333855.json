@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:25220109457664144236924823640382333855",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42145 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42145",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42145"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  IB/core: Implement a limit on UMAD receive List  The existing behavior of ib_umad, which maintains received MAD packets in an unbounded list, poses a risk of uncontrolled growth. As user-space applications extract packets from this list, the rate of extraction may not match the rate of incoming packets, leading to potential list overflow.  To address this, we introduce a limit to the size of the list. After considering typical scenarios, such as OpenSM processing, which can handle approximately 100k packets per second, and the 1-second retry timeout for most packets, we set the list size limit to 200k. Packets received beyond this limit are dropped, assuming they are likely timed out by the time they are handled by user-space.  Notably, packets queued on the receive list due to reasons like timed-out sends are preserved even when the list is full.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31412",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

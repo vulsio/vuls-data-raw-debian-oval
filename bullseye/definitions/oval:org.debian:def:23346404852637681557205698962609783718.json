@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:23346404852637681557205698962609783718",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50088 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50088",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50088"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  btrfs: fix uninitialized pointer free in add_inode_ref()  The add_inode_ref() function does not initialize the \"name\" struct when it is declared.  If any of the following calls to \"read_one_inode() returns NULL,  \tdir = read_one_inode(root, parent_objectid); \tif (!dir) { \t\tret = -ENOENT; \t\tgoto out; \t}  \tinode = read_one_inode(root, inode_objectid); \tif (!inode) { \t\tret = -EIO; \t\tgoto out; \t}  then \"name.name\" would be freed on \"out\" before being initialized.  out: \t... \tkfree(name.name);  This issue was reported by Coverity with CID 1526744.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32593",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:56341460769641436135130475378108715761",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-39507 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-39507",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-39507"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net: hns3: fix kernel crash problem in concurrent scenario  When link status change, the nic driver need to notify the roce driver to handle this event, but at this time, the roce driver may uninit, then cause kernel crash.  To fix the problem, when link status change, need to check whether the roce registered, and when uninit, need to wait link update finish.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30999",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

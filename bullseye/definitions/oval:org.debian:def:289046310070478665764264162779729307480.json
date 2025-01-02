@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:289046310070478665764264162779729307480",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49981 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49981",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49981"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  media: venus: fix use after free bug in venus_remove due to race condition  in venus_probe, core->work is bound with venus_sys_error_handler, which is used to handle error. The code use core->sys_err_done to make sync work. The core->work is started in venus_event_notify.  If we call venus_remove, there might be an unfished work. The possible sequence is as follows:  CPU0                  CPU1                       |venus_sys_error_handler venus_remove         | hfi_destroy\t \t\t | venus_hfi_destroy\t | kfree(hdev);\t     |                      |hfi_reinit \t\t\t\t\t |venus_hfi_queues_reinit                      |//use hdev  Fix it by canceling the work in venus_remove.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32485",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

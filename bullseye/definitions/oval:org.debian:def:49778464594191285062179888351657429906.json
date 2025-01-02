@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:49778464594191285062179888351657429906",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49977 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49977",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49977"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net: stmmac: Fix zero-division error when disabling tc cbs  The commit b8c43360f6e4 (\"net: stmmac: No need to calculate speed divider when offload is disabled\") allows the \"port_transmit_rate_kbps\" to be set to a value of 0, which is then passed to the \"div_s64\" function when tc-cbs is disabled. This leads to a zero-division error.  When tc-cbs is disabled, the idleslope, sendslope, and credit values the credit values are not required to be configured. Therefore, adding a return statement after setting the txQ mode to DCB when tc-cbs is disabled would prevent a zero-division error.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32481",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:142013857136044285879336213341270085896",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49983 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49983",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49983"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ext4: drop ppath from ext4_ext_replay_update_ex() to avoid double-free  When calling ext4_force_split_extent_at() in ext4_ext_replay_update_ex(), the 'ppath' is updated but it is the 'path' that is freed, thus potentially triggering a double-free in the following process:  ext4_ext_replay_update_ex   ppath = path   ext4_force_split_extent_at(&ppath)     ext4_split_extent_at       ext4_ext_insert_extent         ext4_ext_create_new_leaf           ext4_ext_grow_indepth             ext4_find_extent               if (depth > path[0].p_maxdepth)                 kfree(path)                 ---> path First freed                 *orig_path = path = NULL    ---> null ppath   kfree(path)                               ---> path double-free !!!  So drop the unnecessary ppath and use path directly to avoid this problem. And use ext4_find_extent() directly to update path, avoiding unnecessary memory allocation and freeing. Also, propagate the error returned by ext4_find_extent() instead of using strange error codes.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32489",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

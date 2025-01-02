@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:233391125139339780809491226445143009867",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50229 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50229",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50229"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  nilfs2: fix potential deadlock with newly created symlinks  Syzbot reported that page_symlink(), called by nilfs_symlink(), triggers memory reclamation involving the filesystem layer, which can result in circular lock dependencies among the reader/writer semaphore nilfs->ns_segctor_sem, s_writers percpu_rwsem (intwrite) and the fs_reclaim pseudo lock.  This is because after commit 21fc61c73c39 (\"don't put symlink bodies in pagecache into highmem\"), the gfp flags of the page cache for symbolic links are overwritten to GFP_KERNEL via inode_nohighmem().  This is not a problem for symlinks read from the backing device, because the __GFP_FS flag is dropped after inode_nohighmem() is called.  However, when a new symlink is created with nilfs_symlink(), the gfp flags remain overwritten to GFP_KERNEL.  Then, memory allocation called from page_symlink() etc.  triggers memory reclamation including the FS layer, which may call nilfs_evict_inode() or nilfs_dirty_inode().  And these can cause a deadlock if they are called while nilfs->ns_segctor_sem is held:  Fix this issue by dropping the __GFP_FS flag from the page cache GFP flags of newly created symlinks in the same way that nilfs_new_inode() and __nilfs_read_inode() do, as a workaround until we adopt nofs allocation scope consistently or improve the locking constraints.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32720",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

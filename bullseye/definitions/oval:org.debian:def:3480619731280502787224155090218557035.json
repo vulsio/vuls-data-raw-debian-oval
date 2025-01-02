@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:3480619731280502787224155090218557035",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-39506 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-39506",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-39506"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  liquidio: Adjust a NULL pointer handling path in lio_vf_rep_copy_packet  In lio_vf_rep_copy_packet() pg_info->page is compared to a NULL value, but then it is unconditionally passed to skb_add_rx_frag() which looks strange and could lead to null pointer dereference.  lio_vf_rep_copy_packet() call trace looks like: \tocteon_droq_process_packets \t octeon_droq_fast_process_packets \t  octeon_droq_dispatch_pkt \t   octeon_create_recv_info \t    ...search in the dispatch_list... \t     ->disp_fn(rdisp->rinfo, ...) \t      lio_vf_rep_pkt_recv(struct octeon_recv_info *recv_info, ...) In this path there is no code which sets pg_info->page to NULL. So this check looks unneeded and doesn't solve potential problem. But I guess the author had reason to add a check and I have no such card and can't do real test. In addition, the code in the function liquidio_push_packet() in liquidio/lio_core.c does exactly the same.  Based on this, I consider the most acceptable compromise solution to adjust this issue by moving skb_add_rx_frag() into conditional scope.  Found by Linux Verification Center (linuxtesting.org) with SVACE.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30997",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

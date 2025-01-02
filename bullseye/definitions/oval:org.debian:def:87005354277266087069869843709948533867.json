@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:87005354277266087069869843709948533867",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47749 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47749",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47749"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  RDMA/cxgb4: Added NULL check for lookup_atid  The lookup_atid() function can return NULL if the ATID is invalid or does not exist in the identifier table, which could lead to dereferencing a null pointer without a check in the `act_establish()` and `act_open_rpl()` functions. Add a NULL check to prevent null pointer dereferencing.  Found by Linux Verification Center (linuxtesting.org) with SVACE.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32264",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

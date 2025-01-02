@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:304969887909415622562833210864635743108",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42253 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42253",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42253"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  gpio: pca953x: fix pca953x_irq_bus_sync_unlock race  Ensure that `i2c_lock' is held when setting interrupt latch and mask in pca953x_irq_bus_sync_unlock() in order to avoid races.  The other (non-probe) call site pca953x_gpio_set_multiple() ensures the lock is held before calling pca953x_write_regs().  The problem occurred when a request raced against irq_bus_sync_unlock() approximately once per thousand reboots on an i.MX8MP based system.   * Normal case     0-0022: write register AI|3a {03,02,00,00,01} Input latch P0    0-0022: write register AI|49 {fc,fd,ff,ff,fe} Interrupt mask P0    0-0022: write register AI|08 {ff,00,00,00,00} Output P3    0-0022: write register AI|12 {fc,00,00,00,00} Config P3   * Race case     0-0022: write register AI|08 {ff,00,00,00,00} Output P3    0-0022: write register AI|08 {03,02,00,00,01} *** Wrong register ***    0-0022: write register AI|12 {fc,00,00,00,00} Config P3    0-0022: write register AI|49 {fc,fd,ff,ff,fe} Interrupt mask P0",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31466",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

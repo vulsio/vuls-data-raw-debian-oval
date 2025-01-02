@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:76593648663851209065531371871977281270",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41012 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41012",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41012"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  filelock: Remove locks reliably when fcntl/close race is detected  When fcntl_setlk() races with close(), it removes the created lock with do_lock_file_wait(). However, LSMs can allow the first do_lock_file_wait() that created the lock while denying the second do_lock_file_wait() that tries to remove the lock. Separately, posix_lock_file() could also fail to remove a lock due to GFP_KERNEL allocation failure (when splitting a range in the middle).  After the bug has been triggered, use-after-free reads will occur in lock_get_status() when userspace reads /proc/locks. This can likely be used to read arbitrary kernel memory, but can't corrupt kernel memory.  Fix it by calling locks_remove_posix() instead, which is designed to reliably get rid of POSIX locks associated with the given file and files_struct and is also used by filp_flush().",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31182",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

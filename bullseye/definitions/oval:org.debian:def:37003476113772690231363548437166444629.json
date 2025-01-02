@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:37003476113772690231363548437166444629",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-53122 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-53122",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53122"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  mptcp: cope racing subflow creation in mptcp_rcv_space_adjust  Additional active subflows - i.e. created by the in kernel path manager - are included into the subflow list before starting the 3whs.  A racing recvmsg() spooling data received on an already established subflow would unconditionally call tcp_cleanup_rbuf() on all the current subflows, potentially hitting a divide by zero error on the newly created ones.  Explicitly check that the subflow is in a suitable state before invoking tcp_cleanup_rbuf().",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32917",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

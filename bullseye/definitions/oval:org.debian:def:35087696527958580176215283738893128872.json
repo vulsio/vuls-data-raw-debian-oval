@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:35087696527958580176215283738893128872",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50283 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50283",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50283"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ksmbd: fix slab-use-after-free in smb3_preauth_hash_rsp  ksmbd_user_session_put should be called under smb3_preauth_hash_rsp(). It will avoid freeing session before calling smb3_preauth_hash_rsp().",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32777",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

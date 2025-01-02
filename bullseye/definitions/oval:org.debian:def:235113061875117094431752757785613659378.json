@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:235113061875117094431752757785613659378",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41073 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41073",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41073"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  nvme: avoid double free special payload  If a discard request needs to be retried, and that retry may fail before a new special payload is added, a double free will result. Clear the RQF_SPECIAL_LOAD when the request is cleaned.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31258",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

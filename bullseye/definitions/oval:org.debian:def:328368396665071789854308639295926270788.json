@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:328368396665071789854308639295926270788",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50013 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50013",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50013"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  exfat: fix memory leak in exfat_load_bitmap()  If the first directory entry in the root directory is not a bitmap directory entry, 'bh' will not be released and reassigned, which will cause a memory leak.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32525",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

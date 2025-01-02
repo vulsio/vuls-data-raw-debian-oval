@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:339964840442919172652704217663420368371",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50264 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50264",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50264"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  vsock/virtio: Initialization of the dangling pointer occurring in vsk->trans  During loopback communication, a dangling pointer can be created in vsk->trans, potentially leading to a Use-After-Free condition.  This issue is resolved by initializing vsk->trans to NULL.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32753",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

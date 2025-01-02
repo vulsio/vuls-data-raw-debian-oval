@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:48635772474729642696056732581328796792",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50103 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50103",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50103"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ASoC: qcom: Fix NULL Dereference in asoc_qcom_lpass_cpu_platform_probe()  A devm_kzalloc() in asoc_qcom_lpass_cpu_platform_probe() could possibly return NULL pointer. NULL Pointer Dereference may be triggerred without addtional check. Add a NULL check for the returned pointer.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32605",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

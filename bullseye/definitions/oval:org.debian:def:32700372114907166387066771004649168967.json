@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:32700372114907166387066771004649168967",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49992 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49992",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49992"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/stm: Avoid use-after-free issues with crtc and plane  ltdc_load() calls functions drm_crtc_init_with_planes(), drm_universal_plane_init() and drm_encoder_init(). These functions should not be called with parameters allocated with devm_kzalloc() to avoid use-after-free issues [1].  Use allocations managed by the DRM framework.  Found by Linux Verification Center (linuxtesting.org).  [1] https://lore.kernel.org/lkml/u366i76e3qhh3ra5oxrtngjtm2u5lterkekcz6y2jkndhuxzli@diujon4h7qwb/",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32498",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

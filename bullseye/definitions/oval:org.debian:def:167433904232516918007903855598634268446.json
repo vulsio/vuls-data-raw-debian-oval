@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:167433904232516918007903855598634268446",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49954 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49954",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49954"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  static_call: Replace pointless WARN_ON() in static_call_module_notify()  static_call_module_notify() triggers a WARN_ON(), when memory allocation fails in __static_call_add_module().  That's not really justified, because the failure case must be correctly handled by the well known call chain and the error code is passed through to the initiating userspace application.  A memory allocation fail is not a fatal problem, but the WARN_ON() takes the machine out when panic_on_warn is set.  Replace it with a pr_warn().",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32446",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

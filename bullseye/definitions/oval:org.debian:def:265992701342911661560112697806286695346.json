@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:265992701342911661560112697806286695346",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50096 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50096",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50096"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  nouveau/dmem: Fix vulnerability in migrate_to_ram upon copy error  The `nouveau_dmem_copy_one` function ensures that the copy push command is sent to the device firmware but does not track whether it was executed successfully.  In the case of a copy error (e.g., firmware or hardware failure), the copy push command will be sent via the firmware channel, and `nouveau_dmem_copy_one` will likely report success, leading to the `migrate_to_ram` function returning a dirty HIGH_USER page to the user.  This can result in a security vulnerability, as a HIGH_USER page that may contain sensitive or corrupted data could be returned to the user.  To prevent this vulnerability, we allocate a zero page. Thus, in case of an error, a non-dirty (zero) page will be returned to the user.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32599",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

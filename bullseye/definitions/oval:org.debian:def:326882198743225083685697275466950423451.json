@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:326882198743225083685697275466950423451",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47748 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47748",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47748"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  vhost_vdpa: assign irq bypass producer token correctly  We used to call irq_bypass_unregister_producer() in vhost_vdpa_setup_vq_irq() which is problematic as we don't know if the token pointer is still valid or not.  Actually, we use the eventfd_ctx as the token so the life cycle of the token should be bound to the VHOST_SET_VRING_CALL instead of vhost_vdpa_setup_vq_irq() which could be called by set_status().  Fixing this by setting up irq bypass producer's token when handling VHOST_SET_VRING_CALL and un-registering the producer before calling vhost_vring_ioctl() to prevent a possible use after free as eventfd could have been released in vhost_vring_ioctl(). And such registering and unregistering will only be done if DRIVER_OK is set.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32262",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:185155908980455243878551912929804355490",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43879 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43879",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43879"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  wifi: cfg80211: handle 2x996 RU allocation in cfg80211_calculate_bitrate_he()  Currently NL80211_RATE_INFO_HE_RU_ALLOC_2x996 is not handled in cfg80211_calculate_bitrate_he(), leading to below warning:  kernel: invalid HE MCS: bw:6, ru:6 kernel: WARNING: CPU: 0 PID: 2312 at net/wireless/util.c:1501 cfg80211_calculate_bitrate_he+0x22b/0x270 [cfg80211]  Fix it by handling 2x996 RU allocation in the same way as 160 MHz bandwidth.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31655",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:3789444551270133063946557436225348339",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50208 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50208",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50208"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  RDMA/bnxt_re: Fix a bug while setting up Level-2 PBL pages  Avoid memory corruption while setting up Level-2 PBL pages for the non MR resources when num_pages > 256K.  There will be a single PDE page address (contiguous pages in the case of > PAGE_SIZE), but, current logic assumes multiple pages, leading to invalid memory access after 256K PBL entries in the PDE.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32709",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:135895968984553497653908584522570693009",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43884 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43884",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43884"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  Bluetooth: MGMT: Add error handling to pair_device()  hci_conn_params_add() never checks for a NULL value and could lead to a NULL pointer dereference causing a crash.  Fixed by adding error handling in the function.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31663",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

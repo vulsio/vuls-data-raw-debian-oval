@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:50276303742623763265139878092206641848",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43854 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43854",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43854"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  block: initialize integrity buffer to zero before writing it to media  Metadata added by bio_integrity_prep is using plain kmalloc, which leads to random kernel memory being written media.  For PI metadata this is limited to the app tag that isn't used by kernel generated metadata, but for non-PI metadata the entire buffer leaks kernel memory.  Fix this by adding the __GFP_ZERO flag to allocations for writes.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31627",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

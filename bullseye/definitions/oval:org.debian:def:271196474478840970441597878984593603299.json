@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:271196474478840970441597878984593603299",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42304 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42304",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42304"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ext4: make sure the first directory block is not a hole  The syzbot constructs a directory that has no dirblock but is non-inline, i.e. the first directory block is a hole. And no errors are reported when creating files in this directory in the following flow.      ext4_mknod      ...       ext4_add_entry         // Read block 0         ext4_read_dirblock(dir, block, DIRENT)           bh = ext4_bread(NULL, inode, block, 0)           if (!bh && (type == INDEX || type == DIRENT_HTREE))           // The first directory block is a hole           // But type == DIRENT, so no error is reported.  After that, we get a directory block without '.' and '..' but with a valid dentry. This may cause some code that relies on dot or dotdot (such as make_indexed_dir()) to crash.  Therefore when ext4_read_dirblock() finds that the first directory block is a hole report that the filesystem is corrupted and return an error to avoid loading corrupted data from disk causing something bad.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31521",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

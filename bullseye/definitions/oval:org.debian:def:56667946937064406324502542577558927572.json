@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:56667946937064406324502542577558927572",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47712 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47712",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47712"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  wifi: wilc1000: fix potential RCU dereference issue in wilc_parse_join_bss_param  In the `wilc_parse_join_bss_param` function, the TSF field of the `ies` structure is accessed after the RCU read-side critical section is unlocked. According to RCU usage rules, this is illegal. Reusing this pointer can lead to unpredictable behavior, including accessing memory that has been updated or causing use-after-free issues.  This possible bug was identified using a static analysis tool developed by myself, specifically designed to detect RCU-related issues.  To address this, the TSF value is now stored in a local variable `ies_tsf` before the RCU lock is released. The `param->tsf_lo` field is then assigned using this local variable, ensuring that the TSF value is safely accessed.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32228",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

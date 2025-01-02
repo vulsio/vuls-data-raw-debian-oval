@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:59097234376344658227923584588647885640",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47740 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47740",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47740"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  f2fs: Require FMODE_WRITE for atomic write ioctls  The F2FS ioctls for starting and committing atomic writes check for inode_owner_or_capable(), but this does not give LSMs like SELinux or Landlock an opportunity to deny the write access - if the caller's FSUID matches the inode's UID, inode_owner_or_capable() immediately returns true.  There are scenarios where LSMs want to deny a process the ability to write particular files, even files that the FSUID of the process owns; but this can currently partially be bypassed using atomic write ioctls in two ways:   - F2FS_IOC_START_ATOMIC_REPLACE + F2FS_IOC_COMMIT_ATOMIC_WRITE can    truncate an inode to size 0  - F2FS_IOC_START_ATOMIC_WRITE + F2FS_IOC_ABORT_ATOMIC_WRITE can revert    changes another process concurrently made to a file  Fix it by requiring FMODE_WRITE for these operations, just like for F2FS_IOC_MOVE_RANGE. Since any legitimate caller should only be using these ioctls when intending to write into the file, that seems unlikely to break anything.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32254",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

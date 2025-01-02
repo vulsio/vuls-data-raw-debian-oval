@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:40083478689062995970234303174091679072",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43890 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43890",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43890"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  tracing: Fix overflow in get_free_elt()  \"tracing_map->next_elt\" in get_free_elt() is at risk of overflowing.  Once it overflows, new elements can still be inserted into the tracing_map even though the maximum number of elements (`max_elts`) has been reached. Continuing to insert elements after the overflow could result in the tracing_map containing \"tracing_map->max_size\" elements, leaving no empty entries. If any attempt is made to insert an element into a full tracing_map using `__tracing_map_insert()`, it will cause an infinite loop with preemption disabled, leading to a CPU hang problem.  Fix this by preventing any further increments to \"tracing_map->next_elt\" once it reaches \"tracing_map->max_elt\".",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31668",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

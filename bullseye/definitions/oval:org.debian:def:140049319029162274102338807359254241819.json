@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:140049319029162274102338807359254241819",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50210 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50210",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50210"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  posix-clock: posix-clock: Fix unbalanced locking in pc_clock_settime()  If get_clock_desc() succeeds, it calls fget() for the clockid's fd, and get the clk->rwsem read lock, so the error path should release the lock to make the lock balance and fput the clockid's fd to make the refcount balance and release the fd related resource.  However the below commit left the error path locked behind resulting in unbalanced locking. Check timespec64_valid_strict() before get_clock_desc() to fix it, because the \"ts\" is not changed after that.  [pabeni@redhat.com: fixed commit message typo]",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32713",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

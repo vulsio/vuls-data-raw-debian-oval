@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:291530349136973749024021784770167806479",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50041 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50041",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50041"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  i40e: Fix macvlan leak by synchronizing access to mac_filter_hash  This patch addresses a macvlan leak issue in the i40e driver caused by concurrent access to vsi->mac_filter_hash. The leak occurs when multiple threads attempt to modify the mac_filter_hash simultaneously, leading to inconsistent state and potential memory leaks.  To fix this, we now wrap the calls to i40e_del_mac_filter() and zeroing vf->default_lan_addr.addr with spin_lock/unlock_bh(&vsi->mac_filter_hash_lock), ensuring atomic operations and preventing concurrent access.  Additionally, we add lockdep_assert_held(&vsi->mac_filter_hash_lock) in i40e_add_mac_filter() to help catch similar issues in the future.  Reproduction steps: 1. Spawn VFs and configure port vlan on them. 2. Trigger concurrent macvlan operations (e.g., adding and deleting \tportvlan and/or mac filters). 3. Observe the potential memory leak and inconsistent state in the \tmac_filter_hash.  This synchronization ensures the integrity of the mac_filter_hash and prevents the described leak.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32550",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

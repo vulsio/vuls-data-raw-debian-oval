@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:166655884026208273964921975130519989256",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43828 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43828",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43828"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ext4: fix infinite loop when replaying fast_commit  When doing fast_commit replay an infinite loop may occur due to an uninitialized extent_status struct.  ext4_ext_determine_insert_hole() does not detect the replay and calls ext4_es_find_extent_range(), which will return immediately without initializing the 'es' variable.  Because 'es' contains garbage, an integer overflow may happen causing an infinite loop in this function, easily reproducible using fstest generic/039.  This commit fixes this issue by unconditionally initializing the structure in function ext4_es_find_extent_range().  Thanks to Zhang Yi, for figuring out the real problem!",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31600",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

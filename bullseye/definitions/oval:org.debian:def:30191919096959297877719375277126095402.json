@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:30191919096959297877719375277126095402",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42259 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42259",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42259"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/i915/gem: Fix Virtual Memory mapping boundaries calculation  Calculating the size of the mapped area as the lesser value between the requested size and the actual size does not consider the partial mapping offset. This can cause page fault access.  Fix the calculation of the starting and ending addresses, the total size is now deduced from the difference between the end and start addresses.  Additionally, the calculations have been rewritten in a clearer and more understandable form.  [Joonas: Add Requires: tag] Requires: 60a2066c5005 (\"drm/i915/gem: Adjust vma offset for framebuffer mmap offset\") (cherry picked from commit 97b6784753da06d9d40232328efc5c5367e53417)",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31469",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

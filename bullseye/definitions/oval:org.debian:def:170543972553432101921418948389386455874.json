@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:170543972553432101921418948389386455874",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42142 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42142",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42142"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net/mlx5: E-switch, Create ingress ACL when needed  Currently, ingress acl is used for three features. It is created only when vport metadata match and prio tag are enabled. But active-backup lag mode also uses it. It is independent of vport metadata match and prio tag. And vport metadata match can be disabled using the following devlink command:   # devlink dev param set pci/0000:08:00.0 name esw_port_metadata \\ \tvalue false cmode runtime  If ingress acl is not created, will hit panic when creating drop rule for active-backup lag mode. If always create it, there will be about 5% performance degradation.  Fix it by creating ingress acl when needed. If esw_port_metadata is true, ingress acl exists, then create drop rule using existing ingress acl. If esw_port_metadata is false, create ingress acl and then create drop rule.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31409",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

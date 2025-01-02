@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:132172238069953173346430617907279315340",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49852 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49852",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49852"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  scsi: elx: libefc: Fix potential use after free in efc_nport_vport_del()  The kref_put() function will call nport->release if the refcount drops to zero.  The nport->release release function is _efc_nport_free() which frees \"nport\".  But then we dereference \"nport\" on the next line which is a use after free.  Re-order these lines to avoid the use after free.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32324",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

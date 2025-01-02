@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:206808920244072904850241485267990786793",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41080 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41080",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41080"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  io_uring: fix possible deadlock in io_register_iowq_max_workers()  The io_register_iowq_max_workers() function calls io_put_sq_data(), which acquires the sqd->lock without releasing the uring_lock. Similar to the commit 009ad9f0c6ee (\"io_uring: drop ctx->uring_lock before acquiring sqd->lock\"), this can lead to a potential deadlock situation.  To resolve this issue, the uring_lock is released before calling io_put_sq_data(), and then it is re-acquired after the function call.  This change ensures that the locks are acquired in the correct order, preventing the possibility of a deadlock.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31272",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

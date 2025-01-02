@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:109586721811227383738317317995362614387",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49938 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49938",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49938"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  wifi: ath9k_htc: Use __skb_set_length() for resetting urb before resubmit  Syzbot points out that skb_trim() has a sanity check on the existing length of the skb, which can be uninitialised in some error paths. The intent here is clearly just to reset the length to zero before resubmitting, so switch to calling __skb_set_length(skb, 0) directly. In addition, __skb_set_length() already contains a call to skb_reset_tail_pointer(), so remove the redundant call.  The syzbot report came from ath9k_hif_usb_reg_in_cb(), but there's a similar usage of skb_trim() in ath9k_hif_usb_rx_cb(), change both while we're at it.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32431",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

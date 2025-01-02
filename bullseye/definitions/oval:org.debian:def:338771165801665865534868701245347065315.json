@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:338771165801665865534868701245347065315",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-40940 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-40940",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40940"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net/mlx5: Fix tainted pointer delete is case of flow rules creation fail  In case of flow rule creation fail in mlx5_lag_create_port_sel_table(), instead of previously created rules, the tainted pointer is deleted deveral times. Fix this bug by using correct flow rules pointers.  Found by Linux Verification Center (linuxtesting.org) with SVACE.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31088",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

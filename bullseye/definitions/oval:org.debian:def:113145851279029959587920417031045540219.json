@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:113145851279029959587920417031045540219",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46826 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46826",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46826"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ELF: fix kernel.randomize_va_space double read  ELF loader uses \"randomize_va_space\" twice. It is sysctl and can change at any moment, so 2 loads could see 2 different values in theory with unpredictable consequences.  Issue exactly one load for consistent value across one exec.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32054",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

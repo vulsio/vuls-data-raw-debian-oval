@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:157851363077558051486379241306477706632",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42285 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42285",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42285"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  RDMA/iwcm: Fix a use-after-free related to destroying CM IDs  iw_conn_req_handler() associates a new struct rdma_id_private (conn_id) with an existing struct iw_cm_id (cm_id) as follows:          conn_id->cm_id.iw = cm_id;         cm_id->context = conn_id;         cm_id->cm_handler = cma_iw_handler;  rdma_destroy_id() frees both the cm_id and the struct rdma_id_private. Make sure that cm_work_handler() does not trigger a use-after-free by only freeing of the struct rdma_id_private after all pending work has finished.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31495",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

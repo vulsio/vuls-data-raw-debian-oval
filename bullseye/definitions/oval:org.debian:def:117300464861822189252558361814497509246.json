@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:117300464861822189252558361814497509246",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42295 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42295",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42295"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  nilfs2: handle inconsistent state in nilfs_btnode_create_block()  Syzbot reported that a buffer state inconsistency was detected in nilfs_btnode_create_block(), triggering a kernel bug.  It is not appropriate to treat this inconsistency as a bug; it can occur if the argument block address (the buffer index of the newly created block) is a virtual block number and has been reallocated due to corruption of the bitmap used to manage its allocation state.  So, modify nilfs_btnode_create_block() and its callers to treat it as a possible filesystem error, rather than triggering a kernel bug.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31510",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

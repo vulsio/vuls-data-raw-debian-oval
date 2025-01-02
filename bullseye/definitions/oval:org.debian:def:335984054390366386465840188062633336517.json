@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:335984054390366386465840188062633336517",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43842 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43842",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43842"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  wifi: rtw89: Fix array index mistake in rtw89_sta_info_get_iter()  In rtw89_sta_info_get_iter() 'status->he_gi' is compared to array size. But then 'rate->he_gi' is used as array index instead of 'status->he_gi'. This can lead to go beyond array boundaries in case of 'rate->he_gi' is not equal to 'status->he_gi' and is bigger than array size. Looks like \"copy-paste\" mistake.  Fix this mistake by replacing 'rate->he_gi' with 'status->he_gi'.  Found by Linux Verification Center (linuxtesting.org) with SVACE.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31618",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

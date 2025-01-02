@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:26497689571349480942111061526974885735",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49995 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49995",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49995"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  tipc: guard against string buffer overrun  Smatch reports that copying media_name and if_name to name_parts may overwrite the destination.   .../bearer.c:166 bearer_name_validate() error: strcpy() 'media_name' too large for 'name_parts->media_name' (32 vs 16)  .../bearer.c:167 bearer_name_validate() error: strcpy() 'if_name' too large for 'name_parts->if_name' (1010102 vs 16)  This does seem to be the case so guard against this possibility by using strscpy() and failing if truncation occurs.  Introduced by commit b97bf3fd8f6a (\"[TIPC] Initial merge\")  Compile tested only.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32501",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

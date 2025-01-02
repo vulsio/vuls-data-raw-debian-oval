@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:183085679313625520421865550458191283458",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43875 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43875",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43875"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  PCI: endpoint: Clean up error handling in vpci_scan_bus()  Smatch complains about inconsistent NULL checking in vpci_scan_bus():      drivers/pci/endpoint/functions/pci-epf-vntb.c:1024 vpci_scan_bus() error: we previously assumed 'vpci_bus' could be null (see line 1021)  Instead of printing an error message and then crashing we should return an error code and clean up.  Also the NULL check is reversed so it prints an error for success instead of failure.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31651",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

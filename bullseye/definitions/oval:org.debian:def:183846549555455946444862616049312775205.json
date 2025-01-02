@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:183846549555455946444862616049312775205",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46707 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46707",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46707"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  KVM: arm64: Make ICC_*SGI*_EL1 undef in the absence of a vGICv3  On a system with a GICv3, if a guest hasn't been configured with GICv3 and that the host is not capable of GICv2 emulation, a write to any of the ICC_*SGI*_EL1 registers is trapped to EL2.  We therefore try to emulate the SGI access, only to hit a NULL pointer as no private interrupt is allocated (no GIC, remember?).  The obvious fix is to give the guest what it deserves, in the shape of a UNDEF exception.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31902",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

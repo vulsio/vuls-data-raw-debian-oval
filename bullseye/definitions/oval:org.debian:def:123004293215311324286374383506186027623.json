@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:123004293215311324286374383506186027623",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41028 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41028",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41028"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  platform/x86: toshiba_acpi: Fix array out-of-bounds access  In order to use toshiba_dmi_quirks[] together with the standard DMI matching functions, it must be terminated by a empty entry.  Since this entry is missing, an array out-of-bounds access occurs every time the quirk list is processed.  Fix this by adding the terminating empty entry.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31199",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

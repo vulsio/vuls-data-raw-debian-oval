@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:7527830235648256387217834657775867502",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-40972 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-40972",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40972"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ext4: do not create EA inode under buffer lock  ext4_xattr_set_entry() creates new EA inodes while holding buffer lock on the external xattr block. This is problematic as it nests all the allocation locking (which acquires locks on other buffers) under the buffer lock. This can even deadlock when the filesystem is corrupted and e.g. quota file is setup to contain xattr block as data block. Move the allocation of EA inode out of ext4_xattr_set_entry() into the callers.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31127",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

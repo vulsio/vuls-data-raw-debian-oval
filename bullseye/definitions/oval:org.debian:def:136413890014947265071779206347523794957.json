@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:136413890014947265071779206347523794957",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49978 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49978",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49978"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  gso: fix udp gso fraglist segmentation after pull from frag_list  Detect gso fraglist skbs with corrupted geometry (see below) and pass these to skb_segment instead of skb_segment_list, as the first can segment them correctly.  Valid SKB_GSO_FRAGLIST skbs - consist of two or more segments - the head_skb holds the protocol headers plus first gso_size - one or more frag_list skbs hold exactly one segment - all but the last must be gso_size  Optional datapath hooks such as NAT and BPF (bpf_skb_pull_data) can modify these skbs, breaking these invariants.  In extreme cases they pull all data into skb linear. For UDP, this causes a NULL ptr deref in __udpv4_gso_segment_list_csum at udp_hdr(seg->next)->dest.  Detect invalid geometry due to pull, by checking head_skb size. Don't just drop, as this may blackhole a destination. Convert to be able to pass to regular skb_segment.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32483",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

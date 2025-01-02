@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:304602223621318116455052178607215561964",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-53072 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-53072",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53072"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  platform/x86/amd/pmc: Detect when STB is not available  Loading the amd_pmc module as:      amd_pmc enable_stb=1  ...can result in the following messages in the kernel ring buffer:      amd_pmc AMDI0009:00: SMU cmd failed. err: 0xff     ioremap on RAM at 0x0000000000000000 - 0x0000000000ffffff     WARNING: CPU: 10 PID: 2151 at arch/x86/mm/ioremap.c:217 __ioremap_caller+0x2cd/0x340  Further debugging reveals that this occurs when the requests for S2D_PHYS_ADDR_LOW and S2D_PHYS_ADDR_HIGH return a value of 0, indicating that the STB is inaccessible. To prevent the ioremap warning and provide clarity to the user, handle the invalid address and display an error message.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32880",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

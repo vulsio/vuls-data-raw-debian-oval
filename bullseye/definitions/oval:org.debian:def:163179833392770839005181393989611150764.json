@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:163179833392770839005181393989611150764",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50295 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50295",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50295"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net: arc: fix the device for dma_map_single/dma_unmap_single  The ndev->dev and pdev->dev aren't the same device, use ndev->dev.parent which has dma_mask, ndev->dev.parent is just pdev->dev. Or it would cause the following issue:  [   39.933526] ------------[ cut here ]------------ [   39.938414] WARNING: CPU: 1 PID: 501 at kernel/dma/mapping.c:149 dma_map_page_attrs+0x90/0x1f8",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32788",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

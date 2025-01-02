@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:98512374291777145943596787702877274247",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50167 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50167",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50167"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  be2net: fix potential memory leak in be_xmit()  The be_xmit() returns NETDEV_TX_OK without freeing skb in case of be_xmit_enqueue() fails, add dev_kfree_skb_any() to fix it.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32658",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

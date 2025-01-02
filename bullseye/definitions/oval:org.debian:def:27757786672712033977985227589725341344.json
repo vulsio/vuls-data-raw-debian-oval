@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:27757786672712033977985227589725341344",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41056 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41056",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41056"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  firmware: cs_dsp: Use strnlen() on name fields in V1 wmfw files  Use strnlen() instead of strlen() on the algorithm and coefficient name string arrays in V1 wmfw files.  In V1 wmfw files the name is a NUL-terminated string in a fixed-size array. cs_dsp should protect against overrunning the array if the NUL terminator is missing.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31228",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

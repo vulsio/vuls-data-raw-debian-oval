@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:183758131266481493947094197567146531977",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50185 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50185",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50185"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  mptcp: handle consistently DSS corruption  Bugged peer implementation can send corrupted DSS options, consistently hitting a few warning in the data path. Use DEBUG_NET assertions, to avoid the splat on some builds and handle consistently the error, dumping related MIBs and performing fallback and/or reset according to the subflow type.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32678",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

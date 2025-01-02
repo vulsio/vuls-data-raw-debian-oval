@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:76588811033202400243210529058712313921",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46685 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46685",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46685"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  pinctrl: single: fix potential NULL dereference in pcs_get_function()  pinmux_generic_get_function() can return NULL and the pointer 'function' was dereferenced without checking against NULL. Add checking of pointer 'function' in pcs_get_function().  Found by code review.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31892",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

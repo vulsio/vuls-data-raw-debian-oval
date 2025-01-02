@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:271302872828128598310246208108731428111",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43818 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43818",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43818"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ASoC: amd: Adjust error handling in case of absent codec device  acpi_get_first_physical_node() can return NULL in several cases (no such device, ACPI table error, reference count drop to 0, etc). Existing check just emit error message, but doesn't perform return. Then this NULL pointer is passed to devm_acpi_dev_add_driver_gpios() where it is dereferenced.  Adjust this error handling by adding error code return.  Found by Linux Verification Center (linuxtesting.org) with SVACE.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31594",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

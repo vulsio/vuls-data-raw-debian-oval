@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:32628669419197122885596482956710823777",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47710 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47710",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47710"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  sock_map: Add a cond_resched() in sock_hash_free()  Several syzbot soft lockup reports all have in common sock_hash_free()  If a map with a large number of buckets is destroyed, we need to yield the cpu when needed.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32226",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:233825688494848807814276806134931718708",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-44948 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-44948",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-44948"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  x86/mtrr: Check if fixed MTRRs exist before saving them  MTRRs have an obsolete fixed variant for fine grained caching control of the 640K-1MB region that uses separate MSRs. This fixed variant has a separate capability bit in the MTRR capability MSR.  So far all x86 CPUs which support MTRR have this separate bit set, so it went unnoticed that mtrr_save_state() does not check the capability bit before accessing the fixed MTRR MSRs.  Though on a CPU that does not support the fixed MTRR capability this results in a #GP.  The #GP itself is harmless because the RDMSR fault is handled gracefully, but results in a WARN_ON().  Add the missing capability check to prevent this.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31740",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

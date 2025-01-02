@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:318463156370524376241084368541819250989",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41078 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41078",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41078"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  btrfs: qgroup: fix quota root leak after quota disable failure  If during the quota disable we fail when cleaning the quota tree or when deleting the root from the root tree, we jump to the 'out' label without ever dropping the reference on the quota root, resulting in a leak of the root since fs_info->quota_root is no longer pointing to the root (we have set it to NULL just before those steps).  Fix this by always doing a btrfs_put_root() call under the 'out' label. This is a problem that exists since qgroups were first added in 2012 by commit bed92eae26cc (\"Btrfs: qgroup implementation and prototypes\"), but back then we missed a kfree on the quota root and free_extent_buffer() calls on its root and commit root nodes, since back then roots were not yet reference counted.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31268",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

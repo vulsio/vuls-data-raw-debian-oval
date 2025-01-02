@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:289447223304061836359629196209239974998",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-40939 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-40939",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40939"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net: wwan: iosm: Fix tainted pointer delete is case of region creation fail  In case of region creation fail in ipc_devlink_create_region(), previously created regions delete process starts from tainted pointer which actually holds error code value. Fix this bug by decreasing region index before delete.  Found by Linux Verification Center (linuxtesting.org) with SVACE.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31087",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

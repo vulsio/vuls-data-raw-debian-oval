@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:221523691418580300512413779407711312310",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41081 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41081",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41081"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ila: block BH in ila_output()  As explained in commit 1378817486d6 (\"tipc: block BH before using dst_cache\"), net/core/dst_cache.c helpers need to be called with BH disabled.  ila_output() is called from lwtunnel_output() possibly from process context, and under rcu_read_lock().  We might be interrupted by a softirq, re-enter ila_output() and corrupt dst_cache data structures.  Fix the race by using local_bh_disable().",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31274",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

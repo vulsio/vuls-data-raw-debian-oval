@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:273601155478217982784510103158184751242",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50000 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50000",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50000"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net/mlx5e: Fix NULL deref in mlx5e_tir_builder_alloc()  In mlx5e_tir_builder_alloc() kvzalloc() may return NULL which is dereferenced on the next line in a reference to the modify field.  Found by Linux Verification Center (linuxtesting.org) with SVACE.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32505",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

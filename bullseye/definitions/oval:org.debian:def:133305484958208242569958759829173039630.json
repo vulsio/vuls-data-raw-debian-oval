@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:133305484958208242569958759829173039630",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42090 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42090",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42090"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  pinctrl: fix deadlock in create_pinctrl() when handling -EPROBE_DEFER  In create_pinctrl(), pinctrl_maps_mutex is acquired before calling add_setting(). If add_setting() returns -EPROBE_DEFER, create_pinctrl() calls pinctrl_free(). However, pinctrl_free() attempts to acquire pinctrl_maps_mutex, which is already held by create_pinctrl(), leading to a potential deadlock.  This patch resolves the issue by releasing pinctrl_maps_mutex before calling pinctrl_free(), preventing the deadlock.  This bug was discovered and resolved using Coverity Static Analysis Security Testing (SAST) by Synopsys, Inc.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31346",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

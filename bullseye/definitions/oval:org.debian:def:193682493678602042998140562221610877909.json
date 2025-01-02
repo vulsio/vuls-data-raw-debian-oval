@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:193682493678602042998140562221610877909",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42224 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42224",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42224"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net: dsa: mv88e6xxx: Correct check for empty list  Since commit a3c53be55c95 (\"net: dsa: mv88e6xxx: Support multiple MDIO busses\") mv88e6xxx_default_mdio_bus() has checked that the return value of list_first_entry() is non-NULL.  This appears to be intended to guard against the list chip->mdios being empty.  However, it is not the correct check as the implementation of list_first_entry is not designed to return NULL for empty lists.  Instead, use list_first_entry_or_null() which does return NULL if the list is empty.  Flagged by Smatch. Compile tested only.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31439",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:310985469721302142292744722259271974986",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50143 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50143",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50143"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  udf: fix uninit-value use in udf_get_fileshortad  Check for overflow when computing alen in udf_current_aext to mitigate later uninit-value use in udf_get_fileshortad KMSAN bug[1]. After applying the patch reproducer did not trigger any issue[2].  [1] https://syzkaller.appspot.com/bug?extid=8901c4560b7ab5c2f9df [2] https://syzkaller.appspot.com/x/log.txt?x=10242227980000",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32638",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

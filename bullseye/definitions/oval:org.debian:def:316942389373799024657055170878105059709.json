@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:316942389373799024657055170878105059709",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47674 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47674",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47674"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  mm: avoid leaving partial pfn mappings around in error case  As Jann points out, PFN mappings are special, because unlike normal memory mappings, there is no lifetime information associated with the mapping - it is just a raw mapping of PFNs with no reference counting of a 'struct page'.  That's all very much intentional, but it does mean that it's easy to mess up the cleanup in case of errors.  Yes, a failed mmap() will always eventually clean up any partial mappings, but without any explicit lifetime in the page table mapping itself, it's very easy to do the error handling in the wrong order.  In particular, it's easy to mistakenly free the physical backing store before the page tables are actually cleaned up and (temporarily) have stale dangling PTE entries.  To make this situation less error-prone, just make sure that any partial pfn mapping is torn down early, before any other error handling.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32177",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

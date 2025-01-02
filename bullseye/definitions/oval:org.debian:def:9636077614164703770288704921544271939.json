@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:9636077614164703770288704921544271939",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47686 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47686",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47686"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ep93xx: clock: Fix off by one in ep93xx_div_recalc_rate()  The psc->div[] array has psc->num_div elements.  These values come from when we call clk_hw_register_div().  It's adc_divisors and ARRAY_SIZE(adc_divisors)) and so on.  So this condition needs to be >= instead of > to prevent an out of bounds read.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32191",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

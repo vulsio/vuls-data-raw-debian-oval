@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:49787800799307014744552559613266664520",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46744 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46744",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46744"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  Squashfs: sanity check symbolic link size  Syzkiller reports a \"KMSAN: uninit-value in pick_link\" bug.  This is caused by an uninitialised page, which is ultimately caused by a corrupted symbolic link size read from disk.  The reason why the corrupted symlink size causes an uninitialised page is due to the following sequence of events:  1. squashfs_read_inode() is called to read the symbolic    link from disk.  This assigns the corrupted value    3875536935 to inode->i_size.  2. Later squashfs_symlink_read_folio() is called, which assigns    this corrupted value to the length variable, which being a    signed int, overflows producing a negative number.  3. The following loop that fills in the page contents checks that    the copied bytes is less than length, which being negative means    the loop is skipped, producing an uninitialised page.  This patch adds a sanity check which checks that the symbolic link size is not larger than expected.  --  V2: fix spelling mistake.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31954",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

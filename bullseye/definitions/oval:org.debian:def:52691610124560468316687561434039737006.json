@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:52691610124560468316687561434039737006",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46846 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46846",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46846"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  spi: rockchip: Resolve unbalanced runtime PM / system PM handling  Commit e882575efc77 (\"spi: rockchip: Suspend and resume the bus during NOIRQ_SYSTEM_SLEEP_PM ops\") stopped respecting runtime PM status and simply disabled clocks unconditionally when suspending the system. This causes problems when the device is already runtime suspended when we go to sleep -- in which case we double-disable clocks and produce a WARNing.  Switch back to pm_runtime_force_{suspend,resume}(), because that still seems like the right thing to do, and the aforementioned commit makes no explanation why it stopped using it.  Also, refactor some of the resume() error handling, because it's not actually a good idea to re-disable clocks on failure.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32076",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

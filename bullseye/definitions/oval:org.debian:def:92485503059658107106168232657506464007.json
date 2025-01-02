@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:92485503059658107106168232657506464007",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49973 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49973",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49973"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  r8169: add tally counter fields added with RTL8125  RTL8125 added fields to the tally counter, what may result in the chip dma'ing these new fields to unallocated memory. Therefore make sure that the allocated memory area is big enough to hold all of the tally counter values, even if we use only parts of it.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32475",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

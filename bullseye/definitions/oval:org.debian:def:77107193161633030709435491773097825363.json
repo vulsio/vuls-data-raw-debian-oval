@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:77107193161633030709435491773097825363",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43883 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43883",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43883"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  usb: vhci-hcd: Do not drop references before new references are gained  At a few places the driver carries stale pointers to references that can still be used. Make sure that does not happen. This strictly speaking closes ZDI-CAN-22273, though there may be similar races in the driver.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31661",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

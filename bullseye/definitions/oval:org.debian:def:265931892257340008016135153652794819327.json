@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:265931892257340008016135153652794819327",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50198 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50198",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50198"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  iio: light: veml6030: fix IIO device retrieval from embedded device  The dev pointer that is received as an argument in the in_illuminance_period_available_show function references the device embedded in the IIO device, not in the i2c client.  dev_to_iio_dev() must be used to accessthe right data. The current implementation leads to a segmentation fault on every attempt to read the attribute because indio_dev gets a NULL assignment.  This bug has been present since the first appearance of the driver, apparently since the last version (V6) before getting applied. A constant attribute was used until then, and the last modifications might have not been tested again.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32698",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

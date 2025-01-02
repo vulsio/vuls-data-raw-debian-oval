@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:59536450425322399842081476177996100293",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41077 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41077",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41077"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  null_blk: fix validation of block size  Block size should be between 512 and PAGE_SIZE and be a power of 2. The current check does not validate this, so update the check.  Without this patch, null_blk would Oops due to a null pointer deref when loaded with bs=1536 [1].   [axboe: remove unnecessary braces and != 0 check]",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31266",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

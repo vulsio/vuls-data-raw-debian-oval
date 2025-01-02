@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:54197266113457589121921769587909049029",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50280 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50280",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50280"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  dm cache: fix flushing uninitialized delayed_work on cache_ctr error  An unexpected WARN_ON from flush_work() may occur when cache creation fails, caused by destroying the uninitialized delayed_work waker in the error path of cache_create(). For example, the warning appears on the superblock checksum error.  Reproduce steps:  dmsetup create cmeta --table \"0 8192 linear /dev/sdc 0\" dmsetup create cdata --table \"0 65536 linear /dev/sdc 8192\" dmsetup create corig --table \"0 524288 linear /dev/sdc 262144\" dd if=/dev/urandom of=/dev/mapper/cmeta bs=4k count=1 oflag=direct dmsetup create cache --table \"0 524288 cache /dev/mapper/cmeta \\ /dev/mapper/cdata /dev/mapper/corig 128 2 metadata2 writethrough smq 0\"  Kernel logs:  (snip) WARNING: CPU: 0 PID: 84 at kernel/workqueue.c:4178 __flush_work+0x5d4/0x890  Fix by pulling out the cancel_delayed_work_sync() from the constructor's error path. This patch doesn't affect the use-after-free fix for concurrent dm_resume and dm_destroy (commit 6a459d8edbdb (\"dm cache: Fix UAF in destroy()\")) as cache_dtr is not changed.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32774",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

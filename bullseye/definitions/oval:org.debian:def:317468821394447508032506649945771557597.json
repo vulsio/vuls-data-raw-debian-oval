@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:317468821394447508032506649945771557597",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49997 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49997",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49997"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net: ethernet: lantiq_etop: fix memory disclosure  When applying padding, the buffer is not zeroed, which results in memory disclosure. The mentioned data is observed on the wire. This patch uses skb_put_padto() to pad Ethernet frames properly. The mentioned function zeroes the expanded buffer.  In case the packet cannot be padded it is silently dropped. Statistics are also not incremented. This driver does not support statistics in the old 32-bit format or the new 64-bit format. These will be added in the future. In its current form, the patch should be easily backported to stable versions.  Ethernet MACs on Amazon-SE and Danube cannot do padding of the packets in hardware, so software padding must be applied.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32504",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

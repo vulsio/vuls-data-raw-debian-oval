@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:41249751717933496941214616661960833729",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49955 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49955",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49955"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ACPI: battery: Fix possible crash when unregistering a battery hook  When a battery hook returns an error when adding a new battery, then the battery hook is automatically unregistered. However the battery hook provider cannot know that, so it will later call battery_hook_unregister() on the already unregistered battery hook, resulting in a crash.  Fix this by using the list head to mark already unregistered battery hooks as already being unregistered so that they can be ignored by battery_hook_unregister().",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32448",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

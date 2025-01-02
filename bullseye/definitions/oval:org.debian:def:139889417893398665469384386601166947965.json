@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:139889417893398665469384386601166947965",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41035 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41035",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41035"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  USB: core: Fix duplicate endpoint bug by clearing reserved bits in the descriptor  Syzbot has identified a bug in usbcore (see the Closes: tag below) caused by our assumption that the reserved bits in an endpoint descriptor's bEndpointAddress field will always be 0.  As a result of the bug, the endpoint_is_duplicate() routine in config.c (and possibly other routines as well) may believe that two descriptors are for distinct endpoints, even though they have the same direction and endpoint number.  This can lead to confusion, including the bug identified by syzbot (two descriptors with matching endpoint numbers and directions, where one was interrupt and the other was bulk).  To fix the bug, we will clear the reserved bits in bEndpointAddress when we parse the descriptor.  (Note that both the USB-2.0 and USB-3.1 specs say these bits are \"Reserved, reset to zero\".)  This requires us to make a copy of the descriptor earlier in usb_parse_endpoint() and use the copy instead of the original when checking for duplicates.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31204",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

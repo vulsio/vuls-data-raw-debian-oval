@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:106180302288051774980491284883069687023",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43833 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43833",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43833"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  media: v4l: async: Fix NULL pointer dereference in adding ancillary links  In v4l2_async_create_ancillary_links(), ancillary links are created for lens and flash sub-devices. These are sub-device to sub-device links and if the async notifier is related to a V4L2 device, the source sub-device of the ancillary link is NULL, leading to a NULL pointer dereference. Check the notifier's sd field is non-NULL in v4l2_async_create_ancillary_links().  [Sakari Ailus: Reword the subject and commit messages slightly.]",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31608",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

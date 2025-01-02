@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:283762340411650732378394899083676769461",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41019 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41019",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41019"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  fs/ntfs3: Validate ff offset  This adds sanity checks for ff offset. There is a check on rt->first_free at first, but walking through by ff without any check. If the second ff is a large offset. We may encounter an out-of-bound read.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31191",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

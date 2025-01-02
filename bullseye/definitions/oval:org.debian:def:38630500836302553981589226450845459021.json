@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:38630500836302553981589226450845459021",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46777 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46777",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46777"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  udf: Avoid excessive partition lengths  Avoid mounting filesystems where the partition would overflow the 32-bits used for block number. Also refuse to mount filesystems where the partition length is so large we cannot safely index bits in a block bitmap.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31997",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

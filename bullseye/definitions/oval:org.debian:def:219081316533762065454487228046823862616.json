@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:219081316533762065454487228046823862616",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-44971 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-44971",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-44971"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net: dsa: bcm_sf2: Fix a possible memory leak in bcm_sf2_mdio_register()  bcm_sf2_mdio_register() calls of_phy_find_device() and then phy_device_remove() in a loop to remove existing PHY devices. of_phy_find_device() eventually calls bus_find_device(), which calls get_device() on the returned struct device * to increment the refcount. The current implementation does not decrement the refcount, which causes memory leak.  This commit adds the missing phy_device_free() call to decrement the refcount via put_device() to balance the refcount.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31765",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:212423010876596976870800180924638186427",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42265 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42265",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42265"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  protect the fetch of ->fd[fd] in do_dup2() from mispredictions  both callers have verified that fd is not greater than ->max_fds; however, misprediction might end up with         tofree = fdt->fd[fd]; being speculatively executed.  That's wrong for the same reasons why it's wrong in close_fd()/file_close_fd_locked(); the same solution applies - array_index_nospec(fd, fdt->max_fds) could differ from fd only in case of speculative execution on mispredicted path.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31471",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

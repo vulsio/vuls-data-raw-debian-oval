@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:174493476460770969610594225567246140015",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42084 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42084",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42084"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ftruncate: pass a signed offset  The old ftruncate() syscall, using the 32-bit off_t misses a sign extension when called in compat mode on 64-bit architectures.  As a result, passing a negative length accidentally succeeds in truncating to file size between 2GiB and 4GiB.  Changing the type of the compat syscall to the signed compat_off_t changes the behavior so it instead returns -EINVAL.  The native entry point, the truncate() syscall and the corresponding loff_t based variants are all correct already and do not suffer from this mistake.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31337",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

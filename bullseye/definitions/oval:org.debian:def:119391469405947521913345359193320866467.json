@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:119391469405947521913345359193320866467",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42232 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42232",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42232"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  libceph: fix race between delayed_work() and ceph_monc_stop()  The way the delayed work is handled in ceph_monc_stop() is prone to races with mon_fault() and possibly also finish_hunting().  Both of these can requeue the delayed work which wouldn't be canceled by any of the following code in case that happens after cancel_delayed_work_sync() runs -- __close_session() doesn't mess with the delayed work in order to avoid interfering with the hunting interval logic.  This part was missed in commit b5d91704f53e (\"libceph: behave in mon_fault() if cur_mon < 0\") and use-after-free can still ensue on monc and objects that hang off of it, with monc->auth and monc->monmap being particularly susceptible to quickly being reused.  To fix this:  - clear monc->cur_mon and monc->hunting as part of closing the session   in ceph_monc_stop() - bail from delayed_work() if monc->cur_mon is cleared, similar to how   it's done in mon_fault() and finish_hunting() (based on monc->hunting) - call cancel_delayed_work_sync() after the session is closed",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31450",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

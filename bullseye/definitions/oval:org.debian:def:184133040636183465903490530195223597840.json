@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:184133040636183465903490530195223597840",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47663 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47663",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47663"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  staging: iio: frequency: ad9834: Validate frequency parameter value  In ad9834_write_frequency() clk_get_rate() can return 0. In such case ad9834_calc_freqreg() call will lead to division by zero. Checking 'if (fout > (clk_freq / 2))' doesn't protect in case of 'fout' is 0. ad9834_write_frequency() is called from ad9834_write(), where fout is taken from text buffer, which can contain any value.  Modify parameters checking.  Found by Linux Verification Center (linuxtesting.org) with SVACE.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32155",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

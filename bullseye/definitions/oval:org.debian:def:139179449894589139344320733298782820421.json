@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:139179449894589139344320733298782820421",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50058 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50058",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50058"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  serial: protect uart_port_dtr_rts() in uart_shutdown() too  Commit af224ca2df29 (serial: core: Prevent unsafe uart port access, part 3) added few uport == NULL checks. It added one to uart_shutdown(), so the commit assumes, uport can be NULL in there. But right after that protection, there is an unprotected \"uart_port_dtr_rts(uport, false);\" call. That is invoked only if HUPCL is set, so I assume that is the reason why we do not see lots of these reports.  Or it cannot be NULL at this point at all for some reason :P.  Until the above is investigated, stay on the safe side and move this dereference to the if too.  I got this inconsistency from Coverity under CID 1585130. Thanks.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32566",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

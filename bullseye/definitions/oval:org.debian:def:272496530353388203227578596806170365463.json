@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:272496530353388203227578596806170365463",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49871 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49871",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49871"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  Input: adp5589-keys - fix NULL pointer dereference  We register a devm action to call adp5589_clear_config() and then pass the i2c client as argument so that we can call i2c_get_clientdata() in order to get our device object. However, i2c_set_clientdata() is only being set at the end of the probe function which means that we'll get a NULL pointer dereference in case the probe function fails early.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32345",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

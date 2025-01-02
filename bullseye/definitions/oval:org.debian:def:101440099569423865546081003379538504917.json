@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:101440099569423865546081003379538504917",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-40924 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-40924",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40924"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/i915/dpt: Make DPT object unshrinkable  In some scenarios, the DPT object gets shrunk but the actual framebuffer did not and thus its still there on the DPT's vm->bound_list. Then it tries to rewrite the PTEs via a stale CPU mapping. This causes panic.  [vsyrjala: Add TODO comment] (cherry picked from commit 51064d471c53dcc8eddd2333c3f1c1d9131ba36c)",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31073",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

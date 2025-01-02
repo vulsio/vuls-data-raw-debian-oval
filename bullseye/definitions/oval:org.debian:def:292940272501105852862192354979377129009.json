@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:292940272501105852862192354979377129009",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-53127 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-53127",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53127"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  Revert \"mmc: dw_mmc: Fix IDMAC operation with pages bigger than 4K\"  The commit 8396c793ffdf (\"mmc: dw_mmc: Fix IDMAC operation with pages bigger than 4K\") increased the max_req_size, even for 4K pages, causing various issues: - Panic booting the kernel/rootfs from an SD card on Rockchip RK3566 - Panic booting the kernel/rootfs from an SD card on StarFive JH7100 - \"swiotlb buffer is full\" and data corruption on StarFive JH7110  At this stage no fix have been found, so it's probably better to just revert the change.  This reverts commit 8396c793ffdf28bb8aee7cfe0891080f8cab7890.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32922",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

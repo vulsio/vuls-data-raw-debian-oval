@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:40001251362451520731420333569733969468",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-39469 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-39469",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-39469"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  nilfs2: fix nilfs_empty_dir() misjudgment and long loop on I/O errors  The error handling in nilfs_empty_dir() when a directory folio/page read fails is incorrect, as in the old ext2 implementation, and if the folio/page cannot be read or nilfs_check_folio() fails, it will falsely determine the directory as empty and corrupt the file system.  In addition, since nilfs_empty_dir() does not immediately return on a failed folio/page read, but continues to loop, this can cause a long loop with I/O if i_size of the directory's inode is also corrupted, causing the log writer thread to wait and hang, as reported by syzbot.  Fix these issues by making nilfs_empty_dir() immediately return a false value (0) if it fails to get a directory folio/page.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30959",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

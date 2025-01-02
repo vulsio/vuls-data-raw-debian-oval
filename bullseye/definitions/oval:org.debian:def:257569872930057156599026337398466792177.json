@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:257569872930057156599026337398466792177",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-44960 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-44960",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-44960"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  usb: gadget: core: Check for unset descriptor  Make sure the descriptor has been set before looking at maxpacket. This fixes a null pointer panic in this case.  This may happen if the gadget doesn't properly set up the endpoint for the current speed, or the gadget descriptors are malformed and the descriptor for the speed/endpoint are not found.  No current gadget driver is known to have this problem, but this may cause a hard-to-find bug during development of new gadgets.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31751",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

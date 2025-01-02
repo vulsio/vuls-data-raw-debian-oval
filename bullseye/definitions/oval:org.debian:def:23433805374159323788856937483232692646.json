@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:23433805374159323788856937483232692646",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42087 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42087",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42087"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/panel: ilitek-ili9881c: Fix warning with GPIO controllers that sleep  The ilitek-ili9881c controls the reset GPIO using the non-sleeping gpiod_set_value() function. This complains loudly when the GPIO controller needs to sleep. As the caller can sleep, use gpiod_set_value_cansleep() to fix the issue.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31342",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

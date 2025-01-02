@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:66337517996946158979367156300083348140",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50059 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50059",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50059"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ntb: ntb_hw_switchtec: Fix use after free vulnerability in switchtec_ntb_remove due to race condition  In the switchtec_ntb_add function, it can call switchtec_ntb_init_sndev function, then &sndev->check_link_status_work is bound with check_link_status_work. switchtec_ntb_link_notification may be called to start the work.  If we remove the module which will call switchtec_ntb_remove to make cleanup, it will free sndev through kfree(sndev), while the work mentioned above will be used. The sequence of operations that may lead to a UAF bug is as follows:  CPU0                                 CPU1                          | check_link_status_work switchtec_ntb_remove    | kfree(sndev);           |                         | if (sndev->link_force_down)                         | // use sndev  Fix it by ensuring that the work is canceled before proceeding with the cleanup in switchtec_ntb_remove.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32568",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

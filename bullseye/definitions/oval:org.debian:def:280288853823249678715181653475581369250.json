@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:280288853823249678715181653475581369250",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41091 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41091",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41091"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  tun: add missing verification for short frame  The cited commit missed to check against the validity of the frame length in the tun_xdp_one() path, which could cause a corrupted skb to be sent downstack. Even before the skb is transmitted, the tun_xdp_one-->eth_type_trans() may access the Ethernet header although it can be less than ETH_HLEN. Once transmitted, this could either cause out-of-bound access beyond the actual length, or confuse the underlayer with incorrect or inconsistent header length in the skb metadata.  In the alternative path, tun_get_user() already prohibits short frame which has the length less than Ethernet header size from being transmitted for IFF_TAP.  This is to drop any frame shorter than the Ethernet header size just like how tun_get_user() does.  CVE: CVE-2024-41091",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31285",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:252339079116166034573246273618520715000",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-53131 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-53131",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53131"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  nilfs2: fix null-ptr-deref in block_touch_buffer tracepoint  Patch series \"nilfs2: fix null-ptr-deref bugs on block tracepoints\".  This series fixes null pointer dereference bugs that occur when using nilfs2 and two block-related tracepoints.   This patch (of 2):  It has been reported that when using \"block:block_touch_buffer\" tracepoint, touch_buffer() called from __nilfs_get_folio_block() causes a NULL pointer dereference, or a general protection fault when KASAN is enabled.  This happens because since the tracepoint was added in touch_buffer(), it references the dev_t member bh->b_bdev->bd_dev regardless of whether the buffer head has a pointer to a block_device structure.  In the current implementation, the block_device structure is set after the function returns to the caller.  Here, touch_buffer() is used to mark the folio/page that owns the buffer head as accessed, but the common search helper for folio/page used by the caller function was optimized to mark the folio/page as accessed when it was reimplemented a long time ago, eliminating the need to call touch_buffer() here in the first place.  So this solves the issue by eliminating the touch_buffer() call itself.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32928",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

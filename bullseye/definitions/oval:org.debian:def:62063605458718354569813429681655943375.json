@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:62063605458718354569813429681655943375",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47739 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47739",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47739"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  padata: use integer wrap around to prevent deadlock on seq_nr overflow  When submitting more than 2^32 padata objects to padata_do_serial, the current sorting implementation incorrectly sorts padata objects with overflowed seq_nr, causing them to be placed before existing objects in the reorder list. This leads to a deadlock in the serialization process as padata_find_next cannot match padata->seq_nr and pd->processed because the padata instance with overflowed seq_nr will be selected next.  To fix this, we use an unsigned integer wrap around to correctly sort padata objects in scenarios with integer overflow.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32252",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

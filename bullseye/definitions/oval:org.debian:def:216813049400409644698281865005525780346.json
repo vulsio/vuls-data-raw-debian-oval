@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:216813049400409644698281865005525780346",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50153 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50153",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50153"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  scsi: target: core: Fix null-ptr-deref in target_alloc_device()  There is a null-ptr-deref issue reported by KASAN:  BUG: KASAN: null-ptr-deref in target_alloc_device+0xbc4/0xbe0 [target_core_mod] ...  kasan_report+0xb9/0xf0  target_alloc_device+0xbc4/0xbe0 [target_core_mod]  core_dev_setup_virtual_lun0+0xef/0x1f0 [target_core_mod]  target_core_init_configfs+0x205/0x420 [target_core_mod]  do_one_initcall+0xdd/0x4e0 ...  entry_SYSCALL_64_after_hwframe+0x76/0x7e  In target_alloc_device(), if allocing memory for dev queues fails, then dev will be freed by dev->transport->free_device(), but dev->transport is not initialized at that time, which will lead to a null pointer reference problem.  Fixing this bug by freeing dev with hba->backend->ops->free_device().",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32648",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

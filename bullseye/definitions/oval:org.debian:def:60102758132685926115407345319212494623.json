@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:60102758132685926115407345319212494623",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50116 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50116",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50116"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  nilfs2: fix kernel bug due to missing clearing of buffer delay flag  Syzbot reported that after nilfs2 reads a corrupted file system image and degrades to read-only, the BUG_ON check for the buffer delay flag in submit_bh_wbc() may fail, causing a kernel bug.  This is because the buffer delay flag is not cleared when clearing the buffer state flags to discard a page/folio or a buffer head. So, fix this.  This became necessary when the use of nilfs2's own page clear routine was expanded.  This state inconsistency does not occur if the buffer is written normally by log writing.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32614",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:21376463536094327349836621082616403260",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-53103 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-53103",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53103"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  hv_sock: Initializing vsk->trans to NULL to prevent a dangling pointer  When hvs is released, there is a possibility that vsk->trans may not be initialized to NULL, which could lead to a dangling pointer. This issue is resolved by initializing vsk->trans to NULL.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32901",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

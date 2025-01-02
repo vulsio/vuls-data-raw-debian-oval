@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:321387162141276919320293551068970021836",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49854 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49854",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49854"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  block, bfq: fix uaf for accessing waker_bfqq after splitting  After commit 42c306ed7233 (\"block, bfq: don't break merge chain in bfq_split_bfqq()\"), if the current procress is the last holder of bfqq, the bfqq can be freed after bfq_split_bfqq(). Hence recored the bfqq and then access bfqq->waker_bfqq may trigger UAF. What's more, the waker_bfqq may in the merge chain of bfqq, hence just recored waker_bfqq is still not safe.  Fix the problem by adding a helper bfq_waker_bfqq() to check if bfqq->waker_bfqq is in the merge chain, and current procress is the only holder.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32327",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

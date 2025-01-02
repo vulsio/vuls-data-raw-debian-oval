@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:67697071427680035318875624327396402889",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-53144 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-53144",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53144"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  Bluetooth: hci_event: Align BR/EDR JUST_WORKS paring with LE  This aligned BR/EDR JUST_WORKS method with LE which since 92516cd97fd4 (\"Bluetooth: Always request for user confirmation for Just Works\") always request user confirmation with confirm_hint set since the likes of bluetoothd have dedicated policy around JUST_WORKS method (e.g. main.conf:JustWorksRepairing).  CVE: CVE-2024-8805",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32941",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

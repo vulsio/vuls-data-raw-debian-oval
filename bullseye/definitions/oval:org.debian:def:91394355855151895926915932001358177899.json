@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:91394355855151895926915932001358177899",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-40901 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-40901",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40901"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  scsi: mpt3sas: Avoid test/set_bit() operating in non-allocated memory  There is a potential out-of-bounds access when using test_bit() on a single word. The test_bit() and set_bit() functions operate on long values, and when testing or setting a single word, they can exceed the word boundary. KASAN detects this issue and produces a dump:  \t BUG: KASAN: slab-out-of-bounds in _scsih_add_device.constprop.0 (./arch/x86/include/asm/bitops.h:60 ./include/asm-generic/bitops/instrumented-atomic.h:29 drivers/scsi/mpt3sas/mpt3sas_scsih.c:7331) mpt3sas  \t Write of size 8 at addr ffff8881d26e3c60 by task kworker/u1536:2/2965  For full log, please look at [1].  Make the allocation at least the size of sizeof(unsigned long) so that set_bit() and test_bit() have sufficient room for read/write operations without overwriting unallocated memory.  [1] Link: https://lore.kernel.org/all/ZkNcALr3W3KGYYJG@gmail.com/",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31047",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

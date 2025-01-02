@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:256884413504128132669187380996013888330",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49907 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49907",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49907"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Check null pointers before using dc->clk_mgr  [WHY & HOW] dc->clk_mgr is null checked previously in the same function, indicating it might be null.  Passing \"dc\" to \"dc->hwss.apply_idle_power_optimizations\", which dereferences null \"dc->clk_mgr\". (The function pointer resolves to \"dcn35_apply_idle_power_optimizations\".)  This fixes 1 FORWARD_NULL issue reported by Coverity.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32392",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

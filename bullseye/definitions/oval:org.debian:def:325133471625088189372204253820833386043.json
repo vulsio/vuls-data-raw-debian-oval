@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:325133471625088189372204253820833386043",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50060 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50060",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50060"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  io_uring: check if we need to reschedule during overflow flush  In terms of normal application usage, this list will always be empty. And if an application does overflow a bit, it'll have a few entries. However, nothing obviously prevents syzbot from running a test case that generates a ton of overflow entries, and then flushing them can take quite a while.  Check for needing to reschedule while flushing, and drop our locks and do so if necessary. There's no state to maintain here as overflows always prune from head-of-list, hence it's fine to drop and reacquire the locks at the end of the loop.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32570",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

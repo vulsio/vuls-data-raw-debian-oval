@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:238269348517985488918458544813176294499",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41020 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41020",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41020"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  filelock: Fix fcntl/close race recovery compat path  When I wrote commit 3cad1bc01041 (\"filelock: Remove locks reliably when fcntl/close race is detected\"), I missed that there are two copies of the code I was patching: The normal version, and the version for 64-bit offsets on 32-bit kernels. Thanks to Greg KH for stumbling over this while doing the stable backport...  Apply exactly the same fix to the compat path for 32-bit kernels.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31193",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

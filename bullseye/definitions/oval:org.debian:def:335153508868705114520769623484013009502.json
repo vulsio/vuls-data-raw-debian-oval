@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:335153508868705114520769623484013009502",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46840 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46840",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46840"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  btrfs: clean up our handling of refs == 0 in snapshot delete  In reada we BUG_ON(refs == 0), which could be unkind since we aren't holding a lock on the extent leaf and thus could get a transient incorrect answer.  In walk_down_proc we also BUG_ON(refs == 0), which could happen if we have extent tree corruption.  Change that to return -EUCLEAN.  In do_walk_down() we catch this case and handle it correctly, however we return -EIO, which -EUCLEAN is a more appropriate error code. Finally in walk_up_proc we have the same BUG_ON(refs == 0), so convert that to proper error handling.  Also adjust the error message so we can actually do something with the information.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32070",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

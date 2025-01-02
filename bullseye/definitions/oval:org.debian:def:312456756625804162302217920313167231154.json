@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:312456756625804162302217920313167231154",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46752 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46752",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46752"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  btrfs: replace BUG_ON() with error handling at update_ref_for_cow()  Instead of a BUG_ON() just return an error, log an error message and abort the transaction in case we find an extent buffer belonging to the relocation tree that doesn't have the full backref flag set. This is unexpected and should never happen (save for bugs or a potential bad memory).",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31966",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

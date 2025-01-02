@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:27823231756902259090951189938546599045",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42127 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42127",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42127"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/lima: fix shared irq handling on driver remove  lima uses a shared interrupt, so the interrupt handlers must be prepared to be called at any time. At driver removal time, the clocks are disabled early and the interrupts stay registered until the very end of the remove process due to the devm usage. This is potentially a bug as the interrupts access device registers which assumes clocks are enabled. A crash can be triggered by removing the driver in a kernel with CONFIG_DEBUG_SHIRQ enabled. This patch frees the interrupts at each lima device finishing callback so that the handlers are already unregistered by the time we fully disable clocks.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31394",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

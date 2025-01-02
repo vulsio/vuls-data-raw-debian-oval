@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:339044795643321838709157404820905927033",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-40948 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-40948",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40948"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  mm/page_table_check: fix crash on ZONE_DEVICE  Not all pages may apply to pgtable check.  One example is ZONE_DEVICE pages: they map PFNs directly, and they don't allocate page_ext at all even if there's struct page around.  One may reference devm_memremap_pages().  When both ZONE_DEVICE and page-table-check enabled, then try to map some dax memories, one can trigger kernel bug constantly now when the kernel was trying to inject some pfn maps on the dax device:   kernel BUG at mm/page_table_check.c:55!  While it's pretty legal to use set_pxx_at() for ZONE_DEVICE pages for page fault resolutions, skip all the checks if page_ext doesn't even exist in pgtable checker, which applies to ZONE_DEVICE but maybe more.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31098",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

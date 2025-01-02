@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:238637439470676653020563726135608442272",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42140 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42140",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42140"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  riscv: kexec: Avoid deadlock in kexec crash path  If the kexec crash code is called in the interrupt context, the machine_kexec_mask_interrupts() function will trigger a deadlock while trying to acquire the irqdesc spinlock and then deactivate irqchip in irq_set_irqchip_state() function.  Unlike arm64, riscv only requires irq_eoi handler to complete EOI and keeping irq_set_irqchip_state() will only leave this possible deadlock without any use. So we simply remove it.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31408",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

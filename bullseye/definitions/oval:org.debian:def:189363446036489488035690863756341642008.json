@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:189363446036489488035690863756341642008",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-53063 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-53063",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53063"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  media: dvbdev: prevent the risk of out of memory access  The dvbdev contains a static variable used to store dvb minors.  The behavior of it depends if CONFIG_DVB_DYNAMIC_MINORS is set or not. When not set, dvb_register_device() won't check for boundaries, as it will rely that a previous call to dvb_register_adapter() would already be enforcing it.  On a similar way, dvb_device_open() uses the assumption that the register functions already did the needed checks.  This can be fragile if some device ends using different calls. This also generate warnings on static check analysers like Coverity.  So, add explicit guards to prevent potential risk of OOM issues.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32875",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

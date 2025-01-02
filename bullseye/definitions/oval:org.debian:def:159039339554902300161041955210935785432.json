@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:159039339554902300161041955210935785432",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46675 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46675",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46675"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  usb: dwc3: core: Prevent USB core invalid event buffer address access  This commit addresses an issue where the USB core could access an invalid event buffer address during runtime suspend, potentially causing SMMU faults and other memory issues in Exynos platforms. The problem arises from the following sequence.         1. In dwc3_gadget_suspend, there is a chance of a timeout when         moving the USB core to the halt state after clearing the         run/stop bit by software.         2. In dwc3_core_exit, the event buffer is cleared regardless of         the USB core's status, which may lead to an SMMU faults and         other memory issues. if the USB core tries to access the event         buffer address.  To prevent this hardware quirk on Exynos platforms, this commit ensures that the event buffer address is not cleared by software  when the USB core is active during runtime suspend by checking its status before clearing the buffer address.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31882",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:272625622679126541104632984615726641093",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42250 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42250",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42250"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  cachefiles: add missing lock protection when polling  Add missing lock protection in poll routine when iterating xarray, otherwise:  Even with RCU read lock held, only the slot of the radix tree is ensured to be pinned there, while the data structure (e.g. struct cachefiles_req) stored in the slot has no such guarantee.  The poll routine will iterate the radix tree and dereference cachefiles_req accordingly.  Thus RCU read lock is not adequate in this case and spinlock is needed here.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31463",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

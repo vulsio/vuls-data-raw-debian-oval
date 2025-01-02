@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:190020506944609150392908781502313080520",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46791 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46791",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46791"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  can: mcp251x: fix deadlock if an interrupt occurs during mcp251x_open  The mcp251x_hw_wake() function is called with the mpc_lock mutex held and disables the interrupt handler so that no interrupts can be processed while waking the device. If an interrupt has already occurred then waiting for the interrupt handler to complete will deadlock because it will be trying to acquire the same mutex.  CPU0                           CPU1 ----                           ---- mcp251x_open()  mutex_lock(&priv->mcp_lock)   request_threaded_irq()                                <interrupt>                                mcp251x_can_ist()                                 mutex_lock(&priv->mcp_lock)   mcp251x_hw_wake()    disable_irq() <-- deadlock  Use disable_irq_nosync() instead because the interrupt handler does everything while holding the mutex so it doesn't matter if it's still running.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32010",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

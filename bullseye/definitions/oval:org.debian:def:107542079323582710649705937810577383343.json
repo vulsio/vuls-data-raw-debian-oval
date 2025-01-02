@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:107542079323582710649705937810577383343",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42312 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42312",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42312"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  sysctl: always initialize i_uid/i_gid  Always initialize i_uid/i_gid inside the sysfs core so set_ownership() can safely skip setting them.  Commit 5ec27ec735ba (\"fs/proc/proc_sysctl.c: fix the default values of i_uid/i_gid on /proc/sys inodes.\") added defaults for i_uid/i_gid when set_ownership() was not implemented. It also missed adjusting net_ctl_set_ownership() to use the same default values in case the computation of a better value failed.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31534",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

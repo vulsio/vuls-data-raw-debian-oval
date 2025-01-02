@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:302604426320377855205787829141240168870",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41055 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41055",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41055"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  mm: prevent derefencing NULL ptr in pfn_section_valid()  Commit 5ec8e8ea8b77 (\"mm/sparsemem: fix race in accessing memory_section->usage\") changed pfn_section_valid() to add a READ_ONCE() call around \"ms->usage\" to fix a race with section_deactivate() where ms->usage can be cleared.  The READ_ONCE() call, by itself, is not enough to prevent NULL pointer dereference.  We need to check its value before dereferencing it.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31227",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

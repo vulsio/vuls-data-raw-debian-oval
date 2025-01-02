@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:98207327779323566445374623040572807620",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-44970 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-44970",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-44970"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net/mlx5e: SHAMPO, Fix invalid WQ linked list unlink  When all the strides in a WQE have been consumed, the WQE is unlinked from the WQ linked list (mlx5_wq_ll_pop()). For SHAMPO, it is possible to receive CQEs with 0 consumed strides for the same WQE even after the WQE is fully consumed and unlinked. This triggers an additional unlink for the same wqe which corrupts the linked list.  Fix this scenario by accepting 0 sized consumed strides without unlinking the WQE again.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31763",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

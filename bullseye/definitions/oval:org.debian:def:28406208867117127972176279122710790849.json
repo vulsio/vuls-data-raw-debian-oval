@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:28406208867117127972176279122710790849",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47731 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47731",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47731"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drivers/perf: Fix ali_drw_pmu driver interrupt status clearing  The alibaba_uncore_pmu driver forgot to clear all interrupt status in the interrupt processing function. After the PMU counter overflow interrupt occurred, an interrupt storm occurred, causing the system to hang.  Therefore, clear the correct interrupt status in the interrupt handling function to fix it.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32243",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

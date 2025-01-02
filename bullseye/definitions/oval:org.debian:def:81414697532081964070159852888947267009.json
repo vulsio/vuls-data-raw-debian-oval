@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:81414697532081964070159852888947267009",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42152 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42152",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42152"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  nvmet: fix a possible leak when destroy a ctrl during qp establishment  In nvmet_sq_destroy we capture sq->ctrl early and if it is non-NULL we know that a ctrl was allocated (in the admin connect request handler) and we need to release pending AERs, clear ctrl->sqs and sq->ctrl (for nvme-loop primarily), and drop the final reference on the ctrl.  However, a small window is possible where nvmet_sq_destroy starts (as a result of the client giving up and disconnecting) concurrently with the nvme admin connect cmd (which may be in an early stage). But *before* kill_and_confirm of sq->ref (i.e. the admin connect managed to get an sq live reference). In this case, sq->ctrl was allocated however after it was captured in a local variable in nvmet_sq_destroy. This prevented the final reference drop on the ctrl.  Solve this by re-capturing the sq->ctrl after all inflight request has completed, where for sure sq->ctrl reference is final, and move forward based on that.  This issue was observed in an environment with many hosts connecting multiple ctrls simoutanuosly, creating a delay in allocating a ctrl leading up to this race window.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31419",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

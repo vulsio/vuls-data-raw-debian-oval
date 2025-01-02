@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:262986962240599547041259938833844342684",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47750 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47750",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47750"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  RDMA/hns: Fix Use-After-Free of rsv_qp on HIP08  Currently rsv_qp is freed before ib_unregister_device() is called on HIP08. During the time interval, users can still dereg MR and rsv_qp will be used in this process, leading to a UAF. Move the release of rsv_qp after calling ib_unregister_device() to fix it.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32265",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

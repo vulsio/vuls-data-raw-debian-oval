@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:56623194274925712444794136492149599129",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50181 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50181",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50181"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  clk: imx: Remove CLK_SET_PARENT_GATE for DRAM mux for i.MX7D  For i.MX7D DRAM related mux clock, the clock source change should ONLY be done done in low level asm code without accessing DRAM, and then calling clk API to sync the HW clock status with clk tree, it should never touch real clock source switch via clk API, so CLK_SET_PARENT_GATE flag should NOT be added, otherwise, DRAM's clock parent will be disabled when DRAM is active, and system will hang.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32671",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

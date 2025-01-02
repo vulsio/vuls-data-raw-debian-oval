@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:97995363907034575683006659678288055405",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42097 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42097",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42097"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ALSA: emux: improve patch ioctl data validation  In load_data(), make the validation of and skipping over the main info block match that in load_guspatch().  In load_guspatch(), add checking that the specified patch length matches the actually supplied data, like load_data() already did.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31358",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

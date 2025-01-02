@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:338704512885675483932544052855683910084",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-44947 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-44947",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-44947"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  fuse: Initialize beyond-EOF page contents before setting uptodate  fuse_notify_store(), unlike fuse_do_readpage(), does not enable page zeroing (because it can be used to change partial page contents).  So fuse_notify_store() must be more careful to fully initialize page contents (including parts of the page that are beyond end-of-file) before marking the page uptodate.  The current code can leave beyond-EOF page contents uninitialized, which makes these uninitialized page contents visible to userspace via mmap().  This is an information leak, but only affects systems which do not enable init-on-alloc (via CONFIG_INIT_ON_ALLOC_DEFAULT_ON=y or the corresponding kernel command line parameter).",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31738",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

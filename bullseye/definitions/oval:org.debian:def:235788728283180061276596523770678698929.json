@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:235788728283180061276596523770678698929",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42258 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42258",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42258"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  mm: huge_memory: use !CONFIG_64BIT to relax huge page alignment on 32 bit machines  Yves-Alexis Perez reported commit 4ef9ad19e176 (\"mm: huge_memory: don't force huge page alignment on 32 bit\") didn't work for x86_32 [1].  It is because x86_32 uses CONFIG_X86_32 instead of CONFIG_32BIT.  !CONFIG_64BIT should cover all 32 bit machines.  [1] https://lore.kernel.org/linux-mm/CAHbLzkr1LwH3pcTgM+aGQ31ip2bKqiqEQ8=FQB+t2c3dhNKNHA@mail.gmail.com/",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31467",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:147311936578348125363976099428839495847",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-53070 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-53070",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53070"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  usb: dwc3: fix fault at system suspend if device was already runtime suspended  If the device was already runtime suspended then during system suspend we cannot access the device registers else it will crash.  Also we cannot access any registers after dwc3_core_exit() on some platforms so move the dwc3_enable_susphy() call to the top.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32879",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

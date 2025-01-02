@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:207112476769079766575173624686398060419",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41039 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41039",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41039"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  firmware: cs_dsp: Fix overflow checking of wmfw header  Fix the checking that firmware file buffer is large enough for the wmfw header, to prevent overrunning the buffer.  The original code tested that the firmware data buffer contained enough bytes for the sums of the size of the structs  \twmfw_header + wmfw_adsp1_sizes + wmfw_footer  But wmfw_adsp1_sizes is only used on ADSP1 firmware. For ADSP2 and Halo Core the equivalent struct is wmfw_adsp2_sizes, which is 4 bytes longer. So the length check didn't guarantee that there are enough bytes in the firmware buffer for a header with wmfw_adsp2_sizes.  This patch splits the length check into three separate parts. Each of the wmfw_header, wmfw_adsp?_sizes and wmfw_footer are checked separately before they are used.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31208",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

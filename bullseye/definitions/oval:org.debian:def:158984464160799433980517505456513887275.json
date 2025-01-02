@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:158984464160799433980517505456513887275",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47738 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47738",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47738"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  wifi: mac80211: don't use rate mask for offchannel TX either  Like the commit ab9177d83c04 (\"wifi: mac80211: don't use rate mask for scanning\"), ignore incorrect settings to avoid no supported rate warning reported by syzbot.  The syzbot did bisect and found cause is commit 9df66d5b9f45 (\"cfg80211: fix default HE tx bitrate mask in 2G band\"), which however corrects bitmask of HE MCS and recognizes correctly settings of empty legacy rate plus HE MCS rate instead of returning -EINVAL.  As suggestions [1], follow the change of SCAN TX to consider this case of offchannel TX as well.  [1] https://lore.kernel.org/linux-wireless/6ab2dc9c3afe753ca6fdcdd1421e7a1f47e87b84.camel@sipsolutions.net/T/#m2ac2a6d2be06a37c9c47a3d8a44b4f647ed4f024",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32250",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

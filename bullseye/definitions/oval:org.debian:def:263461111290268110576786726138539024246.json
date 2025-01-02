@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:263461111290268110576786726138539024246",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47730 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47730",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47730"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  crypto: hisilicon/qm - inject error before stopping queue  The master ooo cannot be completely closed when the accelerator core reports memory error. Therefore, the driver needs to inject the qm error to close the master ooo. Currently, the qm error is injected after stopping queue, memory may be released immediately after stopping queue, causing the device to access the released memory. Therefore, error is injected to close master ooo before stopping queue to ensure that the device does not access the released memory.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32242",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

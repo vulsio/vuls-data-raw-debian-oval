@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:125010078595349331381284208227754307032",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42104 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42104",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42104"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  nilfs2: add missing check for inode numbers on directory entries  Syzbot reported that mounting and unmounting a specific pattern of corrupted nilfs2 filesystem images causes a use-after-free of metadata file inodes, which triggers a kernel bug in lru_add_fn().  As Jan Kara pointed out, this is because the link count of a metadata file gets corrupted to 0, and nilfs_evict_inode(), which is called from iput(), tries to delete that inode (ifile inode in this case).  The inconsistency occurs because directories containing the inode numbers of these metadata files that should not be visible in the namespace are read without checking.  Fix this issue by treating the inode numbers of these internal files as errors in the sanity check helper when reading directory folios/pages.  Also thanks to Hillf Danton and Matthew Wilcox for their initial mm-layer analysis.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31367",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

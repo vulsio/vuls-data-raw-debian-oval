@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:157671421862274340069049578367734947102",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-40919 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-40919",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40919"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  bnxt_en: Adjust logging of firmware messages in case of released token in __hwrm_send()  In case of token is released due to token->state == BNXT_HWRM_DEFERRED, released token (set to NULL) is used in log messages. This issue is expected to be prevented by HWRM_ERR_CODE_PF_UNAVAILABLE error code. But this error code is returned by recent firmware. So some firmware may not return it. This may lead to NULL pointer dereference. Adjust this issue by adding token pointer check.  Found by Linux Verification Center (linuxtesting.org) with SVACE.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31070",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

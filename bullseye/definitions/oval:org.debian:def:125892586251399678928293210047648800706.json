@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:125892586251399678928293210047648800706",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43839 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43839",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43839"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  bna: adjust 'name' buf size of bna_tcb and bna_ccb structures  To have enough space to write all possible sprintf() args. Currently 'name' size is 16, but the first '%s' specifier may already need at least 16 characters, since 'bnad->netdev->name' is used there.  For '%d' specifiers, assume that they require:  * 1 char for 'tx_id + tx_info->tcb[i]->id' sum, BNAD_MAX_TXQ_PER_TX is 8  * 2 chars for 'rx_id + rx_info->rx_ctrl[i].ccb->id', BNAD_MAX_RXP_PER_RX    is 16  And replace sprintf with snprintf.  Detected using the static analysis tool - Svace.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31615",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

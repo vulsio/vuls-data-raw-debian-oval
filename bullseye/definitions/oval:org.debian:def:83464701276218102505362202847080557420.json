@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:83464701276218102505362202847080557420",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49974 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49974",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49974"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  NFSD: Limit the number of concurrent async COPY operations  Nothing appears to limit the number of concurrent async COPY operations that clients can start. In addition, AFAICT each async COPY can copy an unlimited number of 4MB chunks, so can run for a long time. Thus IMO async COPY can become a DoS vector.  Add a restriction mechanism that bounds the number of concurrent background COPY operations. Start simple and try to be fair -- this patch implements a per-namespace limit.  An async COPY request that occurs while this limit is exceeded gets NFS4ERR_DELAY. The requesting client can choose to send the request again after a delay or fall back to a traditional read/write style copy.  If there is need to make the mechanism more sophisticated, we can visit that in future patches.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32477",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

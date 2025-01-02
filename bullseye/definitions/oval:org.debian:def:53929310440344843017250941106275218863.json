@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:53929310440344843017250941106275218863",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50193 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50193",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50193"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  x86/entry_32: Clear CPU buffers after register restore in NMI return  CPU buffers are currently cleared after call to exc_nmi, but before register state is restored. This may be okay for MDS mitigation but not for RDFS. Because RDFS mitigation requires CPU buffers to be cleared when registers don't have any sensitive data.  Move CLEAR_CPU_BUFFERS after RESTORE_ALL_NMI.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32690",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

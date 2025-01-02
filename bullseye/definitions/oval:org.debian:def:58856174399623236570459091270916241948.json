@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:58856174399623236570459091270916241948",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43830 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43830",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43830"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  leds: trigger: Unregister sysfs attributes before calling deactivate()  Triggers which have trigger specific sysfs attributes typically store related data in trigger-data allocated by the activate() callback and freed by the deactivate() callback.  Calling device_remove_groups() after calling deactivate() leaves a window where the sysfs attributes show/store functions could be called after deactivation and then operate on the just freed trigger-data.  Move the device_remove_groups() call to before deactivate() to close this race window.  This also makes the deactivation path properly do things in reverse order of the activation path which calls the activate() callback before calling device_add_groups().",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31604",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

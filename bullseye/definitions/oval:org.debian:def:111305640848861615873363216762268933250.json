@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:111305640848861615873363216762268933250",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49965 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49965",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49965"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  ocfs2: remove unreasonable unlock in ocfs2_read_blocks  Patch series \"Misc fixes for ocfs2_read_blocks\", v5.  This series contains 2 fixes for ocfs2_read_blocks().  The first patch fix the issue reported by syzbot, which detects bad unlock balance in ocfs2_read_blocks().  The second patch fixes an issue reported by Heming Zhao when reviewing above fix.   This patch (of 2):  There was a lock release before exiting, so remove the unreasonable unlock.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32463",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

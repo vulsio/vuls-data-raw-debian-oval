@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:241884722457206328320210909212462313243",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50145 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50145",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50145"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  octeon_ep: Add SKB allocation failures handling in __octep_oq_process_rx()  build_skb() returns NULL in case of a memory allocation failure so handle it inside __octep_oq_process_rx() to avoid NULL pointer dereference.  __octep_oq_process_rx() is called during NAPI polling by the driver. If skb allocation fails, keep on pulling packets out of the Rx DMA queue: we shouldn't break the polling immediately and thus falsely indicate to the octep_napi_poll() that the Rx pressure is going down. As there is no associated skb in this case, don't process the packets and don't push them up the network stack - they are skipped.  Helper function is implemented to unmmap/flush all the fragment buffers used by the dropped packet. 'alloc_failures' counter is incremented to mark the skb allocation error in driver statistics.  Found by Linux Verification Center (linuxtesting.org) with SVACE.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32639",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

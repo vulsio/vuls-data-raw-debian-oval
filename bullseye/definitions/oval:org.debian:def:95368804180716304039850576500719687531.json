@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:95368804180716304039850576500719687531",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50230 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50230",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50230"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  nilfs2: fix kernel bug due to missing clearing of checked flag  Syzbot reported that in directory operations after nilfs2 detects filesystem corruption and degrades to read-only, __block_write_begin_int(), which is called to prepare block writes, may fail the BUG_ON check for accesses exceeding the folio/page size, triggering a kernel bug.  This was found to be because the \"checked\" flag of a page/folio was not cleared when it was discarded by nilfs2's own routine, which causes the sanity check of directory entries to be skipped when the directory page/folio is reloaded.  So, fix that.  This was necessary when the use of nilfs2's own page discard routine was applied to more than just metadata files.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32722",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

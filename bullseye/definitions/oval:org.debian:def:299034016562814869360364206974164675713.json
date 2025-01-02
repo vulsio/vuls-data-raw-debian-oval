@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:299034016562814869360364206974164675713",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49850 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49850",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49850"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  bpf: correctly handle malformed BPF_CORE_TYPE_ID_LOCAL relos  In case of malformed relocation record of kind BPF_CORE_TYPE_ID_LOCAL referencing a non-existing BTF type, function bpf_core_calc_relo_insn would cause a null pointer deference.  Fix this by adding a proper check upper in call stack, as malformed relocation records could be passed from user space.  Simplest reproducer is a program:      r0 = 0     exit  With a single relocation record:      .insn_off = 0,          /* patch first instruction */     .type_id = 100500,      /* this type id does not exist */     .access_str_off = 6,    /* offset of string \"0\" */     .kind = BPF_CORE_TYPE_ID_LOCAL,  See the link for original reproducer or next commit for a test case.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32321",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

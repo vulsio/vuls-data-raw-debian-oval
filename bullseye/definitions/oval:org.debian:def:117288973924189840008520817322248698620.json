@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:117288973924189840008520817322248698620",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-44967 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-44967",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-44967"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/mgag200: Bind I2C lifetime to DRM device  Managed cleanup with devm_add_action_or_reset() will release the I2C adapter when the underlying Linux device goes away. But the connector still refers to it, so this cleanup leaves behind a stale pointer in struct drm_connector.ddc.  Bind the lifetime of the I2C adapter to the connector's lifetime by using DRM's managed release. When the DRM device goes away (after the Linux device) DRM will first clean up the connector and then clean up the I2C adapter.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31757",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

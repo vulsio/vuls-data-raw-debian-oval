@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:107006988569584072721898307624557384636",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-36923 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-36923",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-36923"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  fs/9p: fix uninitialized values during inode evict  If an iget fails due to not being able to retrieve information from the server then the inode structure is only partially initialized.  When the inode gets evicted, references to uninitialized structures (like fscache cookies) were being made.  This patch checks for a bad_inode before doing anything other than clearing the inode from the cache.  Since the inode is bad, it shouldn't have any state associated with it that needs to be written back (and there really isn't a way to complete those anyways).",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30762",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

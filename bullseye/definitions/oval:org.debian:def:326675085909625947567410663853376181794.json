@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:326675085909625947567410663853376181794",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-53093 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-53093",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-53093"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  nvme-multipath: defer partition scanning  We need to suppress the partition scan from occuring within the controller's scan_work context. If a path error occurs here, the IO will wait until a path becomes available or all paths are torn down, but that action also occurs within scan_work, so it would deadlock. Defer the partion scan to a different context that does not block scan_work.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32888",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

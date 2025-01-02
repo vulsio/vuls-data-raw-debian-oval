@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:81742293567372740606036841818134448811",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50008 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50008",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50008"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  wifi: mwifiex: Fix memcpy() field-spanning write warning in mwifiex_cmd_802_11_scan_ext()  Replace one-element array with a flexible-array member in `struct host_cmd_ds_802_11_scan_ext`.  With this, fix the following warning:  elo 16 17:51:58 surfacebook kernel: ------------[ cut here ]------------ elo 16 17:51:58 surfacebook kernel: memcpy: detected field-spanning write (size 243) of single field \"ext_scan->tlv_buffer\" at drivers/net/wireless/marvell/mwifiex/scan.c:2239 (size 1) elo 16 17:51:58 surfacebook kernel: WARNING: CPU: 0 PID: 498 at drivers/net/wireless/marvell/mwifiex/scan.c:2239 mwifiex_cmd_802_11_scan_ext+0x83/0x90 [mwifiex]",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32518",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

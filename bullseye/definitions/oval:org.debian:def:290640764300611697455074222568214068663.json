@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:290640764300611697455074222568214068663",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41063 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41063",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41063"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  Bluetooth: hci_core: cancel all works upon hci_unregister_dev()  syzbot is reporting that calling hci_release_dev() from hci_error_reset() due to hci_dev_put() from hci_error_reset() can cause deadlock at destroy_workqueue(), for hci_error_reset() is called from hdev->req_workqueue which destroy_workqueue() needs to flush.  We need to make sure that hdev->{rx_work,cmd_work,tx_work} which are queued into hdev->workqueue and hdev->{power_on,error_reset} which are queued into hdev->req_workqueue are no longer running by the moment         destroy_workqueue(hdev->workqueue);        destroy_workqueue(hdev->req_workqueue);  are called from hci_release_dev().  Call cancel_work_sync() on these work items from hci_unregister_dev() as soon as hdev->list is removed from hci_dev_list.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31239",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

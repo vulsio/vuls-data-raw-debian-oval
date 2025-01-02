@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:329715907674210369759616960623798119009",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41038 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41038",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41038"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  firmware: cs_dsp: Prevent buffer overrun when processing V2 alg headers  Check that all fields of a V2 algorithm header fit into the available firmware data buffer.  The wmfw V2 format introduced variable-length strings in the algorithm block header. This means the overall header length is variable, and the position of most fields varies depending on the length of the string fields. Each field must be checked to ensure that it does not overflow the firmware data buffer.  As this ia bugfix patch, the fixes avoid making any significant change to the existing code. This makes it easier to review and less likely to introduce new bugs.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31207",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

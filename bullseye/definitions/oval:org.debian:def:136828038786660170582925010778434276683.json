@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:136828038786660170582925010778434276683",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-45007 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-45007",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-45007"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  char: xillybus: Don't destroy workqueue from work item running on it  Triggered by a kref decrement, destroy_workqueue() may be called from within a work item for destroying its own workqueue. This illegal situation is averted by adding a module-global workqueue for exclusive use of the offending work item. Other work items continue to be queued on per-device workqueues to ensure performance.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31799",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

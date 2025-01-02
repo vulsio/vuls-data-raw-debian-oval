@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:175241477125076592528360385244315692038",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47723 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47723",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47723"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  jfs: fix out-of-bounds in dbNextAG() and diAlloc()  In dbNextAG() , there is no check for the case where bmp->db_numag is greater or same than MAXAG due to a polluted image, which causes an out-of-bounds. Therefore, a bounds check should be added in dbMount().  And in dbNextAG(), a check for the case where agpref is greater than bmp->db_numag should be added, so an out-of-bounds exception should be prevented.  Additionally, a check for the case where agno is greater or same than MAXAG should be added in diAlloc() to prevent out-of-bounds.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32236",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

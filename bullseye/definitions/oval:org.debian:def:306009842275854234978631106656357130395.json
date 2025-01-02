@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:306009842275854234978631106656357130395",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47727 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47727",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47727"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  x86/tdx: Fix \"in-kernel MMIO\" check  TDX only supports kernel-initiated MMIO operations. The handle_mmio() function checks if the #VE exception occurred in the kernel and rejects the operation if it did not.  However, userspace can deceive the kernel into performing MMIO on its behalf. For example, if userspace can point a syscall to an MMIO address, syscall does get_user() or put_user() on it, triggering MMIO #VE. The kernel will treat the #VE as in-kernel MMIO.  Ensure that the target MMIO address is within the kernel before decoding instruction.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32238",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

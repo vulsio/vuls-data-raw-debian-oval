@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:259255763331951480340818161280580758065",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50247 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50247",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50247"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  fs/ntfs3: Check if more than chunk-size bytes are written  A incorrectly formatted chunk may decompress into more than LZNT_CHUNK_SIZE bytes and a index out of bounds will occur in s_max_off.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32737",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

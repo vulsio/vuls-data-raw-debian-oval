@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:240138105905983193082618188539081342532",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49986 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49986",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49986"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  platform/x86: x86-android-tablets: Fix use after free on platform_device_register() errors  x86_android_tablet_remove() frees the pdevs[] array, so it should not be used after calling x86_android_tablet_remove().  When platform_device_register() fails, store the pdevs[x] PTR_ERR() value into the local ret variable before calling x86_android_tablet_remove() to avoid using pdevs[] after it has been freed.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32492",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

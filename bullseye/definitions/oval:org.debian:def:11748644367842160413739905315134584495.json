@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:11748644367842160413739905315134584495",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49859 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49859",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49859"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  f2fs: fix to check atomic_file in f2fs ioctl interfaces  Some f2fs ioctl interfaces like f2fs_ioc_set_pin_file(), f2fs_move_file_range(), and f2fs_defragment_range() missed to check atomic_write status, which may cause potential race issue, fix it.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32333",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

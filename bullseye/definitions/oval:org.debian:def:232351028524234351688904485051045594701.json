@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:232351028524234351688904485051045594701",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42223 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42223",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42223"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  media: dvb-frontends: tda10048: Fix integer overflow  state->xtal_hz can be up to 16M, so it can overflow a 32 bit integer when multiplied by pll_mfactor.  Create a new 64 bit variable to hold the calculations.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31437",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

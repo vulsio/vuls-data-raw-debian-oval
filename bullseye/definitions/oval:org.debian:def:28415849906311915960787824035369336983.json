@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:28415849906311915960787824035369336983",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41074 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41074",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41074"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  cachefiles: Set object to close if ondemand_id < 0 in copen  If copen is maliciously called in the user mode, it may delete the request corresponding to the random id. And the request may have not been read yet.  Note that when the object is set to reopen, the open request will be done with the still reopen state in above case. As a result, the request corresponding to this object is always skipped in select_req function, so the read request is never completed and blocks other process.  Fix this issue by simply set object to close if its id < 0 in copen.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31260",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

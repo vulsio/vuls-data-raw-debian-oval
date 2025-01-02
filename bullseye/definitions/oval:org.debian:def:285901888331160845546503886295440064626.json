@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:285901888331160845546503886295440064626",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-39496 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-39496",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-39496"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  btrfs: zoned: fix use-after-free due to race with dev replace  While loading a zone's info during creation of a block group, we can race with a device replace operation and then trigger a use-after-free on the device that was just replaced (source device of the replace operation).  This happens because at btrfs_load_zone_info() we extract a device from the chunk map into a local variable and then use the device while not under the protection of the device replace rwsem. So if there's a device replace operation happening when we extract the device and that device is the source of the replace operation, we will trigger a use-after-free if before we finish using the device the replace operation finishes and frees the device.  Fix this by enlarging the critical section under the protection of the device replace rwsem so that all uses of the device are done inside the critical section.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:30982",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

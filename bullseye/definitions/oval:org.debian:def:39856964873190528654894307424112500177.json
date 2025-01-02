@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:39856964873190528654894307424112500177",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2023-52918 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-52918",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-52918"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  media: pci: cx23885: check cx23885_vdev_init() return  cx23885_vdev_init() can return a NULL pointer, but that pointer is used in the next line without a check.  Add a NULL pointer check and go to the error unwind if it is NULL.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29207",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

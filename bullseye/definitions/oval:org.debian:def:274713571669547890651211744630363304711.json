@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:274713571669547890651211744630363304711",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42283 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42283",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42283"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net: nexthop: Initialize all fields in dumped nexthops  struct nexthop_grp contains two reserved fields that are not initialized by nla_put_nh_group(), and carry garbage. This can be observed e.g. with strace (edited for clarity):      # ip nexthop add id 1 dev lo     # ip nexthop add id 101 group 1     # strace -e recvmsg ip nexthop get id 101     ...     recvmsg(... [{nla_len=12, nla_type=NHA_GROUP},                  [{id=1, weight=0, resvd1=0x69, resvd2=0x67}]] ...) = 52  The fields are reserved and therefore not currently used. But as they are, they leak kernel memory, and the fact they are not just zero complicates repurposing of the fields for new ends. Initialize the full structure.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31491",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

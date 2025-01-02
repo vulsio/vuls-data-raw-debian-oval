@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:58798136845548877162506912693650512122",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-40971 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-40971",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-40971"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  f2fs: remove clear SB_INLINECRYPT flag in default_options  In f2fs_remount, SB_INLINECRYPT flag will be clear and re-set. If create new file or open file during this gap, these files will not use inlinecrypt. Worse case, it may lead to data corruption if wrappedkey_v0 is enable.  Thread A:                               Thread B:  -f2fs_remount\t\t\t\t-f2fs_file_open or f2fs_new_inode   -default_options \t<- clear SB_INLINECRYPT flag                                            -fscrypt_select_encryption_impl    -parse_options \t<- set SB_INLINECRYPT again",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31125",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

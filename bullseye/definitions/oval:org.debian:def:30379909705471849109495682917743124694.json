@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:30379909705471849109495682917743124694",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42094 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42094",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42094"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net/iucv: Avoid explicit cpumask var allocation on stack  For CONFIG_CPUMASK_OFFSTACK=y kernel, explicit allocation of cpumask variable on stack is not recommended since it can cause potential stack overflow.  Instead, kernel code should always use *cpumask_var API(s) to allocate cpumask var in config-neutral way, leaving allocation strategy to CONFIG_CPUMASK_OFFSTACK.  Use *cpumask_var API(s) to address it.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31352",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

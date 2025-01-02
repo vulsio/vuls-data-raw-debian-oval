@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:63667550135888518350264305347979775277",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46710 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46710",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46710"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/vmwgfx: Prevent unmapping active read buffers  The kms paths keep a persistent map active to read and compare the cursor buffer. These maps can race with each other in simple scenario where: a) buffer \"a\" mapped for update b) buffer \"a\" mapped for compare c) do the compare d) unmap \"a\" for compare e) update the cursor f) unmap \"a\" for update At step \"e\" the buffer has been unmapped and the read contents is bogus.  Prevent unmapping of active read buffers by simply keeping a count of how many paths have currently active maps and unmap only when the count reaches 0.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31904",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:283274245576256560010222957916609440803",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50108 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50108",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50108"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Disable PSR-SU on Parade 08-01 TCON too  Stuart Hayhurst has found that both at bootup and fullscreen VA-API video is leading to black screens for around 1 second and kernel WARNING [1] traces when calling dmub_psr_enable() with Parade 08-01 TCON.  These symptoms all go away with PSR-SU disabled for this TCON, so disable it for now while DMUB traces [2] from the failure can be analyzed and the failure state properly root caused.  (cherry picked from commit afb634a6823d8d9db23c5fb04f79c5549349628b)",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32608",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

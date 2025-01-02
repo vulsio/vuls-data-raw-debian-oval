@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:86254034664383039269794977425148585187",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49936 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49936",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49936"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net/xen-netback: prevent UAF in xenvif_flush_hash()  During the list_for_each_entry_rcu iteration call of xenvif_flush_hash, kfree_rcu does not exist inside the rcu read critical section, so if kfree_rcu is called when the rcu grace period ends during the iteration, UAF occurs when accessing head->next after the entry becomes free.  Therefore, to solve this, you need to change it to list_for_each_entry_safe.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32427",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

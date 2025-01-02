@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:215170222279440691194115768360619225007",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-46822 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-46822",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-46822"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  arm64: acpi: Harden get_cpu_for_acpi_id() against missing CPU entry  In a review discussion of the changes to support vCPU hotplug where a check was added on the GICC being enabled if was online, it was noted that there is need to map back to the cpu and use that to index into a cpumask. As such, a valid ID is needed.  If an MPIDR check fails in acpi_map_gic_cpu_interface() it is possible for the entry in cpu_madt_gicc[cpu] == NULL.  This function would then cause a NULL pointer dereference.   Whilst a path to trigger this has not been established, harden this caller against the possibility.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32050",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

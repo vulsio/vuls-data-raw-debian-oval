@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:36228446537600505414549821162154756346",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-43841 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-43841",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-43841"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  wifi: virt_wifi: avoid reporting connection success with wrong SSID  When user issues a connection with a different SSID than the one virt_wifi has advertised, the __cfg80211_connect_result() will trigger the warning: WARN_ON(bss_not_found).  The issue is because the connection code in virt_wifi does not check the SSID from user space (it only checks the BSSID), and virt_wifi will call cfg80211_connect_result() with WLAN_STATUS_SUCCESS even if the SSID is different from the one virt_wifi has advertised. Eventually cfg80211 won't be able to find the cfg80211_bss and generate the warning.  Fixed it by checking the SSID (from user space) in the connection code.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31617",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

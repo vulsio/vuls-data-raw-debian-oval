@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:166656110282971593897856064227974294870",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50003 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50003",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50003"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drm/amd/display: Fix system hang while resume with TBT monitor  [Why] Connected with a Thunderbolt monitor and do the suspend and the system may hang while resume.  The TBT monitor HPD will be triggered during the resume procedure and call the drm_client_modeset_probe() while struct drm_connector connector->dev->master is NULL.  It will mess up the pipe topology after resume.  [How] Skip the TBT monitor HPD during the resume procedure because we currently will probe the connectors after resume by default.  (cherry picked from commit 453f86a26945207a16b8f66aaed5962dc2b95b85)",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32511",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

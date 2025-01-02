@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:206571928120867430651561294640929578890",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47713 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47713",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47713"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  wifi: mac80211: use two-phase skb reclamation in ieee80211_do_stop()  Since '__dev_queue_xmit()' should be called with interrupts enabled, the following backtrace:  ieee80211_do_stop()  ...  spin_lock_irqsave(&local->queue_stop_reason_lock, flags)  ...  ieee80211_free_txskb()   ieee80211_report_used_skb()    ieee80211_report_ack_skb()     cfg80211_mgmt_tx_status_ext()      nl80211_frame_tx_status()       genlmsg_multicast_netns()        genlmsg_multicast_netns_filtered()         nlmsg_multicast_filtered() \t netlink_broadcast_filtered() \t  do_one_broadcast() \t   netlink_broadcast_deliver() \t    __netlink_sendskb() \t     netlink_deliver_tap() \t      __netlink_deliver_tap_skb() \t       dev_queue_xmit() \t        __dev_queue_xmit() ; with IRQS disabled  ...  spin_unlock_irqrestore(&local->queue_stop_reason_lock, flags)  issues the warning (as reported by syzbot reproducer):  WARNING: CPU: 2 PID: 5128 at kernel/softirq.c:362 __local_bh_enable_ip+0xc3/0x120  Fix this by implementing a two-phase skb reclamation in 'ieee80211_do_stop()', where actual work is performed outside of a section with interrupts disabled.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32230",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

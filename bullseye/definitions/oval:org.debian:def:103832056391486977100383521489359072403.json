@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:103832056391486977100383521489359072403",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-50186 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50186",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-50186"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  net: explicitly clear the sk pointer, when pf->create fails  We have recently noticed the exact same KASAN splat as in commit 6cd4a78d962b (\"net: do not leave a dangling sk pointer, when socket creation fails\"). The problem is that commit did not fully address the problem, as some pf->create implementations do not use sk_common_release in their error paths.  For example, we can use the same reproducer as in the above commit, but changing ping to arping. arping uses AF_PACKET socket and if packet_create fails, it will just sk_free the allocated sk object.  While we could chase all the pf->create implementations and make sure they NULL the freed sk object on error from the socket, we can't guarantee future protocols will not make the same mistake.  So it is easier to just explicitly NULL the sk pointer upon return from pf->create in __sock_create. We do know that pf->create always releases the allocated sk object on error, so if the pointer is not NULL, it is definitely dangling.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32679",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

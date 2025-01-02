@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:290280280249050805513216247821185397998",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42267 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42267",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42267"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  riscv/mm: Add handling for VM_FAULT_SIGSEGV in mm_fault_error()  Handle VM_FAULT_SIGSEGV in the page fault path so that we correctly kill the process and we don't BUG() the kernel.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31473",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

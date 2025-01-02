@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:43504664272210432308198968524498219587",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-47698 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47698",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47698"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  drivers: media: dvb-frontends/rtl2832: fix an out-of-bounds write error  Ensure index in rtl2832_pid_filter does not exceed 31 to prevent out-of-bounds access.  dev->filters is a 32-bit value, so set_bit and clear_bit functions should only operate on indices from 0 to 31. If index is 32, it will attempt to access a non-existent 33rd bit, leading to out-of-bounds access. Change the boundary check from index > 32 to index >= 32 to resolve this issue.  [hverkuil: added fixes tag, rtl2830_pid_filter -> rtl2832_pid_filter in logmsg]",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32208",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

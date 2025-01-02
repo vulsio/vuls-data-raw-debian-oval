@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:198825881575086213604755798971778875562",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-49902 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49902",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-49902"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  jfs: check if leafidx greater than num leaves per dmap tree  syzbot report a out of bounds in dbSplit, it because dmt_leafidx greater than num leaves per dmap tree, add a checking for dmt_leafidx in dbFindLeaf.  Shaggy: Modified sanity check to apply to control pages as well as leaf pages.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32384",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

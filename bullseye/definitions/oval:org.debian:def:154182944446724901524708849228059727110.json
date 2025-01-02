@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:154182944446724901524708849228059727110",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-41079 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41079",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-41079"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  nvmet: always initialize cqe.result  The spec doesn't mandate that the first two double words (aka results) for the command queue entry need to be set to 0 when they are not used (not specified). Though, the target implemention returns 0 for TCP and FC but not for RDMA.  Let's make RDMA behave the same and thus explicitly initializing the result field. This prevents leaking any data from the stack.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31270",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

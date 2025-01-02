@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:157331857122096623550131141385881917915",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42299 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42299",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42299"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  fs/ntfs3: Update log->page_{mask,bits} if log->page_size changed  If an NTFS file system is mounted to another system with different PAGE_SIZE from the original system, log->page_size will change in log_replay(), but log->page_{mask,bits} don't change correspondingly. This will cause a panic because \"u32 bytes = log->page_size - page_off\" will get a negative value in the later read_log_page().",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31515",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

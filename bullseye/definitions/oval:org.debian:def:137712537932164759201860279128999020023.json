@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:137712537932164759201860279128999020023",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-42316 linux-6.1",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "linux-6.1"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-42316",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-42316"
+			}
+		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  mm/mglru: fix div-by-zero in vmpressure_calc_level()  evict_folios() uses a second pass to reclaim folios that have gone through page writeback and become clean before it finishes the first pass, since folio_rotate_reclaimable() cannot handle those folios due to the isolation.  The second pass tries to avoid potential double counting by deducting scan_control->nr_scanned.  However, this can result in underflow of nr_scanned, under a condition where shrink_folio_list() does not increment nr_scanned, i.e., when folio_trylock() fails.  The underflow can cause the divisor, i.e., scale=scanned+reclaimed in vmpressure_calc_level(), to become zero, resulting in the following crash:    [exception RIP: vmpressure_work_fn+101]   process_one_work at ffffffffa3313f2b  Since scan_control->nr_scanned has no established semantics, the potential double counting has minimal risks.  Therefore, fix the problem by not deducting scan_control->nr_scanned in evict_folios().",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:31539",
+								"comment": "linux-6.1 DPKG is earlier than 6.1.119-1~deb11u1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
