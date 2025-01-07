@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:58363160584514494142868243492942518088",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-51741 redis",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "redis"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-51741",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-51741"
+			}
+		],
+		"description": "Redis is an open source, in-memory database that persists on disk. An authenticated with sufficient privileges may create a malformed ACL selector which, when accessed, triggers a server panic and subsequent denial of service. The problem is fixed in Redis 7.2.7 and 7.4.2.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32087",
+								"comment": "redis DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
