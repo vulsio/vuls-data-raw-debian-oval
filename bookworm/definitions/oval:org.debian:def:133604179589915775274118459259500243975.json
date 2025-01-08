@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:133604179589915775274118459259500243975",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2021-33645 libtar",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "libtar"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-33645",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33645"
+			}
+		],
+		"description": "The th_read() function doesn’t free a variable t->th_buf.gnu_longlink after allocating memory, which may cause a memory leak.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:21055",
+								"comment": "libtar DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

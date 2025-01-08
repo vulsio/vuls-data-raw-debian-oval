@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:211993983688117792379607702179358019436",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2021-33644 libtar",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "libtar"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-33644",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33644"
+			}
+		],
+		"description": "An attacker who submits a crafted tar file with size in header struct being 0 may be able to trigger an calling of malloc(0) for a variable gnu_longname, causing an out-of-bounds read.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:21054",
+								"comment": "libtar DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
