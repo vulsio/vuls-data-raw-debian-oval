@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:301843000040199800190638341743866147220",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2025-0238 thunderbird",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "thunderbird"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2025-0238",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-0238"
+			}
+		],
+		"description": "Assuming a controlled failed memory allocation, an attacker could have caused a use-after-free, leading to a potentially exploitable crash. This vulnerability affects Firefox < 134, Firefox ESR < 128.6, and Firefox ESR < 115.19.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:32804",
+								"comment": "thunderbird DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

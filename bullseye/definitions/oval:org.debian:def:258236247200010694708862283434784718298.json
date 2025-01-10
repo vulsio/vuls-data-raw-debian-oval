@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:258236247200010694708862283434784718298",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2025-0239 thunderbird",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "thunderbird"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2025-0239",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-0239"
+			}
+		],
+		"description": "When using Alt-Svc, ALPN did not properly validate certificates when the original server is redirecting to an insecure site. This vulnerability affects Firefox < 134 and Firefox ESR < 128.6.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:33484",
+								"comment": "thunderbird DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
