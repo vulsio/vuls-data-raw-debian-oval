@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-21656"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  hwmon: (drivetemp) Fix driver producing garbage data when SCSI errors occur  scsi_execute_cmd() function can return both negative (linux codes) and positive (scsi_cmnd result field) error codes.  Currently the driver just passes error codes of scsi_execute_cmd() to hwmon core, which is incorrect because hwmon only checks for negative error codes. This leads to hwmon reporting uninitialized data to userspace in case of SCSI errors (for example if the disk drive was disconnected).  This patch checks scsi_execute_cmd() output and returns -EIO if it's error code is positive.  [groeck: Avoid inline variable declaration for portability]",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:32977",
+								"test_ref": "oval:org.debian.oval:tst:32980",
 								"comment": "linux DPKG is earlier than 0"
 							}
 						]
