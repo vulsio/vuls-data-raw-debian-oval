@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:172298627183109534377255921286101976915",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2021-3978 cfrpki",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "cfrpki"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-3978",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3978"
+			}
+		],
+		"description": "When copying files with rsync, octorpki uses the \"-a\" flag 0, which forces rsync to copy binaries with the suid bit set as root. Since the provided service definition defaults to root ( https://github.com/cloudflare/cfrpki/blob/master/package/octorpki.service ) this could allow for a vector, when combined with another vulnerability that causes octorpki to process a malicious TAL file, for a local privilege escalation.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:22506",
+								"comment": "cfrpki DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
