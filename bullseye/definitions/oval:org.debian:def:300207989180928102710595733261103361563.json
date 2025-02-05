@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:300207989180928102710595733261103361563",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2024-13723 nagvis",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "nagvis"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-13723",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-13723"
+			}
+		],
+		"description": "The \"NagVis\" component within Checkmk is vulnerable to remote code execution. An authenticated attacker with administrative level privileges is able to upload a malicious PHP file and modify specific settings to execute the contents of the file as PHP.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:29657",
+								"comment": "nagvis DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}
