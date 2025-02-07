@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:50223983158302158486181303633705172712",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2025-22866 golang-1.19",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "golang-1.19"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2025-22866",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-22866"
+			}
+		],
+		"description": "Due to the usage of a variable time instruction in the assembly implementation of an internal function, a small number of bits of secret scalars are leaked on the ppc64le architecture. Due to the way this function is used, we do not believe this leakage is enough to allow recovery of the private key when P-256 is used in any well known protocols.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:33077",
+								"comment": "golang-1.19 DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}

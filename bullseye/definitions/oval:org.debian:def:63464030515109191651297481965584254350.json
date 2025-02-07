@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:63464030515109191651297481965584254350",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2025-23217 mitmproxy",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 11",
+			"product": "mitmproxy"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2025-23217",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-23217"
+			}
+		],
+		"description": "mitmproxy is a interactive TLS-capable intercepting HTTP proxy for penetration testers and software developers and mitmweb is a web-based interface for mitmproxy. In mitmweb 11.1.1 and below, a malicious client can use mitmweb's proxy server (bound to `*:8080` by default) to access mitmweb's internal API (bound to `127.0.0.1:8081` by default). In other words, while the cannot access the API directly, they can access the API through the proxy. An attacker may be able to escalate this SSRF-style access to remote code execution. The mitmproxy and mitmdump tools are unaffected. Only mitmweb is affected. This vulnerability has been fixed in mitmproxy 11.1.2 and above. Users are advised to upgrade. There are no known workarounds for this vulnerability.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:33716",
+								"comment": "mitmproxy DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 11 is installed"
+			}
+		]
+	}
+}

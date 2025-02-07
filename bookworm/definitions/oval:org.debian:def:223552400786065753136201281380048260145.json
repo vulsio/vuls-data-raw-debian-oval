@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:223552400786065753136201281380048260145",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2025-0825 cpp-httplib",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "cpp-httplib"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2025-0825",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-0825"
+			}
+		],
+		"description": "cpp-httplib version v0.17.3 through v0.18.3 fails to filter CRLF characters (\"\\r\\n\") when those are prefixed with a null byte. This enables attackers to exploit CRLF injection that could further lead to HTTP Response Splitting, XSS, and more.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:33010",
+								"comment": "cpp-httplib DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
