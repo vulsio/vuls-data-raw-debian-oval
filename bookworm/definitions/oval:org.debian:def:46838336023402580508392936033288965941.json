@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-57940"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  exfat: fix the infinite loop in exfat_readdir()  If the file system is corrupted so that a cluster is linked to itself in the cluster chain, and there is an unused directory entry in the cluster, 'dentry' will not be incremented, causing condition 'dentry < max_dentries' unable to prevent an infinite loop.  This infinite loop causes s_lock not to be released, and other tasks will hang, such as exfat_sync_fs().  This commit stops traversing the cluster chain when there is unused directory entry in the cluster to avoid this infinite loop.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5860"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:32678",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:32679",
+								"comment": "linux DPKG is earlier than 6.1.128-1"
 							}
 						]
 					}

@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-57911"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  iio: dummy: iio_simply_dummy_buffer: fix information leak in triggered buffer  The 'data' array is allocated via kmalloc() and it is used to push data to user space from a triggered buffer, but it does not set values for inactive channels, as it only uses iio_for_each_active_channel() to assign new values.  Use kzalloc for the memory allocation to avoid pushing uninitialized information to userspace.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5860"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:32664",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:32665",
+								"comment": "linux DPKG is earlier than 6.1.128-1"
 							}
 						]
 					}

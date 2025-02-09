@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-21638"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  sctp: sysctl: auth_enable: avoid using current->nsproxy  As mentioned in a previous commit of this series, using the 'net' structure via 'current' is not recommended for different reasons:  - Inconsistency: getting info from the reader's/writer's netns vs only   from the opener's netns.  - current->nsproxy can be NULL in some cases, resulting in an 'Oops'   (null-ptr-deref), e.g. when the current task is exiting, as spotted by   syzbot [1] using acct(2).  The 'net' structure can be obtained from the table->data using container_of().  Note that table->data could also be used directly, but that would increase the size of this fix, while 'sctp.ctl_sock' still needs to be retrieved from 'net' structure.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5860"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:33040",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:33041",
+								"comment": "linux DPKG is earlier than 6.1.128-1"
 							}
 						]
 					}

@@ -15,8 +15,11 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-57907"
 			}
 		],
-		"description": "In the Linux kernel, the following vulnerability has been resolved:  iio: adc: rockchip_saradc: fix information leak in triggered buffer  The 'data' local struct is used to push data to user space from a triggered buffer, but it does not set values for inactive channels, as it only uses iio_for_each_active_channel() to assign new values.  Initialize the struct to zero before using it to avoid pushing uninitialized information to userspace.",
-		"debian": {}
+		"description": "security update",
+		"debian": {
+			"moreinfo": "no info",
+			"dsa": "DSA-5860"
+		}
 	},
 	"criteria": {
 		"operator": "AND",
@@ -32,8 +35,8 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:32661",
-								"comment": "linux DPKG is earlier than 0"
+								"test_ref": "oval:org.debian.oval:tst:32662",
+								"comment": "linux DPKG is earlier than 6.1.128-1"
 							}
 						]
 					}
