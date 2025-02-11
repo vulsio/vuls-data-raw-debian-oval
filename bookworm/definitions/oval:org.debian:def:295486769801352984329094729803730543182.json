@@ -15,6 +15,7 @@
 				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-21689"
 			}
 		],
+		"description": "In the Linux kernel, the following vulnerability has been resolved:  USB: serial: quatech2: fix null-ptr-deref in qt2_process_read_urb()  This patch addresses a null-ptr-deref in qt2_process_read_urb() due to an incorrect bounds check in the following:         if (newport > serial->num_ports) {                dev_err(&port->dev,                        \"%s - port change to invalid port: %i\\n\",                        __func__, newport);                break;        }  The condition doesn't account for the valid range of the serial->port buffer, which is from 0 to serial->num_ports - 1. When newport is equal to serial->num_ports, the assignment of \"port\" in the following code is out-of-bounds and NULL:         serial_priv->current_port = newport;        port = serial->port[serial_priv->current_port];  The fix checks if newport is greater than or equal to serial->num_ports indicating it is out-of-bounds.",
 		"debian": {}
 	},
 	"criteria": {
@@ -31,7 +32,7 @@
 								"comment": "all architecture"
 							},
 							{
-								"test_ref": "oval:org.debian.oval:tst:33090",
+								"test_ref": "oval:org.debian.oval:tst:33096",
 								"comment": "linux DPKG is earlier than 6.1.128-1"
 							}
 						]
