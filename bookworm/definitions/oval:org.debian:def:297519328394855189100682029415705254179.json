@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:297519328394855189100682029415705254179",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2025-1244 emacs",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "emacs"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2025-1244",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-1244"
+			}
+		],
+		"description": "A flaw was found in the Emacs text editor. Improper handling of custom \"man\" URI schemes allows attackers to execute arbitrary shell commands by tricking users into visiting a specially crafted website or an HTTP URL with a redirect.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:33070",
+								"comment": "emacs DPKG is earlier than 0"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
