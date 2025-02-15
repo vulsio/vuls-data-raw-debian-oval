@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:335769769898472359486974139627650878103",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2025-0426 kubernetes",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "kubernetes"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2025-0426",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-0426"
+			}
+		],
+		"description": "A security issue was discovered in Kubernetes where a large number of container checkpoint requests made to the unauthenticated kubelet read-only HTTP endpoint may cause a Node Denial of Service by filling the Node's disk.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:33008",
+								"comment": "kubernetes DPKG is earlier than 1.20.5+really1.20.2-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
