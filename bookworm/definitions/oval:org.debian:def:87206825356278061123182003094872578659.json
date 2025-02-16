@@ -1,0 +1,50 @@
+{
+	"id": "oval:org.debian:def:87206825356278061123182003094872578659",
+	"class": "vulnerability",
+	"metadata": {
+		"title": "CVE-2025-0896 orthanc",
+		"affected": {
+			"family": "unix",
+			"platform": "Debian GNU/Linux 12",
+			"product": "orthanc"
+		},
+		"reference": [
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2025-0896",
+				"ref_url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-0896"
+			}
+		],
+		"description": "Orthanc server prior to version 1.5.8 does not enable basic authentication by default when remote access is enabled. This could result in unauthorized access by an attacker.",
+		"debian": {}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:org.debian.oval:tst:2",
+								"comment": "all architecture"
+							},
+							{
+								"test_ref": "oval:org.debian.oval:tst:33036",
+								"comment": "orthanc DPKG is earlier than 1.5.8+dfsg-1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:org.debian.oval:tst:1",
+				"comment": "Debian 12 is installed"
+			}
+		]
+	}
+}
